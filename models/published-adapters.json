@@ -1,0 +1,45 @@
+{
+  "verified_at_utc": "2026-10-07T04:39:28.031750+00:00",
+  "adapters": [
+    {
+      "repository": "megern/m1-auth-rule-adapter",
+      "url": "https://huggingface.co/megern/m1-auth-rule-adapter",
+      "revision": "853f242ae9a01feb434b2af33ce5502be62c9df1",
+      "adapter_sha256": "65ca47d89c48972401f04a98a30db7ce62bc360802c1d9c0ce7577ff4ab7c056",
+      "adapter_bytes": 2628325,
+      "license": "apache-2.0",
+      "library": "mlx",
+      "method": "Public Hub LFS SHA256 matches the already evaluated local adapter; no hosted inference."
+    },
+    {
+      "repository": "megern/m1-workflow-rule-adapter",
+      "url": "https://huggingface.co/megern/m1-workflow-rule-adapter",
+      "revision": "95a71152b4e37fed9662ed99282c39d9d2dcc45b",
+      "adapter_sha256": "ae5d9bc2219a7ca5e699d248ea92741677c4f861049978d7441053d81edd51bc",
+      "adapter_bytes": 2628325,
+      "license": "apache-2.0",
+      "library": "mlx",
+      "method": "Public Hub LFS SHA256 matches the already evaluated local adapter; no hosted inference."
+    },
+    {
+      "repository": "megern/m1-auth-1p7-adapter",
+      "url": "https://huggingface.co/megern/m1-auth-1p7-adapter",
+      "revision": "adfa294bc81e97422cb33d64eff39260feb1824f",
+      "adapter_sha256": "bac53dfce955e22401023df686f9f79c44a848df1ae6c36824a99a6322359a65",
+      "adapter_bytes": 3676917,
+      "license": "apache-2.0",
+      "library": "mlx",
+      "method": "Public Hub LFS SHA256 matches the already evaluated local adapter; no hosted inference."
+    },
+    {
+      "repository": "megern/m1-auth-normalized-adapter",
+      "url": "https://huggingface.co/megern/m1-auth-normalized-adapter",
+      "revision": "b5748ebcc4ac192ea7b6211b49be284c7eeaaccf",
+      "adapter_sha256": "5884cd340fb209fe1940d8f8646ce89acc5e715d049f75261347d10150e7ecc5",
+      "adapter_bytes": 2628325,
+      "license": "apache-2.0",
+      "library": "mlx",
+      "method": "Public Hub LFS SHA256 matches the already evaluated local adapter; no hosted inference."
+    }
+  ]
+}
