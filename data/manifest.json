@@ -1,0 +1,65 @@
+{
+  "seed": 17,
+  "source": "Original deterministic synthetic cases, no private logs.",
+  "scope": "Stated-rule classification; not general SOC competence.",
+  "datasets": {
+    "auth": {
+      "train": {
+        "rows": 384,
+        "sha256": "e899efef1b397dce377947e71abc59b4b25af476d317ed33a2430434f5b34514",
+        "labels": {
+          "low": 279,
+          "medium": 52,
+          "high": 53
+        }
+      },
+      "valid": {
+        "rows": 48,
+        "sha256": "b1d8244cc09321c4883e5800a4759fc135f731aabc0eb82b65354ad28f56b018",
+        "labels": {
+          "low": 32,
+          "medium": 9,
+          "high": 7
+        }
+      },
+      "test": {
+        "rows": 48,
+        "sha256": "befb5aea872233c20112fd0b00ccb66d37627ad18c63e8a9e32c7ded7bf8f14d",
+        "labels": {
+          "low": 36,
+          "medium": 4,
+          "high": 8
+        }
+      }
+    },
+    "workflow": {
+      "train": {
+        "rows": 384,
+        "sha256": "3d30fa478d767d8016b6f9f092997b51f84c257b24742aee791f4cb4e057eeac",
+        "labels": {
+          "low": 190,
+          "medium": 0,
+          "high": 194
+        }
+      },
+      "valid": {
+        "rows": 48,
+        "sha256": "9c9e45f0bbf9a349068329f806d843bd22589a78c01e91076885353a7f7ac4e9",
+        "labels": {
+          "low": 26,
+          "medium": 0,
+          "high": 22
+        }
+      },
+      "test": {
+        "rows": 48,
+        "sha256": "07bcc0993ec182a48c2a5295a1eb2f78c5bef274497043f23815ca65b6b532a0",
+        "labels": {
+          "low": 17,
+          "medium": 0,
+          "high": 31
+        }
+      }
+    }
+  }
+}

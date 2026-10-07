@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\title{Small Local Language-Model Specialists:\\Separating Output Format from Rule Classification on Apple M1}
+\author{Megern Qaisse\\GitHub: \texttt{megern}\\Independent open research}
+\date{Working draft, October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study local parameter-efficient adaptation of a 4-bit Qwen3 0.6B checkpoint on a 16\,GiB Apple M1. Two synthetic bilingual tasks require authentication-event priority classification and GitHub workflow-policy classification. An initial pilot exposes two evaluation hazards: Markdown-wrapped JSON can mask a correct label under strict schema scoring, while class imbalance can make majority prediction appear successful. We retain this pilot and freeze a separate balanced, three-seed protocol. The resulting models are task-specific LoRA adapters over one shared foundation checkpoint. This is a reproducible engineering study, not evidence of broad cybersecurity competence or independent foundation-model training.
+\end{abstract}
+
+\section{Motivation and established methods}
+LoRA adapts a frozen base through low-rank trainable updates~\cite{lora}. QLoRA demonstrates adaptation through quantized frozen weights~\cite{qlora}. We use MLX-LM's local LoRA implementation, prompt-masked supervised loss and gradient checkpointing. We do not reproduce QLoRA's particular NF4 implementation or claim invention of these established techniques. The goal is to measure a small specialist's task behavior and allocation footprint on consumer hardware.
+
+\section{Tasks, labels and data}
+The authentication rule assigns medium priority to at least five failed logins within at most 300 seconds, high priority if followed by a success, and low otherwise. The workflow rule assigns high priority to write-all permissions or the conjunction of a privileged pull-request trigger and untrusted-head checkout, and low otherwise. The prompts explicitly state the rules. Labels come from deterministic generators, not private incidents or paid teacher APIs.
+
+The pilot uses 384 training, 48 validation and 48 test cases per task. Train, validation and test surface instructions and account/job identities differ, while the underlying rules are shared. These are limited template tasks. The confirmatory protocol balances classes and keeps 384 training, 48 validation and 96 test cases per task. For authentication, test time values include previously unused values near the 300-second boundary. The protocol, hashes and seeds were saved before confirmatory training. Its conclusions must remain separate from pilot findings.
+
+The freeze timestamp is a local experiment record, not an independently timestamped external preregistration. Published data and traces support reproduction but do not supply an external pre-result registration.
+
+\section{Pilot observations}
+The first authentication adapter produced valid JSON in all 48 cases but selected low priority for every case. It achieved 36/48 accuracy, or 75\%, while macro-F1 was approximately 0.286 and neither non-low class was recovered. This is majority collapse, not strong classification. The pilot workflow adapter correctly classified all 48 synthetic cases; this does not establish production workflow-review accuracy.
+
+The initial base produced Markdown-fenced JSON. Strict schema compliance was zero in both pilot tasks, but removing a complete outer fence revealed some correct classifications. Dual scoring was introduced after inspecting pilot outputs. This change is disclosed rather than described as a preregistered metric; no arbitrary prose extraction or label repair is permitted.
+
+\section{Confirmatory training protocol}
+The base is \texttt{mlx-community/Qwen3-0.6B-4bit}, revision
+\texttt{73e3e38d981303bc594367cd910ea6eb48349da8}, with verified configuration and weight hashes. Each task is trained with seeds 17, 23 and 41, using 400 iterations, batch size one, learning rate $2\times10^{-4}$, rank eight and adapters on query/value projections in the final 16 layers. Only adapter parameters are updated. The final checkpoint is evaluated; test scores are not used for checkpoint selection. An MLX allocation guard of 4\,GiB is not a hard process RSS limit.
+
+The same local test prompts, greedy decoding, seed 17, 48-token output limit and disabled thinking mode are used for the base and all adapters. Runtime reports preserve every output, expected label, prediction, generation limit and error. The fixed training budget and model family do not imply equivalent performance on unseen operational data.
+
+\section{Metrics and reporting}
+We report strict JSON/schema compliance, strict classification accuracy, and classification after removing only an entire outer Markdown JSON fence. These are distinct measures. Per-language results and macro-F1 are retained. For label $k$,
+\begin{equation}
+ F_{1,k}=\frac{2TP_k}{2TP_k+FP_k+FN_k},\qquad
+ F_{1,\mathrm{macro}}=\frac{1}{K}\sum_{k=1}^{K}F_{1,k}.
+\end{equation}
+Invalid outputs count as failed predictions. Output-limit responses are reported explicitly. Peak MLX allocation and process RSS are different quantities and must not be conflated. Results across training seeds are reported individually before any aggregate; this small design cannot justify broad statistical or security claims.
+
+\section{Confirmatory results}
+All six specified training jobs and eight common-test evaluations completed locally. Table~\ref{tab:results} retains every training seed. Strict base accuracy is zero because the base wraps its JSON in Markdown; the fence-permitting metric provides the more informative classification comparison. All adapters produced strict valid JSON in all 96 cases, and no evaluated response reached the output-token limit.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{llrrrr}
+\toprule
+Task & Model & Strict & Fence & Macro-F1 & JSON\\
+\midrule
+Auth & Base & 0/96 & 32/96 & 0.307 & 0/96\\
+Auth & Seed 17 & 70/96 & 70/96 & 0.734 & 96/96\\
+Auth & Seed 23 & 70/96 & 70/96 & 0.720 & 96/96\\
+Auth & Seed 41 & 80/96 & 80/96 & 0.829 & 96/96\\
+\midrule
+Workflow & Base & 0/96 & 53/96 & 0.440 & 0/96\\
+Workflow & Seed 17 & 96/96 & 96/96 & 1.000 & 96/96\\
+Workflow & Seed 23 & 96/96 & 96/96 & 1.000 & 96/96\\
+Workflow & Seed 41 & 96/96 & 96/96 & 1.000 & 96/96\\
+\bottomrule
+\end{tabular}
+\caption{Correct classifications under strict parsing and complete-outer-fence removal. Macro-F1 uses fence-permitting classification; JSON is strict schema compliance. Each model receives the same 96 cases for its task.}
+\label{tab:results}
+\end{table}
+
+Authentication adapter accuracy averages 76.39\%, with a range of 72.92--83.33\%, compared with 33.33\% for the fence-permitting base. Mean macro-F1 is 0.761, with a range of 0.720--0.829. Workflow accuracy is 100\% for every seed, compared with 55.21\% for the base. These are observations on the frozen synthetic test, not confidence intervals or production estimates. Reference release seed 17 is not chosen for the highest test score.
+
+Authentication training takes 214.1--221.2 seconds per seed and has peak MLX allocation of approximately 609.4\,MiB. Workflow training takes 180.1--185.2 seconds, with approximately 561.1\,MiB peak MLX allocation. Each exported adapter contains 2,628,325 bytes of weights. These figures exclude the shared base's disk size and do not establish a corresponding total process-RAM cap; GPU allocation and process RSS must not be summed as independent memory pools on this unified-memory system.
+
+\section{Exploratory error and composition audit}
+This descriptive audit was added after confirmatory evaluation, without additional training or test-based model selection. Class balance does not imply language balance. The authentication test has 38 Arabic and 58 English cases; its Arabic low/medium/high counts are 5/13/20, while English counts are 27/19/12. Class-conditional rejection sampling introduces a language--label association. A shortcut that chooses each language's most frequent \emph{training} label, ignoring all incident evidence, scores 47/96 on this test. All authentication adapters exceed this shortcut, but composition can still inflate per-language comparisons. These figures do not establish superior Arabic capability.
+
+The authentication model remains imperfect on unseen time values. At the exact 300-second boundary, seeds 17, 23 and 41 score 8/16, 9/16 and 15/16; at 600 seconds, seed 23 scores only 1/11. Small strata and shared templates prevent broad conclusions. The workflow test has 34 Arabic and 62 English cases, balanced within each language; its language-only shortcut scores 48/96. Raw traces and the descriptive audit remain in the release rather than suppressing unfavorable subgroups.
+
+A separate post-confirmatory identity audit replaces only account/source or job identifiers, holding rule evidence and labels fixed. The exported reference adapters load successfully with portable configurations. Auth seed 17 changes one prediction, scoring 71/96 instead of 70/96; workflow seed 17 changes none and remains at 96/96. These are paired perturbations of the same test, not an independent new benchmark. An additional handcrafted auth example (six failures, a subsequent success, 150 seconds) is incorrectly labeled low instead of high. This failure is retained with the demo rather than treating loadability as proof of correctness.
+
+\section{Exploratory size comparison}
+The pinned Qwen3 1.7B 4-bit base was evaluated after the 0.6B results, on the same previously scored authentication splits and budget. It scored 39/96 (40.63\%) before adaptation. Seeds 17, 23 and 41 scored 73/96, 69/96 and 65/96, respectively; mean accuracy was 71.88\% and mean macro-F1 0.701. This is below the 0.6B adapter mean of 76.39\%. All seeds and the final-checkpoint rule were retained. Larger size did not improve this particular adaptation experiment. The 1.7B training runs took 545.2--585.4 seconds, with approximately 1.25\,GiB peak MLX allocation; each adapter has 917,504 trainable parameters and 3,676,917 bytes of weights. Process RSS and system swap deltas are reported separately in the raw summaries. This exploratory reuse of a scored test is not an independent confirmation or a general ranking of the model families.
+
+\section{Exploratory policy-feature decomposition}
+After the numeric-series results, a separate prototype projects raw counts and time windows into three Boolean facts in Python. Numeric comparisons are executed by code; the LLM receives only their outcomes. New train/validation/test splits have 384/48/96 rows, with each label balanced within each language. Three seeds and the original training budget are specified before this prototype's training, with reference seed 17 and all final checkpoints retained. Reference seed 17 and seed 23 each classify 96/96 correctly; seed 41 classifies 64/96. Mean accuracy is 88.89\% and mean macro-F1 0.852. Seed 41 assigns all 32 medium cases to high, in both languages; its macro-F1 is 0.556. The unadapted base scores 47/96 (48.96\%) after outer-fence removal and zero under strict schema parsing. All adapters return strict valid JSON for all 96 cases. The deterministic rule comparator scores 96/96. The exported normalized seed-17 adapter also loads through the portable prediction tool and correctly labels the retained six-failure, 150-second example high; its code-computed features and raw output are preserved. This post-training demo is not an independent benchmark. Each prototype trains in 202.1--202.9 seconds, with approximately 609.8\,MiB peak MLX allocation. We retain the failed seed rather than reporting only the two perfect runs.
+
+The policy has only eight possible Boolean states. A direct rule implementation can solve the whole task without an LLM. The projection, sampling, language balance and instruction wording all change together, preventing a single-factor causal claim. Any improved score would describe this combined pipeline, not newly acquired arithmetic or general security reasoning. The protocol was frozen locally before training, after observing both raw-numeric series; it was not externally preregistered.
+
+\section{Limitations and open release}
+Synthetic stated-rule tasks are simpler than real analyst work, and rule-based software can solve them directly. A small generative model is not inherently the best deployment choice for these rules. The research value is in transparent adaptation, output-format reliability, failure diagnosis and hardware measurements. The adapters do not gain general defensive capability by performing well here. Safety, multilingual robustness, adversarial inputs and real-world validation remain separate work.
+
+The local release includes original generators, frozen split hashes, training/evaluation tools and raw traces. Each specialist is a different adapter over the same base, not a separately pretrained language model. Base weights remain under Apache-2.0; model cards must retain provenance and limitations. This manuscript is a working draft, not a peer-reviewed paper or evidence of hiring outcomes.
+
+\begin{thebibliography}{9}
+\bibitem{lora} E. J. Hu et al. \emph{LoRA: Low-Rank Adaptation of Large Language Models}. \url{https://arxiv.org/abs/2106.09685}.
+\bibitem{qlora} T. Dettmers et al. \emph{QLoRA: Efficient Finetuning of Quantized LLMs}. \url{https://arxiv.org/abs/2305.14314}.
+\bibitem{mlx} ml-explore. \emph{MLX-LM local fine-tuning utilities}. \url{https://github.com/ml-explore/mlx-lm}.
+\bibitem{qwen} mlx-community. \emph{Qwen3 0.6B 4-bit checkpoint}. \url{https://huggingface.co/mlx-community/Qwen3-0.6B-4bit}.
+\end{thebibliography}
+\end{document}

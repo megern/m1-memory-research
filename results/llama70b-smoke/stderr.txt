@@ -1,0 +1,24 @@
+0.00.273.131 I llama_completion: llama backend init
+0.00.273.143 I llama_completion: load the model and apply lora adapter, if any
+0.14.483.797 I cmn          init: llama threadpool init, n_threads = 4
+0.14.492.119 I 
+0.14.492.442 I system_info: n_threads = 4 (n_threads_batch = 4) / 8 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | DOTPROD = 1 | LLAMAFILE = 1 | ACCELERATE = 1 | REPACK = 1 | 
+0.14.492.445 I 
+0.14.493.248 W check_double_bos_eos: Added a BOS token to the prompt as specified by the model but the prompt also starts with a BOS token. So now the final prompt starts with 2 BOS tokens. Are you sure this is what you want?
+0.14.493.256 I sampler seed: 17
+0.14.493.262 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.14.493.493 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+0.14.493.495 I generate: n_ctx = 256, n_batch = 32, n_predict = 8, n_keep = 1
+0.14.493.495 I 
+2.41.821.078 I common_perf_print:    sampling time =       0.81 ms
+2.41.821.083 I common_perf_print:    samplers time =       0.15 ms /    26 tokens
+2.41.821.084 I common_perf_print:        load time =  117768.18 ms
+2.41.821.085 I common_perf_print: prompt eval time =  117766.75 ms /    24 tokens ( 4906.95 ms per token,     0.20 tokens per second)
+2.41.821.085 I common_perf_print:        eval time =   29559.81 ms /     1 runs   (29559.81 ms per token,     0.03 tokens per second)
+2.41.821.086 I common_perf_print:       total time =  147328.97 ms /    25 tokens
+2.41.821.086 I common_perf_print: unaccounted time =       1.61 ms /   0.0 %      (total - sampling - prompt eval - eval) / (total)
+2.41.821.087 I common_perf_print:    graphs reused =          1

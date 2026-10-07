@@ -1,0 +1,2278 @@
+{
+  "created_at_utc": "2026-10-06T22:49:36.026069+00:00",
+  "base": "mlx-community/Qwen3-0.6B-4bit",
+  "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+  "verified_base_hashes": {
+    "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+    "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+  },
+  "adapter_sha256": "ae5d9bc2219a7ca5e699d248ea92741677c4f861049978d7441053d81edd51bc",
+  "data_sha256": "31bd2824131d29c85227983822c2e23498a8440aea30cbfa4af848d43c8e7211",
+  "protocol": {
+    "seed": 17,
+    "temperature": 0,
+    "max_output_tokens": 48,
+    "enable_thinking": false,
+    "compute": "local Apple M1 Metal only",
+    "postprocessing": "strict JSON parse, no repair or label extraction"
+  },
+  "summary": {
+    "cases": 96,
+    "correct": 96,
+    "accuracy": 1.0,
+    "valid_json": 96,
+    "output_limit_cases": 0,
+    "macro_f1": 1.0,
+    "per_label": {
+      "high": {
+        "tp": 48,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "low": {
+        "tp": 48,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      }
+    }
+  },
+  "by_language": {
+    "ar": {
+      "cases": 34,
+      "correct": 34,
+      "accuracy": 1.0,
+      "valid_json": 34,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 17,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 17,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    },
+    "en": {
+      "cases": 62,
+      "correct": 62,
+      "accuracy": 1.0,
+      "valid_json": 62,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    }
+  },
+  "mlx_peak_bytes": 544554424,
+  "rss_high_water_bytes": 638894080,
+  "limitations": [
+    "Original synthetic stated-rule tasks, not independent real-world cybersecurity competence.",
+    "Held-out surface prompts and account/job identities share the same underlying rules.",
+    "One training seed; no selection using test scores. Fixed iteration budget.",
+    "A base model plus different LoRA adapters, not independent foundation models."
+  ],
+  "rows": [
+    {
+      "id": "workflow-v2-test-0026",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-270003\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.3715587919577956,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0064",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-650000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20037245796993375,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0094",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-950001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22975220787338912,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0058",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-590001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21026841620914638,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0045",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-460001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21850245911628008,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0015",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-160000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2155898332130164,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0075",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-760000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2180874589830637,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0092",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-930003\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2269994169473648,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0025",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-260003\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20838158298283815,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0005",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-60002\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22654012497514486,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0079",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-800000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20759537513367832,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0014",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-150003\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21784924995154142,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0078",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-790000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20770600019022822,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0011",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-120003\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21053808298893273,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0010",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-110001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2845380420330912,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0055",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-560001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.27421766705811024,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0013",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-140001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2757661249488592,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0008",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-90002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.23344175005331635,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0038",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-390002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21731870784424245,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0081",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-820000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2022680409718305,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0047",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-480000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22149141691625118,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0060",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-610000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20998849999159575,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0063",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-640000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23807974997907877,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0042",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-430001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21608958300203085,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0003",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-40000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22177149984054267,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0035",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-360001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21274899994023144,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0054",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-550001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2146184998564422,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0050",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-510004\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2182030831463635,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0080",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-810001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21010587504133582,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0088",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-890000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21475595887750387,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0057",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-580000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21007645898498595,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0052",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-530000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2479462909977883,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0009",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-100000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.27917729201726615,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0000",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-10000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2631804998964071,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0068",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-690000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.24524345807731152,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0023",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-240004\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23177162487991154,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0074",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-750001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21465579187497497,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0020",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-210001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22189845889806747,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0072",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-730000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21365829184651375,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0069",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-700001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21846120804548264,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0085",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-860001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.27234199992381036,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0044",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-450000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2665124998893589,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0071",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-720000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20770783303305507,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0048",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-490002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20863004215061665,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0029",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-300002\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2298777501564473,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0021",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-220004\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21091037499718368,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0073",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-740001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21525345789268613,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0040",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-410001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21147941704839468,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0041",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-420003\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21250870800577104,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0018",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-190000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2227305001579225,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0061",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-620000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22175537515431643,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0051",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-520003\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21593595785088837,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0028",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-290000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21028483286499977,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0012",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-130004\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22522824979387224,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0004",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-50001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.212353624869138,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0046",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-470002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21100554196164012,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0067",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-680000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20460937498137355,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0031",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-320001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20567120797932148,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0039",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-400002\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23562749987468123,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0095",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-960001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.276872375048697,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0037",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-380004\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.25437912507914007,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0090",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-910002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.26335533312521875,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0027",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-280003\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21477291593328118,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0076",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-770000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22198237502016127,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0083",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-840000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20689204102382064,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0043",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-440002\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2178573338314891,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0065",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-660000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21374870790168643,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0032",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-330000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20697945798747241,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0066",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-670000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.215078542008996,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0053",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-540000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2061325830873102,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0006",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-70000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.19799620914272964,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0059",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-600001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2318872909527272,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0030",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-310000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2124296249821782,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0034",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-350000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2181561659090221,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0017",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-180000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20686254207976162,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0001",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-20000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20987612497992814,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0033",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-340001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.25065870792604983,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0002",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-30002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2723366250284016,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0084",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-850000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2575205001048744,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0056",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-570000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.26794533315114677,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0019",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-200000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21167979203164577,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0091",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-920000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21030854107812047,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0082",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-830001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20532183395698667,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0077",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-780000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2181866669561714,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0024",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-250000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2192426659166813,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0089",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-900000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20593220787122846,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0016",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-170001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21512887510471046,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0093",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-940001\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20710233296267688,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0036",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-370000\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22712195897474885,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0049",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-500002\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2307118340395391,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0022",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": true, \"checkout_untrusted_head\": false, \"job\": \"test-job-230001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20624333317391574,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0062",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: صلاحية write-all أو اجتماع pull_request_target مع checkout_untrusted_head تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-630001\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20774516696110368,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0007",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-80000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20933129196055233,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0087",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"write-all\", \"pull_request_target\": true, \"checkout_untrusted_head\": true, \"job\": \"test-job-880000\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2116180418524891,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "workflow-v2-test-0086",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"read-all\", \"pull_request_target\": false, \"checkout_untrusted_head\": true, \"job\": \"test-job-870002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.24965750006958842,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "workflow-v2-test-0070",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: write-all permissions OR pull_request_target combined with checkout_untrusted_head => high; otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"permission\": \"contents: read\", \"pull_request_target\": false, \"checkout_untrusted_head\": false, \"job\": \"test-job-710002\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2646447499282658,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    }
+  ],
+  "classification_allowing_outer_fence": {
+    "cases": 96,
+    "correct": 96,
+    "accuracy": 1.0,
+    "valid_json": 96,
+    "output_limit_cases": 0,
+    "macro_f1": 1.0,
+    "per_label": {
+      "high": {
+        "tp": 48,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "low": {
+        "tp": 48,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      }
+    }
+  },
+  "classification_allowing_outer_fence_by_language": {
+    "ar": {
+      "cases": 34,
+      "correct": 34,
+      "accuracy": 1.0,
+      "valid_json": 34,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 17,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 17,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    },
+    "en": {
+      "cases": 62,
+      "correct": 62,
+      "accuracy": 1.0,
+      "valid_json": 62,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    }
+  },
+  "scoring_note": "Strict schema compliance and classification after removing only a complete outer Markdown JSON fence are reported separately. Dual scoring was introduced after inspecting baseline pilot outputs; no new generation or hyperparameter selection used test scores. No arbitrary prose extraction, label repair, or case conversion is permitted."
+}

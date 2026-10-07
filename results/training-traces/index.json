@@ -1,0 +1,60 @@
+{
+  "traces": {
+    "auth-v2-seed23": {
+      "raw_log_sha256": "dc90bc4b007d8dcaccaa5106a32cd2de8d91edd40a412f451b532ea2985edff5",
+      "public_trace_sha256": "03fb62c5a0c3fa75b1a2716cf03dde8c8593cf0d43650c0a09c968a4ef643731",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-v2-seed41": {
+      "raw_log_sha256": "8ecd5e00df77c4a9ffab035e475c0c85c02eb42afcc83308f68d4dbce9dde253",
+      "public_trace_sha256": "6fde067138b39e147143a1b16538f9986c65c979fc299d33bf579c654f9609b4",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "workflow-v2-seed17": {
+      "raw_log_sha256": "ec557fe3ae7b3dd1e2b9e182334fd7781f953e9dbd25c929b887031ca6eee107",
+      "public_trace_sha256": "34e2b53adffdfcc86fd4a4bce255602d33cc6699932c88ef11296553ef88c210",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "workflow-v2-seed23": {
+      "raw_log_sha256": "683ffe03fec71d1aabf61f282f20fa9c1abc2141b75ecc87cd7171b01d6b4a74",
+      "public_trace_sha256": "3731feb4120c3a0a5be775011731507954e34f8110a8c0244a24e95f3b26bfc5",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "workflow-v2-seed41": {
+      "raw_log_sha256": "ef41312d89d61024b61f04b36a8e9e057dd3d1cea93919ee4b831cb4e600cf3e",
+      "public_trace_sha256": "5b88690b1b52a6b4b400bf4f11eed74af733b184945819585345c03b90f0d3fe",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-normalized-seed17": {
+      "raw_log_sha256": "8c3685b476b4bcedbfcc0f7d86e83269a200751baf73e96b498b406752f9caa2",
+      "public_trace_sha256": "1331bf3d35bb1ca1bc9c1060e7d70a40cfeec6da47e014b1cbc9a5f5b4f0d3e8",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-normalized-seed23": {
+      "raw_log_sha256": "934e10370a913508311a9e13eec0b480a6d556e4dba8c73579db5b3afcd38ce6",
+      "public_trace_sha256": "06c95f781c0d300e23df2d5f17aef8e75fc03019817f463f359106ce417b5779",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-normalized-seed41": {
+      "raw_log_sha256": "3ff2d047a397cd892657053b7921994000a4c4cd2c5a414de5e40ec2284a2cac",
+      "public_trace_sha256": "4f35559d00697fc38c9c8dc1fff701293d0a4d766aec128a935c29b19eb22dca",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-size1p7-seed17": {
+      "raw_log_sha256": "c46823cdd4cfd6071750e1042a2d0b92a57a36893fa72a7b23e1ec36fc08e03b",
+      "public_trace_sha256": "2ded2d3c5aa69f1c2b79cc514d974b1034cf0885adec272c615e4f195789f5c3",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-size1p7-seed23": {
+      "raw_log_sha256": "408d259b26242dc264d70887d500e63d40720565c504859a9c64af4550b14935",
+      "public_trace_sha256": "4bf3f0950986fb89c2826beef39650d1f9e899ff74c7825b8f8f22e5f97e62de",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    },
+    "auth-size1p7-seed41": {
+      "raw_log_sha256": "16f862279710a56d0c82339ff30441fd309b168e2293287bc4ca79ef5a06037c",
+      "public_trace_sha256": "f1a3990add4964fbfc2324d950df172632b19e954f1fcf136a93cf791ed3b7b8",
+      "processing": "ANSI presentation codes removed; local workspace/home paths redacted; metrics unchanged."
+    }
+  },
+  "missing_console_trace": "The initial standalone auth-v2-seed17 job has a retained numerical summary and weights, but no saved console file."
+}

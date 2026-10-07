@@ -1,0 +1,18 @@
+{
+  "status": "Exploratory audit designed after confirmatory evaluation and a failed auth demo. No retraining.",
+  "reference_seed": 17,
+  "intervention": "Replace account/source or job identifiers with constant anonymous values; retain all rule evidence, labels and instruction text.",
+  "not_independent_test": true,
+  "tasks": {
+    "auth": {
+      "cases": 96,
+      "source_sha256": "a069a69f2eef39a58e0ab49f85203f05b61fd9efec44c92c80caf5f203c582bb",
+      "audit_sha256": "8ac7e591c791e9c8f7f28c903e5aaffca65aedec45543f484ed212b822146010"
+    },
+    "workflow": {
+      "cases": 96,
+      "source_sha256": "31bd2824131d29c85227983822c2e23498a8440aea30cbfa4af848d43c8e7211",
+      "audit_sha256": "bb14ef778deda354401ef77bb33794e297f917d26d40ddbfc77b500524b5434a"
+    }
+  }
+}

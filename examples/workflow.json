@@ -1,0 +1,6 @@
+{
+  "permission": "read-all",
+  "pull_request_target": true,
+  "checkout_untrusted_head": true,
+  "job": "example-job"
+}

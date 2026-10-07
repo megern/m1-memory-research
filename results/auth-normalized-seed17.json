@@ -1,0 +1,2314 @@
+{
+  "created_at_utc": "2026-10-07T00:06:56.069443+00:00",
+  "base": "mlx-community/Qwen3-0.6B-4bit",
+  "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+  "verified_base_hashes": {
+    "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+    "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+  },
+  "adapter_sha256": "5884cd340fb209fe1940d8f8646ce89acc5e715d049f75261347d10150e7ecc5",
+  "data_sha256": "ffb07ecd3d11f29bde5bbf43de7c75692fe58adeb5671e807d19bd28ec58030e",
+  "protocol": {
+    "seed": 17,
+    "temperature": 0,
+    "max_output_tokens": 48,
+    "enable_thinking": false,
+    "compute": "local Apple M1 Metal only",
+    "postprocessing": "strict JSON parse, no repair or label extraction"
+  },
+  "summary": {
+    "cases": 96,
+    "correct": 96,
+    "accuracy": 1.0,
+    "valid_json": 96,
+    "output_limit_cases": 0,
+    "macro_f1": 1.0,
+    "per_label": {
+      "high": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "low": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "medium": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      }
+    }
+  },
+  "by_language": {
+    "ar": {
+      "cases": 48,
+      "correct": 48,
+      "accuracy": 1.0,
+      "valid_json": 48,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "medium": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    },
+    "en": {
+      "cases": 48,
+      "correct": 48,
+      "accuracy": 1.0,
+      "valid_json": 48,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "medium": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    }
+  },
+  "mlx_peak_bytes": 535274136,
+  "rss_high_water_bytes": 709951488,
+  "limitations": [
+    "Original synthetic stated-rule tasks, not independent real-world cybersecurity competence.",
+    "Held-out surface prompts and account/job identities share the same underlying rules.",
+    "One training seed; no selection using test scores. Fixed iteration budget.",
+    "A base model plus different LoRA adapters, not independent foundation models."
+  ],
+  "rows": [
+    {
+      "id": "normalized-auth-test-0041",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.3557285419665277,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0063",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20799708319827914,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0034",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21740512480027974,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0040",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.23087324993684888,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0074",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21082566701807082,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0008",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21934724994935095,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0018",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21425650012679398,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0054",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21649074996821582,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0045",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.23292941600084305,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0004",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.23454062500968575,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0032",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21649720799177885,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0046",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.23521604109555483,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0037",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2757437077816576,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0031",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2613592918496579,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0003",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2682155829388648,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0036",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2210212079808116,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0002",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23182058380916715,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0049",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2125099590048194,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0025",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21628333302214742,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0035",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2313860000576824,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0068",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22787108388729393,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0015",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21613358310423791,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0092",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.20365708298049867,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0050",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22364166611805558,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0056",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22721741697750986,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0089",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22477220906876028,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0052",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21321966592222452,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0090",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2128446251153946,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0082",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.22381854197010398,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0065",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.27197833405807614,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0051",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.272557457908988,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0048",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2569535421207547,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0028",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2424526249524206,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0026",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23601783299818635,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0033",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.210939166136086,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0011",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22451204108074307,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0060",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2130572081077844,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0075",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20615995791740716,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0064",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.24021158390678465,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0043",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.24138029222376645,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0010",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2247487921267748,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0069",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21048762509599328,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0083",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23206179193221033,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0087",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20755641697905958,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0007",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.22606745804660022,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0072",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21270979195833206,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0076",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2660407079383731,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0055",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.25987487519159913,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0091",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2931268750689924,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0053",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23624204192310572,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0070",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.35468487488105893,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0019",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.20600133389234543,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0009",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22336149984039366,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0079",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21231841598637402,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0061",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.22973058419302106,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0085",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.20934604201465845,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0013",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.20234487508423626,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0059",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2505405410192907,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0016",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21098774997517467,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0067",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2296515409834683,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0081",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20788233284838498,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0014",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22332245879806578,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0062",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.2155950830783695,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0030",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.27067374996840954,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0017",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.25877862493507564,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0006",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2646807918790728,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0000",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.25325745809823275,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0080",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23168674996122718,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0038",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21072399988770485,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0095",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22396804089657962,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0022",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.20706654200330377,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0001",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.23297654185444117,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0024",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.22983908280730247,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0073",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21390099986456335,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0039",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2166090828832239,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0012",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2192355419974774,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0047",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.24253350007347763,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0086",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21314075007103384,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0044",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21476233308203518,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0029",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21170991589315236,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0066",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.24881858401931822,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0042",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2791704579722136,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0020",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.27647108398377895,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0023",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.23408833309076726,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0078",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.2630452080629766,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0057",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21253058314323425,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0027",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.21096649998798966,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0071",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21753524988889694,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0093",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.202523082960397,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0094",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.23679658398032188,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0088",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.21185612515546381,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0005",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.21852516592480242,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0058",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": "medium",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"medium\"}",
+      "elapsed_seconds": 0.2073803748935461,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "normalized-auth-test-0084",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: إذا كان has_minimum_failed_logins يساوي false أو within_policy_window يساوي false فأعد low. وإلا فأعد high عندما يكون subsequent_success يساوي true، وmedium عندما يساوي false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": false, \"within_policy_window\": false, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.27031808299943805,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "normalized-auth-test-0077",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": true, \"subsequent_success\": true}"
+        }
+      ],
+      "expected": "high",
+      "prediction": "high",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"high\"}",
+      "elapsed_seconds": 0.22313533397391438,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "normalized-auth-test-0021",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: if has_minimum_failed_logins is false OR within_policy_window is false, return low. Otherwise, return high if subsequent_success is true, and medium if it is false.\nAudit this projected record / راجع السجل بعد الإسقاط:\n{\"has_minimum_failed_logins\": true, \"within_policy_window\": false, \"subsequent_success\": false}"
+        }
+      ],
+      "expected": "low",
+      "prediction": "low",
+      "valid_json": true,
+      "raw_output": "{\"label\":\"low\"}",
+      "elapsed_seconds": 0.20816504186950624,
+      "finish_reason": "stop",
+      "generated_tokens": 6,
+      "prediction_allowing_outer_fence": "low"
+    }
+  ],
+  "classification_allowing_outer_fence": {
+    "cases": 96,
+    "correct": 96,
+    "accuracy": 1.0,
+    "valid_json": 96,
+    "output_limit_cases": 0,
+    "macro_f1": 1.0,
+    "per_label": {
+      "high": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "low": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      },
+      "medium": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 0,
+        "f1": 1.0
+      }
+    }
+  },
+  "classification_allowing_outer_fence_by_language": {
+    "ar": {
+      "cases": 48,
+      "correct": 48,
+      "accuracy": 1.0,
+      "valid_json": 48,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "medium": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    },
+    "en": {
+      "cases": 48,
+      "correct": 48,
+      "accuracy": 1.0,
+      "valid_json": 48,
+      "output_limit_cases": 0,
+      "macro_f1": 1.0,
+      "per_label": {
+        "high": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "low": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        },
+        "medium": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      }
+    }
+  },
+  "scoring_note": "Strict schema compliance and classification after removing only a complete outer Markdown JSON fence are reported separately. Dual scoring was introduced after inspecting baseline pilot outputs; no new generation or hyperparameter selection used test scores. No arbitrary prose extraction, label repair, or case conversion is permitted."
+}

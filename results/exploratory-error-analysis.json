@@ -1,0 +1,197 @@
+{
+  "status": "Exploratory analysis after confirmatory evaluation; no new training or checkpoint selection.",
+  "tasks": {
+    "auth": {
+      "language_label_counts": {
+        "train": {
+          "ar": {
+            "high": 70,
+            "medium": 60,
+            "low": 27
+          },
+          "en": {
+            "low": 101,
+            "medium": 68,
+            "high": 58
+          }
+        },
+        "valid": {
+          "ar": {
+            "high": 10,
+            "medium": 9,
+            "low": 6
+          },
+          "en": {
+            "low": 10,
+            "high": 6,
+            "medium": 7
+          }
+        },
+        "test": {
+          "ar": {
+            "medium": 13,
+            "high": 20,
+            "low": 5
+          },
+          "en": {
+            "medium": 19,
+            "high": 12,
+            "low": 27
+          }
+        }
+      },
+      "train_language_majority_labels": {
+        "ar": "high",
+        "en": "low"
+      },
+      "test_language_only_correct": 47,
+      "test_cases": 96,
+      "by_window_seconds": {
+        "base": {
+          "1": {
+            "cases": 23,
+            "correct": 5
+          },
+          "60": {
+            "cases": 15,
+            "correct": 4
+          },
+          "299": {
+            "cases": 25,
+            "correct": 12
+          },
+          "300": {
+            "cases": 16,
+            "correct": 7
+          },
+          "301": {
+            "cases": 6,
+            "correct": 1
+          },
+          "600": {
+            "cases": 11,
+            "correct": 3
+          }
+        },
+        "seed17": {
+          "1": {
+            "cases": 23,
+            "correct": 20
+          },
+          "60": {
+            "cases": 15,
+            "correct": 12
+          },
+          "299": {
+            "cases": 25,
+            "correct": 18
+          },
+          "300": {
+            "cases": 16,
+            "correct": 8
+          },
+          "301": {
+            "cases": 6,
+            "correct": 5
+          },
+          "600": {
+            "cases": 11,
+            "correct": 7
+          }
+        },
+        "seed23": {
+          "1": {
+            "cases": 23,
+            "correct": 22
+          },
+          "60": {
+            "cases": 15,
+            "correct": 14
+          },
+          "299": {
+            "cases": 25,
+            "correct": 19
+          },
+          "300": {
+            "cases": 16,
+            "correct": 9
+          },
+          "301": {
+            "cases": 6,
+            "correct": 5
+          },
+          "600": {
+            "cases": 11,
+            "correct": 1
+          }
+        },
+        "seed41": {
+          "1": {
+            "cases": 23,
+            "correct": 20
+          },
+          "60": {
+            "cases": 15,
+            "correct": 14
+          },
+          "299": {
+            "cases": 25,
+            "correct": 22
+          },
+          "300": {
+            "cases": 16,
+            "correct": 15
+          },
+          "301": {
+            "cases": 6,
+            "correct": 2
+          },
+          "600": {
+            "cases": 11,
+            "correct": 7
+          }
+        }
+      }
+    },
+    "workflow": {
+      "language_label_counts": {
+        "train": {
+          "ar": {
+            "low": 62,
+            "high": 58
+          },
+          "en": {
+            "high": 134,
+            "low": 130
+          }
+        },
+        "valid": {
+          "ar": {
+            "high": 13,
+            "low": 9
+          },
+          "en": {
+            "low": 15,
+            "high": 11
+          }
+        },
+        "test": {
+          "ar": {
+            "low": 17,
+            "high": 17
+          },
+          "en": {
+            "low": 31,
+            "high": 31
+          }
+        }
+      },
+      "train_language_majority_labels": {
+        "ar": "low",
+        "en": "high"
+      },
+      "test_language_only_correct": 48,
+      "test_cases": 96
+    }
+  }
+}

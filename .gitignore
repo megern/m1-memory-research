@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+artifacts/
+runtime/
+models/*.gguf
+*.part
+*.resume.json
+runs/

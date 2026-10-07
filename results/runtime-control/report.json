@@ -1,0 +1,167 @@
+{
+  "created_at_utc": "2026-10-06T22:30:24.197063+00:00",
+  "model": {
+    "repository": "ggml-org/models-moved",
+    "revision": "499bc8821c6b12b4e53c5bffcb21ec206f212d81",
+    "filename": "tinyllamas/stories15M-q4_0.gguf",
+    "bytes": 19077344,
+    "sha256": "66967fbece6dbe97886593fdbb73589584927e29119ec31f08090732d1861739",
+    "purpose": "Runtime software control only, not a 70B result or quality benchmark"
+  },
+  "runtime_release": "llama.cpp b11457",
+  "runtime_archive_sha256": "e234070cbde0c8b0d30f79fa08ff8246abe22c72acb752619349b8d9c46f7839",
+  "model_file_sha256_verified": "66967fbece6dbe97886593fdbb73589584927e29119ec31f08090732d1861739",
+  "physical_memory_bytes": 17179869184,
+  "configuration": [
+    "--offline",
+    "--device",
+    "none",
+    "--n-gpu-layers",
+    "0",
+    "--fit",
+    "off",
+    "--load-mode",
+    "mmap",
+    "--no-repack",
+    "--no-op-offload",
+    "--no-kv-offload",
+    "--ctx-size",
+    "256",
+    "--batch-size",
+    "32",
+    "--ubatch-size",
+    "8",
+    "--threads",
+    "4",
+    "--n-predict",
+    "8",
+    "--temp",
+    "0",
+    "--seed",
+    "17",
+    "--no-warmup",
+    "--no-display-prompt",
+    "--no-conversation",
+    "--perf"
+  ],
+  "user_prompt": "Reply with exactly the single English word naming the capital of France.",
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "elapsed_seconds": 8.947179999900982,
+  "time_to_first_nonwhitespace_stdout_seconds": 8.910627000033855,
+  "observed_process_tree_rss_peak_bytes": 77889536,
+  "output": "Sudden, a loud noise filled\n\n",
+  "parsed_timing_lines": [
+    [
+      "23.16",
+      "72",
+      "3108.14"
+    ],
+    [
+      "3.20",
+      "7",
+      "2189.55"
+    ]
+  ],
+  "exact_paris_answer": false,
+  "measurements": [
+    {
+      "elapsed_seconds": 0.003,
+      "process_tree_rss_bytes": 12976128,
+      "system_available_bytes": 2839494656,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.704,
+      "process_tree_rss_bytes": 39845888,
+      "system_available_bytes": 2708717568,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 1.253,
+      "process_tree_rss_bytes": 27557888,
+      "system_available_bytes": 2524643328,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 2.006,
+      "process_tree_rss_bytes": 30801920,
+      "system_available_bytes": 2611953664,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 2.771,
+      "process_tree_rss_bytes": 33144832,
+      "system_available_bytes": 2809577472,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 3.369,
+      "process_tree_rss_bytes": 41123840,
+      "system_available_bytes": 2659991552,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 3.95,
+      "process_tree_rss_bytes": 41762816,
+      "system_available_bytes": 2616606720,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 4.615,
+      "process_tree_rss_bytes": 45137920,
+      "system_available_bytes": 2442182656,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 5.344,
+      "process_tree_rss_bytes": 57982976,
+      "system_available_bytes": 2848456704,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 5.975,
+      "process_tree_rss_bytes": 73564160,
+      "system_available_bytes": 3481681920,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 6.587,
+      "process_tree_rss_bytes": 73465856,
+      "system_available_bytes": 3321495552,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 7.202,
+      "process_tree_rss_bytes": 76333056,
+      "system_available_bytes": 3268444160,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 7.813,
+      "process_tree_rss_bytes": 77889536,
+      "system_available_bytes": 3010985984,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 8.434,
+      "process_tree_rss_bytes": 57737216,
+      "system_available_bytes": 3067346944,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "elapsed_seconds": 8.935,
+      "process_tree_rss_bytes": 72695808,
+      "system_available_bytes": 3067346944,
+      "system_swap_growth_bytes": 0
+    }
+  ],
+  "limitations": [
+    "One short smoke prompt is not a quality benchmark.",
+    "CPU-only mmap relies on OS paging; no custom layer-streaming algorithm or novelty claim.",
+    "Output-byte latency includes runtime startup and is not a library token callback.",
+    "RSS is sampled every half second; true instantaneous peak may be higher.",
+    "System swap observations include other apps; guard is conservative.",
+    "Local inference, not training a 70B model. IQ2_XXS differs from full-precision weights."
+  ]
+}

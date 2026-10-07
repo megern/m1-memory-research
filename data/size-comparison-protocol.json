@@ -1,0 +1,18 @@
+{
+  "frozen_at_utc": "2026-10-06T23:00:56.050069+00:00",
+  "status": "Exploratory size comparison designed after the 0.6B confirmatory evaluation; same previously scored test, not a new independent confirmatory experiment.",
+  "task": "auth",
+  "base": "mlx-community/Qwen3-1.7B-4bit",
+  "base_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+  "training_seeds": [
+    17,
+    23,
+    41
+  ],
+  "iterations": 400,
+  "layers": 16,
+  "rank": 8,
+  "learning_rate": 0.0002,
+  "dataset_protocol": "confirmatory-v2/protocol.json",
+  "selection": "Final checkpoint for every seed; reference seed 17, no selection using new test scores."
+}

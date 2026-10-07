@@ -1,0 +1,1254 @@
+{
+  "created_at_utc": "2026-10-06T22:22:37.980088+00:00",
+  "base": "mlx-community/Qwen3-0.6B-4bit",
+  "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+  "adapter_sha256": null,
+  "data_sha256": "befb5aea872233c20112fd0b00ccb66d37627ad18c63e8a9e32c7ded7bf8f14d",
+  "protocol": {
+    "seed": 17,
+    "temperature": 0,
+    "max_output_tokens": 48,
+    "enable_thinking": false,
+    "compute": "local Apple M1 Metal only",
+    "postprocessing": "strict JSON parse, no repair or label extraction"
+  },
+  "summary": {
+    "cases": 48,
+    "correct": 0,
+    "accuracy": 0.0,
+    "valid_json": 0,
+    "output_limit_cases": 0,
+    "macro_f1": 0.0,
+    "per_label": {
+      "high": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "f1": 0.0
+      },
+      "low": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 36,
+        "f1": 0.0
+      },
+      "medium": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "f1": 0.0
+      }
+    }
+  },
+  "by_language": {
+    "ar": {
+      "cases": 24,
+      "correct": 0,
+      "accuracy": 0.0,
+      "valid_json": 0,
+      "output_limit_cases": 0,
+      "macro_f1": 0.0,
+      "per_label": {
+        "high": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "f1": 0.0
+        },
+        "low": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 16,
+          "f1": 0.0
+        },
+        "medium": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "f1": 0.0
+        }
+      }
+    },
+    "en": {
+      "cases": 24,
+      "correct": 0,
+      "accuracy": 0.0,
+      "valid_json": 0,
+      "output_limit_cases": 0,
+      "macro_f1": 0.0,
+      "per_label": {
+        "high": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "f1": 0.0
+        },
+        "low": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "f1": 0.0
+        },
+        "medium": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "f1": 0.0
+        }
+      }
+    }
+  },
+  "mlx_peak_bytes": 545309640,
+  "rss_high_water_bytes": 465911808,
+  "limitations": [
+    "Original synthetic stated-rule tasks, not independent real-world cybersecurity competence.",
+    "Held-out surface prompts and account/job identities share the same underlying rules.",
+    "One training seed; no selection using test scores. Fixed iteration budget.",
+    "A base model plus different LoRA adapters, not independent foundation models."
+  ],
+  "rows": [
+    {
+      "id": "auth-test-0000",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": false, \"window_seconds\": 310, \"account\": \"test-user-0\", \"source\": \"192.0.2.1\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.49672983307391405,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0001",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-1\", \"source\": \"192.0.2.2\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.3226418748963624,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0002",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-2\", \"source\": \"192.0.2.3\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3981022499501705,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0003",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-3\", \"source\": \"192.0.2.4\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"low\"\n}\n```",
+      "elapsed_seconds": 0.3772939171176404,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0004",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-4\", \"source\": \"192.0.2.5\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"medium\"}\n```",
+      "elapsed_seconds": 0.297515416983515,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0005",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": false, \"window_seconds\": 45, \"account\": \"test-user-5\", \"source\": \"192.0.2.6\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.28556754207238555,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0006",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 8, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-6\", \"source\": \"192.0.2.7\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3247163749765605,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0007",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 420, \"account\": \"test-user-7\", \"source\": \"192.0.2.8\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2659322079271078,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0008",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-8\", \"source\": \"192.0.2.9\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3312067498918623,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0009",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 420, \"account\": \"test-user-9\", \"source\": \"192.0.2.10\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.27383579197339714,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0010",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 7, \"subsequent_success\": true, \"window_seconds\": 150, \"account\": \"test-user-10\", \"source\": \"192.0.2.11\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.31240633293055,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0011",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 2, \"subsequent_success\": false, \"window_seconds\": 290, \"account\": \"test-user-11\", \"source\": \"192.0.2.12\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2878541669342667,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0012",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": false, \"window_seconds\": 310, \"account\": \"test-user-12\", \"source\": \"192.0.2.13\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.30638816696591675,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0013",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": false, \"window_seconds\": 150, \"account\": \"test-user-13\", \"source\": \"192.0.2.14\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.31359008396975696,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0014",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": false, \"window_seconds\": 150, \"account\": \"test-user-14\", \"source\": \"192.0.2.15\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"low\"\n}\n```",
+      "elapsed_seconds": 0.38962820800952613,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0015",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 7, \"subsequent_success\": false, \"window_seconds\": 45, \"account\": \"test-user-15\", \"source\": \"192.0.2.16\"}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"low\"\n}\n```",
+      "elapsed_seconds": 0.3916559999343008,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0016",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-16\", \"source\": \"192.0.2.17\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3275330839678645,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0017",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": false, \"window_seconds\": 310, \"account\": \"test-user-17\", \"source\": \"192.0.2.18\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.28826312511228025,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0018",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": true, \"window_seconds\": 150, \"account\": \"test-user-18\", \"source\": \"192.0.2.19\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.32812745799310505,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0019",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 6, \"subsequent_success\": false, \"window_seconds\": 290, \"account\": \"test-user-19\", \"source\": \"192.0.2.20\"}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"low\"\n}\n```",
+      "elapsed_seconds": 0.3181392920669168,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0020",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-20\", \"source\": \"192.0.2.21\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.30343045806512237,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0021",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-21\", \"source\": \"192.0.2.22\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2933480830397457,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0022",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 8, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-22\", \"source\": \"192.0.2.23\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3103282921947539,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0023",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": true, \"window_seconds\": 420, \"account\": \"test-user-23\", \"source\": \"192.0.2.24\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.27654291596263647,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0024",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": true, \"window_seconds\": 150, \"account\": \"test-user-24\", \"source\": \"192.0.2.25\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.313228250015527,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0025",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 5, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-25\", \"source\": \"192.0.2.26\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"high\"}\n```",
+      "elapsed_seconds": 0.2904417500831187,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "auth-test-0026",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-26\", \"source\": \"192.0.2.27\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.35857587517239153,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0027",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 2, \"subsequent_success\": false, \"window_seconds\": 290, \"account\": \"test-user-27\", \"source\": \"192.0.2.28\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.34292529080994427,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0028",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 3, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-28\", \"source\": \"192.0.2.29\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.378505083033815,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0029",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 8, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-29\", \"source\": \"192.0.2.30\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"high\"}\n```",
+      "elapsed_seconds": 0.27597899991087615,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "auth-test-0030",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-30\", \"source\": \"192.0.2.31\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.31658016704022884,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0031",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 8, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-31\", \"source\": \"192.0.2.32\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2717812079936266,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0032",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 8, \"subsequent_success\": true, \"window_seconds\": 150, \"account\": \"test-user-32\", \"source\": \"192.0.2.33\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3302816669456661,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0033",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-33\", \"source\": \"192.0.2.34\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.29897954198531806,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0034",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": false, \"window_seconds\": 290, \"account\": \"test-user-34\", \"source\": \"192.0.2.35\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"low\"\n}\n```",
+      "elapsed_seconds": 0.3166341669857502,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0035",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 7, \"subsequent_success\": false, \"window_seconds\": 150, \"account\": \"test-user-35\", \"source\": \"192.0.2.36\"}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2843032090459019,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0036",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 9, \"subsequent_success\": false, \"window_seconds\": 150, \"account\": \"test-user-36\", \"source\": \"192.0.2.37\"}"
+        }
+      ],
+      "expected": "medium",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3054540827870369,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0037",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 9, \"subsequent_success\": true, \"window_seconds\": 45, \"account\": \"test-user-37\", \"source\": \"192.0.2.38\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"high\"}\n```",
+      "elapsed_seconds": 0.2823444160167128,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "auth-test-0038",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 7, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-38\", \"source\": \"192.0.2.39\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.33724979078397155,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0039",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 0, \"subsequent_success\": true, \"window_seconds\": 420, \"account\": \"test-user-39\", \"source\": \"192.0.2.40\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.34412529203109443,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0040",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 2, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-40\", \"source\": \"192.0.2.41\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.406636708881706,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0041",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 9, \"subsequent_success\": true, \"window_seconds\": 290, \"account\": \"test-user-41\", \"source\": \"192.0.2.42\"}"
+        }
+      ],
+      "expected": "high",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"high\"}\n```",
+      "elapsed_seconds": 0.3056939581874758,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "high"
+    },
+    {
+      "id": "auth-test-0042",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": false, \"window_seconds\": 310, \"account\": \"test-user-42\", \"source\": \"192.0.2.43\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.30973704205825925,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0043",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-43\", \"source\": \"192.0.2.44\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2929559168405831,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0044",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 2, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-44\", \"source\": \"192.0.2.45\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.3204762500245124,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0045",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 420, \"account\": \"test-user-45\", \"source\": \"192.0.2.46\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2711015420500189,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    },
+    {
+      "id": "auth-test-0046",
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "Rule: 5 or more failed logins within at most 300 seconds => medium; if followed by success => high. Otherwise low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 1, \"subsequent_success\": true, \"window_seconds\": 310, \"account\": \"test-user-46\", \"source\": \"192.0.2.47\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\n  \"label\": \"medium\"\n}\n```",
+      "elapsed_seconds": 0.31973158312030137,
+      "finish_reason": "stop",
+      "generated_tokens": 14,
+      "prediction_allowing_outer_fence": "medium"
+    },
+    {
+      "id": "auth-test-0047",
+      "language": "ar",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return only a JSON object with exactly one key, \"label\". Classify the supplied evidence using the stated rule. Do not execute actions. / أعد JSON فقط بمفتاح label واحد، وصنّف الدليل بحسب القاعدة."
+        },
+        {
+          "role": "user",
+          "content": "القاعدة: خمس محاولات دخول فاشلة أو أكثر خلال 300 ثانية أو أقل تعني medium، وإذا تبعها نجاح تعني high، وإلا low.\nAudit the following case and return its classification / راجع الحالة التالية وأعد تصنيفها:\n{\"failed_logins\": 4, \"subsequent_success\": false, \"window_seconds\": 420, \"account\": \"test-user-47\", \"source\": \"192.0.2.48\"}"
+        }
+      ],
+      "expected": "low",
+      "prediction": null,
+      "valid_json": false,
+      "raw_output": "```json\n{\"label\": \"low\"}\n```",
+      "elapsed_seconds": 0.2719592498615384,
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "prediction_allowing_outer_fence": "low"
+    }
+  ],
+  "classification_allowing_outer_fence": {
+    "cases": 48,
+    "correct": 23,
+    "accuracy": 0.4791666666666667,
+    "valid_json": 48,
+    "output_limit_cases": 0,
+    "macro_f1": 0.45475979958738577,
+    "per_label": {
+      "high": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 4,
+        "f1": 0.6666666666666666
+      },
+      "low": {
+        "tp": 18,
+        "fp": 4,
+        "fn": 18,
+        "f1": 0.6206896551724138
+      },
+      "medium": {
+        "tp": 1,
+        "fp": 21,
+        "fn": 3,
+        "f1": 0.07692307692307693
+      }
+    }
+  },
+  "classification_allowing_outer_fence_by_language": {
+    "ar": {
+      "cases": 24,
+      "correct": 20,
+      "accuracy": 0.8333333333333334,
+      "valid_json": 24,
+      "output_limit_cases": 0,
+      "macro_f1": 0.5925925925925926,
+      "per_label": {
+        "high": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 1,
+          "f1": 0.8888888888888888
+        },
+        "low": {
+          "tp": 16,
+          "fp": 4,
+          "fn": 0,
+          "f1": 0.8888888888888888
+        },
+        "medium": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "f1": 0.0
+        }
+      }
+    },
+    "en": {
+      "cases": 24,
+      "correct": 3,
+      "accuracy": 0.125,
+      "valid_json": 24,
+      "output_limit_cases": 0,
+      "macro_f1": 0.08959156785243742,
+      "per_label": {
+        "high": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "f1": 0.0
+        },
+        "low": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 18,
+          "f1": 0.18181818181818182
+        },
+        "medium": {
+          "tp": 1,
+          "fp": 21,
+          "fn": 0,
+          "f1": 0.08695652173913043
+        }
+      }
+    }
+  },
+  "scoring_note": "Strict schema compliance and classification after removing only a complete outer Markdown JSON fence are reported separately. Dual scoring was introduced after inspecting baseline pilot outputs; no new generation or hyperparameter selection used test scores. No arbitrary prose extraction, label repair, or case conversion is permitted."
+}

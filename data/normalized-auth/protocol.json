@@ -1,0 +1,89 @@
+{
+  "frozen_at_utc": "2026-10-06T23:52:28.567608+00:00",
+  "status": "Exploratory prototype specified after both raw-numeric model-size comparisons; not a preregistered independent confirmation.",
+  "base": "mlx-community/Qwen3-0.6B-4bit",
+  "training_seeds": [
+    17,
+    23,
+    41
+  ],
+  "iterations": 400,
+  "layers": 16,
+  "rank": 8,
+  "learning_rate": 0.0002,
+  "reference_seed": 17,
+  "selection": "Final checkpoint, all seeds retained.",
+  "projection": "Python computes count>=5 and seconds<=300; the LLM receives Boolean facts and does not perform those numeric comparisons.",
+  "limits": [
+    "Only eight possible Boolean feature states; no operational security competence claim.",
+    "Direct rule code solves this closed policy without an LLM.",
+    "New sampling, balanced language strata, wording and feature representation all differ from the raw-numeric series; no single-factor causal attribution."
+  ],
+  "datasets": {
+    "auth": {
+      "train": {
+        "rows": 384,
+        "sha256": "7ed725dedb25af03e4d44f832bd50c85af54a5b58caaaa0088b64385b634c0c9",
+        "labels": {
+          "low": 128,
+          "medium": 128,
+          "high": 128
+        },
+        "language_label_counts": {
+          "ar": {
+            "low": 64,
+            "medium": 64,
+            "high": 64
+          },
+          "en": {
+            "low": 64,
+            "medium": 64,
+            "high": 64
+          }
+        }
+      },
+      "valid": {
+        "rows": 48,
+        "sha256": "4dfd47a92ca72c1a8d5f7fd68685b89f44809c2039addab904ac79eec72fab6c",
+        "labels": {
+          "low": 16,
+          "medium": 16,
+          "high": 16
+        },
+        "language_label_counts": {
+          "ar": {
+            "low": 8,
+            "medium": 8,
+            "high": 8
+          },
+          "en": {
+            "low": 8,
+            "medium": 8,
+            "high": 8
+          }
+        }
+      },
+      "test": {
+        "rows": 96,
+        "sha256": "ffb07ecd3d11f29bde5bbf43de7c75692fe58adeb5671e807d19bd28ec58030e",
+        "labels": {
+          "low": 32,
+          "medium": 32,
+          "high": 32
+        },
+        "language_label_counts": {
+          "ar": {
+            "low": 16,
+            "medium": 16,
+            "high": 16
+          },
+          "en": {
+            "low": 16,
+            "medium": 16,
+            "high": 16
+          }
+        }
+      }
+    }
+  }
+}

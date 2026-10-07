@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-10-06T23:16:25.254297+00:00",
+  "hardware": {
+    "processor": "Apple M1",
+    "physical_memory_bytes": 17179869184,
+    "logical_cpu_count": 8,
+    "machine": "arm64"
+  },
+  "software": {
+    "python": "3.14.7",
+    "macos": "26.6.2",
+    "versions": {
+      "mlx": "0.32.3",
+      "mlx-lm": "0.32.0",
+      "psutil": "7.2.2",
+      "httpx": "0.28.1",
+      "numpy": "2.5.3",
+      "transformers": "5.19.0",
+      "huggingface-hub": "1.33.0",
+      "matplotlib": "3.10.8",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.23.2",
+      "datasets": "5.1.0",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "runtime_release": "llama.cpp b11457",
+  "conditions": {
+    "background_applications": "Not terminated; normal user workstation.",
+    "page_cache": "Uncontrolled; full-file weight hash precedes inference.",
+    "compute": "Experimental training and inference use local M1 only; public downloads are network IO.",
+    "identity_fields": "No hostname, serial number, personal email or account credential is included."
+  }
+}

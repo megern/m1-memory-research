@@ -1,0 +1,9 @@
+{
+  "repository": "bartowski/Llama-3.3-70B-Instruct-GGUF",
+  "revision": "b6c5c9f176f3279204034e1d16d393105e95cb88",
+  "filename": "Llama-3.3-70B-Instruct-IQ2_XXS.gguf",
+  "bytes": 19097390048,
+  "sha256": "b9625ef8daa030849fc3a5c81fb1660c2a9c2aa677011577478d0e93045723ca",
+  "license": "llama3.3",
+  "purpose": "Local inference feasibility, not full-parameter training or proof of useful quality"
+}

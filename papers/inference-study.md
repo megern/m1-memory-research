@@ -1,0 +1,79 @@
+# A Reproducible Study of 70B-Class Local Inference on a 16 GiB Apple M1
+
+**Megern Qaisse · Independent open research · Working draft, October 2026**
+
+Canonical editable source: [inference-study.tex](inference-study.tex). Not peer reviewed.
+
+## Abstract
+
+We investigate the difference between fitting a model's weights in memory and executing it through an operating-system-backed file mapping. The target machine is an Apple M1 with 16 GiB unified memory. The selected Llama 3.3 70B IQ2_XXS checkpoint occupies 19,097,390,048 bytes, exceeding physical memory before runtime buffers are added. We specify a checksum-verified, CPU-only, short-context experiment with resource guards and complete output traces. The verified checkpoint completes two local smoke executions. The corrected single-BOS run produces Paris with the runtime termination marker in 164.71 seconds; first output appears after 131.33 seconds and sampled process RSS peaks at 2.95 GiB. This demonstrates functional execution through storage, not practical conversational speed or strong model quality.
+
+## Question and success criteria
+
+Can a real dense 70B-class checkpoint generate text on this machine without remote inference? A functional result requires a verified checkpoint, successful execution, measured output and preserved runtime logs. An exact answer to one smoke prompt is a separate narrow quality check. Practical conversational performance requires more prompts, repeated timings and sustained generation; it cannot be inferred from loading a file or completing one answer. Training a model is a separate problem.
+
+## Related work and scope
+
+LLM in a flash studies storage-aware inference and activation sparsity on memory-constrained systems [flash]. FlexGen explores inference offloading across memory and storage tiers [flexgen]. Our initial experiment uses the existing llama.cpp CPU backend and file mapping, rather than implementing either paper's specialized system. We claim a reproducible hardware case study, not priority for quantization, offloading or operating-system paging.
+
+## Capacity and bandwidth analysis
+
+For $P$ parameters and an ideal average weight width $b$, a lower bound is
+
+$$
+
+ W_{\mathrm{ideal}}=Pb/8.
+
+$$
+
+At $P=70\times10^9$ and $b=4$, this is approximately 32.60 GiB. Quantization metadata, higher-precision tensors, activations and cache buffers add overhead. The chosen GGUF file is approximately 17.786 GiB; its actual size, rather than an advertised bit label, governs this experiment.
+
+For dense single-sequence decoding, if $W_{\mathrm{stream}}$ bytes must be reread per step and storage supplies effective bandwidth $B_{\mathrm{SSD}}$, an idealized storage contribution satisfies
+
+$$
+
+ T_{\mathrm{step}}\geq W_{\mathrm{stream}}/B_{\mathrm{SSD}}.
+
+$$
+
+This conditional bound assumes the streamed bytes are not supplied by a faster cache. It is not a measured throughput estimate: compute, page faults, cache policy and other applications can dominate. Unified memory must not be counted separately as CPU RAM and GPU VRAM.
+
+## Pinned materials and protocol
+
+The public quantized checkpoint is
+`bartowski/Llama-3.3-70B-Instruct-GGUF`, revision
+`b6c5c9f176f3279204034e1d16d393105e95cb88`. Its upstream file and SHA256 are retained in the local model manifest. The runtime is the official Apple Silicon llama.cpp b11457 archive, verified against the release digest. Llama weights remain subject to the Llama 3.3 license; our source code can be released independently under MIT.
+
+The first run disables GPU layer offloading, weight repacking and operation offloading; uses mmap, a context of 256, batch size 32, microbatch size 8, four CPU threads, greedy sampling, seed 17 and a maximum of eight output tokens. The corrected run lets the tokenizer supply one BOS token and manually formats a Llama 3 user message that requests the single English word naming the capital of France. Warmup is disabled and remote inference is unavailable. The short context is deliberate and does not evaluate long-context use.
+
+The controller samples process-tree RSS and system memory every half second. It terminates only its own process group if RSS exceeds 12 GiB, system swap grows by more than 512 MiB, available memory remains below 512 MiB for five seconds, or elapsed time exceeds 900 seconds. System measurements also include unrelated applications, so these guards are conservative and do not prove which process caused pressure.
+
+## Measurements and current evidence
+
+Reports preserve exit status, guard reason, generated text, elapsed time, first non-whitespace output-byte latency and library timing lines. First-byte latency includes process startup and is not a token callback. Sampled RSS may miss instantaneous peaks. Timing lines for prompt processing and decoding must remain distinct; library decode-run counts need not equal the requested output limit.
+
+The full-file checksum precedes the measured runtime and is timed separately. That read may populate the operating-system page cache. Cache state is uncontrolled, so this protocol does not constitute a cold-cache benchmark.
+
+A small stories15M checkpoint completed the runtime-control path; it is not a 70B or quality result. The checksum-verified 70B file then completed two local executions. The first used a manually supplied BOS token in addition to the tokenizer's automatic BOS; its runtime warning is retained. It completed in 161.98 seconds, with first output at 132.23 seconds and sampled peak RSS 3.01 GiB. We corrected that prompt construction and retained the first report rather than replacing it.
+
+The single-BOS run completed in 164.71 seconds, with first non-whitespace output at 131.33 seconds and sampled peak RSS 3,167,453,184 bytes (2.95 GiB). The runtime reported 116,679.01 ms for 23 prompt tokens, and 33,243.75 ms for one decoding run, approximately 0.03 reported tokens per second. One decoding run is insufficient to estimate sustained generation throughput. Neither run triggered a guard. The second run's minimum sampled system-available memory was approximately 2.37 GiB, and no positive system swap growth was observed relative to its baseline; this does not mean the system had no pre-existing swap.
+
+Both raw stdout records contain `Paris [end of text]`. The exact-whole-stdout Paris check therefore remains false, while functional completion is true. The completion program prints the termination marker when generation ends [completion]; we explain it without rewriting the preserved outputs or the original strict check. The two prompt variants are not pooled as identically configured repeated trials.
+
+An independent header-only GGUF inspection records 724 tensors, 70,553,706,560 stored tensor elements, 80 Llama blocks and an 8,192-dimensional embedding. This corroborates the pinned 70B-class artifact; it is not another inference run or a substitute for the full-file checksum. Sampled process RSS is neither the complete model's storage requirement nor a claim that all weights fit in 3 GiB. The physical host still has 16 GiB, and read-only file pages can be reclaimed and supplied from storage.
+
+## Threats to validity and next experiments
+
+One smoke prompt cannot establish Arabic or cybersecurity capability. IQ2_XXS is a lossy derivative of the original model, so results do not apply to full-precision weights. File-cache state, run order, CPU frequency, background applications and storage contention can affect latency. No system-wide cache purge or changes to operating-system memory policy are made. Subsequent experiments should repeat runs, vary CPU threads and context length, compare with smaller resident models, and assess useful task accuracy separately from the ability to generate.
+
+## Reproduction and publication status
+
+The accompanying local project contains pinned manifests, a resumable downloader, a bounded executor, raw traces and a separate training study. Downloading public files is the only required network step; inference uses existing local paths with offline mode. This is an editable working draft, not a peer-reviewed publication. The source release accompanies the recorded functional result, corrected prompt protocol and original development traces. Success is restricted to these short local executions; practical generation and task quality remain unestablished.
+
+## References
+
+- [flash] K. Alizadeh et al. *LLM in a flash: Efficient Large Language Model Inference with Limited Memory*. [source](https://arxiv.org/abs/2312.11514).
+- [flexgen] Y. Sheng et al. *FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU*. [source](https://arxiv.org/abs/2303.06865).
+- [llama] ggml-org. *llama.cpp*. [source](https://github.com/ggml-org/llama.cpp).
+- [checkpoint] bartowski. *Llama 3.3 70B Instruct GGUF checkpoint*. [source](https://huggingface.co/bartowski/Llama-3.3-70B-Instruct-GGUF).
+- [completion] ggml-org. *Completion program termination marker*. [source](https://github.com/ggml-org/llama.cpp/blob/b11457/tools/completion/completion.cpp).

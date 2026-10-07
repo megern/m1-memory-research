@@ -1,0 +1,1 @@
+{"label": "high", "valid_schema": true, "raw_output": "{\"label\":\"high\"}", "projected_features": {"has_minimum_failed_logins": true, "within_policy_window": true, "subsequent_success": true}, "numeric_comparisons": "Python code, not LLM reasoning"}

@@ -1,0 +1,662 @@
+{
+  "protocol": {
+    "frozen_at_utc": "2026-10-06T23:52:28.567608+00:00",
+    "status": "Exploratory prototype specified after both raw-numeric model-size comparisons; not a preregistered independent confirmation.",
+    "base": "mlx-community/Qwen3-0.6B-4bit",
+    "training_seeds": [
+      17,
+      23,
+      41
+    ],
+    "iterations": 400,
+    "layers": 16,
+    "rank": 8,
+    "learning_rate": 0.0002,
+    "reference_seed": 17,
+    "selection": "Final checkpoint, all seeds retained.",
+    "projection": "Python computes count>=5 and seconds<=300; the LLM receives Boolean facts and does not perform those numeric comparisons.",
+    "limits": [
+      "Only eight possible Boolean feature states; no operational security competence claim.",
+      "Direct rule code solves this closed policy without an LLM.",
+      "New sampling, balanced language strata, wording and feature representation all differ from the raw-numeric series; no single-factor causal attribution."
+    ],
+    "datasets": {
+      "auth": {
+        "train": {
+          "rows": 384,
+          "sha256": "7ed725dedb25af03e4d44f832bd50c85af54a5b58caaaa0088b64385b634c0c9",
+          "labels": {
+            "low": 128,
+            "medium": 128,
+            "high": 128
+          },
+          "language_label_counts": {
+            "ar": {
+              "low": 64,
+              "medium": 64,
+              "high": 64
+            },
+            "en": {
+              "low": 64,
+              "medium": 64,
+              "high": 64
+            }
+          }
+        },
+        "valid": {
+          "rows": 48,
+          "sha256": "4dfd47a92ca72c1a8d5f7fd68685b89f44809c2039addab904ac79eec72fab6c",
+          "labels": {
+            "low": 16,
+            "medium": 16,
+            "high": 16
+          },
+          "language_label_counts": {
+            "ar": {
+              "low": 8,
+              "medium": 8,
+              "high": 8
+            },
+            "en": {
+              "low": 8,
+              "medium": 8,
+              "high": 8
+            }
+          }
+        },
+        "test": {
+          "rows": 96,
+          "sha256": "ffb07ecd3d11f29bde5bbf43de7c75692fe58adeb5671e807d19bd28ec58030e",
+          "labels": {
+            "low": 32,
+            "medium": 32,
+            "high": 32
+          },
+          "language_label_counts": {
+            "ar": {
+              "low": 16,
+              "medium": 16,
+              "high": 16
+            },
+            "en": {
+              "low": 16,
+              "medium": 16,
+              "high": 16
+            }
+          }
+        }
+      }
+    }
+  },
+  "entries": [
+    {
+      "variant": "base",
+      "strict": {
+        "cases": 96,
+        "correct": 0,
+        "accuracy": 0.0,
+        "valid_json": 0,
+        "output_limit_cases": 0,
+        "macro_f1": 0.0,
+        "per_label": {
+          "high": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.0
+          },
+          "low": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.0
+          },
+          "medium": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.0
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 47,
+        "accuracy": 0.4895833333333333,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.4352309344790548,
+        "per_label": {
+          "high": {
+            "tp": 16,
+            "fp": 1,
+            "fn": 16,
+            "f1": 0.6530612244897959
+          },
+          "low": {
+            "tp": 31,
+            "fp": 32,
+            "fn": 1,
+            "f1": 0.6526315789473685
+          },
+          "medium": {
+            "tp": 0,
+            "fp": 16,
+            "fn": 32,
+            "f1": 0.0
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 48,
+          "correct": 0,
+          "accuracy": 0.0,
+          "valid_json": 0,
+          "output_limit_cases": 0,
+          "macro_f1": 0.0,
+          "per_label": {
+            "high": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            },
+            "low": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            }
+          }
+        },
+        "en": {
+          "cases": 48,
+          "correct": 0,
+          "accuracy": 0.0,
+          "valid_json": 0,
+          "output_limit_cases": 0,
+          "macro_f1": 0.0,
+          "per_label": {
+            "high": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            },
+            "low": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "seed17",
+      "strict": {
+        "cases": 96,
+        "correct": 96,
+        "accuracy": 1.0,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 1.0,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 96,
+        "accuracy": 1.0,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 1.0,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 48,
+          "correct": 48,
+          "accuracy": 1.0,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 1.0,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            }
+          }
+        },
+        "en": {
+          "cases": 48,
+          "correct": 48,
+          "accuracy": 1.0,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 1.0,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            }
+          }
+        }
+      },
+      "adapter_sha256": "5884cd340fb209fe1940d8f8646ce89acc5e715d049f75261347d10150e7ecc5",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-0.6B-4bit",
+        "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+        "verified_base_hashes": {
+          "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+          "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+        },
+        "seed": 17,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 639391582,
+        "rss_high_water_bytes": 707543040,
+        "system_swap_growth_bytes": -8388608,
+        "adapter_parameter_count": 655360,
+        "adapter_weight_bytes": 2628325,
+        "elapsed_seconds": 202.86863512499258,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    },
+    {
+      "variant": "seed23",
+      "strict": {
+        "cases": 96,
+        "correct": 96,
+        "accuracy": 1.0,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 1.0,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 96,
+        "accuracy": 1.0,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 1.0,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 48,
+          "correct": 48,
+          "accuracy": 1.0,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 1.0,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            }
+          }
+        },
+        "en": {
+          "cases": 48,
+          "correct": 48,
+          "accuracy": 1.0,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 1.0,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            }
+          }
+        }
+      },
+      "adapter_sha256": "34e4edcfa4e9c5fc4327e816d7557b833f7c2cf59fda870c41696b1d26f7f2cc",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-0.6B-4bit",
+        "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+        "verified_base_hashes": {
+          "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+          "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+        },
+        "seed": 23,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 639424350,
+        "rss_high_water_bytes": 712343552,
+        "system_swap_growth_bytes": -25165824,
+        "adapter_parameter_count": 655360,
+        "adapter_weight_bytes": 2628325,
+        "elapsed_seconds": 202.06450137495995,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    },
+    {
+      "variant": "seed41",
+      "strict": {
+        "cases": 96,
+        "correct": 64,
+        "accuracy": 0.6666666666666666,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.5555555555555555,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 32,
+            "fn": 0,
+            "f1": 0.6666666666666666
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.0
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 64,
+        "accuracy": 0.6666666666666666,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.5555555555555555,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 32,
+            "fn": 0,
+            "f1": 0.6666666666666666
+          },
+          "low": {
+            "tp": 32,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "medium": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.0
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 48,
+          "correct": 32,
+          "accuracy": 0.6666666666666666,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 0.5555555555555555,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 16,
+              "fn": 0,
+              "f1": 0.6666666666666666
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            }
+          }
+        },
+        "en": {
+          "cases": 48,
+          "correct": 32,
+          "accuracy": 0.6666666666666666,
+          "valid_json": 48,
+          "output_limit_cases": 0,
+          "macro_f1": 0.5555555555555555,
+          "per_label": {
+            "high": {
+              "tp": 16,
+              "fp": 16,
+              "fn": 0,
+              "f1": 0.6666666666666666
+            },
+            "low": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 0,
+              "f1": 1.0
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 16,
+              "f1": 0.0
+            }
+          }
+        }
+      },
+      "adapter_sha256": "1d74b994076a8535b3dcad593ae5dbb62b852ff7b4c89070715de43719423b6a",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-0.6B-4bit",
+        "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+        "verified_base_hashes": {
+          "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+          "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+        },
+        "seed": 41,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 639391582,
+        "rss_high_water_bytes": 640466944,
+        "system_swap_growth_bytes": -58785792,
+        "adapter_parameter_count": 655360,
+        "adapter_weight_bytes": 2628325,
+        "elapsed_seconds": 202.77911629108712,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    }
+  ],
+  "adapter_aggregate": {
+    "accuracy": {
+      "mean": 0.8888888888888888,
+      "min": 0.6666666666666666,
+      "max": 1.0
+    },
+    "macro_f1": {
+      "mean": 0.8518518518518519,
+      "min": 0.5555555555555555,
+      "max": 1.0
+    }
+  },
+  "distinct_test_boolean_states": 8,
+  "direct_rule_baseline": {
+    "cases": 96,
+    "correct": 96,
+    "accuracy": 1.0
+  },
+  "release_seed": 17,
+  "scope": "Combined code projection and LLM classification on eight Boolean states; not LLM arithmetic or general incident reasoning."
+}

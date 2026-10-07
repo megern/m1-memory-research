@@ -1,0 +1,98 @@
+{
+  "created_at_utc": "2026-10-06T23:04:45.744385+00:00",
+  "model": {
+    "repository": "ggml-org/models-moved",
+    "revision": "499bc8821c6b12b4e53c5bffcb21ec206f212d81",
+    "filename": "tinyllamas/stories15M-q4_0.gguf",
+    "bytes": 19077344,
+    "sha256": "66967fbece6dbe97886593fdbb73589584927e29119ec31f08090732d1861739",
+    "purpose": "Runtime software control only, not a 70B result or quality benchmark"
+  },
+  "runtime_release": "llama.cpp b11457",
+  "runtime_archive_sha256": "e234070cbde0c8b0d30f79fa08ff8246abe22c72acb752619349b8d9c46f7839",
+  "model_file_sha256_verified": "66967fbece6dbe97886593fdbb73589584927e29119ec31f08090732d1861739",
+  "physical_memory_bytes": 17179869184,
+  "preflight_full_file_hash_seconds": 0.020861875033006072,
+  "cache_state": "Uncontrolled OS page cache; full-file checksum immediately precedes measured runtime.",
+  "configuration": [
+    "--offline",
+    "--device",
+    "none",
+    "--n-gpu-layers",
+    "0",
+    "--fit",
+    "off",
+    "--load-mode",
+    "mmap",
+    "--no-repack",
+    "--no-op-offload",
+    "--no-kv-offload",
+    "--ctx-size",
+    "256",
+    "--batch-size",
+    "32",
+    "--ubatch-size",
+    "8",
+    "--threads",
+    "4",
+    "--n-predict",
+    "8",
+    "--temp",
+    "0",
+    "--seed",
+    "17",
+    "--no-warmup",
+    "--no-display-prompt",
+    "--no-conversation",
+    "--perf"
+  ],
+  "user_prompt": "Reply with exactly the single English word naming the capital of France.",
+  "exit_code": 0,
+  "remote_backend_configuration": "No RPC endpoints configured; inherited LLAMA_ARG_* and GGML_RPC_* cleared.",
+  "stopped_by_guard": null,
+  "elapsed_seconds": 0.4211725830100477,
+  "time_to_first_nonwhitespace_stdout_seconds": 0.20344041613861918,
+  "observed_process_tree_rss_peak_bytes": 84082688,
+  "output": "Sudden, a loud noise filled\n\n",
+  "root_process_pageins_sampled_max": 2038,
+  "root_process_faults_sampled_max": 5500,
+  "parsed_timing_lines": [
+    {
+      "kind": "prompt eval time",
+      "milliseconds": 5.74,
+      "count": 72,
+      "count_unit": "tokens",
+      "reported_tokens_per_second": 12534.82
+    },
+    {
+      "kind": "eval time",
+      "milliseconds": 2.23,
+      "count": 7,
+      "count_unit": "runs",
+      "reported_tokens_per_second": 3133.39
+    }
+  ],
+  "generated_output_present": true,
+  "smoke_runtime_completed": true,
+  "exact_paris_answer": false,
+  "measurements": [
+    {
+      "elapsed_seconds": 0.003,
+      "process_tree_rss_bytes": 84082688,
+      "system_available_bytes": 3183542272,
+      "system_swap_growth_bytes": 0,
+      "root_process_pageins_sampled_max": 2038,
+      "root_process_faults_sampled_max": 5500
+    }
+  ],
+  "limitations": [
+    "One short smoke prompt is not a quality benchmark.",
+    "CPU-only mmap relies on OS paging; no custom layer-streaming algorithm or novelty claim.",
+    "Output-byte latency includes runtime startup and is not a library token callback.",
+    "RSS is sampled every half second; true instantaneous peak may be higher.",
+    "macOS root-process fault counters are sampled before exit, not exact final totals or SSD byte counts.",
+    "Preflight checksum reads all weights and may warm page cache; this is not a cold-cache benchmark.",
+    "System swap observations include other apps; guard is conservative.",
+    "Local inference, not training a 70B model. IQ2_XXS differs from full-precision weights."
+  ]
+}

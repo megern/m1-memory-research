@@ -1,0 +1,16 @@
+{
+  "gguf_version": 3,
+  "tensor_count": 724,
+  "stored_tensor_elements": 70553706560,
+  "metadata": {
+    "general.architecture": "llama",
+    "general.name": "Llama 3.3 70B Instruct",
+    "general.size_label": "70B",
+    "llama.block_count": 80,
+    "llama.embedding_length": 8192,
+    "llama.attention.head_count": 64,
+    "general.file_type": 19
+  },
+  "file_bytes": 19097390048,
+  "method": "Header and tensor dimensions only; not a second execution or a replacement for the full-file checksum."
+}

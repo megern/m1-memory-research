@@ -1,0 +1,621 @@
+{
+  "protocol": {
+    "frozen_at_utc": "2026-10-06T23:00:56.050069+00:00",
+    "status": "Exploratory size comparison designed after the 0.6B confirmatory evaluation; same previously scored test, not a new independent confirmatory experiment.",
+    "task": "auth",
+    "base": "mlx-community/Qwen3-1.7B-4bit",
+    "base_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+    "training_seeds": [
+      17,
+      23,
+      41
+    ],
+    "iterations": 400,
+    "layers": 16,
+    "rank": 8,
+    "learning_rate": 0.0002,
+    "dataset_protocol": "confirmatory-v2/protocol.json",
+    "selection": "Final checkpoint for every seed; reference seed 17, no selection using new test scores."
+  },
+  "entries": [
+    {
+      "variant": "base",
+      "strict": {
+        "cases": 96,
+        "correct": 39,
+        "accuracy": 0.40625,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.3084523547938182,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 47,
+            "fn": 0,
+            "f1": 0.5765765765765766
+          },
+          "low": {
+            "tp": 6,
+            "fp": 2,
+            "fn": 26,
+            "f1": 0.3
+          },
+          "medium": {
+            "tp": 1,
+            "fp": 8,
+            "fn": 31,
+            "f1": 0.04878048780487805
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 39,
+        "accuracy": 0.40625,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.3084523547938182,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 47,
+            "fn": 0,
+            "f1": 0.5765765765765766
+          },
+          "low": {
+            "tp": 6,
+            "fp": 2,
+            "fn": 26,
+            "f1": 0.3
+          },
+          "medium": {
+            "tp": 1,
+            "fp": 8,
+            "fn": 31,
+            "f1": 0.04878048780487805
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 38,
+          "correct": 21,
+          "accuracy": 0.5526315789473685,
+          "valid_json": 38,
+          "output_limit_cases": 0,
+          "macro_f1": 0.29323899371069184,
+          "per_label": {
+            "high": {
+              "tp": 20,
+              "fp": 13,
+              "fn": 0,
+              "f1": 0.7547169811320755
+            },
+            "low": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 5,
+              "f1": 0.0
+            },
+            "medium": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 12,
+              "f1": 0.125
+            }
+          }
+        },
+        "en": {
+          "cases": 58,
+          "correct": 18,
+          "accuracy": 0.3103448275862069,
+          "valid_json": 58,
+          "output_limit_cases": 0,
+          "macro_f1": 0.25914315569487983,
+          "per_label": {
+            "high": {
+              "tp": 12,
+              "fp": 34,
+              "fn": 0,
+              "f1": 0.41379310344827586
+            },
+            "low": {
+              "tp": 6,
+              "fp": 0,
+              "fn": 21,
+              "f1": 0.36363636363636365
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 19,
+              "f1": 0.0
+            }
+          }
+        }
+      },
+      "evaluation_mlx_peak_bytes": 1241910568,
+      "evaluation_rss_high_water_bytes": 1028292608
+    },
+    {
+      "variant": "seed17",
+      "strict": {
+        "cases": 96,
+        "correct": 73,
+        "accuracy": 0.7604166666666666,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.715682809002003,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 5,
+            "fn": 0,
+            "f1": 0.927536231884058
+          },
+          "low": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 23,
+            "f1": 0.43902439024390244
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 18,
+            "fn": 0,
+            "f1": 0.7804878048780488
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 73,
+        "accuracy": 0.7604166666666666,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.715682809002003,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 5,
+            "fn": 0,
+            "f1": 0.927536231884058
+          },
+          "low": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 23,
+            "f1": 0.43902439024390244
+          },
+          "medium": {
+            "tp": 32,
+            "fp": 18,
+            "fn": 0,
+            "f1": 0.7804878048780488
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 38,
+          "correct": 33,
+          "accuracy": 0.868421052631579,
+          "valid_json": 38,
+          "output_limit_cases": 0,
+          "macro_f1": 0.6196013289036545,
+          "per_label": {
+            "high": {
+              "tp": 20,
+              "fp": 3,
+              "fn": 0,
+              "f1": 0.9302325581395349
+            },
+            "low": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5,
+              "f1": 0.0
+            },
+            "medium": {
+              "tp": 13,
+              "fp": 2,
+              "fn": 0,
+              "f1": 0.9285714285714286
+            }
+          }
+        },
+        "en": {
+          "cases": 58,
+          "correct": 40,
+          "accuracy": 0.6896551724137931,
+          "valid_json": 58,
+          "output_limit_cases": 0,
+          "macro_f1": 0.7089268755935422,
+          "per_label": {
+            "high": {
+              "tp": 12,
+              "fp": 2,
+              "fn": 0,
+              "f1": 0.9230769230769231
+            },
+            "low": {
+              "tp": 9,
+              "fp": 0,
+              "fn": 18,
+              "f1": 0.5
+            },
+            "medium": {
+              "tp": 19,
+              "fp": 16,
+              "fn": 0,
+              "f1": 0.7037037037037037
+            }
+          }
+        }
+      },
+      "evaluation_mlx_peak_bytes": 1294616012,
+      "evaluation_rss_high_water_bytes": 813629440,
+      "adapter_sha256": "bac53dfce955e22401023df686f9f79c44a848df1ae6c36824a99a6322359a65",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-1.7B-4bit",
+        "base_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+        "verified_base_hashes": {
+          "config.json": "507a6701220524eb8b283425bf0856a9ae4f21f4052e563896ddd668994b1dc7",
+          "model.safetensors": "0e86d9677e519323849eac1bc272caae88567a481ff188c431f70be543d9995f"
+        },
+        "seed": 17,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 1345164844,
+        "rss_high_water_bytes": 889995264,
+        "system_swap_growth_bytes": 630915072,
+        "adapter_parameter_count": 917504,
+        "adapter_weight_bytes": 3676917,
+        "elapsed_seconds": 545.2495205421001,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    },
+    {
+      "variant": "seed23",
+      "strict": {
+        "cases": 96,
+        "correct": 69,
+        "accuracy": 0.71875,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.7024924012158055,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 6,
+            "fn": 0,
+            "f1": 0.9142857142857143
+          },
+          "low": {
+            "tp": 24,
+            "fp": 19,
+            "fn": 8,
+            "f1": 0.64
+          },
+          "medium": {
+            "tp": 13,
+            "fp": 2,
+            "fn": 19,
+            "f1": 0.5531914893617021
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 69,
+        "accuracy": 0.71875,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.7024924012158055,
+        "per_label": {
+          "high": {
+            "tp": 32,
+            "fp": 6,
+            "fn": 0,
+            "f1": 0.9142857142857143
+          },
+          "low": {
+            "tp": 24,
+            "fp": 19,
+            "fn": 8,
+            "f1": 0.64
+          },
+          "medium": {
+            "tp": 13,
+            "fp": 2,
+            "fn": 19,
+            "f1": 0.5531914893617021
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 38,
+          "correct": 34,
+          "accuracy": 0.8947368421052632,
+          "valid_json": 38,
+          "output_limit_cases": 0,
+          "macro_f1": 0.7380952380952381,
+          "per_label": {
+            "high": {
+              "tp": 20,
+              "fp": 2,
+              "fn": 0,
+              "f1": 0.9523809523809523
+            },
+            "low": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4,
+              "f1": 0.3333333333333333
+            },
+            "medium": {
+              "tp": 13,
+              "fp": 2,
+              "fn": 0,
+              "f1": 0.9285714285714286
+            }
+          }
+        },
+        "en": {
+          "cases": 58,
+          "correct": 35,
+          "accuracy": 0.603448275862069,
+          "valid_json": 58,
+          "output_limit_cases": 0,
+          "macro_f1": 0.5079365079365079,
+          "per_label": {
+            "high": {
+              "tp": 12,
+              "fp": 4,
+              "fn": 0,
+              "f1": 0.8571428571428571
+            },
+            "low": {
+              "tp": 23,
+              "fp": 19,
+              "fn": 4,
+              "f1": 0.6666666666666666
+            },
+            "medium": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 19,
+              "f1": 0.0
+            }
+          }
+        }
+      },
+      "evaluation_mlx_peak_bytes": 1294616012,
+      "evaluation_rss_high_water_bytes": 1077952512,
+      "adapter_sha256": "0efbae351f3b05ff73e822bbe4984821c3927e9f140724d2c4f1bdea8a3def0a",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-1.7B-4bit",
+        "base_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+        "verified_base_hashes": {
+          "config.json": "507a6701220524eb8b283425bf0856a9ae4f21f4052e563896ddd668994b1dc7",
+          "model.safetensors": "0e86d9677e519323849eac1bc272caae88567a481ff188c431f70be543d9995f"
+        },
+        "seed": 23,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 1345146412,
+        "rss_high_water_bytes": 785367040,
+        "system_swap_growth_bytes": -2228224,
+        "adapter_parameter_count": 917504,
+        "adapter_weight_bytes": 3676917,
+        "elapsed_seconds": 569.3029492080677,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    },
+    {
+      "variant": "seed41",
+      "strict": {
+        "cases": 96,
+        "correct": 65,
+        "accuracy": 0.6770833333333334,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.6839311268060748,
+        "per_label": {
+          "high": {
+            "tp": 17,
+            "fp": 2,
+            "fn": 15,
+            "f1": 0.6666666666666666
+          },
+          "low": {
+            "tp": 26,
+            "fp": 25,
+            "fn": 6,
+            "f1": 0.6265060240963856
+          },
+          "medium": {
+            "tp": 22,
+            "fp": 4,
+            "fn": 10,
+            "f1": 0.7586206896551724
+          }
+        }
+      },
+      "outer_fence_allowed": {
+        "cases": 96,
+        "correct": 65,
+        "accuracy": 0.6770833333333334,
+        "valid_json": 96,
+        "output_limit_cases": 0,
+        "macro_f1": 0.6839311268060748,
+        "per_label": {
+          "high": {
+            "tp": 17,
+            "fp": 2,
+            "fn": 15,
+            "f1": 0.6666666666666666
+          },
+          "low": {
+            "tp": 26,
+            "fp": 25,
+            "fn": 6,
+            "f1": 0.6265060240963856
+          },
+          "medium": {
+            "tp": 22,
+            "fp": 4,
+            "fn": 10,
+            "f1": 0.7586206896551724
+          }
+        }
+      },
+      "by_language": {
+        "ar": {
+          "cases": 38,
+          "correct": 31,
+          "accuracy": 0.8157894736842105,
+          "valid_json": 38,
+          "output_limit_cases": 0,
+          "macro_f1": 0.6741961741961742,
+          "per_label": {
+            "high": {
+              "tp": 17,
+              "fp": 2,
+              "fn": 3,
+              "f1": 0.8717948717948718
+            },
+            "low": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 4,
+              "f1": 0.2222222222222222
+            },
+            "medium": {
+              "tp": 13,
+              "fp": 2,
+              "fn": 0,
+              "f1": 0.9285714285714286
+            }
+          }
+        },
+        "en": {
+          "cases": 58,
+          "correct": 34,
+          "accuracy": 0.5862068965517241,
+          "valid_json": 58,
+          "output_limit_cases": 0,
+          "macro_f1": 0.42522522522522516,
+          "per_label": {
+            "high": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 12,
+              "f1": 0.0
+            },
+            "low": {
+              "tp": 25,
+              "fp": 22,
+              "fn": 2,
+              "f1": 0.6756756756756757
+            },
+            "medium": {
+              "tp": 9,
+              "fp": 2,
+              "fn": 10,
+              "f1": 0.6
+            }
+          }
+        }
+      },
+      "evaluation_mlx_peak_bytes": 1294616012,
+      "evaluation_rss_high_water_bytes": 828882944,
+      "adapter_sha256": "8a28fccaeb6dd445cd7c5fe5e0cc157282663e4527e4d63a11cf9f97d6bb0ecc",
+      "training": {
+        "runtime": "mlx-lm 0.32.0",
+        "local_compute_only": true,
+        "base": "mlx-community/Qwen3-1.7B-4bit",
+        "base_revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+        "verified_base_hashes": {
+          "config.json": "507a6701220524eb8b283425bf0856a9ae4f21f4052e563896ddd668994b1dc7",
+          "model.safetensors": "0e86d9677e519323849eac1bc272caae88567a481ff188c431f70be543d9995f"
+        },
+        "seed": 41,
+        "iterations": 400,
+        "batch_size": 1,
+        "adapted_layers": 16,
+        "rank": 8,
+        "learning_rate": 0.0002,
+        "prompt_masked": true,
+        "gradient_checkpointing": true,
+        "mlx_allocation_guard_bytes": 4294967296,
+        "mlx_peak_bytes": 1345148460,
+        "rss_high_water_bytes": 703102976,
+        "system_swap_growth_bytes": 776208384,
+        "adapter_parameter_count": 917504,
+        "adapter_weight_bytes": 3676917,
+        "elapsed_seconds": 585.3788967090659,
+        "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+      }
+    }
+  ],
+  "adapter_aggregate": {
+    "accuracy": {
+      "mean": 0.71875,
+      "min": 0.6770833333333334,
+      "max": 0.7604166666666666
+    },
+    "macro_f1": {
+      "mean": 0.7007021123412944,
+      "min": 0.6839311268060748,
+      "max": 0.715682809002003
+    }
+  },
+  "reference_identity_audit": {
+    "cases": 96,
+    "correct": 75,
+    "accuracy": 0.78125,
+    "valid_json": 96,
+    "output_limit_cases": 0,
+    "macro_f1": 0.7491131974839359,
+    "per_label": {
+      "high": {
+        "tp": 32,
+        "fp": 3,
+        "fn": 0,
+        "f1": 0.9552238805970149
+      },
+      "low": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 21,
+        "f1": 0.5116279069767442
+      },
+      "medium": {
+        "tp": 32,
+        "fp": 18,
+        "fn": 0,
+        "f1": 0.7804878048780488
+      }
+    }
+  },
+  "release_seed": 17,
+  "scope": "Exploratory reuse of the previously scored synthetic test; all seeds retained."
+}

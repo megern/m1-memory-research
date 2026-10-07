@@ -1,0 +1,8 @@
+{
+  "repository": "ggml-org/models-moved",
+  "revision": "499bc8821c6b12b4e53c5bffcb21ec206f212d81",
+  "filename": "tinyllamas/stories15M-q4_0.gguf",
+  "bytes": 19077344,
+  "sha256": "66967fbece6dbe97886593fdbb73589584927e29119ec31f08090732d1861739",
+  "purpose": "Runtime software control only, not a 70B result or quality benchmark"
+}

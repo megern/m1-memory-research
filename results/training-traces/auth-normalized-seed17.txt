@@ -1,0 +1,62 @@
+Loading pretrained model
+Loading datasets
+Training
+╭─ mlx_lm.lora ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│    model           [workspace]/work/models/qwen3-0.6b-4bit                         │
+│    type            lora · 16 layers · rank 8                                                                         │
+│    dataset                                                                                                           │
+│  [workspace]/outputs/m1-memory-research/data/normalized-auth/auth                  │
+│    optimizer       adam · lr 2.0e-04                                                                                 │
+│    batch · iters   1 · 400                                                                                           │
+│    max seq         384                                                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Trainable parameters: 0.110% (0.655M/596.050M)
+  iter   train_loss     tok/s     tokens
+     1    val 4.673    2.32s
+    40    0.569 ▼       26      0.5k
+    80    val 0.184    2.24s
+    80    0.176 ▼       25      1.0k
+  save  0000080_adapters.safetensors
+   120    0.094 ▼       25      1.4k
+   160    val 0.043    2.23s
+   160    0.049 ▼       26      1.9k
+  save  0000160_adapters.safetensors
+   200    0.058 ▲       26      2.4k
+   240    val 0.134    2.31s
+   240    0.077 ▲       26      2.9k
+  save  0000240_adapters.safetensors
+   280    0.048 ▼       26      3.4k
+   320    val 0.021    2.33s
+   320    0.027 ▼       26      3.8k
+  save  0000320_adapters.safetensors
+   360    0.005 ▼       26      4.3k
+   400    val 0.000    2.36s
+   400    0.000 ▼       25      4.8k
+  save  0000400_adapters.safetensors
+train ██████████████████████████████ 100% ·   400/400
+{
+  "runtime": "mlx-lm 0.32.0",
+  "local_compute_only": true,
+  "base": "mlx-community/Qwen3-0.6B-4bit",
+  "base_revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+  "verified_base_hashes": {
+    "config.json": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+    "model.safetensors": "392e8d466d56100ada00eb82031fb854297fc9e389b7d303eba3af114e87bce2"
+  },
+  "seed": 17,
+  "iterations": 400,
+  "batch_size": 1,
+  "adapted_layers": 16,
+  "rank": 8,
+  "learning_rate": 0.0002,
+  "prompt_masked": true,
+  "gradient_checkpointing": true,
+  "mlx_allocation_guard_bytes": 4294967296,
+  "mlx_peak_bytes": 639391582,
+  "rss_high_water_bytes": 707543040,
+  "system_swap_growth_bytes": -8388608,
+  "adapter_parameter_count": 655360,
+  "adapter_weight_bytes": 2628325,
+  "elapsed_seconds": 202.86863512499258,
+  "notes": "Allocation guard is not a hard RSS cap. Synthetic stated-rule tasks."
+}

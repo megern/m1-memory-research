@@ -1,0 +1,71 @@
+{
+  "frozen_at_utc": "2026-10-06T22:25:40.358985+00:00",
+  "rationale": "Pilot auth adapter collapsed to the majority class. This confirmatory protocol balances labels before training and uses fresh test surface templates and time values.",
+  "training_seeds": [
+    17,
+    23,
+    41
+  ],
+  "iterations": 400,
+  "layers": 16,
+  "rank": 8,
+  "learning_rate": 0.0002,
+  "test_selection": "Fixed before training; evaluate final adapters only, no checkpoint selection using test results.",
+  "datasets": {
+    "auth": {
+      "train": {
+        "rows": 384,
+        "labels": {
+          "low": 128,
+          "medium": 128,
+          "high": 128
+        },
+        "sha256": "76219c0cf3135de9f68e4133afb539ab97d0714dd710456bc6ba34d4934e245f"
+      },
+      "valid": {
+        "rows": 48,
+        "labels": {
+          "low": 16,
+          "medium": 16,
+          "high": 16
+        },
+        "sha256": "de7dd0ad5ee291a8cda0c5b3a18a66fd3c331dd1df9bbbd21539f19a5a7c208d"
+      },
+      "test": {
+        "rows": 96,
+        "labels": {
+          "low": 32,
+          "medium": 32,
+          "high": 32
+        },
+        "sha256": "a069a69f2eef39a58e0ab49f85203f05b61fd9efec44c92c80caf5f203c582bb"
+      }
+    },
+    "workflow": {
+      "train": {
+        "rows": 384,
+        "labels": {
+          "low": 192,
+          "high": 192
+        },
+        "sha256": "71586bedc0ec91d1d44ebf331e9678caff32d97875026e97a84f82a2d6d1e457"
+      },
+      "valid": {
+        "rows": 48,
+        "labels": {
+          "low": 24,
+          "high": 24
+        },
+        "sha256": "8fdeab2aeaa305fb13dc3c56ba64ac83c2645e315ef8cd0a640fff0db5e548c0"
+      },
+      "test": {
+        "rows": 96,
+        "labels": {
+          "low": 48,
+          "high": 48
+        },
+        "sha256": "31bd2824131d29c85227983822c2e23498a8440aea30cbfa4af848d43c8e7211"
+      }
+    }
+  }
+}
