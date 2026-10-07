@@ -51,3 +51,7 @@ work/venv/bin/python outputs/m1-memory-research/tools/run_original_precision.py 
 work/venv/bin/python outputs/m1-memory-research/tools/shard_original_layers.py --model work/models/qwen3-0.6b-original --output work/models/qwen3-0.6b-original-layers
 work/venv/bin/python outputs/m1-memory-research/tools/run_original_precision.py --model work/models/qwen3-0.6b-original --experiment streaming --output outputs/m1-memory-research/results/original-bf16-streaming-control-v1
 اختر أسماء مخرجات جديدة عند إعادة التجربة. مسارات work تخص هذا workspace؛ عدّلها في checkout مستقل. لا ترفع الأوزان الأساسية أو الملفات المقسمة إلى Git.
+
+تحديث التنفيذ بعد البروتوكول الأولي:
+اكتملت مقارنة تحميل مسبق من 25 تجربة، ثم متابعة بميزانية MLX محدودة من مجموعتين كاملتين كل منهما 12 تجربة على أسئلة إضافية. التفاصيل في results/original-scheduling-development-notes.txt والبروتوكولات محفوظة منفصلة. لم يتفوق prefetch على تحميل الملفات المعتاد، والتخزين المحدود حقق تحسنًا صغيرًا بزمن أعلى من التشغيل المقيم وذاكرة أعلى من التحميل المتتابع. جميع أرقام المقارنة محدودة بهذا النموذج الصغير؛ لم تنفذ مرحلة 70B الأصلية. الأداة المحلية tools/local_original_inference.py تعمل بالأوزان الأصلية الموجودة مسبقًا، وتتوقف عند تجاوز حدودها.
+قبل التوسع، ينبغي تجنب نسخ أوزان نموذج كبير إلى ملفات إضافية بالكامل؛ فنسخ 140GB أخرى قد يتجاوز مساحة القرص. دعم قراءة الأصل مباشرة أو طبقات افتراضية مطلوب.

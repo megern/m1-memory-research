@@ -2,9 +2,34 @@
 
 Author: **Megern Qaisse** ([GitHub](https://github.com/megern), [LinkedIn](https://www.linkedin.com/in/megernqaisse/)).
 
-Two local studies on an Apple M1 with 16 GiB unified memory: a real 70B-checkpoint inference feasibility test, and small bilingual LoRA specialists with a retained pilot and a separate balanced confirmatory protocol.
+Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoint inference feasibility, small bilingual LoRA specialists, and a subsequent original-BF16 scheduling prototype.
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
+
+## Original BF16 scheduling prototype
+
+The original, unquantized **Qwen3-0.6B BF16** checkpoint now has a pinned [download manifest](models/qwen3-0.6b-original.json), byte-preserving layer packaging, bounded CPU prefetch, and a local inference prototype with reusable computation blocks and a limited layer cache. This small model fits physical RAM; these results do **not** demonstrate original-weight 70B execution.
+
+[The complete development notes](results/original-scheduling-development-notes.txt) and [numerical summary](results/original-scheduling-development-summary.json) retain 49 scheduled trials and 1,952 stepwise logit comparisons on identical reference inputs. All measured logits and greedy token IDs matched. Four-prompt, five-round scheduling tests found that prefetch helped the buffered-byte pipeline but lost to ordinary file loading. A later exploratory study used six additional prompts and retained both complete three-round sets, including a repeat after chart preparation finished. This is not a quality benchmark or externally preregistered study.
+
+Repeat set, six short prompts / 48 steps per trial; three trials per mode:
+
+| Method | Median forward seconds | Median peak MLX MiB |
+|---|---:|---:|
+| Fully resident | 1.5394 | 1227.66 |
+| Sequential file loading | 6.3697 | 364.77 |
+| Reusable block without layer cache | 7.2739 | 394.76 |
+| Reusable block with seven cached layers | 6.0515 | 604.79 |
+
+The seven-layer cache reduced median forward time by **5.00% versus sequential file loading**, using about **65.8% more MLX allocation than file loading**. It used **50.74% less peak MLX allocation than the fully resident model**, while remaining substantially slower than that resident model. These are different comparators. All three paired repeat rounds favored caching, with reductions of 6.40%, 5.00% and 2.21%; this small exploratory sample does not establish a general speedup or statistical significance.
+
+The 640 MiB setting is an allocation heuristic with active-MLX checks, **not a total-RAM cap**. RSS is separately retained and can exceed this budget. Hash verification warms OS file caches; no cold-SSD bandwidth or physical SSD-byte claim is made. Shared embedding and KV cache remain resident. Offloading, caching and prefetch are established methods, not new inventions attributed to this project. The tied embedding/head uses the upstream architecture's shared weights; redundant serialized head data is discarded as in the resident implementation.
+
+![Original BF16 bounded-cache controls](figures/budgeted-engine.png)
+
+See [all original scheduling trials](results/original-scheduler-trials-v1/summary.json), [first follow-up](results/budgeted-engine-trials-v1/summary.json), [complete repeat](results/budgeted-engine-trials-v2/summary.json), and [retained setup failures](results/original-scheduler-failure-audit.txt). Each trial set includes a source snapshot matching its recorded hashes; restoring snapshots into a separate checkout allows reproducing earlier frozen code.
+
+The [local CLI](tools/local_original_inference.py) generated a correct simple `add(a, b)` function through EOS in a [retained free-generation demo](results/budgeted-engine-code-demo-v1/report.json). The generated code was inspected, not executed; one function does not establish general coding quality. The prototype requires verified local files, accepts at most 128 template prompt tokens and 256 total context tokens, and bounds output to 64 tokens. It performs no automatic download or cloud inference. See [the Arabic operating guide](OPERATING_GUIDE.md) for setup and fresh-run commands.
 
 ## Completed local adaptation results
 

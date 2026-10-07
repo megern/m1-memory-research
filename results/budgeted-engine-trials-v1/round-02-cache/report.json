@@ -1,0 +1,780 @@
+{
+  "model": {
+    "repository": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "weight_bytes": 1503300328,
+    "file_dtypes": [
+      "BF16"
+    ],
+    "tensor_count": 311,
+    "support_file_hashes": {
+      "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    }
+  },
+  "experiment": "budgeted-cache",
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "elapsed_seconds": 8.469067791011184,
+  "events": [
+    {
+      "event": "scheduler_trial",
+      "mode": "cache",
+      "protocol_sha256": "af287316fec00c9eb07642d5e51e6f7b0111ade70e5a2f8217ae1245c9114054",
+      "reference_logits_sha256": "d5363c9afc674b4a144003e917e0bac9ce1d656b8d635b3cfdbe28b212541652",
+      "runtime_dtype": "BF16",
+      "measured_seconds_including_comparison_and_cleanup": 6.227495374856517,
+      "forward_seconds": 6.0345347030088305,
+      "prefill_seconds": 1.0996232067700475,
+      "decode_seconds": 4.934911496238783,
+      "greedy_steps": 48,
+      "mlx_peak_allocated_bytes": 634171916,
+      "maximum_serialized_layer_bytes": 31463112,
+      "engine_plan": {
+        "budget_bytes": 671088640,
+        "shared_bytes": 311166976,
+        "largest_layer_file_bytes": 31463112,
+        "reserved_bytes": 67108864,
+        "cached_layers": 7,
+        "estimated_persistent_plus_replacement_bytes": 594334984,
+        "scope": "MLX allocation heuristic, not total RAM; measured limit checked during forward"
+      },
+      "engine_layer_calls": 1344,
+      "engine_file_loads": 1008,
+      "engine_cache_hits": 336,
+      "buffer_budget_current_plus_pending_files": 1,
+      "cases": [
+        {
+          "case": 0,
+          "prompt_tokens": 26,
+          "tokens": [
+            21,
+            54916,
+            553,
+            220,
+            22,
+            374,
+            220,
+            19
+          ],
+          "raw_output": "6 multiplied by 7 is 4",
+          "token_seconds": [
+            0.22233504080213606,
+            0.12344262492842972,
+            0.12764562503434718,
+            0.12231537513434887,
+            0.11699691694229841,
+            0.11485200002789497,
+            0.11741625005379319,
+            0.11504241684451699
+          ],
+          "prefill_seconds": 0.22233504080213606,
+          "decode_seconds": 0.8377112089656293,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 1,
+          "prompt_tokens": 32,
+          "tokens": [
+            130040,
+            126756,
+            82168,
+            125573,
+            123961,
+            124009,
+            73441,
+            77273
+          ],
+          "raw_output": "وظيفة جدار الحماية في",
+          "token_seconds": [
+            0.17943808296695352,
+            0.12454275018535554,
+            0.11913170898333192,
+            0.11961541697382927,
+            0.11888279090635478,
+            0.11551679205149412,
+            0.11649204208515584,
+            0.11528829205781221
+          ],
+          "prefill_seconds": 0.17943808296695352,
+          "decode_seconds": 0.8294697932433337,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 2,
+          "prompt_tokens": 21,
+          "tokens": [
+            8420,
+            594,
+            264,
+            4285,
+            13027,
+            729,
+            311,
+            912
+          ],
+          "raw_output": "Here's a simple Python function to add",
+          "token_seconds": [
+            0.17449275008402765,
+            0.11760237510316074,
+            0.12039558310061693,
+            0.11576729104854167,
+            0.1146210408769548,
+            0.11513475002720952,
+            0.11603474989533424,
+            0.11407558294013143
+          ],
+          "prefill_seconds": 0.17449275008402765,
+          "decode_seconds": 0.8136313729919493,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 3,
+          "prompt_tokens": 21,
+          "tokens": [
+            19297,
+            323,
+            23715,
+            525,
+            2176,
+            4763,
+            18940,
+            304
+          ],
+          "raw_output": "Authentication and authorization are both security concepts in",
+          "token_seconds": [
+            0.17193825007416308,
+            0.11850979109294713,
+            0.11513941688463092,
+            0.12450725003145635,
+            0.11659229197539389,
+            0.12193204113282263,
+            0.11521308310329914,
+            0.11636658292263746
+          ],
+          "prefill_seconds": 0.17193825007416308,
+          "decode_seconds": 0.8282604571431875,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 4,
+          "prompt_tokens": 22,
+          "tokens": [
+            61088,
+            320,
+            13636,
+            3988,
+            739,
+            8,
+            374,
+            264
+          ],
+          "raw_output": "DNS (Domain Name System) is a",
+          "token_seconds": [
+            0.16678329184651375,
+            0.10973987495526671,
+            0.1130505830515176,
+            0.1155302501283586,
+            0.11568483291193843,
+            0.1142246660310775,
+            0.11531445803120732,
+            0.11723387497477233
+          ],
+          "prefill_seconds": 0.16678329184651375,
+          "decode_seconds": 0.8007785400841385,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 5,
+          "prompt_tokens": 33,
+          "tokens": [
+            80970,
+            73274,
+            64604,
+            11798,
+            125122,
+            27846,
+            124347,
+            124571
+          ],
+          "raw_output": "لا يُنصح بشاركة",
+          "token_seconds": [
+            0.1846357909962535,
+            0.1268370000179857,
+            0.11787254083901644,
+            0.11739404196850955,
+            0.11750504188239574,
+            0.1133439161349088,
+            0.11677487497217953,
+            0.11533270799554884
+          ],
+          "prefill_seconds": 0.1846357909962535,
+          "decode_seconds": 0.8250601238105446,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        }
+      ],
+      "layer_traces": [],
+      "limitations": [
+        "Short prompts with step bounds in the protocol; not quality or steady throughput.",
+        "Teacher-forced resident reference inputs; token equality checked separately.",
+        "File hashes warm OS caches; no cold-SSD benchmark or SSD byte measurement.",
+        "Buffered bytes reside outside MLX allocator; report RSS separately, do not add metrics.",
+        "CPU thread reads bytes only; all MLX operations stay on the main thread.",
+        "New process per trial; resident loading and shared-weight loading excluded from forward time.",
+        "Prefetch is an established technique; no novelty claim."
+      ]
+    }
+  ],
+  "stderr_raw_sha256_before_path_redaction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "physical_memory_bytes": 17179869184,
+  "sampled_process_tree_rss_peak_bytes": 730562560,
+  "observations": [
+    {
+      "seconds": 0.0016406660433858633,
+      "process_tree_rss_bytes": 4259840,
+      "system_available_bytes": 4033937408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.21585229109041393,
+      "process_tree_rss_bytes": 71368704,
+      "system_available_bytes": 4033937408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.42990691610611975,
+      "process_tree_rss_bytes": 91045888,
+      "system_available_bytes": 4033937408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.6352588331792504,
+      "process_tree_rss_bytes": 93569024,
+      "system_available_bytes": 4033937408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.8495446250308305,
+      "process_tree_rss_bytes": 97861632,
+      "system_available_bytes": 4033937408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.063846040982753,
+      "process_tree_rss_bytes": 101302272,
+      "system_available_bytes": 3921788928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.2690042911563069,
+      "process_tree_rss_bytes": 101302272,
+      "system_available_bytes": 3921788928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.4832786661572754,
+      "process_tree_rss_bytes": 101302272,
+      "system_available_bytes": 3921788928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.6974974579643458,
+      "process_tree_rss_bytes": 180879360,
+      "system_available_bytes": 3921788928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.9020327080506831,
+      "process_tree_rss_bytes": 595574784,
+      "system_available_bytes": 3921788928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.1095447500701994,
+      "process_tree_rss_bytes": 680247296,
+      "system_available_bytes": 3364143104,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.3189560000319034,
+      "process_tree_rss_bytes": 677183488,
+      "system_available_bytes": 3311845376,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.533785083098337,
+      "process_tree_rss_bytes": 707149824,
+      "system_available_bytes": 3240263680,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.7495379999745637,
+      "process_tree_rss_bytes": 679870464,
+      "system_available_bytes": 3240263680,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.9651498331222683,
+      "process_tree_rss_bytes": 699842560,
+      "system_available_bytes": 3240263680,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.174142833100632,
+      "process_tree_rss_bytes": 710082560,
+      "system_available_bytes": 3211640832,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.379898708080873,
+      "process_tree_rss_bytes": 714457088,
+      "system_available_bytes": 3190472704,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.5858480411116034,
+      "process_tree_rss_bytes": 722845696,
+      "system_available_bytes": 3188457472,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.800966165959835,
+      "process_tree_rss_bytes": 722845696,
+      "system_available_bytes": 3188457472,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.015708541031927,
+      "process_tree_rss_bytes": 697679872,
+      "system_available_bytes": 3188457472,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.23115075007081,
+      "process_tree_rss_bytes": 706756608,
+      "system_available_bytes": 3191930880,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.438342208042741,
+      "process_tree_rss_bytes": 725450752,
+      "system_available_bytes": 3194388480,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.647117499960586,
+      "process_tree_rss_bytes": 729825280,
+      "system_available_bytes": 3181428736,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.856739416019991,
+      "process_tree_rss_bytes": 667533312,
+      "system_available_bytes": 3244982272,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.069048500154167,
+      "process_tree_rss_bytes": 725680128,
+      "system_available_bytes": 3184689152,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.284330875147134,
+      "process_tree_rss_bytes": 668270592,
+      "system_available_bytes": 3240509440,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.491965166060254,
+      "process_tree_rss_bytes": 730562560,
+      "system_available_bytes": 3207610368,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.697771666105837,
+      "process_tree_rss_bytes": 699105280,
+      "system_available_bytes": 3393404928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.912894250126556,
+      "process_tree_rss_bytes": 729284608,
+      "system_available_bytes": 3393404928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.1288471249863505,
+      "process_tree_rss_bytes": 668319744,
+      "system_available_bytes": 3393404928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.34334750007838,
+      "process_tree_rss_bytes": 670056448,
+      "system_available_bytes": 3268001792,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.554017916088924,
+      "process_tree_rss_bytes": 693125120,
+      "system_available_bytes": 3249422336,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.769547916017473,
+      "process_tree_rss_bytes": 630833152,
+      "system_available_bytes": 3310878720,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.984339208109304,
+      "process_tree_rss_bytes": 668532736,
+      "system_available_bytes": 3275325440,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.190756666008383,
+      "process_tree_rss_bytes": 687341568,
+      "system_available_bytes": 3299508224,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.4063532911241055,
+      "process_tree_rss_bytes": 677036032,
+      "system_available_bytes": 3288465408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.621720500057563,
+      "process_tree_rss_bytes": 692518912,
+      "system_available_bytes": 3287416832,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.828318333020434,
+      "process_tree_rss_bytes": 691748864,
+      "system_available_bytes": 3287416832,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 8.036152000073344,
+      "process_tree_rss_bytes": 630718464,
+      "system_available_bytes": 3287416832,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 8.250630208058283,
+      "process_tree_rss_bytes": 0,
+      "system_available_bytes": 3287416832,
+      "system_swap_growth_bytes": 0
+    }
+  ],
+  "limitations": [
+    "Small-model control, not 70B execution or a new scheduling algorithm.",
+    "Worker events and frozen protocols state per-mode prompt and token bounds.",
+    "No conversion, quantization or adapter; runtime BF16 explicitly checked.",
+    "Full-file hash precedes execution; OS cache state uncontrolled.",
+    "RSS and MLX allocation are different overlapping metrics; do not add them.",
+    "Existing system swap and background apps remain; no cold-cache claim."
+  ]
+}

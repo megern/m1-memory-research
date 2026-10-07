@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "[research source]/tools/run_original_precision.py", line 179, in <module>
+    scheduler_worker(args.model.resolve(), args.experiment.removeprefix('scheduler-'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[research source]/tools/benchmark_original_scheduler.py", line 73, in worker
+    x, tokens, differences, token_seconds = mx.array([ids]), [], [], []
+                                            ~~~~~~~~^^^^^^^
+ValueError: Invalid type transformers.tokenization_utils_base.BatchEncoding received in array initialization.

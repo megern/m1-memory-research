@@ -1,0 +1,62 @@
+{
+  "protocol_sha256": "0ad5c12adffe2277b15bb032790147815a705be0f17b990d4623adfbc1b4c1e0",
+  "logits_sha256": "4c584a111823843ecd510568d7b0a6e227fb92ccb15b6a1992b979227db9f356",
+  "cases": [
+    {
+      "case": 0,
+      "prompt": "What is 17 multiplied by 19? Give only the number.",
+      "tokens": [
+        16,
+        22,
+        54916,
+        553,
+        220,
+        16,
+        24,
+        16819
+      ]
+    },
+    {
+      "case": 1,
+      "prompt": "اشرح في جملة واحدة ما هي المصادقة متعددة العوامل.",
+      "tokens": [
+        124839,
+        130248,
+        124061,
+        128546,
+        124079,
+        124267,
+        123894,
+        12653
+      ]
+    },
+    {
+      "case": 2,
+      "prompt": "Write a Python function that returns the larger of two numbers.",
+      "tokens": [
+        8420,
+        594,
+        264,
+        4285,
+        13027,
+        729,
+        429,
+        4675
+      ]
+    },
+    {
+      "case": 3,
+      "prompt": "Explain why an application should use least-privilege permissions.",
+      "tokens": [
+        2082,
+        3766,
+        1265,
+        990,
+        3070,
+        55271,
+        12,
+        11887
+      ]
+    }
+  ]
+}

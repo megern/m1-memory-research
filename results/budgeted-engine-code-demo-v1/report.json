@@ -1,0 +1,233 @@
+{
+  "model": {
+    "repository": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "weight_bytes": 1503300328,
+    "file_dtypes": [
+      "BF16"
+    ],
+    "tensor_count": 311,
+    "support_file_hashes": {
+      "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    }
+  },
+  "experiment": "local-original",
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "elapsed_seconds": 5.051144249970093,
+  "events": [
+    {
+      "event": "bounded_original_inference",
+      "runtime_dtype": "BF16",
+      "engine_plan": {
+        "budget_bytes": 671088640,
+        "shared_bytes": 311166976,
+        "largest_layer_file_bytes": 31463112,
+        "reserved_bytes": 67108864,
+        "cached_layers": 7,
+        "estimated_persistent_plus_replacement_bytes": 594334984,
+        "scope": "MLX allocation heuristic, not total RAM; measured limit checked during forward"
+      },
+      "prompt": "Return only Python code for a function add(a, b) that returns a + b.",
+      "prompt_tokens": 30,
+      "raw_generated_token_ids": [
+        73594,
+        12669,
+        198,
+        750,
+        912,
+        2877,
+        11,
+        293,
+        982,
+        262,
+        470,
+        264,
+        488,
+        293,
+        198,
+        73594,
+        151645
+      ],
+      "text": "```python\ndef add(a, b):\n    return a + b\n```",
+      "stopped_at_eos": true,
+      "reached_token_limit": false,
+      "setup_seconds": 1.2753634580876678,
+      "generation_seconds": 2.215267333900556,
+      "first_greedy_step_seconds": 0.3042244170792401,
+      "mlx_peak_allocated_bytes": 632812044,
+      "engine_layer_calls": 476,
+      "engine_cache_hits": 119,
+      "engine_file_loads": 357,
+      "limitations": [
+        "Prototype supports the pinned Qwen3-0.6B original BF16 checkpoint only.",
+        "Budget governs measured MLX allocations, not total RAM or disk cache.",
+        "Cached layers and block reuse are known methods; no proven algorithmic novelty.",
+        "Generation quality depends on the base model; no production security guarantee."
+      ]
+    }
+  ],
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "physical_memory_bytes": 17179869184,
+  "sampled_process_tree_rss_peak_bytes": 534167552,
+  "observations": [
+    {
+      "seconds": 0.002004167065024376,
+      "process_tree_rss_bytes": 6144000,
+      "system_available_bytes": 4038541312,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.2158517090138048,
+      "process_tree_rss_bytes": 54345728,
+      "system_available_bytes": 4038541312,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.42976074991747737,
+      "process_tree_rss_bytes": 64389120,
+      "system_available_bytes": 4038541312,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.643455124925822,
+      "process_tree_rss_bytes": 88555520,
+      "system_available_bytes": 4038541312,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.8571617500856519,
+      "process_tree_rss_bytes": 89309184,
+      "system_available_bytes": 4038541312,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.0616881670430303,
+      "process_tree_rss_bytes": 90210304,
+      "system_available_bytes": 4021469184,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.27544179209508,
+      "process_tree_rss_bytes": 91750400,
+      "system_available_bytes": 4012097536,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.479195416904986,
+      "process_tree_rss_bytes": 101564416,
+      "system_available_bytes": 3996565504,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.6880900419782847,
+      "process_tree_rss_bytes": 101122048,
+      "system_available_bytes": 3919855616,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.9028785419650376,
+      "process_tree_rss_bytes": 85655552,
+      "system_available_bytes": 3919855616,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.108500499976799,
+      "process_tree_rss_bytes": 85655552,
+      "system_available_bytes": 3668672512,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.3224569589365274,
+      "process_tree_rss_bytes": 277708800,
+      "system_available_bytes": 3668557824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.5317688749637455,
+      "process_tree_rss_bytes": 534167552,
+      "system_available_bytes": 3668557824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.743049042066559,
+      "process_tree_rss_bytes": 324845568,
+      "system_available_bytes": 3668557824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.9529284168966115,
+      "process_tree_rss_bytes": 293634048,
+      "system_available_bytes": 3668557824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.159865166991949,
+      "process_tree_rss_bytes": 356761600,
+      "system_available_bytes": 3115319296,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.3714242500718683,
+      "process_tree_rss_bytes": 350470144,
+      "system_available_bytes": 3113533440,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.5780579999554902,
+      "process_tree_rss_bytes": 352567296,
+      "system_available_bytes": 3110338560,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.788513584062457,
+      "process_tree_rss_bytes": 356761600,
+      "system_available_bytes": 3109437440,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.002880209125578,
+      "process_tree_rss_bytes": 310640640,
+      "system_available_bytes": 3109437440,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.212887374917045,
+      "process_tree_rss_bytes": 354811904,
+      "system_available_bytes": 3165306880,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.419630999909714,
+      "process_tree_rss_bytes": 352911360,
+      "system_available_bytes": 3165306880,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.627568250056356,
+      "process_tree_rss_bytes": 288112640,
+      "system_available_bytes": 3165306880,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.834987709065899,
+      "process_tree_rss_bytes": 351027200,
+      "system_available_bytes": 3165306880,
+      "system_swap_growth_bytes": -8388608
+    }
+  ],
+  "limitations": [
+    "Small-model control, not 70B execution or a new scheduling algorithm.",
+    "Worker events and frozen protocols state per-mode prompt and token bounds.",
+    "No conversion, quantization or adapter; runtime BF16 explicitly checked.",
+    "Full-file hash precedes execution; OS cache state uncontrolled.",
+    "RSS and MLX allocation are different overlapping metrics; do not add them.",
+    "Existing system swap and background apps remain; no cold-cache claim."
+  ]
+}

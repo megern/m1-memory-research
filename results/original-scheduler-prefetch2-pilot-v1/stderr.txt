@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "[research source]/tools/run_original_precision.py", line 168, in <module>
+    scheduler_worker(args.model.resolve(), args.experiment.removeprefix('scheduler-'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[research source]/tools/benchmark_original_scheduler.py", line 56, in worker
+    refs = json.loads((refs_dir/'reference.json').read_text())
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "[python runtime]/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[python runtime]/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '[local models]/qwen3-0.6b-original-scheduler-reference/reference.json'

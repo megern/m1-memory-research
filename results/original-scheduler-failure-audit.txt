@@ -1,0 +1,11 @@
+Retained setup failures, not counted as benchmark trials:
+original-scheduler-reference-v1: terminated by system swap growth >512 MiB, before producing a frozen reference. This guard monitors all apps; no attribution to the model alone.
+original-scheduler-prefetch2-pilot-v1: dependent pilot was launched before a completed reference; failed with FileNotFoundError. Corrected parent preflight prevents launching this dependency prematurely.
+original-scheduler-prefetch2-pilot-v2: tokenizer returned BatchEncoding on the direct Transformers route; fixed explicit return_dict=False before the repeated trial series.
+original-scheduler-prefetch2-pilot-v3: successful numerical pilot, separate from all 25 scheduled trials.
+original-scheduler-reference-v2: completed frozen reference with four prompts and 32 steps.
+All failures retained; no replacement or score repair.
+
+Budgeted follow-up:
+budgeted-engine-trials-v1 used new held-out prompts after scheduler results; exploratory, not a pre-registered confirmatory study. During its later rounds, the chart generator ran and built its font cache. This can affect timings.
+budgeted-engine-trials-v2 repeats all twelve jobs with the identical protocol and reference after chart generation finished. No mode selection, changed prompts or changed tolerance. Both complete sets are retained.

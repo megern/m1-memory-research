@@ -1,0 +1,500 @@
+{
+  "model": {
+    "repository": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "weight_bytes": 1503300328,
+    "file_dtypes": [
+      "BF16"
+    ],
+    "tensor_count": 311,
+    "support_file_hashes": {
+      "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    }
+  },
+  "experiment": "scheduler-resident",
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "elapsed_seconds": 4.500571124954149,
+  "events": [
+    {
+      "event": "scheduler_trial",
+      "mode": "resident",
+      "protocol_sha256": "0ad5c12adffe2277b15bb032790147815a705be0f17b990d4623adfbc1b4c1e0",
+      "reference_logits_sha256": "4c584a111823843ecd510568d7b0a6e227fb92ccb15b6a1992b979227db9f356",
+      "runtime_dtype": "BF16",
+      "measured_seconds_including_comparison_and_cleanup": 1.2483178339898586,
+      "forward_seconds": 1.0832690023817122,
+      "prefill_seconds": 0.4129714583978057,
+      "decode_seconds": 0.6702975439839065,
+      "greedy_steps": 32,
+      "mlx_peak_allocated_bytes": 1286144328,
+      "maximum_serialized_layer_bytes": 31463112,
+      "buffer_budget_current_plus_pending_files": 1,
+      "cases": [
+        {
+          "case": 0,
+          "prompt_tokens": 28,
+          "tokens": [
+            16,
+            22,
+            54916,
+            553,
+            220,
+            16,
+            24,
+            16819
+          ],
+          "raw_output": "17 multiplied by 19 equals",
+          "token_seconds": [
+            0.26447662501595914,
+            0.03138591698370874,
+            0.027483500074595213,
+            0.027354208985343575,
+            0.02740004099905491,
+            0.022950500017032027,
+            0.022960291942581534,
+            0.022984915878623724
+          ],
+          "prefill_seconds": 0.26447662501595914,
+          "decode_seconds": 0.18251937488093972,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 1,
+          "prompt_tokens": 31,
+          "tokens": [
+            124839,
+            130248,
+            124061,
+            128546,
+            124079,
+            124267,
+            123894,
+            12653
+          ],
+          "raw_output": "المصادقة متعددة العو",
+          "token_seconds": [
+            0.049735291162505746,
+            0.02308308403007686,
+            0.02286133309826255,
+            0.0224760000128299,
+            0.02276691608130932,
+            0.022691791877150536,
+            0.0228731669485569,
+            0.023249417077749968
+          ],
+          "prefill_seconds": 0.049735291162505746,
+          "decode_seconds": 0.16000170912593603,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 2,
+          "prompt_tokens": 24,
+          "tokens": [
+            8420,
+            594,
+            264,
+            4285,
+            13027,
+            729,
+            429,
+            4675
+          ],
+          "raw_output": "Here's a simple Python function that returns",
+          "token_seconds": [
+            0.049131750129163265,
+            0.022988666081801057,
+            0.02281787502579391,
+            0.022876542061567307,
+            0.023527583805844188,
+            0.02311091683804989,
+            0.022964000003412366,
+            0.02323599997907877
+          ],
+          "prefill_seconds": 0.049131750129163265,
+          "decode_seconds": 0.16152158379554749,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        },
+        {
+          "case": 3,
+          "prompt_tokens": 25,
+          "tokens": [
+            2082,
+            3766,
+            1265,
+            990,
+            3070,
+            55271,
+            12,
+            11887
+          ],
+          "raw_output": "An application should use **least-priv",
+          "token_seconds": [
+            0.049627792090177536,
+            0.027227708837017417,
+            0.023170124972239137,
+            0.02306908299215138,
+            0.02316379197873175,
+            0.02312054205685854,
+            0.023326292168349028,
+            0.023177333176136017
+          ],
+          "prefill_seconds": 0.049627792090177536,
+          "decode_seconds": 0.16625487618148327,
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_difference": 0.0,
+              "allclose": true
+            }
+          ]
+        }
+      ],
+      "layer_traces": [],
+      "limitations": [
+        "Four short prompts; at most eight greedy steps, not quality or steady throughput.",
+        "Teacher-forced resident reference inputs; token equality checked separately.",
+        "File hashes warm OS caches; no cold-SSD benchmark or SSD byte measurement.",
+        "Buffered bytes reside outside MLX allocator; report RSS separately, do not add metrics.",
+        "CPU thread reads bytes only; all MLX operations stay on the main thread.",
+        "New process per trial; resident loading and shared-weight loading excluded from forward time.",
+        "Prefetch is an established technique; no novelty claim."
+      ]
+    }
+  ],
+  "stderr_raw_sha256_before_path_redaction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "physical_memory_bytes": 17179869184,
+  "sampled_process_tree_rss_peak_bytes": 403341312,
+  "observations": [
+    {
+      "seconds": 0.0021161669865250587,
+      "process_tree_rss_bytes": 6160384,
+      "system_available_bytes": 3924361216,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.21259154193103313,
+      "process_tree_rss_bytes": 59867136,
+      "system_available_bytes": 3731816448,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.42765754205174744,
+      "process_tree_rss_bytes": 85688320,
+      "system_available_bytes": 3698327552,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.6337008748669177,
+      "process_tree_rss_bytes": 91684864,
+      "system_available_bytes": 3698327552,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.8400404169224203,
+      "process_tree_rss_bytes": 92340224,
+      "system_available_bytes": 3698327552,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.052352957893163,
+      "process_tree_rss_bytes": 94273536,
+      "system_available_bytes": 3686793216,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.2670886248815805,
+      "process_tree_rss_bytes": 101761024,
+      "system_available_bytes": 3700604928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.481896874960512,
+      "process_tree_rss_bytes": 101761024,
+      "system_available_bytes": 3700604928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.6966305419337004,
+      "process_tree_rss_bytes": 101761024,
+      "system_available_bytes": 3700604928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.9114482919685543,
+      "process_tree_rss_bytes": 73449472,
+      "system_available_bytes": 3700604928,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.123946625040844,
+      "process_tree_rss_bytes": 252149760,
+      "system_available_bytes": 3620765696,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.3638750419486314,
+      "process_tree_rss_bytes": 388956160,
+      "system_available_bytes": 3238084608,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.580690624890849,
+      "process_tree_rss_bytes": 358350848,
+      "system_available_bytes": 3238084608,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.7861556669231504,
+      "process_tree_rss_bytes": 384548864,
+      "system_available_bytes": 3238084608,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.002163792029023,
+      "process_tree_rss_bytes": 403341312,
+      "system_available_bytes": 3238084608,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.2135917919222265,
+      "process_tree_rss_bytes": 334249984,
+      "system_available_bytes": 2740060160,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.4292007498443127,
+      "process_tree_rss_bytes": 335839232,
+      "system_available_bytes": 2778824704,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.6442942498251796,
+      "process_tree_rss_bytes": 336052224,
+      "system_available_bytes": 2775629824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.8615590420085937,
+      "process_tree_rss_bytes": 336052224,
+      "system_available_bytes": 2775629824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.072502666851506,
+      "process_tree_rss_bytes": 335462400,
+      "system_available_bytes": 2775629824,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.285656417021528,
+      "process_tree_rss_bytes": 331923456,
+      "system_available_bytes": 2813526016,
+      "system_swap_growth_bytes": 0
+    }
+  ],
+  "limitations": [
+    "Small-model control, not 70B execution or a new scheduling algorithm.",
+    "Resident mode: three prompts, 32 tokens each. Streaming mode: two-step equivalence control.",
+    "No conversion, quantization or adapter; runtime BF16 explicitly checked.",
+    "Full-file hash precedes execution; OS cache state uncontrolled.",
+    "RSS and MLX allocation are different overlapping metrics; do not add them.",
+    "Existing system swap and background apps remain; no cold-cache claim."
+  ]
+}

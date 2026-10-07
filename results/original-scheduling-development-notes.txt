@@ -1,0 +1,32 @@
+Original BF16 scheduling development — Megern Qaisse
+
+Status: local prototype and small-model controls, not a new proven algorithm or market-ready engine.
+Model: original Qwen/Qwen3-0.6B BF16, pinned revision and verified tensor payloads; no quantization, adapters or changed weights.
+
+First study: 25 isolated randomized trials (five modes, five rounds), four prompts and 32 reference-conditioned steps per trial. All logits were exactly equal in the measured steps and all greedy token IDs matched. Median forward times: resident 1.0791 s; file loading 4.1067 s; synchronous bytes 7.4001 s; one-layer prefetch 5.6123 s; two-layer prefetch 5.6447 s. Prefetch helped the bytes pipeline but did not beat the file baseline. Rejected the broad claim that prefetch is faster here.
+
+Exploratory follow-up: six additional prompts fixed before evaluation, three rounds in each of two complete sets. The first set overlapped chart preparation in later rounds; its 12 jobs are retained. The second repeats all 12 jobs after plotting finished, with identical source, prompts, reference and order. This is an exploratory follow-up to observed results, not external preregistration or an independently replicated study.
+
+Repeat set (sum of forward times for six prompts / 48 steps; model setup, hashing, comparisons and cleanup excluded):
+Mode                 median seconds     median peak MLX MiB
+Resident             1.5394             1227.66
+File loading         6.3697              364.77
+Reusable block       7.2739              394.76
+Cache seven layers   6.0515              604.79
+
+The cache engine reduced median forward time by 5.00% relative to file loading, using MORE MLX allocation than file loading (65.80% increase). It reduced peak MLX allocation by 50.74% relative to the fully resident model, but was much slower than that resident model. These are two different comparators, not simultaneous speed and memory superiority over one baseline. Paired reductions by round: 6.40%, 5.00%, 2.21%. Three rounds do not establish statistical significance or a general speedup.
+
+The 640 MiB budget is an allocation heuristic with measured active-MLX checks, not a total-RAM cap. Peak allocation in the tested cache cases was 604.79 MiB. Reported RSS is separate and varied substantially; it can exceed this budget and is not the model's full physical memory footprint. No addition of MLX and RSS. Embedding and KV cache remain resident. Seven cached layers yield 336 cache hits and 1008 forward layer-file loads per 48-step trial, versus 1344 file loads without layer caching; initial cached-layer setup is excluded from this count and forward timings.
+
+Across the 25 original and 24 follow-up trials, 1952 numerical comparisons on identical reference inputs had zero maximum absolute logit difference and identical greedy token IDs. This does not prove equivalence for all contexts, models, kernels or free-running conversations. Follow-up source snapshots and all failed setup runs are retained with hashes and a failure audit.
+
+The local CLI completed free greedy generation to EOS: a fenced Python function add(a,b) returning a+b. Generated code was inspected, not executed. A single simple function is not a programming quality benchmark. The CLI supports this pinned small BF16 model, limits prompts to 128 template tokens, total context to 256, and output to 64; local weights and layer files must already exist. No automatic downloads or cloud inference.
+
+Why this does not yet establish the large-model target: the small model fits RAM, caches were warmed by verification, and no original 70B model was executed. Original 70B 16-bit weights are about 140 billion bytes before overhead. Copying that entire model into additional layer shards would approximately double storage and can exceed available disk space; direct access to original shards is a required next development step.
+
+Prior art: memory offloading, caching, prefetching and reusable computation objects are established methods. Our contribution at this stage is an instrumented local implementation, reproducible comparisons and a usable bounded prototype. Novelty and market usefulness require stronger larger-model results and comparison to existing implementations.
+https://proceedings.mlr.press/v202/sheng23a.html
+https://machinelearning.apple.com/research/efficient-large-language
+https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.load.html
+
+Source snapshots under each trial directory match the recorded hashes. To reproduce an older frozen implementation exactly, restore those files into the tools directory of a separate checkout, keep the corresponding protocol/model manifests, and use new result/reference directories; do not overwrite retained evidence. Raw reference logits stay locally under work and their hashes are published. Reference generation and step-by-step comparisons can regenerate them using the recorded protocol.

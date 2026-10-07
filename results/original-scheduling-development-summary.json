@@ -1,0 +1,47 @@
+{
+  "status": "completed_prototype_and_small_model_controls",
+  "successful_scheduled_trials": 49,
+  "numerical_comparisons_on_identical_inputs": 1952,
+  "maximum_absolute_logit_difference": 0.0,
+  "all_greedy_tokens_equal": true,
+  "original_precision": "BF16",
+  "quantization_used": false,
+  "reference_model": "Qwen/Qwen3-0.6B",
+  "cached_layers": 7,
+  "cache_mlx_budget_mib": 640,
+  "cache_measured_peak_mib": 604.7934684753418,
+  "repeat_cache_vs_file_median_time_reduction_percent": 4.995226644712503,
+  "repeat_cache_vs_resident_mlx_peak_reduction_percent": 50.73593992654399,
+  "repeat_cache_vs_file_mlx_peak_increase_percent": 65.79952515966794,
+  "repeat_paired_rounds": [
+    {
+      "round": 1,
+      "cache_vs_file_time_reduction_percent": 6.397461513538261
+    },
+    {
+      "round": 2,
+      "cache_vs_file_time_reduction_percent": 4.995226644712503
+    },
+    {
+      "round": 3,
+      "cache_vs_file_time_reduction_percent": 2.2145234325708363
+    }
+  ],
+  "resident_is_faster_than_streaming": true,
+  "local_free_generation_demo": "results/budgeted-engine-code-demo-v1/report.json",
+  "all_original_precision_70b_execution": false,
+  "proven_algorithmic_novelty": false,
+  "next_requirements": [
+    "Longer contexts and outputs",
+    "Model larger than available RAM",
+    "Original-shard access without duplicate weight storage",
+    "External independent replication and broader quality tests"
+  ],
+  "limits": [
+    "Small model fits physical RAM; not proof of execution beyond RAM.",
+    "Warm/uncontrolled OS page cache; no cold SSD bandwidth inference.",
+    "MLX budget and allocation are not total system RAM or RSS.",
+    "Follow-up is exploratory; both full trial sets retained.",
+    "No inferential significance or market readiness claim."
+  ]
+}

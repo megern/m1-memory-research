@@ -53,3 +53,38 @@ python3 tools/run_large_model.py --runtime runtime/llama-b11457/llama-completion
 ## قراءة النتائج والأوراق
 
 تعرض `results` كل بذور التدريب، النموذج الأصلي، الإجابات الخام، وبصمات البيانات والأوزان. ملفات `papers` مسودات علمية قابلة للتحرير، وليست أوراقًا محكمة. نميز بين صحة JSON وصحة التصنيف، ونحتفظ بالمقارنات والتجارب السلبية. تُعرض الأرقام المكتملة في README والأوراق بعد تسجيل التجربة الفعلية.
+
+## تشغيل الأوزان الأصلية دون تكميم
+
+هذه الأداة الجديدة تستخدم Qwen3-0.6B الأصلي بدقة BF16، وتبقي الأوزان دون تكميم. النموذج صغير ويسع ذاكرة الجهاز؛ لا يمثل هذا تشغيل 70B بالأوزان الأصلية. اختر مجلد نموذج، ويجب أن يكون مجلد الطبقات بجواره بالاسم نفسه مع اللاحقة `-layers`.
+
+```sh
+python3 tools/download_base.py --manifest models/qwen3-0.6b-original.json --output /absolute/local/qwen3-original
+python3 tools/shard_original_layers.py --model /absolute/local/qwen3-original --output /absolute/local/qwen3-original-layers
+python3 tools/local_original_inference.py --model /absolute/local/qwen3-original --budget-mib 640 --tokens 64 --prompt "Return only Python code for a function add(a, b) that returns a + b." --output results/new-original-demo
+```
+
+تنزيل الأوزان علني، ويجري الحساب على الجهاز فقط. التقسيم ينسخ الأوزان إلى ملفات إضافية ويتحقق من بقاء بياناتها؛ يحتاج مساحة إضافية تقارب حجم النموذج. هذه الطريقة في تجهيز الملفات لا تصلح تلقائيًا لنموذج 70B على المساحة الحالية؛ الوصول المباشر إلى ملفات النموذج الأصلية مطلوب قبل التوسع.
+
+الميزانية `640` تخص تقدير تخصيص MLX وفحوص الذاكرة النشطة أثناء الحساب، ولا تحد إجمالي RAM أو ذاكرة النظام المؤقتة. اختير تخزين سبع طبقات بهذا الإعداد، وبلغت الذروة المقاسة نحو 605MiB في المقارنات. قد يتوقف سؤال أطول إذا تجاوز الحدود؛ لا تضمن المعادلة وحدها ملاءمة كل سياق. الأداة تحد السياق إلى 256 رمزًا، والسؤال إلى 128 رمزًا بعد القالب، والإجابة إلى 64 رمزًا. تعرض الإجابة وبصمتها التشغيلية وحد التوقف في `report.json`؛ جودة الإجابة تعتمد على النموذج الأصلي.
+
+## إعادة مقارنة طرق التحميل
+
+```sh
+python3 tools/run_original_precision.py --model /absolute/local/qwen3-original --experiment scheduler-reference --output results/new-scheduler-reference
+python3 tools/run_scheduler_trials.py --model /absolute/local/qwen3-original --output results/new-scheduler-trials
+python3 tools/run_budgeted_trials.py --model /absolute/local/qwen3-original --reference --output results/new-budgeted-reference
+python3 tools/run_budgeted_trials.py --model /absolute/local/qwen3-original --output results/new-budgeted-trials
+```
+
+الأمر الأول يولّد مرجع الحساب إلى مجلد بجوار النموذج بلاحقة `-scheduler-reference`، والثالث بلاحقة `-budgeted-reference`. المراجع ونتائج التجارب لا تكتب فوق ملفات قائمة. استخدم مجلد نموذج جديدًا عند إعادة توليد مرجع موجود. الأوامر تقارن القيم الرقمية والتوكنات على المدخلات نفسها، وتحتفظ بكل الجولات وترتيبها العشوائي وبصمات المصدر؛ لا تختار أسرع جولة وحدها.
+
+المقارنة الأولى: خمس طرق، خمس جولات، أربع حالات قصيرة. المتابعة الاستكشافية: أربع طرق، ثلاث جولات، ست حالات إضافية. ملف البروتوكول يثبت الأسئلة والسياق العددي وحد التوليد. توقيت المقارنة يستثني تحميل النموذج الأولي والتحقق من البصمات، بينما تقرير العملية يحفظ زمنها الكلي. حالة ذاكرة الملفات غير متحكم بها وتسخن بقراءة البصمات؛ ليست هذه تجربة قرص بارد.
+
+لإعادة رسم النتائج، ثبّت متطلبات الرسوم الموجودة ثم استخدم:
+
+```sh
+python3 tools/plot_original_scheduler.py --summary results/new-budgeted-trials/summary.json --output figures/new-budgeted-engine
+```
+
+النتيجة المتكررة حتى الآن: تخزين بعض الطبقات خفّض وسيط زمن الحساب بنحو 5% مقابل التحميل المتتابع، مع استهلاك MLX أعلى منه. التشغيل المقيم أسرع لكنه يستخدم تخصيص MLX أعلى. اقرأ الفروق والقيود في `results/original-scheduling-development-notes.txt` قبل نقل الأرقام إلى منشور أو ورقة.

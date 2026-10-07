@@ -1,0 +1,327 @@
+{
+  "model": {
+    "repository": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "weight_bytes": 1503300328,
+    "file_dtypes": [
+      "BF16"
+    ],
+    "tensor_count": 311,
+    "support_file_hashes": {
+      "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    }
+  },
+  "experiment": "scheduler-reference",
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "elapsed_seconds": 5.236777416896075,
+  "events": [
+    {
+      "event": "scheduler_trial",
+      "mode": "reference",
+      "protocol_sha256": "0ad5c12adffe2277b15bb032790147815a705be0f17b990d4623adfbc1b4c1e0",
+      "reference_logits_sha256": "4c584a111823843ecd510568d7b0a6e227fb92ccb15b6a1992b979227db9f356",
+      "runtime_dtype": "BF16",
+      "measured_seconds_including_comparison_and_cleanup": 1.2599422910716385,
+      "forward_seconds": 1.1252808703575283,
+      "prefill_seconds": 0.4286629988346249,
+      "decode_seconds": 0.6966178715229034,
+      "greedy_steps": 32,
+      "mlx_peak_allocated_bytes": 1286144328,
+      "maximum_serialized_layer_bytes": 31463112,
+      "buffer_budget_current_plus_pending_files": 1,
+      "cases": [
+        {
+          "case": 0,
+          "prompt_tokens": 28,
+          "tokens": [
+            16,
+            22,
+            54916,
+            553,
+            220,
+            16,
+            24,
+            16819
+          ],
+          "raw_output": "17 multiplied by 19 equals",
+          "token_seconds": [
+            0.2777714158874005,
+            0.03280712501145899,
+            0.027698500081896782,
+            0.023536042077466846,
+            0.02732945792376995,
+            0.0343878751154989,
+            0.03259604098275304,
+            0.023551000049337745
+          ],
+          "prefill_seconds": 0.2777714158874005,
+          "decode_seconds": 0.20190604124218225,
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt_tokens": 31,
+          "tokens": [
+            124839,
+            130248,
+            124061,
+            128546,
+            124079,
+            124267,
+            123894,
+            12653
+          ],
+          "raw_output": "المصادقة متعددة العو",
+          "token_seconds": [
+            0.053014166885986924,
+            0.023452250054106116,
+            0.02410999988205731,
+            0.024889790918678045,
+            0.024280458921566606,
+            0.024307332932949066,
+            0.024820500053465366,
+            0.02520195790566504
+          ],
+          "prefill_seconds": 0.053014166885986924,
+          "decode_seconds": 0.17106229066848755,
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt_tokens": 24,
+          "tokens": [
+            8420,
+            594,
+            264,
+            4285,
+            13027,
+            729,
+            429,
+            4675
+          ],
+          "raw_output": "Here's a simple Python function that returns",
+          "token_seconds": [
+            0.04885875014588237,
+            0.023685709107667208,
+            0.02354604098945856,
+            0.023584832902997732,
+            0.02336149988695979,
+            0.02292645792476833,
+            0.022787249879911542,
+            0.022781499894335866
+          ],
+          "prefill_seconds": 0.04885875014588237,
+          "decode_seconds": 0.16267329058609903,
+          "comparisons": []
+        },
+        {
+          "case": 3,
+          "prompt_tokens": 25,
+          "tokens": [
+            2082,
+            3766,
+            1265,
+            990,
+            3070,
+            55271,
+            12,
+            11887
+          ],
+          "raw_output": "An application should use **least-priv",
+          "token_seconds": [
+            0.049018665915355086,
+            0.023433875059708953,
+            0.022684749914333224,
+            0.022786458022892475,
+            0.022743332898244262,
+            0.023321666987612844,
+            0.02332270797342062,
+            0.022683458169922233
+          ],
+          "prefill_seconds": 0.049018665915355086,
+          "decode_seconds": 0.1609762490261346,
+          "comparisons": []
+        }
+      ],
+      "layer_traces": [],
+      "limitations": [
+        "Four short prompts; at most eight greedy steps, not quality or steady throughput.",
+        "Teacher-forced resident reference inputs; token equality checked separately.",
+        "File hashes warm OS caches; no cold-SSD benchmark or SSD byte measurement.",
+        "Buffered bytes reside outside MLX allocator; report RSS separately, do not add metrics.",
+        "CPU thread reads bytes only; all MLX operations stay on the main thread.",
+        "New process per trial; resident loading and shared-weight loading excluded from forward time.",
+        "Prefetch is an established technique; no novelty claim."
+      ]
+    }
+  ],
+  "physical_memory_bytes": 17179869184,
+  "sampled_process_tree_rss_peak_bytes": 339591168,
+  "observations": [
+    {
+      "seconds": 0.0022062920033931732,
+      "process_tree_rss_bytes": 6209536,
+      "system_available_bytes": 3610001408,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.21253145788796246,
+      "process_tree_rss_bytes": 53116928,
+      "system_available_bytes": 3586834432,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.4227679579053074,
+      "process_tree_rss_bytes": 77938688,
+      "system_available_bytes": 3577970688,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.6325285830534995,
+      "process_tree_rss_bytes": 86638592,
+      "system_available_bytes": 3580903424,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.8427665419876575,
+      "process_tree_rss_bytes": 91734016,
+      "system_available_bytes": 3580903424,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.0479141250252724,
+      "process_tree_rss_bytes": 92372992,
+      "system_available_bytes": 3562684416,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.2577557920012623,
+      "process_tree_rss_bytes": 94273536,
+      "system_available_bytes": 3562684416,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.4646267080679536,
+      "process_tree_rss_bytes": 98844672,
+      "system_available_bytes": 3562684416,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.6754204998724163,
+      "process_tree_rss_bytes": 101875712,
+      "system_available_bytes": 3562684416,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.88853754196316,
+      "process_tree_rss_bytes": 90931200,
+      "system_available_bytes": 3562684416,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.097922832937911,
+      "process_tree_rss_bytes": 88784896,
+      "system_available_bytes": 3467689984,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.308839541859925,
+      "process_tree_rss_bytes": 88784896,
+      "system_available_bytes": 3461267456,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.514227124862373,
+      "process_tree_rss_bytes": 260112384,
+      "system_available_bytes": 3428909056,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.7200134170707315,
+      "process_tree_rss_bytes": 177864704,
+      "system_available_bytes": 3122757632,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.9262802919838578,
+      "process_tree_rss_bytes": 157138944,
+      "system_available_bytes": 2854125568,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.1332806248683482,
+      "process_tree_rss_bytes": 203128832,
+      "system_available_bytes": 2623750144,
+      "system_swap_growth_bytes": 29818880
+    },
+    {
+      "seconds": 3.3442644579336047,
+      "process_tree_rss_bytes": 259768320,
+      "system_available_bytes": 2637168640,
+      "system_swap_growth_bytes": 91422720
+    },
+    {
+      "seconds": 3.5548007499892265,
+      "process_tree_rss_bytes": 337756160,
+      "system_available_bytes": 2623766528,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 3.7647824168670923,
+      "process_tree_rss_bytes": 327155712,
+      "system_available_bytes": 2586656768,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 3.9784468750003725,
+      "process_tree_rss_bytes": 319488000,
+      "system_available_bytes": 2586656768,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 4.190059999935329,
+      "process_tree_rss_bytes": 317652992,
+      "system_available_bytes": 2475163648,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 4.39707912504673,
+      "process_tree_rss_bytes": 330366976,
+      "system_available_bytes": 2476523520,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 4.606221916852519,
+      "process_tree_rss_bytes": 334594048,
+      "system_available_bytes": 2474377216,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 4.816212499979883,
+      "process_tree_rss_bytes": 339591168,
+      "system_available_bytes": 2474393600,
+      "system_swap_growth_bytes": 101122048
+    },
+    {
+      "seconds": 5.026241707848385,
+      "process_tree_rss_bytes": 329580544,
+      "system_available_bytes": 2474393600,
+      "system_swap_growth_bytes": 101122048
+    }
+  ],
+  "limitations": [
+    "Small-model control, not 70B execution or a new scheduling algorithm.",
+    "Resident mode: three prompts, 32 tokens each. Streaming mode: two-step equivalence control.",
+    "No conversion, quantization or adapter; runtime BF16 explicitly checked.",
+    "Full-file hash precedes execution; OS cache state uncontrolled.",
+    "RSS and MLX allocation are different overlapping metrics; do not add them.",
+    "Existing system swap and background apps remain; no cold-cache claim."
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "stderr_raw_sha256_before_path_redaction": "5fe8973c17b450050f2c192feb60aba2ae3774f67a775ea2099398e72701ffa0",
+  "redaction": "Local research, model, and Python runtime paths only; error text retained."
+}
