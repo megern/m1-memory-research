@@ -1,0 +1,25 @@
+{
+  "status": "phase1_controls_completed",
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "quantization_used": false,
+  "runtime_dtype": "BF16",
+  "claimed_novelty": null,
+  "70b_original_precision_executed": false,
+  "shards": 29,
+  "tensor_payloads_verified_unchanged": 311,
+  "equivalence_steps": 2,
+  "layers_executed": 56,
+  "max_absolute_logit_difference": 0.0,
+  "token_ids_equal": true,
+  "resident_mlx_peak_bytes": 1275789616,
+  "streaming_mlx_peak_bytes": 380248596,
+  "remaining": [
+    "Multi-prompt equivalence tests",
+    "Isolated repeated memory and performance comparisons",
+    "Develop and compare prefetch schedules",
+    "Scale to larger original-weight models",
+    "Market usefulness evaluation"
+  ],
+  "training_or_inference_cloud_used": false
+}
