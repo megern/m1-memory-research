@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-08",
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "seed": 8059,
+  "rounds": 2,
+  "tokens_per_case": 4,
+  "budget_mib": 2048,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "prompts": [
+    "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO."
+  ],
+  "hypothesis": "One-layer raw-byte read-ahead may hide I/O behind GPU computation, at increased host RSS. Compare matched raw-serial control and native unchunked baseline.",
+  "limits": [
+    "Whole-system swap includes other apps.",
+    "OS cache and trial order not controlled beyond randomized two rounds.",
+    "Known chunked prefill; no algorithmic novelty claim.",
+    "Failure reports retained, no automatic retries.",
+    "Byte read-ahead is a known technique; MLX work remains on the main thread. One layer of host bytes is additional RAM, not counted in MLX allocations."
+  ],
+  "variants": {
+    "unchunked": {
+      "chunk_size": 1024,
+      "schedule": "chunk-major",
+      "io_mode": "native"
+    },
+    "raw-serial": {
+      "chunk_size": 1024,
+      "schedule": "chunk-major",
+      "io_mode": "raw-cached"
+    },
+    "raw-prefetch1": {
+      "chunk_size": 1024,
+      "schedule": "chunk-major",
+      "io_mode": "raw-cached",
+      "prefetch_layers": 1
+    }
+  },
+  "study_kind": "Exploratory single-workload transport overlap study, prospectively frozen; no novelty claim.",
+  "max_input_tokens": 1024,
+  "max_context_tokens": 2048,
+  "verification_workers": 8,
+  "resource_policy": "Use GPU for dense original computations and up to 8 CPU hashing workers, 2048 MiB active MLX check. Existing pressure guards retained. GPU utilization not measured."
+}

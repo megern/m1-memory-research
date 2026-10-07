@@ -1,0 +1,104 @@
+{
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "manifest_sha256": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "weight_file_bytes": 1503300328,
+  "logical_cpu_count": 8,
+  "resource_measurement_scope": "CPU percent is process-tree CPU time / elapsed time; 100% equals one logical CPU. GPU device recorded, GPU utilization not measured.",
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": false,
+  "verification_seconds": 1.267792042111978,
+  "worker_elapsed_seconds": 2.0428908329922706,
+  "io_mode": "raw-cached",
+  "verification_system_swap_delta_bytes": 0,
+  "verification_io_policy": "per-descriptor F_NOCACHE",
+  "verification_workers": 1,
+  "verification_measurements": [
+    {
+      "seconds": 2.4999957531690598e-05,
+      "rss_bytes": 28868608,
+      "system_available_bytes": 3986587648,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.08552612400000001,
+      "process_threads": 1
+    },
+    {
+      "seconds": 0.502422875026241,
+      "rss_bytes": 57540608,
+      "system_available_bytes": 3986587648,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.452722736,
+      "process_threads": 1
+    },
+    {
+      "seconds": 1.0031357500702143,
+      "rss_bytes": 57540608,
+      "system_available_bytes": 3983572992,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.8131080159999999,
+      "process_threads": 1
+    },
+    {
+      "seconds": 1.2676399170886725,
+      "rss_bytes": 57606144,
+      "system_available_bytes": 3991748608,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.991458656,
+      "process_threads": 1
+    }
+  ],
+  "swap_baseline_scope": "before verification, retained during inference",
+  "model_started": true,
+  "exit_code": 1,
+  "stopped_by_guard": null,
+  "completed": false,
+  "numerical_audit_passed": null,
+  "sampled_process_tree_rss_peak_bytes": 94896128,
+  "stderr_raw_sha256_before_path_redaction": "d30ff1ebc60f36a7b8115ed180a9c2d61c79ec078929aad071cadf34fbf6e6d5",
+  "events": [],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.0026689579244703054,
+      "rss_bytes": 4505600,
+      "system_available_bytes": 3989667840,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.0045886239999999995,
+      "process_tree_cpu_percent": null,
+      "process_tree_threads": 1
+    },
+    {
+      "seconds": 0.5120635000057518,
+      "rss_bytes": 66224128,
+      "system_available_bytes": 3866312704,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.324119256,
+      "process_tree_cpu_percent": 62.72753349387362,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.021691625006497,
+      "rss_bytes": 90898432,
+      "system_available_bytes": 3872423936,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.635943376,
+      "process_tree_cpu_percent": 61.18659954246914,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.532873332966119,
+      "rss_bytes": 94896128,
+      "system_available_bytes": 3873292288,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 1.0326136959999999,
+      "process_tree_cpu_percent": 77.59869217216446,
+      "process_tree_threads": 3
+    }
+  ],
+  "limitations": [
+    "All original files hashed before worker timing; verification policy recorded, OS caches uncontrolled.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}

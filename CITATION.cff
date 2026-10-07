@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the recorded experiments, source and editable working manuscripts."
 type: software
 title: "M1 Memory Research: Local Inference, BF16 Scheduling and LoRA Specialists"
-version: 0.6.0
+version: 0.7.0
 date-released: 2026-10-08
 authors:
   - family-names: Qaisse

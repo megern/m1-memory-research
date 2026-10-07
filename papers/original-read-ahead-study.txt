@@ -1,0 +1,87 @@
+Original BF16 layer read-ahead on an Apple M1 with 16 GiB
+
+Author: Megern Qaisse
+
+Date: 2026-10-08; v0.7 development working note; not peer reviewed.
+
+
+
+Question and implementation
+
+Can reading the next original layer while computing the current layer reduce forward time without unacceptable host-memory pressure? One Python I/O worker reads checked BF16 payloads; all MLX array construction and GPU computation remain on the caller thread. At most one unread future is retained. Consumed futures are cleared before submitting the next layer. Shutdown cancels pending work and joins the reader on success or failure.
+
+Original checkpoint files are unchanged; there is no repackaging, quantization, layer skipping or vocabulary pruning. The extra host payload is an in-memory copy, despite zero duplicate persistent weight storage. MLX allocation checks do not cap host payloads or total RAM. Native mode remains the default. Only raw-cached/raw-nocache support byte read-ahead.
+
+
+
+Prospective workload and controls
+
+Pinned Qwen/Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18, eight original BF16 shards totaling 29,536,665,640 bytes, largest original layer 660,623,872 bytes. Device physical RAM is 17,179,869,184 bytes. All files are SHA256 verified before each worker.
+
+One synthetic access-log question, 471 template tokens, requires NO. Four output-token cap; completed attempts ended after NO and EOS (two generated tokens). This question reuses the first v0.6 workload: it is not a held-out model-quality test. Whole prompt, chunk cap 1024, context cap 2048, head tiles 2048 rows, active-MLX check 2048 MiB, verification workers 8. Native baseline, matched raw-cached serial control and raw-cached one-layer read-ahead; two rounds, random seed 8059. Six fresh worker processes; source, protocol and manifest frozen before execution. No retries or altered guards.
+
+Unchanged guards: whole-system swap growth over 512 MiB from before verification, process-tree RSS over 6 GiB, available memory below 512 MiB for five seconds, or timeout 900 seconds. Swap is global and includes other apps. OS file caches, thermal state and other applications were not controlled. F_NOCACHE verification is a descriptor hint, not proof of a cold inference cache.
+
+
+
+All retained outcomes
+
+Round | Method | Completed | Forward s | MLX MiB | Sampled RSS MiB | Positive setup/worker swap MiB
+
+1 | raw-serial | False | 20.7497 (partial) | 780.95 (completed steps only) | 981.44 | 514.12
+
+1 | raw-prefetch1 | False | 15.0096 (partial) | 780.95 (completed steps only) | 1936.53 | 579.88
+
+1 | unchunked | True | 26.9538 | 780.95 | 989.73 | 0.00
+
+2 | unchunked | True | 27.1416 | 780.95 | 1190.27 | 0.00
+
+2 | raw-serial | True | 33.3370 | 780.95 | 1179.73 | 0.00
+
+2 | raw-prefetch1 | True | 25.2927 | 780.95 | 1981.19 | 0.00
+
+
+
+Interpretation
+
+The only completed same-round native/read-ahead pair is round 2: 27.1416 versus 25.2927 seconds, 6.81% observed reduction. Read-ahead adds 790.92 MiB sampled RSS. Peak MLX is identical (780.95 MiB), showing why GPU allocation alone misses the added host memory.
+
+Against the matched raw-serial control in that same round, read-ahead reduces observed forward time by 24.13% and adds 801.45 MiB sampled RSS.
+
+Native completed 2/2; each raw method completed 1/2. Both round-1 raw attempts stopped on swap growth after recording only one output step; partial forward times cannot rank full-workload speed. Completed 14B outputs are identical NO/EOS sequences, which is a functional control, not full-score or broad security-quality equivalence. One successful pair is insufficient to establish statistical significance, reproducible speedup or stability. No timing gain is attributed causally to disk/GPU overlap because overlap was not profiled.
+
+
+
+Numerical and software checks
+
+The initial original 0.6B read-ahead audit passed all 48 greedy and fixed allclose(atol=.01,rtol=.01) checks against the pinned upstream resident reference. 42 scores are exactly equal, maximum absolute score difference .0625, matching the previous default regression scope. A frozen-source repeat passed all 48 checks (42 exact, maximum difference .0625); the 471/891-token audit passed all six checks with exactly equal scores. One source-only replay failed before any forward step because its fixed-reference protocol file was absent; the full checkout layout was restored without changing source and v3 passed. Both failure and corrected receipt are retained in results/raw-prefetch-numerical-summary.json. These checks do not validate all 14B logits.
+
+51 local tests pass, including ordered depth-one reading, actual reader/consumer overlap, failure propagation and reader joining. All source and protocol hashes of the 14B series were verified before analysis. No weights are committed.
+
+
+
+Research position and next hypothesis
+
+Read-ahead, offloading and weight streaming are established methods. This phase does not claim a new algorithm, original 70B execution or new training. The measured contribution is an explicit, reproducible original-BF16 speed/host-memory tradeoff with failed attempts retained on this device.
+
+Next prospective hypothesis: a byte-budgeted partial read-ahead queue may retain some observed latency benefit while reducing the full-layer host copy. It must be compared with the native baseline, retain unchanged pressure guards, add fresh unseen functional prompts, and separately profile I/O wait and GPU computation before any causal or general claims. This is proposed work, not an implemented or measured result.
+
+
+
+Materials
+
+models/original-read-ahead-protocol.json; results/original-read-ahead-trials-v1/{summary,analysis}.json and source/; results/raw-prefetch-numerical-v1/report.json; final numerical receipts; figures/original-read-ahead.{png,svg}; OPERATING_GUIDE.md.
+
+
+
+Primary related work
+
+LLM in a flash (2023), https://arxiv.org/abs/2312.11514
+
+FlexGen (2023), https://arxiv.org/abs/2303.06865
+
+MLX concurrency and stream constraints, https://github.com/ml-explore/mlx/discussions/1448 and https://ml-explore.github.io/mlx/build/html/usage/using_streams.html
+
+
+
+All model computation used this Mac. LinkedIn publication is withheld pending author review.

@@ -1,0 +1,153 @@
+{
+  "source_sha256": {
+    "run_direct_original.py": "33704f3b2b65810670049023a3b6dfedeac1761263e1bed1aa35566ce46978a8",
+    "direct_original_engine.py": "c2ed94eb5a8de24b7c4ea750ea3d0b04d6f1093c64bc3b59949ed813bb0e1861",
+    "original_tensor_store.py": "d18cb9e3157cfff4d8251dad95f60cacc33794f70970eab7fca202f5bf74d582",
+    "run_prefill_trials.py": "ab7a203654311e1f0c76fcf3476cd1d5a816b9fe107d85bda5b6f7540b2270ca"
+  },
+  "sources_match_frozen_14b_trials": true,
+  "restored_checkout_layout": "tools/ copied byte-for-byte from trial source/; models/budgeted-engine-protocol.json restored from repository for original reference audit. No source mutation.",
+  "audits": [
+    {
+      "report": "raw-prefetch-numerical-v3/report.json",
+      "comparisons": 48,
+      "greedy_and_allclose_passed": true,
+      "exact_score_comparisons": 42,
+      "maximum_absolute_score_difference": 0.0625,
+      "reference_metadata": {
+        "protocol_sha256": "af287316fec00c9eb07642d5e51e6f7b0111ade70e5a2f8217ae1245c9114054",
+        "logits_sha256": "d5363c9afc674b4a144003e917e0bac9ce1d656b8d635b3cfdbe28b212541652",
+        "cases": [
+          {
+            "case": 0,
+            "prompt": "What is 6 multiplied by 7? Give only the number.",
+            "tokens": [
+              21,
+              54916,
+              553,
+              220,
+              22,
+              374,
+              220,
+              19
+            ]
+          },
+          {
+            "case": 1,
+            "prompt": "\u0627\u0634\u0631\u062d \u0641\u064a \u062c\u0645\u0644\u0629 \u0648\u0627\u062d\u062f\u0629 \u0648\u0638\u064a\u0641\u0629 \u062c\u062f\u0627\u0631 \u0627\u0644\u062d\u0645\u0627\u064a\u0629 \u0641\u064a \u0627\u0644\u0634\u0628\u0643\u0629.",
+            "tokens": [
+              130040,
+              126756,
+              82168,
+              125573,
+              123961,
+              124009,
+              73441,
+              77273
+            ]
+          },
+          {
+            "case": 2,
+            "prompt": "Write a Python function to add two integers.",
+            "tokens": [
+              8420,
+              594,
+              264,
+              4285,
+              13027,
+              729,
+              311,
+              912
+            ]
+          },
+          {
+            "case": 3,
+            "prompt": "Explain the difference between authentication and authorization.",
+            "tokens": [
+              19297,
+              323,
+              23715,
+              525,
+              2176,
+              4763,
+              18940,
+              304
+            ]
+          },
+          {
+            "case": 4,
+            "prompt": "What does DNS do? Answer in one sentence.",
+            "tokens": [
+              61088,
+              320,
+              13636,
+              3988,
+              739,
+              8,
+              374,
+              264
+            ]
+          },
+          {
+            "case": 5,
+            "prompt": "\u0644\u0645\u0627\u0630\u0627 \u064a\u062c\u0628 \u0639\u062f\u0645 \u0645\u0634\u0627\u0631\u0643\u0629 \u0643\u0644\u0645\u0627\u062a \u0627\u0644\u0645\u0631\u0648\u0631\u061f \u0623\u062c\u0628 \u0628\u062c\u0645\u0644\u0629 \u0642\u0635\u064a\u0631\u0629.",
+            "tokens": [
+              80970,
+              73274,
+              64604,
+              11798,
+              125122,
+              27846,
+              124347,
+              124571
+            ]
+          }
+        ]
+      },
+      "reference_logits_sha256_verified": true
+    },
+    {
+      "report": "raw-prefetch-long-numerical-v1/report.json",
+      "comparisons": 6,
+      "greedy_and_allclose_passed": true,
+      "exact_score_comparisons": 6,
+      "maximum_absolute_score_difference": 0.0,
+      "reference_metadata": {
+        "reference_scope": "extended-context-control",
+        "reference_kind": "upstream resident BF16 bounded longer prompt, final-position projection",
+        "prefill_chunk_size": 1024,
+        "protocol_sha256": "0c6ea863b9ec3f7416e2e9736f905bdb365162b15e996429f25936f84b6f5939",
+        "logits_sha256": "8fd9df5fcfd87047d772bd4985515d3b5a34bd921a578eb7275640620839cee0",
+        "cases": [
+          {
+            "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+            "prompt_tokens": 471,
+            "tokens": [
+              8996,
+              13,
+              151645
+            ],
+            "text": "NO."
+          },
+          {
+            "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+            "prompt_tokens": 891,
+            "tokens": [
+              8996,
+              13,
+              151645
+            ],
+            "text": "NO."
+          }
+        ],
+        "source_sha256": "9d4c11f7cfd609a28d95fb6cbc0b93726e5808c805ff3cc8ad02157f9ba6461f"
+      },
+      "reference_logits_sha256_verified": true
+    }
+  ],
+  "retained_setup_failure": "raw-prefetch-numerical-v2/report.json: FileNotFoundError for reference protocol in source-only layout; no forward step; v3 restored the required repository layout.",
+  "limitations": [
+    "0.6B numerical controls do not verify all 14B logits.",
+    "No tolerance was relaxed."
+  ]
+}

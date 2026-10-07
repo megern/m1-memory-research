@@ -6,6 +6,20 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## v0.7.0: original-weight byte read-ahead and host-memory cost
+
+[The new working study](papers/original-read-ahead-study.txt) implements one-layer raw-byte read-ahead while keeping all MLX computation on the caller thread. Original BF16 files remain unchanged. A matched raw-serial control and the native unchunked baseline use the same 471-token question in two prospectively frozen rounds. This workload was previously examined in v0.6; it is not a held-out quality test. All [six outcomes and frozen sources](results/original-read-ahead-trials-v1/summary.json) are retained.
+
+| Method | Completed / planned | Completed-only forward seconds | Sampled peak RSS MiB |
+| --- | --- | ---: | ---: |
+| native unchunked | 2/2 | 27.05 | 1090.00 |
+| raw serial | 1/2 | 33.34 | 1179.73 |
+| raw read-ahead | 1/2 | 25.29 | 1981.19 |
+
+In the only completed same-round pair, read-ahead took **25.29 s versus 27.14 s** for native (**6.81% observed reduction**), but added **790.92 MiB sampled RSS**. Compared with matched raw serial, the observed reduction was 24.13%, with 801.45 MiB additional sampled RSS. Peak MLX was identical at 780.95 MiB, so that counter alone misses the host-memory cost. Each raw method stopped on swap growth in its other round; native completed both. One successful pair, uncontrolled OS caches and shared device pressure do not establish a stable or causal speedup. Native remains the default; read-ahead is opt-in and experimental.
+
+The initial [original 0.6B numerical audit](results/raw-prefetch-numerical-v1/report.json) passed all 48 greedy and fixed-tolerance checks, with 42 exact scores and maximum absolute difference 0.0625. [Final frozen-source controls](results/raw-prefetch-numerical-summary.json) passed 48 short-prompt and six extended-prompt checks (all six extended scores exactly equal); the missing-protocol setup failure and corrected rerun are retained. These small-model audits do not verify all 14B scores. The suite now has **51 passing tests**, including actual byte-reader overlap and failure cleanup. No new training, original 70B execution or algorithmic novelty is claimed. LinkedIn publication awaits author review.
+
 ## v0.6.0: longer inputs and parallel verification on the Mac
 
 [The new working study](papers/original-long-context-study.txt) tests **471- and 891-token prompts** with unchanged original Qwen3-14B BF16 weights. New opt-in limits allow 1024 input tokens and 2048 total context; testing these two lengths does not validate every length through those bounds. Defaults stay 128/256, one checksum worker, and the previous allocation setting. The study uses a 2048 MiB active-MLX check, GPU computation and eight CPU checksum workers. Pressure guards remain unchanged; no other applications or system settings are modified.

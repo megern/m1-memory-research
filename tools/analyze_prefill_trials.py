@@ -32,8 +32,22 @@ def analyze(directory):
         pairs.append({'round':trial['round'],field:trial[field],'both_completed':comparable,
           'greedy_token_sequences_equal':([c['token_ids'] for c in trial['cases']]==[c['token_ids'] for c in baseline['cases']]) if comparable else None,
           'forward_seconds_difference_from_unchunked':trial['forward_seconds']-baseline['forward_seconds'] if comparable else None,
-          'peak_mlx_bytes_difference_from_unchunked':trial['peak_mlx_bytes']-baseline['peak_mlx_bytes'] if comparable else None})
-    result={'source_integrity_verified':True,'all_planned_outcomes_retained':True,('variant_statistics' if field=='variant' else 'chunk_statistics'):stats,'same_round_comparisons':pairs,'limitations':['Conditional medians exclude stopped attempts; completion counts retained.','Small exploratory workloads, uncontrolled OS caches and other apps; no causal or broad quality claims.','Known chunked prefill changes BF16 kernel shapes; identical short output is not logits equivalence.','Native tensor byte counters are logical requested payloads, not physical SSD reads.','No training, quantization, novel algorithm or original 70B claim.']}
+          'peak_mlx_bytes_difference_from_unchunked':trial['peak_mlx_bytes']-baseline['peak_mlx_bytes'] if comparable else None,
+          'sampled_rss_peak_bytes_difference_from_unchunked':trial['sampled_rss_peak_bytes']-baseline['sampled_rss_peak_bytes'] if comparable else None})
+    transport_pairs=[]
+    if field=='variant' and {'raw-serial','raw-prefetch1'} <= set(choices):
+        for trial in summary['trials']:
+            if trial[field]!='raw-prefetch1':continue
+            baseline=next(t for t in summary['trials'] if t['round']==trial['round'] and t[field]=='raw-serial')
+            comparable=trial['completed'] and baseline['completed']
+            item={'round':trial['round'],'both_completed':comparable,
+                  'greedy_token_sequences_equal':([c['token_ids'] for c in trial['cases']]==[c['token_ids'] for c in baseline['cases']]) if comparable else None}
+            for key in ['forward_seconds','peak_mlx_bytes','sampled_rss_peak_bytes']:
+                item[key+'_difference_from_raw_serial']=trial[key]-baseline[key] if comparable else None
+            transport_pairs.append(item)
+    result={'source_integrity_verified':True,'all_planned_outcomes_retained':True,('variant_statistics' if field=='variant' else 'chunk_statistics'):stats,'same_round_comparisons':pairs,'same_transport_read_ahead_comparisons':transport_pairs,'limitations':['Conditional medians exclude stopped attempts; completion counts retained.','Small exploratory workloads, uncontrolled OS caches and other apps; no causal or broad quality claims.','Known chunked prefill changes BF16 kernel shapes; identical short output is not logits equivalence.','Tensor byte counters are logical requested payloads, not physical SSD reads.','No training, quantization, novel algorithm or original 70B claim.']}
+    if transport_pairs:
+        result['limitations'].append('Prefetched host byte buffers are additional RAM outside MLX allocation counters; RSS includes conversion temporaries. This is known read-ahead, not algorithmic novelty.')
     (directory/'analysis.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 

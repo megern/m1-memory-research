@@ -1,0 +1,118 @@
+{
+  "source_integrity_verified": true,
+  "all_planned_outcomes_retained": true,
+  "variant_statistics": {
+    "unchunked": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 27.047695395420305,
+      "completed_only_median_peak_mlx_bytes": 818889072.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1142947840.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3116482560.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 80.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    },
+    "raw-serial": {
+      "planned": 2,
+      "completed": 1,
+      "stopped": 1,
+      "completed_only_median_forward_seconds": 33.33697533304803,
+      "completed_only_median_peak_mlx_bytes": 818889072,
+      "completed_only_median_sampled_rss_peak_bytes": 1237041152,
+      "completed_only_median_selected_tensor_bytes": 52849920000,
+      "completed_only_median_row_bytes_read": 3116482560,
+      "completed_only_median_layer_weight_loads": 80,
+      "completed_only_median_layer_calls": 80,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        539099136,
+        0
+      ]
+    },
+    "raw-prefetch1": {
+      "planned": 2,
+      "completed": 1,
+      "stopped": 1,
+      "completed_only_median_forward_seconds": 25.29273224901408,
+      "completed_only_median_peak_mlx_bytes": 818889072,
+      "completed_only_median_sampled_rss_peak_bytes": 2077425664,
+      "completed_only_median_selected_tensor_bytes": 52849920000,
+      "completed_only_median_row_bytes_read": 3116482560,
+      "completed_only_median_layer_weight_loads": 80,
+      "completed_only_median_layer_calls": 80,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        608043008,
+        0
+      ]
+    }
+  },
+  "same_round_comparisons": [
+    {
+      "round": 0,
+      "variant": "raw-serial",
+      "both_completed": false,
+      "greedy_token_sequences_equal": null,
+      "forward_seconds_difference_from_unchunked": null,
+      "peak_mlx_bytes_difference_from_unchunked": null,
+      "sampled_rss_peak_bytes_difference_from_unchunked": null
+    },
+    {
+      "round": 0,
+      "variant": "raw-prefetch1",
+      "both_completed": false,
+      "greedy_token_sequences_equal": null,
+      "forward_seconds_difference_from_unchunked": null,
+      "peak_mlx_bytes_difference_from_unchunked": null,
+      "sampled_rss_peak_bytes_difference_from_unchunked": null
+    },
+    {
+      "round": 1,
+      "variant": "raw-serial",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 6.195400208933279,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": -11042816
+    },
+    {
+      "round": 1,
+      "variant": "raw-prefetch1",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": -1.8488428751006722,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": 829341696
+    }
+  ],
+  "same_transport_read_ahead_comparisons": [
+    {
+      "round": 0,
+      "both_completed": false,
+      "greedy_token_sequences_equal": null,
+      "forward_seconds_difference_from_raw_serial": null,
+      "peak_mlx_bytes_difference_from_raw_serial": null,
+      "sampled_rss_peak_bytes_difference_from_raw_serial": null
+    },
+    {
+      "round": 1,
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_raw_serial": -8.044243084033951,
+      "peak_mlx_bytes_difference_from_raw_serial": 0,
+      "sampled_rss_peak_bytes_difference_from_raw_serial": 840384512
+    }
+  ],
+  "limitations": [
+    "Conditional medians exclude stopped attempts; completion counts retained.",
+    "Small exploratory workloads, uncontrolled OS caches and other apps; no causal or broad quality claims.",
+    "Known chunked prefill changes BF16 kernel shapes; identical short output is not logits equivalence.",
+    "Tensor byte counters are logical requested payloads, not physical SSD reads.",
+    "No training, quantization, novel algorithm or original 70B claim.",
+    "Prefetched host byte buffers are additional RAM outside MLX allocation counters; RSS includes conversion temporaries. This is known read-ahead, not algorithmic novelty."
+  ]
+}

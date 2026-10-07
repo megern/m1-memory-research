@@ -23,6 +23,8 @@ def plot(directory,output):
              ('peak_mlx_bytes',1024**3,'MLX peak (GiB; stopped: recorded steps only)',False),
              ('layer_weight_loads',1,'Original layer weight loads (logical count)',True),
              ('max_setup_and_worker_swap_growth_bytes',1024**2,'Observed whole-system swap growth (MiB)',False)]
+    if any(v.get('prefetch_layers',0) for v in variants.values()):
+        metrics[2]=('sampled_rss_peak_bytes',1024**3,'Sampled process RSS peak (GiB; includes host payload)',False)
     for ax,(key,divisor,title,integer) in zip(axes.flat,metrics):
         for i,t in enumerate(trials):
             value=t.get(key)
@@ -38,11 +40,12 @@ def plot(directory,output):
             ax.annotate(label,(i,v),xytext=(0,4),textcoords='offset points',ha='center',fontsize=8)
         ax.set_xticks(x,labels,fontsize=8)
         ax.set_title(title,fontsize=11)
-        ax.set_ylim(bottom=0)
-        ax.margins(y=.2)
+        ceiling=max((t.get(key) or 0)/divisor for t in trials)
+        ax.set_ylim(0,ceiling*1.2 if ceiling else 1)
         ax.grid(axis='y',alpha=.2)
         ax.set_axisbelow(True)
-    fig.suptitle('Original BF16 Qwen3-14B on 16 GiB Apple M1: prompt scheduling\n'+prompt_label+'; two exploratory rounds',fontsize=14)
+    topic='raw-byte read-ahead' if any(v.get('prefetch_layers',0) for v in variants.values()) else 'prompt scheduling'
+    fig.suptitle('Original BF16 Qwen3-14B on 16 GiB Apple M1: '+topic+'\n'+prompt_label+'; two exploratory rounds',fontsize=14)
     fig.legend(handles=[Patch(color=colors[k],label=k) for k in colors]+[Patch(facecolor='#b74343',hatch='//',label='stopped attempt')],loc='lower center',bbox_to_anchor=(.5,.045),ncol=4)
     fig.text(.5,.016,'Forward excludes verification; failed partial times are not full-workload speed. MLX is not total RAM. Swap includes other apps. OS caches uncontrolled.',ha='center',fontsize=8)
     fig.tight_layout(rect=(0,.095,1,.93))
