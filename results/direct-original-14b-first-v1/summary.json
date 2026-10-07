@@ -1,0 +1,28 @@
+{
+  "full_protocol_completed": false,
+  "stop_reason": "swap_growth_over_512MiB",
+  "observed_partial_cases": [
+    {
+      "case": 0,
+      "token_ids": [
+        59604,
+        151645
+      ],
+      "text": "Paris",
+      "observed_eos": true
+    },
+    {
+      "case": 1,
+      "token_ids": [
+        18,
+        17,
+        18
+      ],
+      "text": "323",
+      "observed_eos": false
+    }
+  ],
+  "sampled_peak_rss_bytes": 1066336256,
+  "largest_observed_system_swap_growth_bytes": 571801600,
+  "note": "Partial decoding establishes observed token output only. No final worker result or MLX peak measurement was produced. Global swap includes all apps; cause cannot be attributed uniquely to the model."
+}

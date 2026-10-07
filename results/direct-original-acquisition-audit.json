@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-07T13:08:45.496273+00:00",
+  "model_repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "weight_file_bytes": 29536665640,
+  "first_acquisition": {
+    "repository": "Qwen/Qwen3-14B",
+    "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "status": "failed_resumable",
+    "pending_files": [
+      "model-00003-of-00008.safetensors",
+      "model-00004-of-00008.safetensors",
+      "model-00005-of-00008.safetensors",
+      "model-00006-of-00008.safetensors",
+      "model-00007-of-00008.safetensors",
+      "model-00008-of-00008.safetensors"
+    ],
+    "completed_files": [
+      "model-00001-of-00008.safetensors",
+      "model-00002-of-00008.safetensors"
+    ],
+    "error_type": "RuntimeError"
+  },
+  "missing_range": {
+    "shard": "model-00004-of-00008.safetensors",
+    "chunk_index": 381,
+    "chunk_bytes": 8388608
+  },
+  "recovery": "Resume existing acquisition; seven finished shards hash-verified, partial fourth shard checked and missing chunk retrieved; final SHA256 matched",
+  "resumed_acquisition": {
+    "repository": "Qwen/Qwen3-14B",
+    "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "status": "verified_complete",
+    "pending_files": [],
+    "completed_files": [
+      "model-00004-of-00008.safetensors"
+    ]
+  },
+  "note": "completed_files lists files retrieved during that attempt, not all previously verified files. Failed first acquisition state undercounts files finished while executor shutdown waited."
+}

@@ -1,0 +1,5 @@
+{"event": "step", "case": 0, "step": 0, "token_id": 59604, "elapsed_seconds": 11.820661916863173, "mlx_active_bytes": 42264684}
+{"event": "step", "case": 0, "step": 1, "token_id": 151645, "elapsed_seconds": 10.596234790980816, "mlx_active_bytes": 42264588}
+{"event": "step", "case": 1, "step": 0, "token_id": 18, "elapsed_seconds": 11.23091045813635, "mlx_active_bytes": 42264696}
+{"event": "step", "case": 1, "step": 1, "token_id": 17, "elapsed_seconds": 10.615276624914259, "mlx_active_bytes": 42264588}
+{"event": "step", "case": 1, "step": 2, "token_id": 18, "elapsed_seconds": 10.611368999816477, "mlx_active_bytes": 42264588}

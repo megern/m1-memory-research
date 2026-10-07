@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-07T13:11:12.399443+00:00",
+  "reason": "First full protocol stopped on global swap growth; a single same-settings repeat will assess sensitivity to available memory and cache state",
+  "protocol_sha256": "179d98aece707af7d36d319c9387ee21bdbe525dd3adf357df81ae423e330da7",
+  "changes_to_prompts_tokens_budget_tiles_guards": false,
+  "selection": "Keep both outcomes; no further automatic repeats",
+  "source": "same frozen snapshot as the first probe"
+}

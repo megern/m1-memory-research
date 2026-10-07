@@ -1,0 +1,34 @@
+{
+  "completed": true,
+  "full_protocol_cases": 2,
+  "all_cases_stopped_at_eos": true,
+  "answers": [
+    "Paris",
+    "323"
+  ],
+  "generated_token_count_including_eos": 6,
+  "layer_calls": 240,
+  "forward_seconds": 71.53363966825418,
+  "worker_elapsed_seconds": 74.7712877499871,
+  "verification_seconds": 17.125897667137906,
+  "peak_mlx_gib": 1.152802001684904,
+  "sampled_peak_rss_gib": 0.92425537109375,
+  "max_system_swap_growth_mib": 473.0,
+  "budget_mib": 1024,
+  "transient_mlx_peak_exceeds_budget": true,
+  "source_sha256": {
+    "direct_original_engine.py": "71ea53d7ee3cadb58285e965e7e600e81e56b39e9988c767f3211a24ce421e19",
+    "run_direct_original.py": "9be3fdd4cb408d934788760dd7827876a961e13faef09568c17598c0fd9adac8",
+    "original_tensor_store.py": "750c5796b72f67c52ea2e1c2364af7cde886a56fc156a16ddc8dd039b8273649",
+    "wait_original_probe.py": "8819fd3c54870c142bf5a13da44d165959719c4d46617c5cabc6f3084c347d70"
+  },
+  "limitations": [
+    "First same-settings attempt stopped on swap growth; both retained.",
+    "One completed repeat and two short questions do not establish stability or general quality.",
+    "1 GiB active checks do not bound transient peaks or total RAM.",
+    "Whole-system swap deltas include other apps and file-cache pressure.",
+    "OS caches uncontrolled and warmed by verification; no cold SSD claim.",
+    "No resident original-14B numerical reference; small-0.6B numerical controls do not prove exact 14B equivalence.",
+    "No 70B original-weight success, training result or algorithmic novelty claim."
+  ]
+}

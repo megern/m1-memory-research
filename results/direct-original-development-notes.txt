@@ -1,4 +1,4 @@
-Direct-original BF16 engine development, stage 0.3
+Direct-original BF16 engine development, stage 0.3.1
 Author: Megern Qaisse
 Date: 2026-10-07
 
@@ -8,9 +8,11 @@ storing a second copy of every layer, and eventually access a checkpoint whose
 weight files exceed the physical RAM of an M1 with 16 GiB unified memory?
 
 Current answer
-The small-model numerical and functional controls completed. The beyond-RAM
-Qwen3-14B acquisition/probe is pending. This stage is not a novel algorithm,
-14B success, original-weight 70B result, or large-model training result.
+The small-model numerical and functional controls completed. Original BF16
+Qwen3-14B acquisition completed. The first beyond-RAM two-case probe stopped
+on global swap growth; one same-settings repeat completed both cases through
+EOS. This is short functional feasibility, not stable operation, general quality,
+a novel algorithm, original-weight 70B success, or large-model training.
 
 Method
 The store verifies pinned SHA256 values for all local files, checks file
@@ -67,7 +69,7 @@ path on the small model only. The report and source snapshot are retained.
 
 Limitations
 The checkpoint fits RAM. The head is tied in this small model; the untied-head
-large-model path remains to be exercised by the pending probe. One numerical
+large-model path was later exercised by the two 14B attempts below. One numerical
 run does not establish equivalence for arbitrary prompts or sustained speed.
 Large-model downloading ran concurrently. Earlier timing medians are from
 different trials; this is not a fair paired performance comparison against them.
@@ -93,3 +95,51 @@ Longer contexts, quality, repeated trials and useful speed require later evidenc
 
 The 70B original-BF16 target remains future work. Weight storage and repeated
 transfers are material limits; smaller active allocations do not remove them.
+
+Original BF16 14B observations
+The initial acquisition failed on range chunk 381 of shard four after retries.
+Other in-flight and queued shards completed while the executor waited during
+shutdown, so that failed attempt's completed-files list undercounted final files.
+The resumed acquisition checked seven finished shards and the partial fourth,
+downloaded the missing 8 MiB chunk, and verified the final shard SHA256. Both
+acquisition states and the missing-range explanation are retained.
+
+Header inspection: 443 BF16 tensors, 14,768,307,200 stored tensor elements,
+40 layers, largest layer 660,623,872 bytes. Embedding and untied output head
+are each [151936,5120]. No original checkpoint dtype or payload was changed.
+
+First complete-protocol attempt: worker stopped at 58.6462 seconds when global
+swap growth reached 571,801,600 bytes (545.3125 MiB), above the frozen 512 MiB
+guard. Five token events were recorded: Paris and EOS, then the three tokens
+forming 323. The second EOS and final worker result were not produced. Sampled
+peak RSS was 1,066,336,256 bytes (0.9931 GiB). A final MLX peak measurement is
+unavailable; post-step active values must not be misreported as peak allocation.
+
+One repeat was explicitly recorded after the first failure, using the same frozen
+source, protocol, questions, token counts, head tiles, budget and guards. Both
+attempts are retained. Current available RAM and uncontrolled OS file-cache state
+differed; the repeat is not a matched control or best-of-many selection.
+
+The repeat completed both questions to EOS: Paris and 323. Six generated token
+steps, including two EOS tokens, executed all 40 layers: 240 layer calls.
+Worker elapsed: 74.7713 seconds. Verification: another 17.1259 seconds outside
+that timer. Sum of forward-step timings: 71.5336 seconds. Individual steps range
+from 10.8399 to 13.3998 seconds. This is substantially slower than conversational
+interaction normally requires; no sustained throughput claim is made.
+
+Peak MLX: 1,237,811,724 bytes (1.1528 GiB).
+Sampled peak process-tree RSS: 992,411,648 bytes (0.9243 GiB).
+Maximum whole-system swap growth: 495,976,448 bytes (473 MiB).
+No guard fired in the repeat. The 1 GiB active checks do NOT impose a hard
+1 GiB transient peak bound. Cached OS pages and existing system swap are not
+included in either allocation or process RSS. These measurements must not be
+added or described as a model running with only one GiB total RAM.
+
+The direct engine visits every layer and all vocabulary rows using original BF16
+weights. Numerical equivalence was checked only on the small 0.6B checkpoint;
+there is no resident original-14B numerical reference. Two elementary correct
+answers do not establish general quality. One failed attempt plus one completed
+repeat do not establish stable operation. System swap reflects all apps and file
+cache pressure; its cause is not uniquely attributable from these observations.
+The known offloading/tiling methods have prior art; implementation and these
+local records do not establish algorithmic novelty. Original 70B is not executed.

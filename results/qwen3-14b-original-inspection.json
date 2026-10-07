@@ -1,0 +1,22 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "scope": "CPU inspection of safetensors headers after completed checksum-verified acquisition; not a separate inference success",
+  "tensor_count": 443,
+  "stored_tensor_elements": 14768307200,
+  "file_dtypes": [
+    "BF16"
+  ],
+  "weight_file_bytes": 29536665640,
+  "layer_count": 40,
+  "largest_layer_bytes": 660623872,
+  "embedding_shape": [
+    151936,
+    5120
+  ],
+  "head_shape": [
+    151936,
+    5120
+  ],
+  "config_tie_word_embeddings": false
+}
