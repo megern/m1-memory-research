@@ -1,0 +1,17 @@
+{
+  "completed": true,
+  "comparisons": 48,
+  "greedy_equal_count": 48,
+  "allclose_count": 48,
+  "bitwise_equal_logit_steps": 42,
+  "maximum_absolute_logit_difference": 0.0625,
+  "mlx_peak_mib": 61.25648880004883,
+  "sampled_rss_peak_mib": 275.59375,
+  "forward_seconds": 11.416521918028593,
+  "system_swap_growth_max_bytes": 0,
+  "source_sha256": {
+    "original_tensor_store.py": "750c5796b72f67c52ea2e1c2364af7cde886a56fc156a16ddc8dd039b8273649",
+    "direct_original_engine.py": "71ea53d7ee3cadb58285e965e7e600e81e56b39e9988c767f3211a24ce421e19",
+    "run_direct_original.py": "91bcfff5e0b467f5f9bf7925969ccf39435acc8681c1890655f39a7f28680cb2"
+  }
+}

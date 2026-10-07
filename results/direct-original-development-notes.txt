@@ -1,0 +1,95 @@
+Direct-original BF16 engine development, stage 0.3
+Author: Megern Qaisse
+Date: 2026-10-07
+
+Question
+Can original BF16 dense-model inference use bounded active allocations without
+storing a second copy of every layer, and eventually access a checkpoint whose
+weight files exceed the physical RAM of an M1 with 16 GiB unified memory?
+
+Current answer
+The small-model numerical and functional controls completed. The beyond-RAM
+Qwen3-14B acquisition/probe is pending. This stage is not a novel algorithm,
+14B success, original-weight 70B result, or large-model training result.
+
+Method
+The store verifies pinned SHA256 values for all local files, checks file
+identities on access, validates BF16 safetensors byte ranges and matches shard
+indexes to actual tensor headers. Native MLX load is lazy. Each layer access
+creates a fresh source dictionary, selects only that layer, drops the dictionary
+and evaluates selected tensors. The store retains metadata rather than evaluated
+weights. No extra layer files are created.
+
+Embedding lookup reads only the exact rows required by input token IDs. Raw
+little-endian uint16 data is reinterpreted as BF16, without numerical conversion.
+The output head reads all vocabulary rows in tiles and concatenates all scores.
+No token shortlist, quantization, layer skipping or missing weight substitution
+is used. RMSNorm and projection compute the final prompt position needed for
+decoding; earlier prompt logits are not produced. Original architecture and KV
+cache behavior come from the pinned installed MLX-LM Qwen3 implementation.
+
+Known prior work and implementation foundation
+MLX documents lazy safetensors loading:
+https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.load.html
+https://github.com/ml-explore/mlx/blob/main/docs/src/usage/lazy_evaluation.rst
+Offloading, memory-aware execution and disk-based inference have prior work:
+https://proceedings.mlr.press/v202/sheng23a.html
+https://machinelearning.apple.com/research/efficient-large-language
+These references provide context; this prototype does not reproduce their
+full methods or claim superiority over them.
+
+Numerical control (one run)
+Checkpoint: Qwen/Qwen3-0.6B, original BF16; see the pinned manifest.
+Same six prompts and reference-conditioned inputs from the earlier frozen
+budgeted-engine protocol, eight steps per case, 48 comparisons.
+Budget: 256 MiB active MLX; head tile: 2048 rows.
+Greedy token equality: 48/48.
+Allclose with preset atol 0.01 and rtol 0.01: 48/48.
+Zero maximum logit difference: 42/48 steps.
+Six prompt-prefill steps have a nonzero maximum difference, at most 0.0625.
+The original BF16 weights remain unchanged; changed operation shapes can alter
+floating-point rounding. Bitwise equality across all inputs is not established.
+Teacher forcing supplies the reference token for the next input. This tests
+comparable numerical trajectories, not free-generation quality.
+
+Peak MLX: 64,232,084 bytes (61.2565 MiB).
+Sampled process-tree RSS peak: 288,980,992 bytes (275.5938 MiB).
+Forward time across the 48 steps: 11.4165 seconds.
+Parent worker elapsed: 13.8212 seconds, excluding full-file verification.
+Observed maximum system swap growth: 0 bytes; existing swap may be present.
+Source snapshot and hashes are retained with the numerical report.
+
+Independent free-generation smoke control
+The direct engine produced "Paris" and EOS (two tokens) from the original
+0.6B BF16 checkpoint. Forward time: 0.5419 seconds; worker elapsed: 2.5522
+seconds. Peak MLX: 63,675,000 bytes. This confirms a functional generation
+path on the small model only. The report and source snapshot are retained.
+
+Limitations
+The checkpoint fits RAM. The head is tied in this small model; the untied-head
+large-model path remains to be exercised by the pending probe. One numerical
+run does not establish equivalence for arbitrary prompts or sustained speed.
+Large-model downloading ran concurrently. Earlier timing medians are from
+different trials; this is not a fair paired performance comparison against them.
+Verification warms OS caches. Logical pread byte counts and selected tensor
+payload sizes are not measurements of physical SSD reads. RSS, active MLX and
+total unified-memory use have different accounting and must not be summed.
+Active checks happen at evaluated boundaries; transient peaks are reported
+separately. Limits are one sequence, 128 input tokens and 256 total context.
+
+Beyond-physical-RAM protocol
+Qwen/Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18.
+Eight original weight files total 29,536,665,640 bytes; physical RAM is
+17,179,869,184 bytes. Acquisition checksums are pinned, with resumable ranges.
+No cloud compute is used. Full acquisition is required before inference.
+The frozen first probe has two short prompts, four tokens per case, 1024 MiB
+active-MLX budget, 2048 head rows and 900 seconds maximum worker time.
+Other guards: process-tree RSS 6 GiB, system swap growth 512 MiB and available
+RAM below 512 MiB for five seconds. Only this runner's process group is stopped.
+The one-shot continuation freezes code and preserves the first outcome, including
+failures. It performs no automatic publication or retries to select a good run.
+Completion of one short probe would establish functional feasibility only.
+Longer contexts, quality, repeated trials and useful speed require later evidence.
+
+The 70B original-BF16 target remains future work. Weight storage and repeated
+transfers are material limits; smaller active allocations do not remove them.

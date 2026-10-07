@@ -88,3 +88,35 @@ python3 tools/plot_original_scheduler.py --summary results/new-budgeted-trials/s
 ```
 
 النتيجة المتكررة حتى الآن: تخزين بعض الطبقات خفّض وسيط زمن الحساب بنحو 5% مقابل التحميل المتتابع، مع استهلاك MLX أعلى منه. التشغيل المقيم أسرع لكنه يستخدم تخصيص MLX أعلى. اقرأ الفروق والقيود في `results/original-scheduling-development-notes.txt` قبل نقل الأرقام إلى منشور أو ورقة.
+
+## الوصول المباشر إلى الأوزان الأصلية
+
+هذه المتابعة تلغي الحاجة إلى نسخ الطبقات. تقرأ طبقة واحدة من الملفات الأصلية، وصفوف تضمين السؤال المطلوبة، وتحسب درجات جميع مفردات النموذج على أجزاء صغيرة دون تكميم الأوزان. أثبت اختبار النموذج الصغير تطابق 48 رمزًا مع المرجع، مع فروق عددية في ست خطوات بلغت 0.0625 كحد أقصى. بلغ تخصيص MLX نحو 61 MiB وذاكرة العملية المرصودة نحو 276 MiB؛ هذا ليس إجمالي استهلاك RAM.
+
+لتجربة النموذج الصغير دون ملفات طبقات إضافية:
+
+```sh
+python3 tools/run_direct_original.py --model /absolute/local/qwen3-original --manifest models/qwen3-0.6b-original.json --output results/new-direct-small --budget-mib 256 --head-rows 2048 --tokens 8 --timeout 180
+```
+
+لإعادة الفحص العددي، أضف `--reference /absolute/local/qwen3-original-budgeted-reference` بعد إنشاء المرجع بالأمر السابق. يحتفظ التقرير بالتطابق العددي منفصلًا عن اكتمال التنفيذ؛ فشل التطابق أو التنفيذ يعطي رمز خروج غير صفري. لا تخلط فحص القيم العددية بتقييم جودة الإجابة.
+
+اخترنا Qwen3-14B الأصلي للاختبار التالي لأن أوزانه نحو 29.5 GB وتتجاوز ذاكرة الجهاز. تنزيله قيد التنفيذ وقت نشر هذه المرحلة؛ لا ندعي نجاح تشغيله أو تشغيل 70B بالأوزان الأصلية. للتنزيل والاستئناف:
+
+```sh
+python3 tools/acquire_original_model.py --manifest models/qwen3-14b-original.json --output /absolute/local/qwen3-14b-original
+```
+
+بعد اكتماله، نفّذ الاختبار الموثق في `models/direct-original-14b-protocol.json`:
+
+```sh
+python3 tools/run_direct_original.py --model /absolute/local/qwen3-14b-original --manifest models/qwen3-14b-original.json --output results/new-direct-14b --budget-mib 1024 --head-rows 2048 --tokens 4 --timeout 900 --prompt "Reply with exactly the single English word naming the capital of France." --prompt "What is 17 multiplied by 19? Give only the number."
+```
+
+يمكن تشغيل المتابعة مرة واحدة أثناء التنزيل في نافذة محلية أخرى:
+
+```sh
+python3 tools/wait_original_probe.py --model /absolute/local/qwen3-14b-original --manifest models/qwen3-14b-original.json --protocol models/direct-original-14b-protocol.json --output /absolute/local/fresh-continuation
+```
+
+تحفظ المتابعة حالة الانتظار، ونسخة المصدر، والبروتوكول، ثم نتائج الاختبار الأول. لا تشغّل الاختبار اليدوي والمتابعة معًا. تبقى الأوزان على جهازك ولا ترفع إلى المستودع. حد 1024 يخص تخصيص MLX النشط؛ تراقب الأداة أيضًا ذاكرة العملية وزيادة swap والوقت، وتوقف عملياتها وحدها عند تجاوز الحدود. يجب أن يبقى الجهاز مستيقظًا ومتصلًا بالشبكة أثناء التنزيل؛ لا تغير الأداة إعدادات الطاقة. لا تستخدم ملفات نتائج قائمة عند إعادة التشغيل.

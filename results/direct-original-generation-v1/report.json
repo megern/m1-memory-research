@@ -1,0 +1,125 @@
+{
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "manifest_sha256": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "weight_file_bytes": 1503300328,
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": false,
+  "verification_seconds": 0.9479524160269648,
+  "worker_elapsed_seconds": 2.5521625420078635,
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "completed": true,
+  "numerical_audit_passed": null,
+  "sampled_process_tree_rss_peak_bytes": 287293440,
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "events": [
+    {
+      "event": "step",
+      "case": 0,
+      "step": 0,
+      "token_id": 59604,
+      "elapsed_seconds": 0.3134451250080019,
+      "mlx_active_bytes": 29673584
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 1,
+      "token_id": 151645,
+      "elapsed_seconds": 0.22845179098658264,
+      "mlx_active_bytes": 29673488
+    },
+    {
+      "event": "direct_original_result",
+      "model_repository": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "stored_tensor_elements": 751632384,
+      "tensor_count": 311,
+      "all_tensor_file_dtypes": [
+        "BF16"
+      ],
+      "engine_plan": {
+        "budget_bytes": 268435456,
+        "largest_layer_bytes": 31461888,
+        "head_tile_bytes": 4194304,
+        "head_rows": 2048,
+        "cached_layers": 0,
+        "duplicate_weight_storage_bytes": 0,
+        "embedding_mode": "Exact requested rows from original BF16 payload",
+        "head_mode": "All vocabulary rows in tiles, original BF16; no top-k pruning",
+        "scope": "Measured active MLX limit, not total RAM; transient peaks reported separately"
+      },
+      "layer_calls": 56,
+      "row_bytes_read_by_pread": 622383104,
+      "selected_native_tensor_bytes_requested": 1761867776,
+      "mlx_peak_allocated_bytes": 63675000,
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with exactly the single English word naming the capital of France.",
+          "prompt_tokens": 25,
+          "token_ids": [
+            59604,
+            151645
+          ],
+          "text": "Paris",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.3134451250080019,
+            0.22845179098658264
+          ],
+          "comparisons": []
+        }
+      ],
+      "limitations": [
+        "Row-byte counters are logical process reads, not physical SSD traffic.",
+        "Native selected tensor bytes are requested payload sizes, not SSD-byte telemetry.",
+        "All vocabulary rows computed; head tiling may introduce numerical differences tested separately.",
+        "Active MLX checks are not total-RAM caps; transient MLX peaks separately reported.",
+        "Verification warms OS caches; no cold-cache claim.",
+        "Short numerical/functional controls do not establish general model quality or novelty."
+      ]
+    }
+  ],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.0019048338290303946,
+      "rss_bytes": 425984,
+      "system_available_bytes": 3156049920,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.5164587500039488,
+      "rss_bytes": 70205440,
+      "system_available_bytes": 3156049920,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.0219870838336647,
+      "rss_bytes": 91045888,
+      "system_available_bytes": 3175284736,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.5323347088415176,
+      "rss_bytes": 195346432,
+      "system_available_bytes": 3127902208,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.0369350840337574,
+      "rss_bytes": 287293440,
+      "system_available_bytes": 2896347136,
+      "system_swap_growth_bytes": 0
+    }
+  ],
+  "limitations": [
+    "All model files hashed before timing; OS file cache uncontrolled and warmed.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}

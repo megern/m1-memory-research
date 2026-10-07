@@ -1,0 +1,16 @@
+{
+  "scope": "First original-BF16 beyond-physical-RAM functional probe, not quality or novelty evidence",
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "prompts": [
+    "Reply with exactly the single English word naming the capital of France.",
+    "What is 17 multiplied by 19? Give only the number."
+  ],
+  "tokens_per_case": 4,
+  "budget_mib": 1024,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "selection": "Retain the first attempt including failures; do not replace with a best attempt",
+  "guards": "Process-tree RSS 6 GiB, system swap growth 512 MiB, available RAM below 512 MiB for 5 seconds",
+  "claims_excluded": ["70B original-weight success", "large-model training", "general model quality", "algorithmic novelty", "cold SSD performance"]
+}
