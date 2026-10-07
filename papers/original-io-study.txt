@@ -1,0 +1,144 @@
+Original BF16 inference beyond physical RAM on an Apple M1:
+an exploratory study of file reads and verification pressure
+
+Megern Qaisse
+2026-10-07
+Working manuscript, not peer reviewed. Source, frozen protocols and all retained
+outcomes: https://github.com/megern/m1-memory-research
+
+Abstract
+We evaluate three disk-read paths for a pinned original BF16 Qwen3-14B checkpoint
+on an Apple M1 with 16 GiB unified memory. Eight weight files total 29,536,665,640
+bytes, exceeding the 17,179,869,184 bytes of physical RAM. All paths use one-layer
+streaming, exact input embedding rows and full-vocabulary tiled projection, with
+no quantization or duplicated layer-weight files. Two randomized rounds retain
+all six attempted jobs on three short questions. Native MLX reads completed two
+jobs, direct cached BF16 reads completed two, and per-descriptor F_NOCACHE reads
+completed one and stopped one at the swap guard. Completed-only median forward
+times were 120.45, 151.81 and 158.60 seconds respectively; the last median has
+only one completed observation. No faster replacement is established. Setup
+telemetry exposed whole-system swap growth during checksum verification before
+the inference guard began, motivating a separate verification guard and a shared
+swap baseline from setup through generation. These are exploratory engineering
+observations, not a claim of algorithmic novelty, general quality or stable use.
+
+1. Question and relation to prior work
+Can changing original-weight file reads improve practical inference on a machine
+whose physical RAM is smaller than the checkpoint, and does worker-only memory
+monitoring overlook pressure during model verification? Offloading, tiling and
+lazy evaluation are established approaches. MLX documents lazy safetensors
+loading. Apple documents selective file-cache control and F_NOCACHE; that archived
+performance guide is retired. The installed public macOS SDK also defines
+F_NOCACHE=48. We use this descriptor-level option, not global cache manipulation.
+The policy request is not proof that data bypassed every existing cached page or
+that physical SSD traffic was reduced. No cache purge or user-app shutdown occurs.
+
+2. Checkpoint and implementation
+Qwen/Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18 is pinned
+with file sizes and SHA256 hashes. Header inspection records 443 BF16 tensors,
+14,768,307,200 stored tensor elements, 40 layers and a largest layer of 660,623,872
+bytes. Embedding and separate output head each have shape [151936,5120]. Tensor
+payloads remain original BF16. Internal arithmetic follows the MLX-LM model;
+this is not a claim that every intermediate operation uses BF16 exclusively.
+
+The store retains CPU metadata and visits every layer. The native path selects
+lazy arrays from original shard files, drops the source dictionary and evaluates
+only selected tensors. Direct paths read each requested tensor's exact byte range
+and reinterpret little-endian uint16 bits as BF16 in MLX. One direct path uses
+normal reads; the other applies F_NOCACHE to each opened descriptor. All paths
+use exact requested embedding rows and project against every vocabulary row in
+2048-row tiles. No vocabulary shortlist or skipped layer approximates the model.
+An active-MLX check setting of 1024 MiB is not a hard bound on transient peaks or
+total RAM. RSS, MLX allocations and OS page-cache accounting must not be added.
+
+3. Controls and frozen protocol
+Before larger trials, both direct paths completed 48 numerical comparisons each
+against the existing original-0.6B reference. All 96 greedy token choices matched
+and all passed preset atol=0.01, rtol=0.01. Each path had 42 zero-difference steps
+and six nonzero prompt-prefill steps with maximum absolute difference 0.0625.
+These validate those small-model controls, not exact numerical equivalence of
+the 14B model or general quality. No resident original-14B reference was run.
+
+The 14B protocol fixes two rounds, three modes, seed 4381, three prompts, four
+output tokens per case, 128 prompt tokens maximum and 256 total context maximum.
+Fresh processes isolate MLX allocations. Within each round the modes are shuffled.
+Prompts request the result of 27*14, whether an unsuccessful unknown login alone
+proves account breach, and the capital of France in Arabic. They are three simple
+functional cases, not a security or multilingual quality benchmark. The model
+files are fully hashed before each worker using the same cached verification path.
+The original trial guards begin after verification: RSS 6 GiB, system swap growth
+512 MiB, available RAM below 512 MiB for five seconds and worker time 900 seconds.
+OS caches and other apps are uncontrolled; no cold-SSD or causal memory claim is
+made. No stopped job is retried, replaced or counted as a completed speed result.
+
+4. Observations
+Native MLX: two of two jobs completed, median forward time 120.4476 seconds.
+Direct cached: two of two completed, median forward time 151.8064 seconds.
+Direct F_NOCACHE: one of two completed, its forward time 158.6013 seconds.
+The stopped F_NOCACHE job ended after 5.2242 worker seconds and before any complete
+token step. Its worker maximum system-swap growth was 584.375 MiB. Its preceding
+verification net delta was 1034.75 MiB, measured against a different baseline.
+These two values must not be combined into a causal estimate of model memory use.
+The initial mode also occupied the first position in the sequence, confounding
+mode and changing system state. The completed second F_NOCACHE attempt observed
+239.0625 MiB worker growth; both its success and the first failure are retained.
+
+Each completed job generated ten tokens including EOS over the three cases,
+visiting all 40 layers 400 times. Outputs were '378', 'NO' and 'باريس.' with EOS.
+All completed direct-read jobs matched the same-round native greedy token
+sequences. This is output equality on these cases, not full-logit equivalence.
+The direct cached path was slower in both comparable rounds; F_NOCACHE was
+slower in its one comparable completed round. No performance replacement follows.
+Native full-run MLX peaks varied across rounds, approximately 0.668 and 0.821 GiB;
+direct completed jobs measured 0.668 GiB. Conditional memory medians and only two
+rounds are insufficient to establish a consistent memory benefit. Process RSS
+remains separately recorded and differs across read paths. All raw time-series,
+partial events, source hashes, protocol hashes and runtime versions are retained.
+
+5. Implementation response
+The subsequent runner guards checksum verification itself and retains the same
+swap baseline through inference. It can stop without launching the model when
+verification violates limits, with an explicit model_started=false report. An
+optional F_NOCACHE request applies only to descriptors opened for hashing. The
+checks do not guarantee zero swap, total-RAM caps or cold-cache execution. This
+safer runner is a later implementation; the original six-job study uses its frozen
+pre-change source snapshot. Reproduction must restore that snapshot to repeat
+the historical guard semantics. Unit tests cover no-launch behavior, the retained
+baseline, byte preservation, invalid ranges and descriptor-level cache policy.
+
+6. Limits and next questions
+The checkpoint is larger than RAM, but short successful decoding does not imply
+that all weights are simultaneously resident or that conversation is fast.
+Completion rates, setup deltas and failures are as important as successful timing.
+Control cold/warm file-cache state, other apps, thermal conditions and longer
+contexts in a future study before making broad performance or stability claims.
+Further work should profile layer transfer versus computation and test smaller
+matrix tiles against an appropriate numerical baseline. Training a large model
+and running original 70B weights remain outside these results. No algorithmic
+novelty or employment outcome is inferred from this engineering study.
+
+References
+MLX lazy loading: https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.load.html
+MLX/NumPy copying: https://ml-explore.github.io/mlx/build/html/usage/numpy.html
+Apple archived file-cache guidelines: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/FileSystem/Articles/FilePerformance.html
+Public SDK counterpart: https://github.com/apple/darwin-xnu/blob/main/bsd/sys/fcntl.h
+FlexGen: https://proceedings.mlr.press/v202/sheng23a.html
+LLM in a flash: https://machinelearning.apple.com/research/efficient-large-language
+
+Follow-up coding control (separate protocol)
+The safer runner with native weight reads and F_NOCACHE verification completed
+one request for a nonmutating list-reversal expression. The raw answer was
+`items[::-1]` including Markdown inline-code delimiters, followed by EOS. Strict
+Python expression parsing of that raw text fails. An explicitly post-hoc display
+normalization removing only the complete outer code span produces an AST with
+a subscript of items and slice step -1, with no lower or upper bound. The generated
+code was inspected and never executed. This records useful content and a strict
+format failure separately; it is not a general coding benchmark.
+
+Seven output tokens including EOS visited 40 layers 280 times. Forward time
+80.7276 seconds; worker elapsed 83.4316 seconds; verification 25.4175 seconds.
+Peak MLX 0.6689 GiB; sampled worker RSS 1.0172 GiB. Observed whole-system maximum
+swap growth across verification and worker samples was 22.9375 MiB, measured
+against one pre-verification baseline. Its workload, hash policy and guard
+semantics differ from the six-job study; it is not a controlled memory or speed
+comparison with that study. It validates the safer execution path for this run.

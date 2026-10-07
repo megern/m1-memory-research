@@ -6,6 +6,7 @@ import struct
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from original_tensor_store import OriginalTensorStore, header, verify_files
@@ -73,6 +74,42 @@ class OriginalTensorStoreTests(unittest.TestCase):
             root=Path(tmp);model=root/'model';model.mkdir();p=self.make_file(root)
             (model/p.name).symlink_to(p)
             with self.assertRaises(ValueError): verify_files(model,self.manifest([p]))
+
+    def test_exact_reads_and_truncation_failures(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);p=self.make_file(root)
+            store=OriginalTensorStore(root,self.manifest([p]),io_mode='raw-cached')
+            info=store.tensors['matrix']
+            self.assertEqual(store.read_bytes(p.name,info['offset'],4),b'\x80\x3f\x00\xc0')
+            with self.assertRaises(ValueError): store.read_bytes(p.name,p.stat().st_size,4)
+            with patch('original_tensor_store.os.pread',return_value=b'\x80'):
+                with self.assertRaises(ValueError): store.read_bytes(p.name,info['offset'],4)
+
+    def test_nocache_sets_only_descriptor_policy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);p=self.make_file(root)
+            with patch('original_tensor_store.sys.platform','darwin'):
+                store=OriginalTensorStore(root,self.manifest([p]),io_mode='raw-nocache')
+            with patch('fcntl.fcntl',return_value=0) as control:
+                info=store.tensors['matrix']
+                self.assertEqual(store.read_bytes(p.name,info['offset'],4),b'\x80\x3f\x00\xc0')
+            self.assertEqual(control.call_args.args[1:],(48,1))
+            self.assertEqual(store.f_nocache_descriptors,1)
+
+    def test_invalid_mode_and_platform_fail(self):
+        with self.assertRaises(ValueError): OriginalTensorStore('.',{},io_mode='invalid')
+        with patch('original_tensor_store.sys.platform','linux'),self.assertRaises(ValueError):
+            OriginalTensorStore('.',{},io_mode='raw-nocache')
+
+    def test_hash_verification_nocache_keeps_digest_and_observes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);p=self.make_file(root)
+            with patch('original_tensor_store.sys.platform','darwin'),patch('fcntl.fcntl',return_value=0) as control,patch('builtins.print'):
+                observer=unittest.mock.Mock()
+                identities=verify_files(root,self.manifest([p]),nocache=True,observe=observer)
+            self.assertIn(p.name,identities)
+            observer.assert_called_once()
+            self.assertEqual(control.call_args.args[1:],(48,1))
 
 
 if __name__ == '__main__': unittest.main()

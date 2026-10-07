@@ -1,0 +1,14 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "prompt": "Reply with only the Python expression that reverses a list named items without changing it.",
+  "io_mode": "native",
+  "tokens": 16,
+  "budget_mib": 1024,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "scope": "One follow-up functional coding control, separate from frozen I/O trials; inspect AST, never execute generated code",
+  "selection": "Retain first attempt, including guard stops or malformed answers",
+  "verification_nocache": true,
+  "swap_baseline": "Before verification, retained through inference; 512 MiB stop threshold unchanged"
+}

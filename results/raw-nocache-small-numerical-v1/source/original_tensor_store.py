@@ -51,9 +51,7 @@ def header(path):
     return result
 
 
-def verify_files(model, manifest, *, nocache=False, observe=None):
-    if nocache and sys.platform != 'darwin':
-        raise ValueError('Verification F_NOCACHE requires macOS')
+def verify_files(model, manifest):
     identities = {}
     for name, item in manifest['files'].items():
         if Path(name).name != name:
@@ -65,15 +63,7 @@ def verify_files(model, manifest, *, nocache=False, observe=None):
         if before.st_size != item['bytes']:
             raise ValueError('Model file size differs')
         with p.open('rb') as f:
-            if nocache:
-                import fcntl
-                fcntl.fcntl(f.fileno(),48,1)
-            hasher = hashlib.sha256()
-            while data := f.read(8*1024**2):
-                hasher.update(data)
-                if observe:
-                    observe()
-            digest = hasher.hexdigest()
+            digest = hashlib.file_digest(f, 'sha256').hexdigest()
         after = p.stat()
         if digest != item['sha256'] or (before.st_size,before.st_mtime_ns,before.st_ino) != (after.st_size,after.st_mtime_ns,after.st_ino):
             raise ValueError('Model hash differs or file changed during verification')

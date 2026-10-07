@@ -1,0 +1,1242 @@
+{
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "manifest_sha256": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "weight_file_bytes": 1503300328,
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": false,
+  "verification_seconds": 0.9356425001751631,
+  "worker_elapsed_seconds": 23.671730417059734,
+  "io_mode": "raw-cached",
+  "verification_system_swap_delta_bytes": 0,
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "completed": true,
+  "numerical_audit_passed": true,
+  "sampled_process_tree_rss_peak_bytes": 295895040,
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "events": [
+    {
+      "event": "step",
+      "case": 0,
+      "step": 0,
+      "token_id": 21,
+      "elapsed_seconds": 0.43632112513296306,
+      "mlx_active_bytes": 29673584,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 1,
+      "token_id": 54916,
+      "elapsed_seconds": 0.32703645899891853,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 2,
+      "token_id": 553,
+      "elapsed_seconds": 0.567002333002165,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 3,
+      "token_id": 220,
+      "elapsed_seconds": 0.553519916953519,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 4,
+      "token_id": 22,
+      "elapsed_seconds": 0.698493167059496,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 5,
+      "token_id": 374,
+      "elapsed_seconds": 0.36555324983783066,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 6,
+      "token_id": 220,
+      "elapsed_seconds": 0.3577572498470545,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 7,
+      "token_id": 19,
+      "elapsed_seconds": 0.37679304205812514,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 0,
+      "token_id": 130040,
+      "elapsed_seconds": 0.4167322919238359,
+      "mlx_active_bytes": 29673608,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 1,
+      "token_id": 126756,
+      "elapsed_seconds": 0.3525956659577787,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 2,
+      "token_id": 82168,
+      "elapsed_seconds": 0.33060558303259313,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 3,
+      "token_id": 125573,
+      "elapsed_seconds": 0.3421787079423666,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 4,
+      "token_id": 123961,
+      "elapsed_seconds": 0.37072383309714496,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 5,
+      "token_id": 124009,
+      "elapsed_seconds": 0.6471336248796433,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 6,
+      "token_id": 73441,
+      "elapsed_seconds": 0.36958399997092783,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 7,
+      "token_id": 77273,
+      "elapsed_seconds": 0.386430999962613,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 0,
+      "token_id": 8420,
+      "elapsed_seconds": 0.5696923329960555,
+      "mlx_active_bytes": 29673564,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 1,
+      "token_id": 594,
+      "elapsed_seconds": 0.4214664588216692,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 2,
+      "token_id": 264,
+      "elapsed_seconds": 0.39656970906071365,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 3,
+      "token_id": 4285,
+      "elapsed_seconds": 0.7308293329551816,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 4,
+      "token_id": 13027,
+      "elapsed_seconds": 0.48897466715425253,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 5,
+      "token_id": 729,
+      "elapsed_seconds": 0.8586014579050243,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 6,
+      "token_id": 311,
+      "elapsed_seconds": 1.0502569589298218,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 7,
+      "token_id": 912,
+      "elapsed_seconds": 0.41634466615505517,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 0,
+      "token_id": 19297,
+      "elapsed_seconds": 0.3910804579500109,
+      "mlx_active_bytes": 29673564,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 1,
+      "token_id": 323,
+      "elapsed_seconds": 0.37342349998652935,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 2,
+      "token_id": 23715,
+      "elapsed_seconds": 0.36631941702216864,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 3,
+      "token_id": 525,
+      "elapsed_seconds": 0.36054087500087917,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 4,
+      "token_id": 2176,
+      "elapsed_seconds": 0.5348299168981612,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 5,
+      "token_id": 4763,
+      "elapsed_seconds": 0.45461120805703104,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 6,
+      "token_id": 18940,
+      "elapsed_seconds": 0.37241770792752504,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 7,
+      "token_id": 304,
+      "elapsed_seconds": 0.43809633306227624,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 0,
+      "token_id": 61088,
+      "elapsed_seconds": 0.4569670839700848,
+      "mlx_active_bytes": 29673568,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 1,
+      "token_id": 320,
+      "elapsed_seconds": 0.37352766608819366,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 2,
+      "token_id": 13636,
+      "elapsed_seconds": 0.34057770809158683,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 3,
+      "token_id": 3988,
+      "elapsed_seconds": 0.3346258751116693,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 4,
+      "token_id": 739,
+      "elapsed_seconds": 0.3465159581974149,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 5,
+      "token_id": 8,
+      "elapsed_seconds": 0.3621311669703573,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 6,
+      "token_id": 374,
+      "elapsed_seconds": 0.32532904180698097,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 7,
+      "token_id": 264,
+      "elapsed_seconds": 0.3991682499181479,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 0,
+      "token_id": 80970,
+      "elapsed_seconds": 0.46110624982975423,
+      "mlx_active_bytes": 30115980,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 1,
+      "token_id": 73274,
+      "elapsed_seconds": 0.35797154204919934,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 2,
+      "token_id": 64604,
+      "elapsed_seconds": 0.3351992091629654,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 3,
+      "token_id": 11798,
+      "elapsed_seconds": 0.33578449999913573,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 4,
+      "token_id": 125122,
+      "elapsed_seconds": 0.3415658329613507,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 5,
+      "token_id": 27846,
+      "elapsed_seconds": 0.34790787496604025,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 6,
+      "token_id": 124347,
+      "elapsed_seconds": 0.33605604199692607,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 7,
+      "token_id": 124571,
+      "elapsed_seconds": 0.3416703341063112,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "direct_original_result",
+      "model_repository": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "stored_tensor_elements": 751632384,
+      "tensor_count": 311,
+      "all_tensor_file_dtypes": [
+        "BF16"
+      ],
+      "engine_plan": {
+        "budget_bytes": 268435456,
+        "largest_layer_bytes": 31461888,
+        "io_mode": "raw-cached",
+        "head_tile_bytes": 4194304,
+        "head_rows": 2048,
+        "cached_layers": 0,
+        "duplicate_weight_storage_bytes": 0,
+        "embedding_mode": "Exact requested rows from original BF16 payload",
+        "head_mode": "All vocabulary rows in tiles, original BF16; no top-k pruning",
+        "scope": "Measured active MLX limit, not total RAM; transient peaks reported separately"
+      },
+      "layer_calls": 1344,
+      "row_bytes_read_by_pread": 14936320000,
+      "selected_native_tensor_bytes_requested": 42284779520,
+      "f_nocache_descriptors": 0,
+      "mlx_peak_allocated_bytes": 64232084,
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "What is 6 multiplied by 7? Give only the number.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            21,
+            54916,
+            553,
+            220,
+            22,
+            374,
+            220,
+            19
+          ],
+          "text": "6 multiplied by 7 is 4",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.43632112513296306,
+            0.32703645899891853,
+            0.567002333002165,
+            0.553519916953519,
+            0.698493167059496,
+            0.36555324983783066,
+            0.3577572498470545,
+            0.37679304205812514
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 1,
+          "prompt": "اشرح في جملة واحدة وظيفة جدار الحماية في الشبكة.",
+          "prompt_tokens": 32,
+          "token_ids": [
+            130040,
+            126756,
+            82168,
+            125573,
+            123961,
+            124009,
+            73441,
+            77273
+          ],
+          "text": "وظيفة جدار الحماية في",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.4167322919238359,
+            0.3525956659577787,
+            0.33060558303259313,
+            0.3421787079423666,
+            0.37072383309714496,
+            0.6471336248796433,
+            0.36958399997092783,
+            0.386430999962613
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 2,
+          "prompt": "Write a Python function to add two integers.",
+          "prompt_tokens": 21,
+          "token_ids": [
+            8420,
+            594,
+            264,
+            4285,
+            13027,
+            729,
+            311,
+            912
+          ],
+          "text": "Here's a simple Python function to add",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.5696923329960555,
+            0.4214664588216692,
+            0.39656970906071365,
+            0.7308293329551816,
+            0.48897466715425253,
+            0.8586014579050243,
+            1.0502569589298218,
+            0.41634466615505517
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.015625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 3,
+          "prompt": "Explain the difference between authentication and authorization.",
+          "prompt_tokens": 21,
+          "token_ids": [
+            19297,
+            323,
+            23715,
+            525,
+            2176,
+            4763,
+            18940,
+            304
+          ],
+          "text": "Authentication and authorization are both security concepts in",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.3910804579500109,
+            0.37342349998652935,
+            0.36631941702216864,
+            0.36054087500087917,
+            0.5348299168981612,
+            0.45461120805703104,
+            0.37241770792752504,
+            0.43809633306227624
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 4,
+          "prompt": "What does DNS do? Answer in one sentence.",
+          "prompt_tokens": 22,
+          "token_ids": [
+            61088,
+            320,
+            13636,
+            3988,
+            739,
+            8,
+            374,
+            264
+          ],
+          "text": "DNS (Domain Name System) is a",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.4569670839700848,
+            0.37352766608819366,
+            0.34057770809158683,
+            0.3346258751116693,
+            0.3465159581974149,
+            0.3621311669703573,
+            0.32532904180698097,
+            0.3991682499181479
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 5,
+          "prompt": "لماذا يجب عدم مشاركة كلمات المرور؟ أجب بجملة قصيرة.",
+          "prompt_tokens": 33,
+          "token_ids": [
+            80970,
+            73274,
+            64604,
+            11798,
+            125122,
+            27846,
+            124347,
+            124571
+          ],
+          "text": "لا يُنصح بشاركة",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.46110624982975423,
+            0.35797154204919934,
+            0.3351992091629654,
+            0.33578449999913573,
+            0.3415658329613507,
+            0.34790787496604025,
+            0.33605604199692607,
+            0.3416703341063112
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Row-byte counters are logical process reads, not physical SSD traffic.",
+        "Native selected tensor bytes are requested payload sizes, not SSD-byte telemetry.",
+        "All vocabulary rows computed; head tiling may introduce numerical differences tested separately.",
+        "Active MLX checks are not total-RAM caps; transient MLX peaks separately reported.",
+        "Verification warms OS caches; no cold-cache claim.",
+        "Short numerical/functional controls do not establish general model quality or novelty."
+      ]
+    }
+  ],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.0023999169934540987,
+      "rss_bytes": 6209536,
+      "system_available_bytes": 3146612736,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.5103330828715116,
+      "rss_bytes": 64585728,
+      "system_available_bytes": 3162783744,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.0199867500923574,
+      "rss_bytes": 89292800,
+      "system_available_bytes": 3128328192,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.5295589580200613,
+      "rss_bytes": 92160000,
+      "system_available_bytes": 3089104896,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.039458124898374,
+      "rss_bytes": 254459904,
+      "system_available_bytes": 3085352960,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.5479463329538703,
+      "rss_bytes": 295895040,
+      "system_available_bytes": 2934472704,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.056750499876216,
+      "rss_bytes": 280346624,
+      "system_available_bytes": 2862432256,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 3.570683333091438,
+      "rss_bytes": 262651904,
+      "system_available_bytes": 2929016832,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.082229624968022,
+      "rss_bytes": 263618560,
+      "system_available_bytes": 2901966848,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 4.5931987499352545,
+      "rss_bytes": 215465984,
+      "system_available_bytes": 2900869120,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.103165917098522,
+      "rss_bytes": 243335168,
+      "system_available_bytes": 2932916224,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 5.612820291891694,
+      "rss_bytes": 244023296,
+      "system_available_bytes": 2934685696,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.122401624917984,
+      "rss_bytes": 218087424,
+      "system_available_bytes": 2934685696,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 6.632553250063211,
+      "rss_bytes": 246136832,
+      "system_available_bytes": 2996404224,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.142291500000283,
+      "rss_bytes": 246824960,
+      "system_available_bytes": 3013656576,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 7.649326874874532,
+      "rss_bytes": 245547008,
+      "system_available_bytes": 2981085184,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 8.199046291876584,
+      "rss_bytes": 208551936,
+      "system_available_bytes": 2892857344,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 8.70984433288686,
+      "rss_bytes": 199393280,
+      "system_available_bytes": 2876162048,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 9.224064332898706,
+      "rss_bytes": 119488512,
+      "system_available_bytes": 2910519296,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 9.74903987487778,
+      "rss_bytes": 99123200,
+      "system_available_bytes": 2739781632,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 10.257003957871348,
+      "rss_bytes": 98549760,
+      "system_available_bytes": 2821308416,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 10.766750166891143,
+      "rss_bytes": 97910784,
+      "system_available_bytes": 2895937536,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 11.276459541870281,
+      "rss_bytes": 98697216,
+      "system_available_bytes": 2895790080,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 11.790777917020023,
+      "rss_bytes": 98680832,
+      "system_available_bytes": 2818113536,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 12.317435417091474,
+      "rss_bytes": 65536000,
+      "system_available_bytes": 2775662592,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 12.860966499894857,
+      "rss_bytes": 83116032,
+      "system_available_bytes": 2840248320,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 13.381623291876167,
+      "rss_bytes": 82771968,
+      "system_available_bytes": 2689449984,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 13.889934499980882,
+      "rss_bytes": 55214080,
+      "system_available_bytes": 2680193024,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 14.398621917003766,
+      "rss_bytes": 92225536,
+      "system_available_bytes": 2738077696,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 14.908432750031352,
+      "rss_bytes": 92569600,
+      "system_available_bytes": 2777759744,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 15.415751124965027,
+      "rss_bytes": 65699840,
+      "system_available_bytes": 2786213888,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 15.958427208010107,
+      "rss_bytes": 62963712,
+      "system_available_bytes": 2690416640,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 16.481371250003576,
+      "rss_bytes": 94584832,
+      "system_available_bytes": 2686205952,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 17.022561749909073,
+      "rss_bytes": 122503168,
+      "system_available_bytes": 2650177536,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 17.55471033300273,
+      "rss_bytes": 94765056,
+      "system_available_bytes": 2701246464,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 18.064688083017245,
+      "rss_bytes": 68141056,
+      "system_available_bytes": 2685026304,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 18.5744421670679,
+      "rss_bytes": 97157120,
+      "system_available_bytes": 2694365184,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 19.08145279204473,
+      "rss_bytes": 96534528,
+      "system_available_bytes": 2713468928,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 19.58948816708289,
+      "rss_bytes": 97091584,
+      "system_available_bytes": 2822848512,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 20.09952783305198,
+      "rss_bytes": 97599488,
+      "system_available_bytes": 2828730368,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 20.60617941687815,
+      "rss_bytes": 72843264,
+      "system_available_bytes": 2831220736,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 21.116186457918957,
+      "rss_bytes": 100483072,
+      "system_available_bytes": 2828550144,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 21.625917916884646,
+      "rss_bytes": 101253120,
+      "system_available_bytes": 2827321344,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 22.135830499930307,
+      "rss_bytes": 101482496,
+      "system_available_bytes": 2835136512,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 22.644653166877106,
+      "rss_bytes": 102383616,
+      "system_available_bytes": 2835136512,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 23.154364249901846,
+      "rss_bytes": 131596288,
+      "system_available_bytes": 2944466944,
+      "system_swap_growth_bytes": -8388608
+    }
+  ],
+  "limitations": [
+    "All model files hashed before timing; OS file cache uncontrolled and warmed.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}

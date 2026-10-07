@@ -1,0 +1,94 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "manifest_sha256": "6d1c5e1fce45dcc898dbbd0fe66e7a2799acc0cabfc0a7f094f94ec932d52500",
+  "weight_file_bytes": 29536665640,
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": true,
+  "verification_seconds": 18.203519540838897,
+  "worker_elapsed_seconds": 5.224212333094329,
+  "io_mode": "raw-nocache",
+  "verification_system_swap_delta_bytes": 1085014016,
+  "exit_code": -15,
+  "stopped_by_guard": "swap_growth_over_512MiB",
+  "completed": false,
+  "numerical_audit_passed": null,
+  "sampled_process_tree_rss_peak_bytes": 1205354496,
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "events": [],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.0027267499826848507,
+      "rss_bytes": 4669440,
+      "system_available_bytes": 2873573376,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.513019833015278,
+      "rss_bytes": 57999360,
+      "system_available_bytes": 2868428800,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.018703583162278,
+      "rss_bytes": 87375872,
+      "system_available_bytes": 2872918016,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.524382625008002,
+      "rss_bytes": 80871424,
+      "system_available_bytes": 2863005696,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.032368125161156,
+      "rss_bytes": 254672896,
+      "system_available_bytes": 2864234496,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.5420696660876274,
+      "rss_bytes": 739901440,
+      "system_available_bytes": 2583969792,
+      "system_swap_growth_bytes": 180682752
+    },
+    {
+      "seconds": 3.0471060830168426,
+      "rss_bytes": 1128497152,
+      "system_available_bytes": 2767339520,
+      "system_swap_growth_bytes": 327548928
+    },
+    {
+      "seconds": 3.5567864160984755,
+      "rss_bytes": 1205354496,
+      "system_available_bytes": 2461417472,
+      "system_swap_growth_bytes": 327548928
+    },
+    {
+      "seconds": 4.068058625096455,
+      "rss_bytes": 642678784,
+      "system_available_bytes": 2957377536,
+      "system_swap_growth_bytes": 384565248
+    },
+    {
+      "seconds": 4.579019750002772,
+      "rss_bytes": 830619648,
+      "system_available_bytes": 2856763392,
+      "system_swap_growth_bytes": 517079040
+    },
+    {
+      "seconds": 5.089110083179548,
+      "rss_bytes": 946012160,
+      "system_available_bytes": 2456174592,
+      "system_swap_growth_bytes": 612761600
+    }
+  ],
+  "limitations": [
+    "All model files hashed before timing; OS file cache uncontrolled and warmed.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}

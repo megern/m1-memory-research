@@ -6,6 +6,26 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## Original BF16 14B: I/O controls and setup protection
+
+A [subsequent frozen I/O protocol](models/original-io-protocol.json) ran three methods in two randomized rounds on three new short cases: arithmetic, an authentication-evidence question and Arabic geography. [All six attempted jobs](results/original-io-trials-v1/summary.json) are retained. Five completed, generating `378`, `NO` and `باريس.` through EOS. The failed first direct-nocache job stopped on global swap growth before any token completed. [The descriptive analysis](results/original-io-trials-v1/descriptive-analysis.json) verifies snapshot hashes and compares completed jobs with the same-round native control.
+
+| Read path | Completed / planned | Completed-only median forward seconds | Comparison with same-round native |
+|---|---:|---:|---|
+| Native MLX lazy loading | 2 / 2 | 120.45 | Baseline |
+| Direct original BF16, cached reads | 2 / 2 | 151.81 | Slower in both rounds; identical token sequences |
+| Direct original BF16, descriptor F_NOCACHE | 1 / 2 | 158.60 | One comparable completion, slower; identical token sequences |
+
+The last median contains only one completed observation. Stopped durations are never ranked as completed speed measurements. Two rounds and uncontrolled caches/other apps do not establish causality or general stability. **The alternative readers did not establish a speed improvement; native loading remains the default.** Both alternative paths separately passed 48 small-model numerical comparisons each, retaining maximum prompt-prefill difference 0.0625 and matching all greedy tokens. Those checks do not establish full-logit equivalence on 14B.
+
+![All original-BF16 I/O attempts and separate swap phases](figures/original-io-trials.png)
+
+The failed job's preceding checksum pass recorded **1034.75 MiB net whole-system swap growth**, outside the old worker guard; its worker then observed another baseline-relative maximum of 584.375 MiB. These phases use different baselines and reflect all apps, so they are not a causal model-memory estimate. This observation prompted a concrete safety improvement: **the current runner guards verification too and retains its original swap baseline through inference**. A verification stop writes `model_started=false` and never launches the model. An optional `--verification-nocache` applies the documented macOS hint only to hashing descriptors. No machine-wide cache changes occur, and policy acceptance does not prove physical SSD traffic or absent cached pages. A hard 1 GiB total-RAM bound remains unproven.
+
+A separate [first coding control](results/original-14b-code-v1/summary.json) used the new setup guard and produced the raw answer `` `items[::-1]` `` through EOS in 83.43 worker seconds plus 25.42 seconds verification. The raw text fails strict Python-expression parsing because of the Markdown code span. Removing only that complete outer span in an explicitly post-hoc display normalization yields the expected reverse-slice AST. Generated code was **inspected, never executed**. Observed peak MLX was 0.669 GiB and maximum whole-system swap growth over setup and worker samples was 22.94 MiB. This different one-question control is not a paired memory comparison with the I/O study or a general coding benchmark.
+
+Read the [working research manuscript](papers/original-io-study.txt), retained protocols, source snapshots and [Arabic operating guide](OPERATING_GUIDE.md). The local suite now has 30 passing tests. Exact reproduction of the historical six-job study uses its frozen source snapshot; the current runner has stricter setup guards. Original-weight 70B and large-model training remain outside these results.
+
 ## Direct original-file engine: original BF16 14B beyond physical RAM
 
 The new [direct engine](tools/direct_original_engine.py) reads the pinned original safetensors files without creating duplicate layer files. It loads one original BF16 layer at a time through MLX lazy loading, gathers only requested embedding rows, and computes **every vocabulary score** in BF16 output tiles. It supports separate or shared output weights as specified by the original Qwen3 configuration. No quantization, layer skipping or vocabulary pruning is introduced. These are established techniques assembled into a local prototype; algorithmic novelty is not established.
@@ -25,7 +45,7 @@ The first [two-case attempt](results/direct-original-14b-first-v1/summary.json) 
 
 The repeat's file verification took another **17.13 seconds** outside the worker timer; the six forward steps totaled **71.53 seconds**. This is slow, short functional inference. **The 1 GiB active-allocation check setting did not impose a hard 1 GiB peak bound:** transient measured MLX allocation reached 1.153 GiB. Process RSS, active MLX, OS file caches and total unified-memory use differ; these numbers are not total system RAM. Whole-system swap growth includes other apps and file-cache pressure, so this experiment cannot uniquely attribute its source. Existing swap was present. The successful repeat follows a failed attempt and is not evidence of stable operation across workloads. No resident original-14B numerical reference was run, no broad quality benchmark was performed, and no original-weight 70B, large-model-training or algorithmic-novelty result is claimed.
 
-See [method, observations and limitations](results/direct-original-development-notes.txt) and the [Arabic operating guide](OPERATING_GUIDE.md). The integrity and continuation tests reject altered files, inconsistent shard indexes, invalid tensor ranges, duplicate names, external file links and failed acquisitions before proceeding. Local unit suite: 20 passing tests at this stage.
+See [method, observations and limitations](results/direct-original-development-notes.txt) and the [Arabic operating guide](OPERATING_GUIDE.md). The integrity and continuation tests reject altered files, inconsistent shard indexes, invalid tensor ranges, duplicate names, external file links and failed acquisitions before proceeding. Local unit suite for that release: 20 passing tests; the current suite has 30.
 
 ## Original BF16 scheduling prototype
 

@@ -1,0 +1,716 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "protocol_sha256": "e0c8334793b9d25b4a9f962d0474006c5c49fe9ba4e0d7dbfff3849dcd8f9085",
+  "source_sha256": {
+    "run_direct_original.py": "6bbdbe5690e6a614aa9f93090fb91b263a0d9d52bf1a498fd33aead8f4caaea7",
+    "direct_original_engine.py": "fed3da509de61465751802f4164672b429cee9f4af2aa4451f8773fd0467ab53",
+    "original_tensor_store.py": "5c3dcb2892145f4da4fa6acafea5e40bde502aa8ff3bb6db31d691b6b8953445",
+    "run_io_trials.py": "dbfe87df16f39b75bde2e17e1445f61f4c1b0b3aa589d2d09041d8b9dc5cc019"
+  },
+  "planned_order": [
+    {
+      "round": 0,
+      "mode": "raw-nocache"
+    },
+    {
+      "round": 0,
+      "mode": "native"
+    },
+    {
+      "round": 0,
+      "mode": "raw-cached"
+    },
+    {
+      "round": 1,
+      "mode": "raw-cached"
+    },
+    {
+      "round": 1,
+      "mode": "native"
+    },
+    {
+      "round": 1,
+      "mode": "raw-nocache"
+    }
+  ],
+  "trials": [
+    {
+      "index": 0,
+      "round": 0,
+      "mode": "raw-nocache",
+      "runner_exit_code": 1,
+      "completed": false,
+      "guard": "swap_growth_over_512MiB",
+      "worker_seconds": 5.224212333094329,
+      "verification_seconds": 18.203519540838897,
+      "verification_swap_delta_bytes": 1085014016,
+      "forward_seconds": 0,
+      "recorded_steps": 0,
+      "peak_mlx_bytes": null,
+      "peak_mlx_scope": "observed completed steps only",
+      "sampled_rss_peak_bytes": 1205354496,
+      "max_system_swap_growth_bytes": 612761600,
+      "token_events": [],
+      "cases": null,
+      "nocache_descriptors": null
+    },
+    {
+      "index": 1,
+      "round": 0,
+      "mode": "native",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 121.13709920807742,
+      "verification_seconds": 17.279050166951492,
+      "verification_swap_delta_bytes": 0,
+      "forward_seconds": 118.84336874843575,
+      "recorded_steps": 10,
+      "peak_mlx_bytes": 717093504,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1072168960,
+      "max_system_swap_growth_bytes": 0,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 18
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 22
+        },
+        {
+          "case": 0,
+          "step": 2,
+          "token_id": 23
+        },
+        {
+          "case": 0,
+          "step": 3,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 2,
+          "step": 0,
+          "token_id": 124422
+        },
+        {
+          "case": 2,
+          "step": 1,
+          "token_id": 124392
+        },
+        {
+          "case": 2,
+          "step": 2,
+          "token_id": 13
+        },
+        {
+          "case": 2,
+          "step": 3,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with only the number: 27 * 14.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            18,
+            22,
+            23,
+            151645
+          ],
+          "text": "378",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            11.091107624815777,
+            10.753256999887526,
+            12.600517292041332,
+            10.549973374931142
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+          "prompt_tokens": 34,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            12.113692957907915,
+            14.347550082951784
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt": "أجب بكلمة واحدة: ما عاصمة فرنسا؟",
+          "prompt_tokens": 27,
+          "token_ids": [
+            124422,
+            124392,
+            13,
+            151645
+          ],
+          "text": "باريس.",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            12.509498291183263,
+            11.582799166906625,
+            11.881038749823347,
+            11.41393420798704
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0
+    },
+    {
+      "index": 2,
+      "round": 0,
+      "mode": "raw-cached",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 150.9571613748558,
+      "verification_seconds": 17.241847375174984,
+      "verification_swap_delta_bytes": -8388608,
+      "forward_seconds": 148.4165772916749,
+      "recorded_steps": 10,
+      "peak_mlx_bytes": 717093504,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1139425280,
+      "max_system_swap_growth_bytes": 0,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 18
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 22
+        },
+        {
+          "case": 0,
+          "step": 2,
+          "token_id": 23
+        },
+        {
+          "case": 0,
+          "step": 3,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 2,
+          "step": 0,
+          "token_id": 124422
+        },
+        {
+          "case": 2,
+          "step": 1,
+          "token_id": 124392
+        },
+        {
+          "case": 2,
+          "step": 2,
+          "token_id": 13
+        },
+        {
+          "case": 2,
+          "step": 3,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with only the number: 27 * 14.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            18,
+            22,
+            23,
+            151645
+          ],
+          "text": "378",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            15.14591404190287,
+            16.633065917063504,
+            13.913416125113145,
+            13.883461207849905
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+          "prompt_tokens": 34,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            14.954698042012751,
+            13.593794874846935
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt": "أجب بكلمة واحدة: ما عاصمة فرنسا؟",
+          "prompt_tokens": 27,
+          "token_ids": [
+            124422,
+            124392,
+            13,
+            151645
+          ],
+          "text": "باريس.",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            15.131692291935906,
+            14.214733625063673,
+            16.62684766598977,
+            14.318953499896452
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0
+    },
+    {
+      "index": 3,
+      "round": 1,
+      "mode": "raw-cached",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 157.5260791250039,
+      "verification_seconds": 17.326980957994238,
+      "verification_swap_delta_bytes": -150994944,
+      "forward_seconds": 155.1963091264479,
+      "recorded_steps": 10,
+      "peak_mlx_bytes": 717093504,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1096073216,
+      "max_system_swap_growth_bytes": 106037248,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 18
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 22
+        },
+        {
+          "case": 0,
+          "step": 2,
+          "token_id": 23
+        },
+        {
+          "case": 0,
+          "step": 3,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 2,
+          "step": 0,
+          "token_id": 124422
+        },
+        {
+          "case": 2,
+          "step": 1,
+          "token_id": 124392
+        },
+        {
+          "case": 2,
+          "step": 2,
+          "token_id": 13
+        },
+        {
+          "case": 2,
+          "step": 3,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with only the number: 27 * 14.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            18,
+            22,
+            23,
+            151645
+          ],
+          "text": "378",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            16.57766216713935,
+            15.31856062519364,
+            14.01325541594997,
+            14.411331666866317
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+          "prompt_tokens": 34,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            15.211700459010899,
+            14.574779459042475
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt": "أجب بكلمة واحدة: ما عاصمة فرنسا؟",
+          "prompt_tokens": 27,
+          "token_ids": [
+            124422,
+            124392,
+            13,
+            151645
+          ],
+          "text": "باريس.",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            16.90706254192628,
+            15.509067833190784,
+            15.603194792056456,
+            17.069694166071713
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0
+    },
+    {
+      "index": 4,
+      "round": 1,
+      "mode": "native",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 124.9135543750599,
+      "verification_seconds": 18.294566083000973,
+      "verification_swap_delta_bytes": -16777216,
+      "forward_seconds": 122.05187400057912,
+      "recorded_steps": 10,
+      "peak_mlx_bytes": 881265164,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1086160896,
+      "max_system_swap_growth_bytes": 124387328,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 18
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 22
+        },
+        {
+          "case": 0,
+          "step": 2,
+          "token_id": 23
+        },
+        {
+          "case": 0,
+          "step": 3,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 2,
+          "step": 0,
+          "token_id": 124422
+        },
+        {
+          "case": 2,
+          "step": 1,
+          "token_id": 124392
+        },
+        {
+          "case": 2,
+          "step": 2,
+          "token_id": 13
+        },
+        {
+          "case": 2,
+          "step": 3,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with only the number: 27 * 14.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            18,
+            22,
+            23,
+            151645
+          ],
+          "text": "378",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            12.084211040986702,
+            12.576613917015493,
+            13.071324249962345,
+            11.917482333024964
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+          "prompt_tokens": 34,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            14.22900391696021,
+            11.800957583123818
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt": "أجب بكلمة واحدة: ما عاصمة فرنسا؟",
+          "prompt_tokens": 27,
+          "token_ids": [
+            124422,
+            124392,
+            13,
+            151645
+          ],
+          "text": "باريس.",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            11.96052445913665,
+            11.653935083188117,
+            11.010647250106558,
+            11.747174167074263
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0
+    },
+    {
+      "index": 5,
+      "round": 1,
+      "mode": "raw-nocache",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 161.3449795418419,
+      "verification_seconds": 17.244827332906425,
+      "verification_swap_delta_bytes": -16777216,
+      "forward_seconds": 158.60130816628225,
+      "recorded_steps": 10,
+      "peak_mlx_bytes": 717093504,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1340522496,
+      "max_system_swap_growth_bytes": 250675200,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 18
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 22
+        },
+        {
+          "case": 0,
+          "step": 2,
+          "token_id": 23
+        },
+        {
+          "case": 0,
+          "step": 3,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 2,
+          "step": 0,
+          "token_id": 124422
+        },
+        {
+          "case": 2,
+          "step": 1,
+          "token_id": 124392
+        },
+        {
+          "case": 2,
+          "step": 2,
+          "token_id": 13
+        },
+        {
+          "case": 2,
+          "step": 3,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Reply with only the number: 27 * 14.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            18,
+            22,
+            23,
+            151645
+          ],
+          "text": "378",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            17.159872791962698,
+            14.68323262501508,
+            15.972504874924198,
+            15.337797957938164
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+          "prompt_tokens": 34,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            15.867136916145682,
+            14.924622167134658
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 2,
+          "prompt": "أجب بكلمة واحدة: ما عاصمة فرنسا؟",
+          "prompt_tokens": 27,
+          "token_ids": [
+            124422,
+            124392,
+            13,
+            151645
+          ],
+          "text": "باريس.",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            15.65679333312437,
+            14.909688292071223,
+            15.905433957930654,
+            18.184225250035524
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 5245
+    }
+  ],
+  "completed_series": true,
+  "stage": "finished_all_planned_jobs"
+}

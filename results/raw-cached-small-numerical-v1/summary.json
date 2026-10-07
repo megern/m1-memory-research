@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "numerical_audit_passed": true,
+  "comparisons": 48,
+  "greedy_matches": 48,
+  "allclose_matches": 48,
+  "zero_difference_steps": 42,
+  "maximum_absolute_logit_difference": 0.0625,
+  "source_sha256": {
+    "run_direct_original.py": "6bbdbe5690e6a614aa9f93090fb91b263a0d9d52bf1a498fd33aead8f4caaea7",
+    "direct_original_engine.py": "fed3da509de61465751802f4164672b429cee9f4af2aa4451f8773fd0467ab53",
+    "original_tensor_store.py": "5c3dcb2892145f4da4fa6acafea5e40bde502aa8ff3bb6db31d691b6b8953445"
+  },
+  "timing_scope": "single control; not a repeated controlled speed comparison"
+}

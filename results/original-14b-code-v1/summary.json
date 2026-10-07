@@ -1,0 +1,21 @@
+{
+  "completed": true,
+  "raw_text": "`items[::-1]`",
+  "strict_raw_expression_parseable": false,
+  "posthoc_display_normalization": "Remove only a complete single outer Markdown code span; strict raw parsing retained separately",
+  "normalized_expression": "items[::-1]",
+  "ast_matches_nonmutating_reverse_slice": true,
+  "generated_code_executed": false,
+  "stopped_at_eos": true,
+  "generated_tokens_including_eos": 7,
+  "worker_seconds": 83.43156191706657,
+  "forward_seconds": 80.72755575086921,
+  "verification_seconds": 25.417501375079155,
+  "verification_io_policy": "per-descriptor F_NOCACHE",
+  "verification_swap_delta_bytes": -218103808,
+  "swap_baseline_scope": "before verification, retained during inference",
+  "max_system_swap_growth_mib_setup_and_worker": 22.9375,
+  "peak_mlx_gib": 0.6689134910702705,
+  "sampled_worker_rss_peak_gib": 1.017181396484375,
+  "limits": "One simple expression, not a general coding benchmark or a controlled comparison with the I/O study"
+}

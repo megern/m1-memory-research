@@ -13,47 +13,6 @@ import psutil
 from original_tensor_store import verify_files
 
 
-class VerificationStop(RuntimeError):
-    pass
-
-
-def verify_guarded(model, manifest, timeout, nocache=False):
-    """Observe hashing itself; keep one swap baseline for setup and inference."""
-    started,baseline = time.monotonic(),psutil.swap_memory().used
-    samples,last,low_since = [],None,None
-    def observe(force=False):
-        nonlocal last,low_since
-        now=time.monotonic()
-        if not force and last is not None and now-last<.5:
-            return
-        last=now
-        available=psutil.virtual_memory().available
-        growth=psutil.swap_memory().used-baseline
-        rss=psutil.Process().memory_info().rss
-        samples.append({'seconds':now-started,'rss_bytes':rss,
-                        'system_available_bytes':available,'system_swap_growth_bytes':growth})
-        low_since=(low_since or now) if available<512*1024**2 else None
-        reason=('verification_timeout' if now-started>timeout else
-                'verification_rss_over_6GiB' if rss>6*1024**3 else
-                'verification_swap_growth_over_512MiB' if growth>512*1024**2 else
-                'verification_available_under_512MiB_for_5s' if low_since and now-low_since>5 else None)
-        if reason:
-            raise VerificationStop(reason)
-    identities,reason,error_type=None,None,None
-    try:
-        observe(force=True)
-        identities=verify_files(model,manifest,nocache=nocache,observe=observe)
-        observe(force=True)
-    except VerificationStop as exc:
-        identities,reason=None,str(exc)
-    except (ValueError,OSError) as exc:
-        identities,reason,error_type=None,'verification_failed',type(exc).__name__
-    return identities,{'started_monotonic':started,'seconds':time.monotonic()-started,
-                       'baseline_system_swap_bytes':baseline,'samples':samples,
-                       'stopped_by_guard':reason,'error_type':error_type,
-                       'io_policy':'per-descriptor F_NOCACHE' if nocache else 'cached'}
-
-
 def worker(model, settings):
     import mlx.core as mx
     import numpy as np
@@ -132,45 +91,30 @@ def worker(model, settings):
             'Native selected tensor bytes are requested payload sizes, not SSD-byte telemetry.',
             'All vocabulary rows computed; head tiling may introduce numerical differences tested separately.',
             'Active MLX checks are not total-RAM caps; transient MLX peaks separately reported.',
-            'OS caches uncontrolled; no cold-cache claim.',
+            'Verification warms OS caches; no cold-cache claim.',
             'Short numerical/functional controls do not establish general model quality or novelty.']},
         ensure_ascii=False),flush=True)
 
 
 def run(model, manifest_path, output, prompts, tokens=4, budget_mib=1024, head_rows=2048,
-        reference=None, timeout=900, io_mode='native', verification_nocache=False):
+        reference=None, timeout=900, io_mode='native'):
     if output.exists():
         raise ValueError('Fresh output directory required')
     manifest = json.loads(manifest_path.read_text())
     if io_mode not in {'native','raw-cached','raw-nocache'}:
         raise ValueError('Unknown I/O mode')
+    verification_swap_before = psutil.swap_memory().used
+    before_hash = time.monotonic()
+    identities = verify_files(model,manifest)
+    verification_seconds = time.monotonic()-before_hash
     output.mkdir(parents=True)
-    identities,verification=verify_guarded(model,manifest,timeout,verification_nocache)
-    verification_seconds=verification['seconds']
-    if identities is None:
-        report={'repository':manifest['repository'],'revision':manifest['revision'],
-                'manifest_sha256':hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
-                'completed':False,'model_started':False,'exit_code':None,
-                'stopped_by_guard':verification['stopped_by_guard'],
-                'verification_error_type':verification['error_type'],
-                'verification_seconds':verification_seconds,'worker_elapsed_seconds':0,
-                'verification_io_policy':verification['io_policy'],
-                'verification_measurements':verification['samples'],
-                'verification_system_swap_delta_bytes':verification['samples'][-1]['system_swap_growth_bytes'] if verification['samples'] else None,
-                'swap_baseline_scope':'before verification, retained during inference',
-                'numerical_audit_passed':None,'events':[],'measurements':[],
-                'sampled_process_tree_rss_peak_bytes':0,
-                'limitations':['Verification did not complete; model was never launched.']}
-        (output/'report.json').write_text(json.dumps(report,indent=2)+'\n')
-        print(json.dumps({'completed':False,'model_started':False,'guard':report['stopped_by_guard']}),flush=True)
-        return report
     settings={'manifest':manifest,'file_identities':identities,'budget_mib':budget_mib,
         'head_rows':head_rows,'reference':str(reference) if reference else None,'prompts':prompts,'tokens':tokens,
         'io_mode':io_mode}
     env=os.environ.copy()
     env.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_TELEMETRY='1',
                MEGERN_DIRECT_ORIGINAL_SETTINGS=json.dumps(settings))
-    started, swap = time.monotonic(),verification['baseline_system_swap_bytes']
+    started, swap = time.monotonic(),psutil.swap_memory().used
     observations, guard, low_since = [],None,None
     with (output/'stdout.jsonl').open('w') as stdout,(output/'stderr.txt').open('w') as stderr:
         child=subprocess.Popen([sys.executable,__file__,'--model',str(model),'--worker'],
@@ -187,7 +131,7 @@ def run(model, manifest_path, output, prompts, tokens=4, budget_mib=1024, head_r
             observations.append({'seconds':now-started,'rss_bytes':rss,'system_available_bytes':available,
                                  'system_swap_growth_bytes':growth})
             low_since=(low_since or now) if available<512*1024**2 else None
-            guard=('timeout' if now-verification['started_monotonic']>timeout else 'rss_over_6GiB' if rss>6*1024**3 else
+            guard=('timeout' if now-started>timeout else 'rss_over_6GiB' if rss>6*1024**3 else
                    'swap_growth_over_512MiB' if growth>512*1024**2 else
                    'available_under_512MiB_for_5s' if low_since and now-low_since>5 else None)
             if guard:
@@ -222,15 +166,13 @@ def run(model, manifest_path, output, prompts, tokens=4, budget_mib=1024, head_r
         'weight_file_bytes':weight_bytes,'physical_memory_bytes':psutil.virtual_memory().total,
         'weights_exceed_physical_ram':weight_bytes>psutil.virtual_memory().total,
         'verification_seconds':verification_seconds,'worker_elapsed_seconds':time.monotonic()-started,
-        'io_mode':io_mode,'verification_system_swap_delta_bytes':verification['samples'][-1]['system_swap_growth_bytes'],
-        'verification_io_policy':verification['io_policy'],'verification_measurements':verification['samples'],
-        'swap_baseline_scope':'before verification, retained during inference','model_started':True,
+        'io_mode':io_mode,'verification_system_swap_delta_bytes':swap-verification_swap_before,
         'exit_code':child.returncode,'stopped_by_guard':guard,'completed':child.returncode==0 and guard is None and result is not None,
         'numerical_audit_passed':numerical_audit_passed,
         'sampled_process_tree_rss_peak_bytes':max((r['rss_bytes'] for r in observations),default=0),
         'stderr_raw_sha256_before_path_redaction':hashlib.sha256(raw.encode()).hexdigest(),
         'events':events,'invalid_stdout_lines':invalid,'measurements':observations,
-        'limitations':['All original files hashed before worker timing; verification policy recorded, OS caches uncontrolled.',
+        'limitations':['All model files hashed before timing; OS file cache uncontrolled and warmed.',
             'Baseline system swap may already exist; observed deltas include other apps.',
             'RSS and MLX allocations overlap and use different accounting; never sum them.',
             'No copied layer files, quantization, cloud compute or missing weights substituted.']}
@@ -254,7 +196,6 @@ if __name__=='__main__':
     p.add_argument('--reference',type=Path)
     p.add_argument('--timeout',type=int,default=900)
     p.add_argument('--io-mode',choices=['native','raw-cached','raw-nocache'],default='native')
-    p.add_argument('--verification-nocache',action='store_true')
     p.add_argument('--worker',action='store_true')
     a=p.parse_args()
     if a.worker:
@@ -264,6 +205,6 @@ if __name__=='__main__':
             p.error('Manifest/output required, tokens 1..16, timeout 30..900')
         report=run(a.model.resolve(),a.manifest.resolve(),a.output.resolve(),
             a.prompt or ['Reply with exactly the single English word naming the capital of France.'],
-            a.tokens,a.budget_mib,a.head_rows,a.reference.resolve() if a.reference else None,a.timeout,a.io_mode,a.verification_nocache)
+            a.tokens,a.budget_mib,a.head_rows,a.reference.resolve() if a.reference else None,a.timeout,a.io_mode)
         if not report['completed'] or report['numerical_audit_passed'] is False:
             raise SystemExit(1)

@@ -1,0 +1,22 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "scope": "Exploratory I/O policy comparison; not general quality or algorithmic novelty",
+  "prompts": [
+    "Reply with only the number: 27 * 14.",
+    "Is an unknown login attempt with no successful authentication proof of a breached account? Reply with exactly YES or NO.",
+    "أجب بكلمة واحدة: ما عاصمة فرنسا؟"
+  ],
+  "modes": ["native", "raw-cached", "raw-nocache"],
+  "rounds": 2,
+  "seed": 4381,
+  "tokens_per_case": 4,
+  "budget_mib": 1024,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "guards": "Unchanged: RSS 6 GiB, global swap growth 512 MiB, available RAM below 512 MiB for five seconds",
+  "verification": "All modes hash all original files with the same cached verification path; verification swap delta separately recorded",
+  "selection": "No retries or replacement of stopped trials; keep all six jobs",
+  "metrics": ["completion", "tokens", "EOS", "forward time", "MLX peak including available partial steps", "sampled RSS", "global swap growth"],
+  "limitations": ["OS cache and other apps uncontrolled", "Two rounds insufficient for statistical or stability claims", "No resident original-14B numerical reference", "Nocache policy acknowledged by fcntl is not measured physical SSD I/O"]
+}
