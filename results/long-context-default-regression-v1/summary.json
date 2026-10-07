@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "comparison_count": 48,
+  "exact_logit_count": 42,
+  "max_logit_difference": 0.0625,
+  "source_sha256": {
+    "direct_original_engine.py": "1f0e1ae75de5dfa939d0c70453e5020f36c4b615780a818d4221d698acf939b7",
+    "run_direct_original.py": "3e0624138467e7871b4731368713d7896f8b13d71567c77035bf73c55b711665",
+    "original_tensor_store.py": "cd19ff53f4d4f1de903635d3eb4785fff2a1f61843d3fd405a0d037747ac0fd4"
+  }
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 import struct
 import sys
 import tempfile
+import threading
 import unittest
 from unittest.mock import patch
 
@@ -24,6 +25,33 @@ class OriginalTensorStoreTests(unittest.TestCase):
         return {'quantization':False,'weight_dtype':'BF16','files':
                 {p.name:{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
                  for p in paths}}
+
+    def test_parallel_hashing_matches_serial_and_overlaps_workers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            files=[self.make_file(root,f'part-{i}.safetensors') for i in range(4)]
+            manifest=self.manifest(files);barrier=threading.Barrier(4)
+            serial=verify_files(root,manifest)
+            parallel=verify_files(root,manifest,workers=4,observe=lambda:barrier.wait(timeout=5))
+            self.assertEqual(serial,parallel)
+
+    def test_parallel_corrupt_file_never_returns_partial_verification(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);files=[self.make_file(root,f'part-{i}.safetensors') for i in range(4)]
+            manifest=self.manifest(files);files[2].write_bytes(files[2].read_bytes()[:-1]+b'x')
+            with self.assertRaises(ValueError):verify_files(root,manifest,workers=4)
+
+    def test_parallel_observer_stop_propagates_and_joins_threads(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);files=[self.make_file(root,f'part-{i}.safetensors') for i in range(4)]
+            def stop():raise RuntimeError('pressure-stop-fixture')
+            with self.assertRaisesRegex(RuntimeError,'pressure-stop-fixture'):
+                verify_files(root,self.manifest(files),workers=4,observe=stop)
+            self.assertFalse(any(t.name.startswith('original-hash') for t in threading.enumerate()))
+
+    def test_parallel_invalid_worker_count_rejected_before_file_access(self):
+        for workers in [0,9,True]:
+            with self.assertRaises(ValueError):verify_files(Path('/does/not/exist'),{},workers=workers)
 
     def test_header_preserves_exact_bf16_byte_range(self):
         with tempfile.TemporaryDirectory() as tmp:

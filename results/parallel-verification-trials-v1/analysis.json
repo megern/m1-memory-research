@@ -1,0 +1,47 @@
+{
+  "source_integrity_verified": true,
+  "verified_file_identities_equal_all_completed": true,
+  "statistics": {
+    "1": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "median_verification_seconds": 24.069280624971725,
+      "mean_process_cpu_cores_during_verification": [
+        0.733462814918055,
+        0.7374198603579842
+      ],
+      "max_recorded_process_threads": [
+        1,
+        1
+      ],
+      "max_system_swap_growth_bytes": [
+        0,
+        0
+      ]
+    },
+    "8": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "median_verification_seconds": 8.496714812936261,
+      "mean_process_cpu_cores_during_verification": [
+        2.329033457760759,
+        2.287862837391474
+      ],
+      "max_recorded_process_threads": [
+        9,
+        9
+      ],
+      "max_system_swap_growth_bytes": [
+        0,
+        0
+      ]
+    }
+  },
+  "limitations": [
+    "Two exploratory rounds, same-process setup-only work, OS caches and other apps uncontrolled.",
+    "Both orders happened to be 8 workers then 1; no balanced crossover or cold-cache claim.",
+    "Setup time improvement is not an inference or token-generation speedup."
+  ]
+}

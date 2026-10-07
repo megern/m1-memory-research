@@ -1,0 +1,30 @@
+{
+  "reference_scope": "extended-context-control",
+  "reference_kind": "upstream resident BF16 bounded longer prompt, final-position projection",
+  "prefill_chunk_size": 1024,
+  "protocol_sha256": "0c6ea863b9ec3f7416e2e9736f905bdb365162b15e996429f25936f84b6f5939",
+  "logits_sha256": "8fd9df5fcfd87047d772bd4985515d3b5a34bd921a578eb7275640620839cee0",
+  "cases": [
+    {
+      "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+      "prompt_tokens": 471,
+      "tokens": [
+        8996,
+        13,
+        151645
+      ],
+      "text": "NO."
+    },
+    {
+      "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+      "prompt_tokens": 891,
+      "tokens": [
+        8996,
+        13,
+        151645
+      ],
+      "text": "NO."
+    }
+  ],
+  "source_sha256": "9d4c11f7cfd609a28d95fb6cbc0b93726e5808c805ff3cc8ad02157f9ba6461f"
+}

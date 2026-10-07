@@ -1,0 +1,158 @@
+Bounded longer-prompt original-BF16 inference on a 16 GiB Apple M1
+Author: Megern Qaisse
+Date: 2026-10-08
+Status: Exploratory working note, not peer reviewed.
+
+Question and changes
+The v0.5.0 study at 111 prompt tokens showed that layer-major chunking reduced
+reloads compared with chunk-major chunking, but did not outperform whole-prompt
+processing or substantially reduce measured allocations. This follow-up expands
+explicit opt-in bounds to 1024 input tokens and 2048 total context tokens.
+Existing defaults remain 128 input tokens, 256 total, and one hashing worker.
+The new larger-model protocol requests a 2048 MiB active-MLX check, rather than
+1024 MiB. This permits more local resources; it does not force useful memory
+consumption or establish a strict transient/total-memory cap.
+
+The worker explicitly uses the Mac's GPU for dense original model operations.
+Checksums can use up to eight CPU threads across separate source files. All files
+must pass SHA256, size and stat-identity checks; parallel verification never returns
+partial success. Each reads an 8 MiB buffer, optionally applying macOS F_NOCACHE
+to that descriptor only. The shared observer is locked; on a verification failure
+outstanding work is cancelled or stopped at the next read observation and joined.
+No machine-wide cache, energy setting or other application is changed.
+CPU time and thread counts are recorded during inference; 100% process-tree CPU
+means one logical core. Recording a GPU device does not measure its utilization.
+There is no claim that every core or all physical memory stays 100% occupied.
+
+Safety and accounting
+The same pre-verification system-swap baseline is retained through inference.
+A 512 MiB observed whole-system swap increase, 6 GiB process-tree RSS, persistent
+low available memory, or the 900-second per-trial total limit stops that trial.
+Swap includes other applications. Existing swap is not new model memory. RSS
+and MLX overlap and must not be summed. Logical requested bytes are not physical
+SSD traffic. Samples and active checks do not impose hard instantaneous bounds.
+
+Workload and original checkpoint
+Two synthetic security-evidence questions contain 20 and 40 failed-login records,
+with no recorded successful unauthorized session or other proof of access.
+Chat-template prompt lengths are 471 and 891 tokens, respectively. The output
+limit is four tokens per case. This tests longer bounded original-model execution
+and memory behavior, not general security competence or real incident triage.
+
+Original Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18 is unchanged:
+29,536,665,640 bytes of original BF16 weight files versus 17,179,869,184 bytes of
+physical RAM. No quantization, copied layer files, skipped layers, pruned output
+vocabulary or cloud computation is introduced. All 40 original layers and full
+vocabulary projection are used. KV caches remain unquantized.
+
+The frozen protocol compares whole-prompt processing, layer-major32 and
+layer-major128 in two randomized rounds, seed8056. All methods hash with eight
+workers and use the same allocation settings and guards. Different round orders
+are retained. Each job launches a new worker process. Every planned attempt and
+stop remains recorded; stopped durations are not completed-workload speed.
+
+Numerical references and retained failures
+Original Qwen3-0.6B resident controls use the same 471/891-token prompts.
+The first resident reference attempt stopped after loading, before any prompt,
+at 560,988,160 bytes of observed global swap growth (about 535.0 MiB). A dependent
+chunk32 reference was then mistakenly attempted before a complete baseline existed;
+it failed with FileNotFoundError after model loading, before prompt processing.
+Both outcomes and the source are retained. These are reference-setup failures,
+not failed 14B inference measurements.
+
+The reference loader was changed to lazy loading followed by evaluating actual
+model parameters only. This avoids evaluating a redundant serialized output-head
+matrix that is not used by the tied-head 0.6B model. Missing baseline metadata is
+now rejected before verification, output creation or GPU model loading; a test
+covers that ordering. Repeated reference setup after this change completed under
+the same guards. System conditions differ, so no causal swap-saving magnitude is
+claimed from the failed and successful setups.
+
+Three separately hashed resident references use whole-prompt, 32-token and
+128-token processing. Chunked references use the original baseline's token inputs
+for teacher-forced comparisons and retain their differences from that baseline.
+The engine passed all six score-tolerance and greedy comparisons against each
+matching reference, 18 total. Tolerance remains atol=0.01 and rtol=0.01. This checks
+cache positions beyond the earlier 256-token limit. It does not prove equality
+between different chunk sizes, bitwise equivalence, or general model quality.
+The source, protocol, reference metadata and NPZ hashes are retained. NPZ logits
+remain local; original weights are not distributed by this repository.
+
+Method attribution and scope
+Chunked prefill, layer reuse, lazy loading and parallel file hashing are established
+techniques. This work records their implementation and tradeoffs on one M1 system;
+algorithmic novelty is not established. This phase performs inference, not new LLM
+training or original-weight 70B operation. The new limits are implemented bounds,
+not proof that all lengths through 2048 tokens have been tested.
+
+Primary implementation references
+https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/generate.py
+https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/models/qwen3.py
+https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/models/cache.py
+https://huggingface.co/Qwen/Qwen3-14B/tree/40c069824f4251a91eefaf281ebe4c544efd3e18
+
+Recorded larger-model results
+Four of six planned attempts completed both NO answers through EOS. Whole-prompt
+processing completed 2/2; layer-major32 and layer-major128 each completed 1/2.
+Both stopped attempts crossed the 512 MiB whole-system swap-growth threshold.
+The layer-major128 round0 stop recorded 549,584,896 bytes of growth; the
+layer-major32 round1 stop recorded 541,261,824. No automatic retries occurred.
+
+Completed-only median forward times were 63.1601 s whole-prompt (n=2), 95.7707 s
+layer-major32 (n=1), and 66.1132 s layer-major128 (n=1). Completed full-run peaks
+were 968,984,576, 866,371,584 and 869,828,608 MLX bytes, respectively. Stopped-run
+peaks are only the maximum reported at completed steps; an unreported later peak
+cannot be inferred. Stopped partial forward times are not full-workload speed.
+
+Round0's completed pair compared 95.7707 s layer-major32 with 62.7332 s
+whole-prompt: 97.86 MiB lower peak MLX, 52.7% slower. Round1's completed pair
+compared 66.1132 s layer-major128 with 63.5870 s whole-prompt: 94.56 MiB lower
+peak MLX (10.2%), 4.0% slower. Both pairs produced identical greedy token sequences.
+Different schedules' incomplete runs remain visible beside these comparisons.
+These outcomes show an allocation/time tradeoff on these cases, not that either
+chunked schedule is stable or that total RAM fell by the same amount. Whole-prompt
+processing remains the performance reference; chunking remains an opt-in experiment.
+
+Each completed job used 160 layer weight loads and requested 105,699,829,760 bytes
+of original selected tensors. Full-head row reads were 6,237,265,920 bytes. Block
+calls were 160 whole-prompt, 1800 chunk32, and 520 chunk128. The engine uses every
+original layer for each input chunk and every original vocabulary row at projection;
+logical reload counts stay constant under layer-major scheduling.
+
+Separate CPU verification comparison
+After model trials finished, four setup-only verification attempts compared one
+and eight workers in two randomized rounds (seed8057). Both rounds happened to
+be eight then one. Same process, same manifest, same per-descriptor F_NOCACHE
+hint and guards; no model was loaded. All four attempts completed and returned
+identical verified file identities for all 15 files. SHA256 and metadata checks
+were retained without partial acceptance.
+
+Median verification time was 24.0693 s serial versus 8.4967 s parallel (64.7%
+lower observed time). This is a preparation improvement, not model-generation
+speed. OS cache state and other apps were uncontrolled; it is not a cold-cache
+or balanced-crossover experiment. No positive whole-system swap growth was
+recorded during these four setup trials relative to their own baselines.
+
+Average process CPU time divided by elapsed time across the first and last
+observations was 0.733/0.737 logical-core equivalents serial and 2.329/2.288
+parallel. Maximum recorded process threads were 1 serial and 9 parallel (main
+plus eight workers). IO waits mean eight workers do not occupy all cores all the
+time. GPU utilization and physical SSD-byte traffic were not measured. The
+setup observer records CPU seconds and threads; inference records process-tree
+CPU time, derived CPU percent and threads. 100% inference CPU means one logical
+core, not all eight cores.
+
+Validation and artifacts
+The final-source default regression passed 48/48 original resident-reference
+checks, 42 exactly equal and maximum difference 0.0625. Longer-prompt controls
+passed 18/18 checks with zero score difference against matching references.
+The full local suite passed 48 tests. Parallel hashing tests force four workers
+to overlap, reject corrupt files, propagate observer stops, join worker threads
+and reject invalid worker counts. Dependency checks and extended cache offsets
+are also tested. Figures were rendered only after all timed model and hashing
+trials ended and were visually inspected. All original failures are retained.
+
+Results, exact source/protocol snapshots, file hashes and Arabic operating
+instructions accompany this working note. The previously open LaTeX document
+was not replaced. This is an exploratory local implementation study, not a
+peer-reviewed paper, new foundational model or original-weight 70B result.

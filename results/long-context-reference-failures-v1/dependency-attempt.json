@@ -1,0 +1,6 @@
+{
+  "completed": false,
+  "error_type": "FileNotFoundError",
+  "reason": "Chunk32 reference attempted before a completed unchunked baseline existed; no prompt processed.",
+  "source_sha256": "58c456adb4084a02465a7da49290962ac8a877545719479f0586e49ed39c2896"
+}

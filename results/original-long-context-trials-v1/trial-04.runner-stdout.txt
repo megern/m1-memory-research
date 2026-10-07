@@ -1,0 +1,9 @@
+{
+  "completed": true,
+  "exit_code": 0,
+  "guard": null,
+  "elapsed_seconds": 68.88974645896815,
+  "rss_peak_bytes": 1155153920,
+  "weights_exceed_physical_ram": true,
+  "mlx_peak_bytes": 869828608
+}

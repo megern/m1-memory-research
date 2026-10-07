@@ -15,6 +15,8 @@ class VerificationGuardTests(unittest.TestCase):
     def test_initial_swap_spike_stops_before_hashing(self):
         with patch('run_direct_original.psutil.swap_memory',side_effect=[SimpleNamespace(used=0),SimpleNamespace(used=600*1024**2)]),patch('run_direct_original.psutil.virtual_memory',return_value=SimpleNamespace(available=2*1024**3)),patch('run_direct_original.psutil.Process') as process,patch('run_direct_original.verify_files') as verify:
             process.return_value.memory_info.return_value.rss=1024
+            process.return_value.cpu_times.return_value=(0,0)
+            process.return_value.num_threads.return_value=1
             identities,phase=verify_guarded(Path('.'),{},900)
         self.assertIsNone(identities)
         self.assertEqual(phase['stopped_by_guard'],'verification_swap_growth_over_512MiB')
@@ -23,6 +25,8 @@ class VerificationGuardTests(unittest.TestCase):
     def test_completed_verification_retains_pre_hash_baseline(self):
         with patch('run_direct_original.psutil.swap_memory',side_effect=[SimpleNamespace(used=10),SimpleNamespace(used=20),SimpleNamespace(used=30)]),patch('run_direct_original.psutil.virtual_memory',return_value=SimpleNamespace(available=2*1024**3)),patch('run_direct_original.psutil.Process') as process,patch('run_direct_original.verify_files',return_value={'fixture':[1,2,3]}):
             process.return_value.memory_info.return_value.rss=1024
+            process.return_value.cpu_times.return_value=(0,0)
+            process.return_value.num_threads.return_value=1
             identities,phase=verify_guarded(Path('.'),{},900)
         self.assertEqual(identities,{'fixture':[1,2,3]})
         self.assertEqual(phase['baseline_system_swap_bytes'],10)

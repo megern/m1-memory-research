@@ -1,0 +1,460 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "protocol_sha256": "9570da77173f047e3774ecf728a453307069899118aace030846b01aef07c2e0",
+  "source_sha256": {
+    "run_direct_original.py": "62a358f7a00c25b050f67d8976b3763022b313079f506ca58d26eb09ebad46bf",
+    "direct_original_engine.py": "1f0e1ae75de5dfa939d0c70453e5020f36c4b615780a818d4221d698acf939b7",
+    "original_tensor_store.py": "cd19ff53f4d4f1de903635d3eb4785fff2a1f61843d3fd405a0d037747ac0fd4",
+    "run_prefill_trials.py": "26d7ef742acba66d4622fe5ea14f094f5086b40a800154723b67044fe20aa3b0"
+  },
+  "planned_order": [
+    {
+      "round": 0,
+      "variant": "layer-major32"
+    },
+    {
+      "round": 0,
+      "variant": "unchunked"
+    },
+    {
+      "round": 0,
+      "variant": "layer-major128"
+    },
+    {
+      "round": 1,
+      "variant": "layer-major32"
+    },
+    {
+      "round": 1,
+      "variant": "layer-major128"
+    },
+    {
+      "round": 1,
+      "variant": "unchunked"
+    }
+  ],
+  "trials": [
+    {
+      "index": 0,
+      "round": 0,
+      "variant": "layer-major32",
+      "runner_exit_code": 0,
+      "completed": true,
+      "numerical_audit_passed": null,
+      "guard": null,
+      "worker_seconds": 98.13484595809132,
+      "verification_seconds": 8.555695707909763,
+      "verification_swap_delta_bytes": -8388608,
+      "forward_seconds": 95.7706622488331,
+      "recorded_steps": 4,
+      "peak_mlx_bytes": 866371584,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1069105152,
+      "max_system_swap_growth_bytes": 199032832,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 471,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            29.352054625051096,
+            10.9359415830113
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 891,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            44.805034540826455,
+            10.677631499944255
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 1800,
+      "layer_weight_loads": 160,
+      "prefill_chunks": 43,
+      "head_passes": 4,
+      "row_bytes_read": 6237265920,
+      "selected_tensor_bytes": 105699829760,
+      "max_setup_and_worker_swap_growth_bytes": 199032832
+    },
+    {
+      "index": 1,
+      "round": 0,
+      "variant": "unchunked",
+      "runner_exit_code": 0,
+      "completed": true,
+      "numerical_audit_passed": null,
+      "guard": null,
+      "worker_seconds": 64.89725620811805,
+      "verification_seconds": 8.165079958038405,
+      "verification_swap_delta_bytes": -8388608,
+      "forward_seconds": 62.733203791081905,
+      "recorded_steps": 4,
+      "peak_mlx_bytes": 968984576,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1007943680,
+      "max_system_swap_growth_bytes": 115605504,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 471,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            17.51984570804052,
+            10.781501374905929
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 891,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            23.679574833018705,
+            10.75228187511675
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 160,
+      "layer_weight_loads": 160,
+      "prefill_chunks": 2,
+      "head_passes": 4,
+      "row_bytes_read": 6237265920,
+      "selected_tensor_bytes": 105699829760,
+      "max_setup_and_worker_swap_growth_bytes": 115605504
+    },
+    {
+      "index": 2,
+      "round": 0,
+      "variant": "layer-major128",
+      "runner_exit_code": 1,
+      "completed": false,
+      "numerical_audit_passed": null,
+      "guard": "swap_growth_over_512MiB",
+      "worker_seconds": 48.53172020800412,
+      "verification_seconds": 8.1013529158663,
+      "verification_swap_delta_bytes": 0,
+      "forward_seconds": 29.06411295896396,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 775045488,
+      "peak_mlx_scope": "observed completed steps only",
+      "sampled_rss_peak_bytes": 1019658240,
+      "max_system_swap_growth_bytes": 549584896,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": null,
+      "nocache_descriptors": null,
+      "layer_calls": null,
+      "layer_weight_loads": null,
+      "prefill_chunks": null,
+      "head_passes": null,
+      "row_bytes_read": null,
+      "selected_tensor_bytes": null,
+      "max_setup_and_worker_swap_growth_bytes": 549584896
+    },
+    {
+      "index": 3,
+      "round": 1,
+      "variant": "layer-major32",
+      "runner_exit_code": 1,
+      "completed": false,
+      "numerical_audit_passed": null,
+      "guard": "swap_growth_over_512MiB",
+      "worker_seconds": 90.29724087496288,
+      "verification_seconds": 8.577527042012662,
+      "verification_swap_delta_bytes": -16777216,
+      "forward_seconds": 87.63751849997789,
+      "recorded_steps": 3,
+      "peak_mlx_bytes": 866371584,
+      "peak_mlx_scope": "observed completed steps only",
+      "sampled_rss_peak_bytes": 953548800,
+      "max_system_swap_growth_bytes": 541261824,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        }
+      ],
+      "cases": null,
+      "nocache_descriptors": null,
+      "layer_calls": null,
+      "layer_weight_loads": null,
+      "prefill_chunks": null,
+      "head_passes": null,
+      "row_bytes_read": null,
+      "selected_tensor_bytes": null,
+      "max_setup_and_worker_swap_growth_bytes": 541261824
+    },
+    {
+      "index": 4,
+      "round": 1,
+      "variant": "layer-major128",
+      "runner_exit_code": 0,
+      "completed": true,
+      "numerical_audit_passed": null,
+      "guard": null,
+      "worker_seconds": 68.88974645896815,
+      "verification_seconds": 8.636591917136684,
+      "verification_swap_delta_bytes": -8388608,
+      "forward_seconds": 66.11319325026125,
+      "recorded_steps": 4,
+      "peak_mlx_bytes": 869828608,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1155153920,
+      "max_system_swap_growth_bytes": -8388608,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 471,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            18.09324291604571,
+            11.239199334057048
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 891,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            25.360090375179425,
+            11.420660624979064
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 520,
+      "layer_weight_loads": 160,
+      "prefill_chunks": 11,
+      "head_passes": 4,
+      "row_bytes_read": 6237265920,
+      "selected_tensor_bytes": 105699829760,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 5,
+      "round": 1,
+      "variant": "unchunked",
+      "runner_exit_code": 0,
+      "completed": true,
+      "numerical_audit_passed": null,
+      "guard": null,
+      "worker_seconds": 66.13844079198316,
+      "verification_seconds": 8.196937208995223,
+      "verification_swap_delta_bytes": -50331648,
+      "forward_seconds": 63.58696495881304,
+      "recorded_steps": 4,
+      "peak_mlx_bytes": 968984576,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 983629824,
+      "max_system_swap_growth_bytes": 400687104,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        },
+        {
+          "case": 1,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 1,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 471,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            18.168434124905616,
+            10.840459249913692
+          ],
+          "comparisons": []
+        },
+        {
+          "case": 1,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 891,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            23.737212209030986,
+            10.840859374962747
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 160,
+      "layer_weight_loads": 160,
+      "prefill_chunks": 2,
+      "head_passes": 4,
+      "row_bytes_read": 6237265920,
+      "selected_tensor_bytes": 105699829760,
+      "max_setup_and_worker_swap_growth_bytes": 400687104
+    }
+  ],
+  "completed_series": true,
+  "stage": "finished_all_planned_jobs"
+}

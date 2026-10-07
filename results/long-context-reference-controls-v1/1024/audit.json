@@ -1,0 +1,63 @@
+{
+  "completed": true,
+  "chunk_size": 1024,
+  "prompt_tokens": [
+    471,
+    891
+  ],
+  "reference_steps": 6,
+  "comparison_to_unchunked": [],
+  "samples": [
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 124076032,
+      "available_bytes": 3687399424
+    },
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 1228341248,
+      "available_bytes": 3065348096
+    },
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 1009745920,
+      "available_bytes": 2369683456
+    },
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 1009778688,
+      "available_bytes": 2377613312
+    },
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 1011548160,
+      "available_bytes": 2332770304
+    },
+    {
+      "system_swap_growth_bytes": 0,
+      "rss_bytes": 1011613696,
+      "available_bytes": 2332770304
+    },
+    {
+      "system_swap_growth_bytes": 28114944,
+      "rss_bytes": 1011990528,
+      "available_bytes": 2332770304
+    },
+    {
+      "system_swap_growth_bytes": 28114944,
+      "rss_bytes": 1011990528,
+      "available_bytes": 2332770304
+    },
+    {
+      "system_swap_growth_bytes": 28114944,
+      "rss_bytes": 1012662272,
+      "available_bytes": 2332770304
+    },
+    {
+      "system_swap_growth_bytes": 28114944,
+      "rss_bytes": 1012744192,
+      "available_bytes": 2332770304
+    }
+  ],
+  "scope": "Small resident reference; timings not used as larger-model performance evidence."
+}

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-08",
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "seed": 8056,
+  "rounds": 2,
+  "tokens_per_case": 4,
+  "budget_mib": 2048,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "prompts": [
+    "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+    "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO."
+  ],
+  "hypothesis": "At longer prompts layer-major chunks may reduce activation peak while retaining one original layer load per forward; compare time and allocations with full prompt.",
+  "limits": [
+    "Whole-system swap includes other apps.",
+    "OS cache and trial order not controlled beyond randomized two rounds.",
+    "Known chunked prefill; no algorithmic novelty claim.",
+    "Failure reports retained, no automatic retries."
+  ],
+  "variants": {
+    "unchunked": {
+      "chunk_size": 1024,
+      "schedule": "chunk-major"
+    },
+    "layer-major32": {
+      "chunk_size": 32,
+      "schedule": "layer-major"
+    },
+    "layer-major128": {
+      "chunk_size": 128,
+      "schedule": "layer-major"
+    }
+  },
+  "study_kind": "New bounded longer-prompt engineering controls after v0.5.0; no general security quality claim.",
+  "max_input_tokens": 1024,
+  "max_context_tokens": 2048,
+  "verification_workers": 8,
+  "resource_policy": "Use GPU for dense original computations and up to 8 CPU hashing workers, 2048 MiB active MLX check. Existing pressure guards retained. GPU utilization not measured."
+}

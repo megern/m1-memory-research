@@ -180,3 +180,44 @@ python results/original-prefill-schedule-trials-v1/source/run_prefill_trials.py 
 ```
 
 هذه دراسة هندسية قصيرة، لا تثبت جودة أمنية عامة أو اختراعًا جديدًا. نموذج 70 مليار بأوزانه الأصلية وتدريب النماذج الكبيرة ليسا ضمن نتائج هذه المرحلة.
+
+## التجارب الأطول واستخدام المعالج وGPU
+
+يبقى حد المدخل الافتراضي 128 رمزًا والسياق 256 رمزًا. يمكن اختيار حدود تجريبية تصل إلى 1024 رمزًا للمدخل و2048 للسياق. اختبارنا الجديد يستخدم سؤالين من 471 و891 رمزًا؛ لا يعني ذلك اختبار جميع الأطوال حتى 2048.
+
+```sh
+python tools/run_direct_original.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest models/qwen3-14b-original.json \
+  --output /absolute/local/new-long-result \
+  --prompt 'ضع هنا السؤال الذي تريد تجربته.' \
+  --tokens 4 --budget-mib 2048 \
+  --max-input-tokens 1024 --max-context-tokens 2048 \
+  --prefill-chunk-size 128 --prefill-schedule layer-major \
+  --verification-nocache --verification-workers 8
+```
+
+يحسب النموذج على GPU الماك، ويمكن لثمانية عمال من المعالج التحقق من ملفات الأوزان بالتوازي قبل بدء الحساب. يبقى الافتراضي عامل تحقق واحدًا. لا تعني هذه الإعدادات إشغال كل الأنوية بنسبة 100% طوال الوقت؛ البرنامج يسجل جهاز الحساب ووقت المعالج وعدد خيوطه، ولا يقيس نسبة إشغال GPU. استخدام الذاكرة الإضافية لخدمة السؤال هو الهدف، وليس ملء الرام دون فائدة.
+
+تظل حواجز الإيقاف فعالة حتى مع ميزانية MLX الأكبر: نمو swap المرصود فوق 512 ميبيبايت، أو تجاوز حد RSS، أو استمرار انخفاض الذاكرة المتاحة، أو انتهاء الوقت. لا يغلق البرنامج التطبيقات الأخرى ولا يغير إعدادات النظام. المحاولات المتوقفة تبقى ضمن الدراسة؛ الذاكرة الافتراضية على مستوى الجهاز تشمل التطبيقات الأخرى.
+
+لإعادة الدراسة المثبتة:
+
+```sh
+python results/original-long-context-trials-v1/source/run_prefill_trials.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest results/original-long-context-trials-v1/manifest.json \
+  --protocol results/original-long-context-trials-v1/protocol.json \
+  --output /absolute/local/new-long-study
+```
+
+ولمقارنة التحقق بعامل واحد وثمانية عمال دون تحميل النموذج:
+
+```sh
+python tools/benchmark_verification.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest models/qwen3-14b-original.json \
+  --output /absolute/local/new-hash-study
+```
+
+تطبق مقارنة التحقق تلميح القراءة نفسه على الملفات وتحافظ على البصمات والحواجز، لكن ذاكرة نظام التشغيل ليست مضبوطة؛ ليست هذه مقارنة قرص بارد.

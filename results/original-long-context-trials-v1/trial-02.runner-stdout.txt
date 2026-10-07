@@ -1,0 +1,9 @@
+{
+  "completed": false,
+  "exit_code": -15,
+  "guard": "swap_growth_over_512MiB",
+  "elapsed_seconds": 48.53172020800412,
+  "rss_peak_bytes": 1019658240,
+  "weights_exceed_physical_ram": true,
+  "mlx_peak_bytes": null
+}

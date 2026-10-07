@@ -27,6 +27,8 @@ class ChunkTests(unittest.TestCase):
         engine.prefill_schedule="chunk-major"
         engine.prefill_chunk_size=size
         engine.prefill_chunks=0
+        engine.max_input_tokens=128
+        engine.max_context_tokens=256
         engine.mx=None
         self.calls=[]
         def forward(inputs,cache,project,layer_chunk_size=None):
@@ -52,6 +54,15 @@ class ChunkTests(unittest.TestCase):
         self.assertEqual(self.layer_chunk_size,3)
         self.assertEqual(engine.prefill_chunks,3)
         self.assertEqual([c.offset for c in cache],[12,12])
+
+    def test_extended_context_preserves_offsets_beyond_old_limit(self):
+        engine=self.engine(32);engine.prefill_schedule='layer-major'
+        engine.max_input_tokens=1024;engine.max_context_tokens=2048
+        cache=[SimpleNamespace(offset=260) for _ in range(2)]
+        engine(np.ones((1,900),dtype=int),cache)
+        self.assertEqual([c.offset for c in cache],[1160,1160])
+        self.assertEqual(engine.prefill_chunks,29)
+        with self.assertRaises(ValueError):engine(np.ones((1,900),dtype=int),cache)
 
     def test_decode_is_single_pass_and_not_counted_as_prefill(self):
         engine=self.engine(8)

@@ -1,0 +1,1346 @@
+{
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "manifest_sha256": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "weight_file_bytes": 1503300328,
+  "logical_cpu_count": 8,
+  "resource_measurement_scope": "CPU percent is process-tree CPU time / elapsed time; 100% equals one logical CPU. GPU device recorded, GPU utilization not measured.",
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": false,
+  "verification_seconds": 1.222477916860953,
+  "worker_elapsed_seconds": 13.422717459034175,
+  "io_mode": "native",
+  "verification_system_swap_delta_bytes": 0,
+  "verification_io_policy": "per-descriptor F_NOCACHE",
+  "verification_workers": 8,
+  "verification_measurements": [
+    {
+      "seconds": 2.233404666185379e-05,
+      "rss_bytes": 28459008,
+      "system_available_bytes": 4231823360,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.073613208,
+      "process_threads": 1
+    },
+    {
+      "seconds": 0.5031824589241296,
+      "rss_bytes": 53379072,
+      "system_available_bytes": 4280909824,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.45924940799999997,
+      "process_threads": 8
+    },
+    {
+      "seconds": 1.0069458750076592,
+      "rss_bytes": 53379072,
+      "system_available_bytes": 4485758976,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.831892464,
+      "process_threads": 8
+    },
+    {
+      "seconds": 1.2223255839198828,
+      "rss_bytes": 53264384,
+      "system_available_bytes": 4592713728,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.99264672,
+      "process_threads": 1
+    }
+  ],
+  "swap_baseline_scope": "before verification, retained during inference",
+  "model_started": true,
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "completed": true,
+  "numerical_audit_passed": true,
+  "sampled_process_tree_rss_peak_bytes": 316506112,
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "events": [
+    {
+      "event": "step",
+      "case": 0,
+      "step": 0,
+      "token_id": 21,
+      "elapsed_seconds": 0.33597741601988673,
+      "mlx_active_bytes": 29673584,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 1,
+      "token_id": 54916,
+      "elapsed_seconds": 0.23455283301882446,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 2,
+      "token_id": 553,
+      "elapsed_seconds": 0.22811745782382786,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 3,
+      "token_id": 220,
+      "elapsed_seconds": 0.22989870887249708,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 4,
+      "token_id": 22,
+      "elapsed_seconds": 0.2341993749141693,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 5,
+      "token_id": 374,
+      "elapsed_seconds": 0.23017774987965822,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 6,
+      "token_id": 220,
+      "elapsed_seconds": 0.23410800006240606,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 7,
+      "token_id": 19,
+      "elapsed_seconds": 0.23132529202848673,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 63724156
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 0,
+      "token_id": 130040,
+      "elapsed_seconds": 0.2862065841909498,
+      "mlx_active_bytes": 29673608,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 1,
+      "token_id": 126756,
+      "elapsed_seconds": 0.22889641602523625,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 2,
+      "token_id": 82168,
+      "elapsed_seconds": 0.2376525409054011,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 3,
+      "token_id": 125573,
+      "elapsed_seconds": 0.2276977919973433,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 4,
+      "token_id": 123961,
+      "elapsed_seconds": 0.2340350418817252,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 5,
+      "token_id": 124009,
+      "elapsed_seconds": 0.2359453330282122,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 6,
+      "token_id": 73441,
+      "elapsed_seconds": 0.2278341669589281,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 7,
+      "token_id": 77273,
+      "elapsed_seconds": 0.23865916696377099,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 0,
+      "token_id": 8420,
+      "elapsed_seconds": 0.28271683398634195,
+      "mlx_active_bytes": 29673564,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 1,
+      "token_id": 594,
+      "elapsed_seconds": 0.22803358314558864,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 2,
+      "token_id": 264,
+      "elapsed_seconds": 0.2283360839355737,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 3,
+      "token_id": 4285,
+      "elapsed_seconds": 0.23257200000807643,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 4,
+      "token_id": 13027,
+      "elapsed_seconds": 0.22150666709057987,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 5,
+      "token_id": 729,
+      "elapsed_seconds": 0.23695233301259577,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 6,
+      "token_id": 311,
+      "elapsed_seconds": 0.2287521669641137,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 2,
+      "step": 7,
+      "token_id": 912,
+      "elapsed_seconds": 0.2316664168611169,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 0,
+      "token_id": 19297,
+      "elapsed_seconds": 0.2792818748857826,
+      "mlx_active_bytes": 29673564,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 1,
+      "token_id": 323,
+      "elapsed_seconds": 0.2301690001040697,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 2,
+      "token_id": 23715,
+      "elapsed_seconds": 0.22736087488010526,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 3,
+      "token_id": 525,
+      "elapsed_seconds": 0.2307705411221832,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 4,
+      "token_id": 2176,
+      "elapsed_seconds": 0.22310533304698765,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 5,
+      "token_id": 4763,
+      "elapsed_seconds": 0.22554704104550183,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 6,
+      "token_id": 18940,
+      "elapsed_seconds": 0.23772391700185835,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 3,
+      "step": 7,
+      "token_id": 304,
+      "elapsed_seconds": 0.23660120787099004,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 0,
+      "token_id": 61088,
+      "elapsed_seconds": 0.28453225013799965,
+      "mlx_active_bytes": 29673568,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 1,
+      "token_id": 320,
+      "elapsed_seconds": 0.2325476249679923,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 2,
+      "token_id": 13636,
+      "elapsed_seconds": 0.22318212501704693,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 3,
+      "token_id": 3988,
+      "elapsed_seconds": 0.21798066701740026,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 4,
+      "token_id": 739,
+      "elapsed_seconds": 0.22240287507884204,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 5,
+      "token_id": 8,
+      "elapsed_seconds": 0.21284691686742008,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 6,
+      "token_id": 374,
+      "elapsed_seconds": 0.22672145813703537,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 4,
+      "step": 7,
+      "token_id": 264,
+      "elapsed_seconds": 0.22574649984017015,
+      "mlx_active_bytes": 29673484,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 0,
+      "token_id": 80970,
+      "elapsed_seconds": 0.2952678338624537,
+      "mlx_active_bytes": 30115980,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 1,
+      "token_id": 73274,
+      "elapsed_seconds": 0.2306488750036806,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 2,
+      "token_id": 64604,
+      "elapsed_seconds": 0.23471700004301965,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 3,
+      "token_id": 11798,
+      "elapsed_seconds": 0.22807350009679794,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 4,
+      "token_id": 125122,
+      "elapsed_seconds": 0.23981012497097254,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 5,
+      "token_id": 27846,
+      "elapsed_seconds": 0.22763750003650784,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 6,
+      "token_id": 124347,
+      "elapsed_seconds": 0.23268787492997944,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "step",
+      "case": 5,
+      "step": 7,
+      "token_id": 124571,
+      "elapsed_seconds": 0.23919937503524125,
+      "mlx_active_bytes": 30115852,
+      "mlx_peak_bytes_so_far": 64232084
+    },
+    {
+      "event": "direct_original_result",
+      "reference_kind": "original unchunked resident",
+      "model_repository": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "compute_device": "Device(gpu, 0)",
+      "stored_tensor_elements": 751632384,
+      "tensor_count": 311,
+      "all_tensor_file_dtypes": [
+        "BF16"
+      ],
+      "engine_plan": {
+        "budget_bytes": 1073741824,
+        "largest_layer_bytes": 31461888,
+        "io_mode": "native",
+        "prefill_chunk_size": 128,
+        "prefill_schedule": "chunk-major",
+        "head_tile_bytes": 4194304,
+        "head_rows": 2048,
+        "max_input_tokens": 128,
+        "max_context_tokens": 256,
+        "kv_cache_kind": "Original BF16 KVCache, no quantization",
+        "cached_layers": 0,
+        "duplicate_weight_storage_bytes": 0,
+        "embedding_mode": "Exact requested rows from original BF16 payload",
+        "head_mode": "All vocabulary rows in tiles, original BF16; no top-k pruning",
+        "scope": "Measured active MLX limit, not total RAM; transient peaks reported separately"
+      },
+      "layer_calls": 1344,
+      "layer_weight_loads": 1344,
+      "prefill_chunks": 6,
+      "head_passes": 48,
+      "row_bytes_read_by_pread": 14936320000,
+      "selected_native_tensor_bytes_requested": 42284779520,
+      "f_nocache_descriptors": 0,
+      "mlx_peak_allocated_bytes": 64232084,
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "What is 6 multiplied by 7? Give only the number.",
+          "prompt_tokens": 26,
+          "token_ids": [
+            21,
+            54916,
+            553,
+            220,
+            22,
+            374,
+            220,
+            19
+          ],
+          "text": "6 multiplied by 7 is 4",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.33597741601988673,
+            0.23455283301882446,
+            0.22811745782382786,
+            0.22989870887249708,
+            0.2341993749141693,
+            0.23017774987965822,
+            0.23410800006240606,
+            0.23132529202848673
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 21,
+              "reference_greedy_token_id": 21,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 54916,
+              "reference_greedy_token_id": 54916,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 553,
+              "reference_greedy_token_id": 553,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 220,
+              "reference_greedy_token_id": 220,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 22,
+              "reference_greedy_token_id": 22,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 374,
+              "reference_greedy_token_id": 374,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 220,
+              "reference_greedy_token_id": 220,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 19,
+              "reference_greedy_token_id": 19,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 1,
+          "prompt": "اشرح في جملة واحدة وظيفة جدار الحماية في الشبكة.",
+          "prompt_tokens": 32,
+          "token_ids": [
+            130040,
+            126756,
+            82168,
+            125573,
+            123961,
+            124009,
+            73441,
+            77273
+          ],
+          "text": "وظيفة جدار الحماية في",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.2862065841909498,
+            0.22889641602523625,
+            0.2376525409054011,
+            0.2276977919973433,
+            0.2340350418817252,
+            0.2359453330282122,
+            0.2278341669589281,
+            0.23865916696377099
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 130040,
+              "reference_greedy_token_id": 130040,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 126756,
+              "reference_greedy_token_id": 126756,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 82168,
+              "reference_greedy_token_id": 82168,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 125573,
+              "reference_greedy_token_id": 125573,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 123961,
+              "reference_greedy_token_id": 123961,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 124009,
+              "reference_greedy_token_id": 124009,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 73441,
+              "reference_greedy_token_id": 73441,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 77273,
+              "reference_greedy_token_id": 77273,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 2,
+          "prompt": "Write a Python function to add two integers.",
+          "prompt_tokens": 21,
+          "token_ids": [
+            8420,
+            594,
+            264,
+            4285,
+            13027,
+            729,
+            311,
+            912
+          ],
+          "text": "Here's a simple Python function to add",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.28271683398634195,
+            0.22803358314558864,
+            0.2283360839355737,
+            0.23257200000807643,
+            0.22150666709057987,
+            0.23695233301259577,
+            0.2287521669641137,
+            0.2316664168611169
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 8420,
+              "reference_greedy_token_id": 8420,
+              "maximum_absolute_logit_difference": 0.015625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 594,
+              "reference_greedy_token_id": 594,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 264,
+              "reference_greedy_token_id": 264,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 4285,
+              "reference_greedy_token_id": 4285,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 13027,
+              "reference_greedy_token_id": 13027,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 729,
+              "reference_greedy_token_id": 729,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 311,
+              "reference_greedy_token_id": 311,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 912,
+              "reference_greedy_token_id": 912,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 3,
+          "prompt": "Explain the difference between authentication and authorization.",
+          "prompt_tokens": 21,
+          "token_ids": [
+            19297,
+            323,
+            23715,
+            525,
+            2176,
+            4763,
+            18940,
+            304
+          ],
+          "text": "Authentication and authorization are both security concepts in",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.2792818748857826,
+            0.2301690001040697,
+            0.22736087488010526,
+            0.2307705411221832,
+            0.22310533304698765,
+            0.22554704104550183,
+            0.23772391700185835,
+            0.23660120787099004
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 19297,
+              "reference_greedy_token_id": 19297,
+              "maximum_absolute_logit_difference": 0.0625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 323,
+              "reference_greedy_token_id": 323,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 23715,
+              "reference_greedy_token_id": 23715,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 525,
+              "reference_greedy_token_id": 525,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 2176,
+              "reference_greedy_token_id": 2176,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 4763,
+              "reference_greedy_token_id": 4763,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 18940,
+              "reference_greedy_token_id": 18940,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 304,
+              "reference_greedy_token_id": 304,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 4,
+          "prompt": "What does DNS do? Answer in one sentence.",
+          "prompt_tokens": 22,
+          "token_ids": [
+            61088,
+            320,
+            13636,
+            3988,
+            739,
+            8,
+            374,
+            264
+          ],
+          "text": "DNS (Domain Name System) is a",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.28453225013799965,
+            0.2325476249679923,
+            0.22318212501704693,
+            0.21798066701740026,
+            0.22240287507884204,
+            0.21284691686742008,
+            0.22672145813703537,
+            0.22574649984017015
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 61088,
+              "reference_greedy_token_id": 61088,
+              "maximum_absolute_logit_difference": 0.03125,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 320,
+              "reference_greedy_token_id": 320,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 13636,
+              "reference_greedy_token_id": 13636,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 3988,
+              "reference_greedy_token_id": 3988,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 739,
+              "reference_greedy_token_id": 739,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 8,
+              "reference_greedy_token_id": 8,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 374,
+              "reference_greedy_token_id": 374,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 264,
+              "reference_greedy_token_id": 264,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 5,
+          "prompt": "لماذا يجب عدم مشاركة كلمات المرور؟ أجب بجملة قصيرة.",
+          "prompt_tokens": 33,
+          "token_ids": [
+            80970,
+            73274,
+            64604,
+            11798,
+            125122,
+            27846,
+            124347,
+            124571
+          ],
+          "text": "لا يُنصح بشاركة",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.2952678338624537,
+            0.2306488750036806,
+            0.23471700004301965,
+            0.22807350009679794,
+            0.23981012497097254,
+            0.22763750003650784,
+            0.23268787492997944,
+            0.23919937503524125
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 80970,
+              "reference_greedy_token_id": 80970,
+              "maximum_absolute_logit_difference": 0.0625,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 73274,
+              "reference_greedy_token_id": 73274,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 64604,
+              "reference_greedy_token_id": 64604,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 3,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 11798,
+              "reference_greedy_token_id": 11798,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 4,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 125122,
+              "reference_greedy_token_id": 125122,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 5,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 27846,
+              "reference_greedy_token_id": 27846,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 6,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 124347,
+              "reference_greedy_token_id": 124347,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 7,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 124571,
+              "reference_greedy_token_id": 124571,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Row-byte counters are logical process reads, not physical SSD traffic.",
+        "Native selected tensor bytes are requested payload sizes, not SSD-byte telemetry.",
+        "All vocabulary rows computed; head tiling may introduce numerical differences tested separately.",
+        "Active MLX checks are not total-RAM caps; transient MLX peaks separately reported.",
+        "OS caches uncontrolled; no cold-cache claim.",
+        "Short numerical/functional controls do not establish general model quality or novelty."
+      ]
+    }
+  ],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.00196966715157032,
+      "rss_bytes": 245760,
+      "system_available_bytes": 4590993408,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.006433999,
+      "process_tree_cpu_percent": null,
+      "process_tree_threads": 1
+    },
+    {
+      "seconds": 0.518370000179857,
+      "rss_bytes": 77774848,
+      "system_available_bytes": 4616011776,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.323525992,
+      "process_tree_cpu_percent": 61.40429676729715,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.0348093339707702,
+      "rss_bytes": 91586560,
+      "system_available_bytes": 4632559616,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 0.60537872,
+      "process_tree_cpu_percent": 54.57615436281071,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.5451067921239883,
+      "rss_bytes": 217235456,
+      "system_available_bytes": 4570431488,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 1.049350736,
+      "process_tree_cpu_percent": 87.00259209731286,
+      "process_tree_threads": 8
+    },
+    {
+      "seconds": 2.0565075841732323,
+      "rss_bytes": 303251456,
+      "system_available_bytes": 4061200384,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 1.5989959679999999,
+      "process_tree_cpu_percent": 107.47836932311068,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 2.569718375103548,
+      "rss_bytes": 303136768,
+      "system_available_bytes": 4098621440,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 2.3459658240000003,
+      "process_tree_cpu_percent": 145.5483534642639,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 3.086490083951503,
+      "rss_bytes": 304201728,
+      "system_available_bytes": 4099194880,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 3.0815699199999997,
+      "process_tree_cpu_percent": 142.34604631122127,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 3.6045946669764817,
+      "rss_bytes": 305266688,
+      "system_available_bytes": 4107042816,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 3.7803235839999996,
+      "process_tree_cpu_percent": 134.86730032772397,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 4.119738292181864,
+      "rss_bytes": 306184192,
+      "system_available_bytes": 4135174144,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 4.445847552,
+      "process_tree_cpu_percent": 129.19192540423316,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 4.631289209006354,
+      "rss_bytes": 279887872,
+      "system_available_bytes": 4106829824,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 5.127980416,
+      "process_tree_cpu_percent": 133.34603488435064,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 5.148679333971813,
+      "rss_bytes": 309575680,
+      "system_available_bytes": 4074291200,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 5.85824384,
+      "process_tree_cpu_percent": 141.14367259111344,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 5.666688041994348,
+      "rss_bytes": 308985856,
+      "system_available_bytes": 4104224768,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 6.563108096,
+      "process_tree_cpu_percent": 136.07189321020758,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 6.184272667160258,
+      "rss_bytes": 310132736,
+      "system_available_bytes": 4092280832,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 7.2707946240000005,
+      "process_tree_cpu_percent": 136.72866109057142,
+      "process_tree_threads": 17
+    },
+    {
+      "seconds": 6.702751209028065,
+      "rss_bytes": 311214080,
+      "system_available_bytes": 4117774336,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 8.01878656,
+      "process_tree_cpu_percent": 144.26671030692523,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 7.2197980841156095,
+      "rss_bytes": 312066048,
+      "system_available_bytes": 4113481728,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 8.712417536,
+      "process_tree_cpu_percent": 134.1524355760891,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 7.736443417146802,
+      "rss_bytes": 285655040,
+      "system_available_bytes": 4122673152,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 9.375094784,
+      "process_tree_cpu_percent": 128.2654087112388,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 8.253103791968897,
+      "rss_bytes": 315523072,
+      "system_available_bytes": 4090986496,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 10.09906048,
+      "process_tree_cpu_percent": 140.12409917236022,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 8.771823792019859,
+      "rss_bytes": 316506112,
+      "system_available_bytes": 4091035648,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 10.86632192,
+      "process_tree_cpu_percent": 147.91437382877473,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 9.286476500099525,
+      "rss_bytes": 316112896,
+      "system_available_bytes": 4099407872,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 11.607689472,
+      "process_tree_cpu_percent": 144.0520064037513,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 9.8042980839964,
+      "rss_bytes": 304922624,
+      "system_available_bytes": 4077699072,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 12.285868288,
+      "process_tree_cpu_percent": 130.96766088743396,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 10.315393584081903,
+      "rss_bytes": 252608512,
+      "system_available_bytes": 4100685824,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 12.983332864000001,
+      "process_tree_cpu_percent": 136.46462860332764,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 10.83285358408466,
+      "rss_bytes": 280182784,
+      "system_available_bytes": 4100227072,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 13.721976832000001,
+      "process_tree_cpu_percent": 142.74416727786974,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 11.350503833964467,
+      "rss_bytes": 270827520,
+      "system_available_bytes": 4107894784,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 14.422239743999999,
+      "process_tree_cpu_percent": 135.27722862349458,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 11.869042417034507,
+      "rss_bytes": 259244032,
+      "system_available_bytes": 4107894784,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 15.11731328,
+      "process_tree_cpu_percent": 134.04470924512017,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 12.3865208751522,
+      "rss_bytes": 248233984,
+      "system_available_bytes": 4112318464,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 15.853202944,
+      "process_tree_cpu_percent": 142.20682087458636,
+      "process_tree_threads": 16
+    },
+    {
+      "seconds": 12.903152459068224,
+      "rss_bytes": 221904896,
+      "system_available_bytes": 4112318464,
+      "system_swap_growth_bytes": 0,
+      "process_tree_cpu_seconds": 16.543417087999998,
+      "process_tree_cpu_percent": 133.59890596858875,
+      "process_tree_threads": 16
+    }
+  ],
+  "limitations": [
+    "All original files hashed before worker timing; verification policy recorded, OS caches uncontrolled.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}
