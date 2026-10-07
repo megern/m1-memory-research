@@ -1,0 +1,92 @@
+{
+  "protocol_sha256": "af287316fec00c9eb07642d5e51e6f7b0111ade70e5a2f8217ae1245c9114054",
+  "logits_sha256": "0707ff9600fa30221b8e038fbe7689aa19228986e643e44cd766c0547045037f",
+  "cases": [
+    {
+      "case": 0,
+      "prompt": "What is 6 multiplied by 7? Give only the number.",
+      "tokens": [
+        21,
+        54916,
+        553,
+        220,
+        22,
+        374,
+        220,
+        19
+      ]
+    },
+    {
+      "case": 1,
+      "prompt": "اشرح في جملة واحدة وظيفة جدار الحماية في الشبكة.",
+      "tokens": [
+        130040,
+        126756,
+        82168,
+        125573,
+        123961,
+        124009,
+        73441,
+        77273
+      ]
+    },
+    {
+      "case": 2,
+      "prompt": "Write a Python function to add two integers.",
+      "tokens": [
+        8420,
+        594,
+        264,
+        4285,
+        13027,
+        729,
+        311,
+        912
+      ]
+    },
+    {
+      "case": 3,
+      "prompt": "Explain the difference between authentication and authorization.",
+      "tokens": [
+        19297,
+        323,
+        23715,
+        525,
+        2176,
+        4763,
+        18940,
+        304
+      ]
+    },
+    {
+      "case": 4,
+      "prompt": "What does DNS do? Answer in one sentence.",
+      "tokens": [
+        61088,
+        320,
+        13636,
+        3988,
+        739,
+        8,
+        374,
+        264
+      ]
+    },
+    {
+      "case": 5,
+      "prompt": "لماذا يجب عدم مشاركة كلمات المرور؟ أجب بجملة قصيرة.",
+      "tokens": [
+        80970,
+        73274,
+        64604,
+        11798,
+        125122,
+        27846,
+        124347,
+        124571
+      ]
+    }
+  ],
+  "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+  "prefill_chunk_size": 32
+}

@@ -148,3 +148,35 @@ python3 tools/plot_io_trials.py --summary results/new-io-reproduction/summary.js
 ```
 
 تحتفظ النتائج بكل المحاولات ونسخ المصدر والبروتوكول وبصماتها. المراقبة الحالية أشد وتشمل التجهيز؛ النسخة المجمدة مطلوبة لإعادة الدراسة التاريخية. اقرأ مسودة `papers/original-io-study.txt` والتحليل في `results/original-io-trials-v1/descriptive-analysis.json`. المسودة ليست ورقة محكمة. لا تشمل هذه المرحلة تدريب نموذج جديد أو تشغيل 70B بالأوزان الأصلية.
+
+## معالجة السؤال على أجزاء مع الأوزان الأصلية
+
+الخيار الافتراضي يعالج السؤال كاملًا، بحد 128 رمزًا للمدخل و256 رمزًا للسياق الكلي. التقسيم يغيّر أحجام الحساب بدقة BF16؛ لا نفترض أن درجات الكلمات أو الإجابات ستطابق المعالجة دفعة واحدة. فشل إعداد 8 رموز في تطابق الدرجات مع المرجع الأصلي، رغم تطابقه مع مكتبة MLX عند استخدام التقسيم نفسه.
+
+الخيار `chunk-major` يمرّر كل جزء عبر جميع الطبقات، ويعيد تحميلها للجزء التالي. الخيار `layer-major` يحتفظ بأوزان طبقة واحدة أثناء معالجة أجزاء السؤال كلها، ثم يجمع مخرجاتها وينتقل إلى الطبقة التالية. يحافظ على مواضع ذاكرة الانتباه والقناع السببي لكل طبقة، ولا يحذف طبقات أو درجات مفردات. لا يغير دقة الأوزان، ولا يدرب نموذجًا جديدًا.
+
+لتجربة الترتيب الثاني محليًا على ملفات النموذج الأصلي التي نزلتها مسبقًا:
+
+```sh
+python tools/run_direct_original.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest models/qwen3-14b-original.json \
+  --output /absolute/local/new-layer-major-result \
+  --prompt 'Reply with exactly the capital of France.' \
+  --tokens 4 --prefill-chunk-size 32 --prefill-schedule layer-major \
+  --verification-nocache
+```
+
+مجلد النتائج يجب أن يكون جديدًا. البرنامج يتحقق من جميع الملفات الأصلية قبل التشغيل ويراقب الذاكرة خلال التحقق والتشغيل. الحد 1024 ميبيبايت هو فحص تخصيص MLX النشط، وليس حدًا صارمًا لذاكرة الجهاز. القراءة من القرص وبصمات الملفات قد تستفيدان من ذاكرة نظام التشغيل؛ لا نصفها بأنها قراءة من قرص بارد.
+
+لإعادة دراسة ترتيب الطبقات بدقة استخدم نسخة المصدر المثبتة مع نتائجها:
+
+```sh
+python results/original-prefill-schedule-trials-v1/source/run_prefill_trials.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest results/original-prefill-schedule-trials-v1/manifest.json \
+  --protocol results/original-prefill-schedule-trials-v1/protocol.json \
+  --output /absolute/local/new-schedule-study
+```
+
+هذه دراسة هندسية قصيرة، لا تثبت جودة أمنية عامة أو اختراعًا جديدًا. نموذج 70 مليار بأوزانه الأصلية وتدريب النماذج الكبيرة ليسا ضمن نتائج هذه المرحلة.

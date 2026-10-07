@@ -7,17 +7,13 @@ import json
 
 
 class DirectOriginalEngine:
-    def __init__(self, store, budget_mib=1024, head_rows=2048, prefill_chunk_size=128, prefill_schedule="chunk-major"):
+    def __init__(self, store, budget_mib=1024, head_rows=2048, prefill_chunk_size=128):
         import mlx.core as mx
         from mlx_lm.models.qwen3 import ModelArgs, TransformerBlock
         if not 128 <= head_rows <= 8192 or not 128 <= budget_mib <= 4096:
             raise ValueError('Head rows must be 128..8192 and MLX budget 128..4096 MiB')
         if type(prefill_chunk_size) is not int or not 1 <= prefill_chunk_size <= 128:
             raise ValueError('Prefill chunk size must be 1..128')
-        if prefill_schedule not in {'chunk-major','layer-major'}:
-            raise ValueError('Unknown prefill schedule')
-        self.prefill_schedule = prefill_schedule
-        self.layer_weight_loads = 0
         self.prefill_chunk_size = prefill_chunk_size
         self.prefill_chunks = self.head_passes = 0
         config = json.loads((store.model/'config.json').read_text())
@@ -33,7 +29,7 @@ class DirectOriginalEngine:
         largest = max(sum(v['bytes'] for name,v in store.tensors.items()
                         if name.startswith(f'model.layers.{i}.')) for i in range(self.args.num_hidden_layers))
         self.plan = {'budget_bytes': self.budget, 'largest_layer_bytes': largest,
-            'io_mode': store.io_mode, 'prefill_chunk_size': prefill_chunk_size, 'prefill_schedule': prefill_schedule,
+            'io_mode': store.io_mode, 'prefill_chunk_size': prefill_chunk_size,
             'head_tile_bytes': head_rows*self.args.hidden_size*2, 'head_rows': head_rows,
             'cached_layers': 0, 'duplicate_weight_storage_bytes': 0,
             'embedding_mode': 'Exact requested rows from original BF16 payload',
@@ -63,11 +59,6 @@ class DirectOriginalEngine:
             raise ValueError('All layer cache offsets must agree before a forward pass')
         result = None
         length = inputs.shape[1]
-        if self.prefill_schedule == 'layer-major':
-            result = self._forward_chunk(inputs, cache, project=True, layer_chunk_size=self.prefill_chunk_size)
-            if length > 1:
-                self.prefill_chunks += (length+self.prefill_chunk_size-1)//self.prefill_chunk_size
-            return result
         for start in range(0, length, self.prefill_chunk_size):
             end = min(start+self.prefill_chunk_size, length)
             result = self._forward_chunk(inputs[:, start:end], cache, project=end == length)
@@ -75,7 +66,7 @@ class DirectOriginalEngine:
                 self.prefill_chunks += 1
         return result
 
-    def _forward_chunk(self, inputs, cache, project, layer_chunk_size=None):
+    def _forward_chunk(self, inputs, cache, project):
         from mlx_lm.models.base import create_attention_mask
         mx = self.mx
         ids = inputs[0].tolist()
@@ -83,31 +74,16 @@ class DirectOriginalEngine:
         h = mx.concatenate(rows, axis=0)[None, :, :]
         mx.eval(h)
         del rows
+        mask = create_attention_mask(h, cache[0])
         for index in range(self.args.num_hidden_layers):
             weights = self.store.layer(index)
-            self.layer_weight_loads += 1
             block = self.Block(self.args)
             prefix = f'model.layers.{index}.'
             block.load_weights([(name.removeprefix(prefix), value) for name,value in weights.items()], strict=True)
-            if layer_chunk_size is not None and h.shape[1] > layer_chunk_size:
-                parts = []
-                for start in range(0,h.shape[1],layer_chunk_size):
-                    piece = h[:, start:start+layer_chunk_size, :]
-                    mask = create_attention_mask(piece,cache[index])
-                    piece = block(piece,mask,cache[index])
-                    mx.eval(piece,cache[index].state)
-                    parts.append(piece)
-                    self.layer_calls += 1
-                    self._check_budget()
-                h = mx.concatenate(parts,axis=1)
-                mx.eval(h)
-                del parts,piece,mask
-            else:
-                mask = create_attention_mask(h,cache[index])
-                h = block(h,mask,cache[index])
-                mx.eval(h,cache[index].state)
-                self.layer_calls += 1
-                self._check_budget()
+            h = block(h, mask, cache[index])
+            mx.eval(h, cache[index].state)
+            self.layer_calls += 1
+            self._check_budget()
             del block, weights
             mx.clear_cache()
         if not project:

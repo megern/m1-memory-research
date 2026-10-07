@@ -1,0 +1,95 @@
+{
+  "source_integrity_verified": true,
+  "all_planned_outcomes_retained": true,
+  "variant_statistics": {
+    "unchunked": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 21.67756712436676,
+      "completed_only_median_peak_mlx_bytes": 722009040.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1075322880.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3112796160.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 80.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    },
+    "chunk-major32": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 52.13480616651941,
+      "completed_only_median_peak_mlx_bytes": 719682512.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1253703680.0,
+      "completed_only_median_selected_tensor_bytes": 132124784640.0,
+      "completed_only_median_row_bytes_read": 3112796160.0,
+      "completed_only_median_layer_weight_loads": 200.0,
+      "completed_only_median_layer_calls": 200.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    },
+    "layer-major32": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 25.023178604547866,
+      "completed_only_median_peak_mlx_bytes": 721157068.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1133010944.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3112796160.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 200.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    }
+  },
+  "same_round_comparisons": [
+    {
+      "round": 0,
+      "variant": "layer-major32",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 3.504347334150225,
+      "peak_mlx_bytes_difference_from_unchunked": -851972
+    },
+    {
+      "round": 0,
+      "variant": "chunk-major32",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 30.9039277092088,
+      "peak_mlx_bytes_difference_from_unchunked": -2326528
+    },
+    {
+      "round": 1,
+      "variant": "layer-major32",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 3.186875626211986,
+      "peak_mlx_bytes_difference_from_unchunked": -851972
+    },
+    {
+      "round": 1,
+      "variant": "chunk-major32",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 30.0105503750965,
+      "peak_mlx_bytes_difference_from_unchunked": -2326528
+    }
+  ],
+  "limitations": [
+    "Conditional medians exclude stopped attempts; completion counts retained.",
+    "Two rounds and one prompt, uncontrolled OS caches and other apps; no causal or broad quality claims.",
+    "Known chunked prefill changes BF16 kernel shapes; identical short output is not logits equivalence.",
+    "Native tensor byte counters are logical requested payloads, not physical SSD reads.",
+    "No training, quantization, novel algorithm or original 70B claim."
+  ]
+}

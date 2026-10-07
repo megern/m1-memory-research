@@ -1,0 +1,377 @@
+{
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "protocol_sha256": "7de0996604c8d13781e68a80f997882c2988950234c5ae28e898067f7224ed58",
+  "source_sha256": {
+    "run_direct_original.py": "07bc1bbbba9a16ba17a7e95f5e584144196993e6e32cb9647c365fd89f2bd6be",
+    "direct_original_engine.py": "532d420b97bd68d102689fdc31b6faaa86e5205773b4deafaac70744120e03c1",
+    "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092",
+    "run_prefill_trials.py": "efab2007930d2829537dfe76ddce8c4ea935119dc904575d302736aae7244386"
+  },
+  "planned_order": [
+    {
+      "round": 0,
+      "variant": "layer-major32"
+    },
+    {
+      "round": 0,
+      "variant": "unchunked"
+    },
+    {
+      "round": 0,
+      "variant": "chunk-major32"
+    },
+    {
+      "round": 1,
+      "variant": "layer-major32"
+    },
+    {
+      "round": 1,
+      "variant": "unchunked"
+    },
+    {
+      "round": 1,
+      "variant": "chunk-major32"
+    }
+  ],
+  "trials": [
+    {
+      "index": 0,
+      "round": 0,
+      "variant": "layer-major32",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 27.117440541973338,
+      "verification_seconds": 24.97413104190491,
+      "verification_swap_delta_bytes": -41943040,
+      "forward_seconds": 25.167662624968216,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 721157068,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1028718592,
+      "max_system_swap_growth_bytes": -41943040,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            14.493940040934831,
+            10.673722584033385
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 200,
+      "layer_weight_loads": 80,
+      "prefill_chunks": 4,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 52849920000,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 1,
+      "round": 0,
+      "variant": "unchunked",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 23.93935929099098,
+      "verification_seconds": 24.626613833010197,
+      "verification_swap_delta_bytes": -16777216,
+      "forward_seconds": 21.66331529081799,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 722009040,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1107394560,
+      "max_system_swap_growth_bytes": -16777216,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            11.443961957935244,
+            10.219353332882747
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 80,
+      "layer_weight_loads": 80,
+      "prefill_chunks": 1,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 52849920000,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 2,
+      "round": 0,
+      "variant": "chunk-major32",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 55.10842158389278,
+      "verification_seconds": 24.321161957923323,
+      "verification_swap_delta_bytes": 0,
+      "forward_seconds": 52.56724300002679,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 719682512,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1238122496,
+      "max_system_swap_growth_bytes": 0,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            42.02899237512611,
+            10.538250624900684
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 200,
+      "layer_weight_loads": 200,
+      "prefill_chunks": 4,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 132124784640,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 3,
+      "round": 1,
+      "variant": "layer-major32",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 27.055968625005335,
+      "verification_seconds": 25.019536290783435,
+      "verification_swap_delta_bytes": -41943040,
+      "forward_seconds": 24.878694584127516,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 721157068,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1237303296,
+      "max_system_swap_growth_bytes": -41943040,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            14.573958500055596,
+            10.30473608407192
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 200,
+      "layer_weight_loads": 80,
+      "prefill_chunks": 4,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 52849920000,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 4,
+      "round": 1,
+      "variant": "unchunked",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 23.94678183295764,
+      "verification_seconds": 24.24249054212123,
+      "verification_swap_delta_bytes": 0,
+      "forward_seconds": 21.69181895791553,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 722009040,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1043251200,
+      "max_system_swap_growth_bytes": 0,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            11.470231541898102,
+            10.221587416017428
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 80,
+      "layer_weight_loads": 80,
+      "prefill_chunks": 1,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 52849920000,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    },
+    {
+      "index": 5,
+      "round": 1,
+      "variant": "chunk-major32",
+      "runner_exit_code": 0,
+      "completed": true,
+      "guard": null,
+      "worker_seconds": 53.941972750006244,
+      "verification_seconds": 24.174402333097532,
+      "verification_swap_delta_bytes": -8388608,
+      "forward_seconds": 51.70236933301203,
+      "recorded_steps": 2,
+      "peak_mlx_bytes": 719682512,
+      "peak_mlx_scope": "full",
+      "sampled_rss_peak_bytes": 1269284864,
+      "max_system_swap_growth_bytes": -8388608,
+      "token_events": [
+        {
+          "case": 0,
+          "step": 0,
+          "token_id": 8996
+        },
+        {
+          "case": 0,
+          "step": 1,
+          "token_id": 151645
+        }
+      ],
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO.",
+          "prompt_tokens": 111,
+          "token_ids": [
+            8996,
+            151645
+          ],
+          "text": "NO",
+          "stopped_at_eos": true,
+          "reached_token_limit": false,
+          "step_seconds": [
+            41.406762999948114,
+            10.295606333063915
+          ],
+          "comparisons": []
+        }
+      ],
+      "nocache_descriptors": 0,
+      "layer_calls": 200,
+      "layer_weight_loads": 200,
+      "prefill_chunks": 4,
+      "head_passes": 2,
+      "row_bytes_read": 3112796160,
+      "selected_tensor_bytes": 132124784640,
+      "max_setup_and_worker_swap_growth_bytes": 0
+    }
+  ],
+  "completed_series": true,
+  "stage": "finished_all_planned_jobs"
+}

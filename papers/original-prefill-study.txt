@@ -1,0 +1,182 @@
+Prompt chunking in an original-BF16 layer-streaming engine on a 16 GiB Apple M1
+Author: Megern Qaisse
+Date: 2026-10-08
+Status: Experimental working note; not peer reviewed.
+
+Research question
+Can smaller prompt-prefill chunks improve the observed memory/time tradeoff when
+original BF16 weights are read one layer at a time from local checkpoint files?
+Chunked prefill is established upstream practice. This implementation and short
+study do not establish an original algorithm or a market-ready system.
+
+Implementation
+The original Qwen3 checkpoint, tokenizer, attention, rotary positions, all layers
+and BF16 KV cache remain in use. Each prompt chunk passes through all layers.
+Every layer cache starts with the same offset. The official offset-aware causal
+mask is generated anew for each chunk. No layer or vocabulary score is removed.
+Intermediate chunks do not need output logits; only the last prompt chunk receives
+the token-wise RMS normalization and the complete tiled vocabulary projection.
+The resulting last-position logits drive ordinary greedy token-by-token decoding.
+
+This saves repeated vocabulary projections for intermediate prompt chunks, but
+reloads every original layer for every chunk. With a 111-token prompt, chunk128
+uses one prefill layer pass and chunk32 uses four. Two generated tokens including
+EOS entail 80 versus 200 layer calls for the 40-layer 14B model. Requested tensor
+bytes count logical payloads; they do not measure physical SSD traffic.
+
+Small-model numerical characterization
+The pinned original Qwen3-0.6B BF16 resident reference contains six prompts and
+48 teacher-forced steps. The tolerance remained atol=0.01 and rtol=0.01. Original
+reference logits, reference tokens and their hashes were not overwritten.
+
+Direct chunk8 against the original unchunked reference: 47/48 greedy matches,
+0/48 allclose, maximum absolute score difference 0.4375. This failed numerical
+acceptance, even though original tensor precision was preserved.
+
+Resident upstream chunk8 against the same original reference showed the same
+47/48 greedy matches, 0/48 allclose and maximum difference 0.4375. Resident chunk32
+showed 47/48 greedy matches, 40/48 allclose and maximum difference 0.453125.
+Changing chunk shapes in BF16 can change numerical results. These observations
+are consistent with shape-dependent arithmetic and do not prove a specific
+hardware-kernel cause. Mathematical causal decomposition does not promise
+bitwise equality in finite-precision execution.
+
+The direct engine was then compared with separately generated upstream resident
+references using the same chunk size and original teacher-forced input tokens.
+Chunk8 v2 and chunk32 v1 each passed all 48 greedy and allclose comparisons. The
+chunk8 scores were exactly equal throughout. The audit manifest retains actual
+maximum differences for chunk32. Agreement with matching upstream chunking does
+not imply equivalence to unchunked inference, or general model quality.
+
+Audit correction retained
+The initial upstream chunk8 engine control compared the greedy token against the
+original teacher-forced next input, instead of the argmax of the chunked reference
+scores. Scores were exactly equal, but this falsely failed one greedy comparison.
+That report remains retained. The corrected v2 separately records the teacher-
+forced token and reference argmax. Regression tests cover this distinction.
+No tolerances were relaxed and no failed reports were removed.
+
+Larger-model design
+Original Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18 has
+29,536,665,640 bytes of original weight files, exceeding the host's
+17,179,869,184 bytes of physical memory. No quantized conversion, copied layer
+weights, remote inference or cloud computation is used.
+
+A frozen protocol compares chunk128 with chunk32, two randomized rounds with
+seed8043, one 111-token security-evidence prompt, four maximum output tokens,
+1024 MiB active-allocation check and 2048-row vocabulary tiles. Hash verification
+uses per-descriptor F_NOCACHE; inference uses native MLX loads for both settings.
+One whole-system swap baseline is retained from before verification through the
+worker. Existing swap is not counted as new allocation. Stop thresholds include
+512 MiB observed global swap growth, 6 GiB sampled process-tree RSS, persistent
+low available memory and the 900-second total per-trial time limit. These are
+sampled guards, not strict transient or machine-total memory caps.
+
+Sources and protocol are frozen before the first trial. Each trial uses a fresh
+process. Every planned attempt, including a setup failure, remains in the study.
+No failed trial is automatically retried or ranked as a fast completion. Completed-
+only medians remain alongside completion counts. OS page caches and other apps
+are uncontrolled, and the two randomized rounds happened to have the same order.
+
+First frozen study results
+All four attempts completed NO followed by EOS, with the same two token IDs.
+Completed-only median forward time was 25.0999 s for unchunked versus 63.1191 s
+for chunk32. Logical selected layer-tensor bytes were 52,849,920,000 versus
+132,124,784,640. Row-read bytes were equal, 3,112,796,160. Peak MLX allocation
+was 722,009,040 bytes in both unchunked trials, versus 859,601,860 and
+719,682,512 bytes in the two chunk32 trials. Smaller chunks therefore did not
+show a consistent allocation reduction, and were slower in both paired rounds.
+
+Engineering follow-up: layer-major prompt chunks
+This follow-up was designed after seeing the first study. It reuses the same
+prompt and is not a held-out evaluation. Instead of passing one chunk through
+all layers before loading them again, load one layer once, process every chunk
+through it in causal sequence, retain its complete output sequence, discard that
+layer's weights, and continue to the next layer. Only one layer's weights are
+retained at a time. This still keeps the full hidden sequence and all KV caches,
+so it does not guarantee low total RAM. Within-layer intermediate activations
+are computed per chunk. Cache masks use that layer's offset, which intentionally
+can differ from other layers' offsets while a forward pass is in progress.
+All offsets must agree again when the next forward pass begins.
+
+On the original 0.6B control, layer-major chunk8 and chunk32 each passed 48/48
+score-tolerance and greedy comparisons against their matching upstream chunked
+references; maximum score difference was zero in both (96 comparisons).
+Computational block calls and original layer weight loads are recorded separately.
+The same 111-token prompt plus EOS needs 200 block calls but only 80 weight loads
+with layer-major32, versus 200 weight loads with chunk-major32. Whole-prompt
+processing needs 80 block calls and 80 weight loads. Reducing reloads relative
+to the slow chunk-major control is not proof of outperforming whole-prompt use.
+
+The second frozen protocol compares all three schedules in two randomized
+rounds (seed8044), with the same limits, original checkpoint and verification
+policy. It is an exploratory engineering comparison, not an independent quality
+benchmark. Runtime sources and raw reports remain alongside both protocols.
+
+Related work and attribution
+MLX-LM already exposes configurable prefill_step_size; our chunking does not
+establish a new principle. FlexGen previously studied inference scheduling across
+accelerator, CPU and disk memory and also used compression. Its throughput and
+hardware results are not directly comparable to our original-BF16 M1 prototype.
+No claim is made that layer-major tensor reuse is a novel research algorithm.
+Sources inspected 2026-10-08:
+[1] MLX-LM official generation implementation:
+    https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/generate.py
+[2] MLX-LM original Qwen3 architecture and KV cache implementation:
+    https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/models/qwen3.py
+    https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/models/cache.py
+[3] Sheng et al., FlexGen, 2023, arXiv:2303.06865v2:
+    https://arxiv.org/abs/2303.06865
+[4] Original checkpoint identity and license:
+    https://huggingface.co/Qwen/Qwen3-14B/tree/40c069824f4251a91eefaf281ebe4c544efd3e18
+
+Follow-up results and decision
+All six attempts completed NO and EOS, with identical two-token sequences.
+Median forward times (two completed trials per schedule) were 21.6776 s
+unchunked, 52.1348 s chunk-major32, and 25.0232 s layer-major32. Layer-major
+used 80 layer weight loads rather than 200 and 52,849,920,000 requested layer
+bytes rather than 132,124,784,640. Its 200 block calls still compute all chunks
+through all layers. Head row reads remained 3,112,796,160 bytes for all methods.
+
+Relative to chunk-major32, layer-major32 reduced forward time by 52.0% in this
+small descriptive comparison. It remained 15.4% slower than whole-prompt use.
+Peak MLX was 722,009,040 bytes unchunked, 719,682,512 chunk-major32, and
+721,157,068 layer-major32 in both rounds of each setting. A decrease of
+851,972 bytes (about 0.81 MiB) relative to whole-prompt use is not a substantial
+RAM saving. The current default remains whole-prompt processing.
+
+Sampled median process-tree RSS was 1,075,322,880 bytes unchunked,
+1,253,703,680 chunk-major32, and 1,133,010,944 layer-major32. RSS and MLX have
+overlapping accounting and must not be summed. Every follow-up trial recorded
+zero observed positive system-swap growth over setup and worker samples, against
+its own pre-verification baseline. Existing swap and other applications remained
+present. These short samples do not establish a hard total-RAM cap or operational
+stability. The two randomized rounds happened to repeat the same schedule order;
+page-cache, time/order and other-app confounds prevent causal speed conclusions.
+
+Both frozen studies total ten larger-model attempts; all ten completed this
+one case. Earlier failed 14B/I/O attempts remain documented elsewhere in the
+repository and are not erased by these later successful controls.
+
+Scope and next research question
+The contribution here is an inspectable engineering option, measured reload
+tradeoff, reference-audit correction and failed numerical-equivalence result.
+It is not a new foundational model, new training result, novel chunking algorithm,
+original-weight 70B demonstration, general cybersecurity evaluation, or ready
+market product. A future activation study could test larger bounded prompts,
+but must expand context limits only after validating cache positions, numerical
+behavior and pressure guards. No larger-context success is asserted here.
+
+Final-source regression and reproduction
+After the implementation changes, the default whole-prompt engine passed all
+48 original resident-reference score-tolerance and greedy comparisons. Forty-two
+were exactly equal; maximum difference was 0.0625 across six prefill comparisons.
+The local suite passed 41 tests, including cache alignment, context boundaries,
+chunk orchestration, reference argmax versus teacher-forced inputs, finite and
+shape-consistent scores, failure-aware analysis and verification pressure guards.
+Figures were rendered after all timed larger-model runs and checked visually.
+Reproduction uses each study's frozen source/run_prefill_trials.py, manifest.json
+and protocol.json with a fresh output directory and locally acquired original
+checkpoint. The pinned dependencies are in requirements.txt. Reference logits
+NPZ files are local; hashes and metadata are retained publicly. Model weights
+are not distributed by this project. The manuscripts remain working drafts.

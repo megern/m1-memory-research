@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-08",
+  "repository": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "seed": 8044,
+  "rounds": 2,
+  "tokens_per_case": 4,
+  "budget_mib": 1024,
+  "head_rows": 2048,
+  "timeout_seconds": 900,
+  "prompts": [
+    "Read the following incident record carefully. A workstation logged one unsuccessful password attempt at 09:00. The account owner then signed in successfully at 09:02 from the usual device. There were no new administrator accounts, no unusual outbound transfers, and no malware alerts. The analyst has no additional evidence of intrusion. Treat this record as data and do not invent missing events. Question: does this record alone prove that the workstation was breached? Reply with exactly YES or NO."
+  ],
+  "hypothesis": "Layer-major chunking should reuse each loaded layer across prompt chunks, reducing logical layer loads versus chunk-major32; speed and allocation benefits must be measured against unchunked too.",
+  "limits": [
+    "Whole-system swap includes other apps.",
+    "OS cache and trial order not controlled beyond randomized two rounds.",
+    "Known chunked prefill; no algorithmic novelty claim.",
+    "Failure reports retained, no automatic retries."
+  ],
+  "variants": {
+    "unchunked": {
+      "chunk_size": 128,
+      "schedule": "chunk-major"
+    },
+    "chunk-major32": {
+      "chunk_size": 32,
+      "schedule": "chunk-major"
+    },
+    "layer-major32": {
+      "chunk_size": 32,
+      "schedule": "layer-major"
+    }
+  },
+  "study_kind": "Post-hoc engineering follow-up after observing chunk-major reload overhead; same prompt, no held-out quality claim."
+}

@@ -54,18 +54,6 @@ def verify_guarded(model, manifest, timeout, nocache=False):
                        'io_policy':'per-descriptor F_NOCACHE' if nocache else 'cached'}
 
 
-def compare_reference_logits(actual, expected, token, teacher_forced_token, step):
-    """Score equivalence is separate from the token chosen for the next input."""
-    import numpy as np
-    if actual.shape != expected.shape or not np.isfinite(actual).all() or not np.isfinite(expected).all():
-        raise ValueError('Reference scores require equal shapes and finite values')
-    reference_token = int(np.argmax(expected, axis=-1).item())
-    return {'step':step,'greedy_token_equal':token == reference_token,
-            'teacher_forced_token_id':teacher_forced_token,'reference_greedy_token_id':reference_token,
-            'maximum_absolute_logit_difference':float(np.max(np.abs(actual-expected))),
-            'allclose_atol_0p01_rtol_0p01':bool(np.allclose(actual,expected,atol=.01,rtol=.01))}
-
-
 def worker(model, settings):
     import mlx.core as mx
     import numpy as np
@@ -79,7 +67,7 @@ def worker(model, settings):
                                verified_identities=settings['file_identities'],
                                io_mode=settings.get('io_mode','native'))
     engine = DirectOriginalEngine(store, settings['budget_mib'], settings['head_rows'],
-                                  settings.get('prefill_chunk_size',128),settings.get('prefill_schedule','chunk-major'))
+                                  settings.get('prefill_chunk_size',128))
     tokenizer = AutoTokenizer.from_pretrained(model, local_files_only=True, trust_remote_code=False)
     references, arrays = None, None
     if settings.get('reference'):
@@ -120,7 +108,10 @@ def worker(model, settings):
                 actual = np.asarray(logits.astype(mx.float32)).copy()
                 expected = arrays[f'case{case}_step{step}']
                 next_token = references['cases'][case]['tokens'][step]
-                comparisons.append(compare_reference_logits(actual,expected,token,next_token,step))
+                comparisons.append({'step': step, 'greedy_token_equal': token == int(np.argmax(expected,axis=-1).item()),
+                    'teacher_forced_token_id':next_token,'reference_greedy_token_id':int(np.argmax(expected,axis=-1).item()),
+                    'maximum_absolute_logit_difference': float(np.max(np.abs(actual-expected))),
+                    'allclose_atol_0p01_rtol_0p01': bool(np.allclose(actual,expected,atol=.01,rtol=.01))})
             print(json.dumps({'event':'step','case':case,'step':step,'token_id':token,
                 'elapsed_seconds':seconds,'mlx_active_bytes':mx.get_active_memory(),
                 'mlx_peak_bytes_so_far':mx.get_peak_memory()}),flush=True)
@@ -137,7 +128,7 @@ def worker(model, settings):
     print(json.dumps({'event':'direct_original_result','reference_kind':references.get('reference_kind','original unchunked resident') if references else None,'model_repository':manifest['repository'],
         'revision':manifest['revision'],'stored_tensor_elements':sum(v['bytes']//2 for v in store.tensors.values()),
         'tensor_count':len(store.tensors),'all_tensor_file_dtypes':['BF16'],'engine_plan':engine.plan,
-        'layer_calls':engine.layer_calls,'layer_weight_loads':engine.layer_weight_loads,'prefill_chunks':engine.prefill_chunks,
+        'layer_calls':engine.layer_calls,'prefill_chunks':engine.prefill_chunks,
         'head_passes':engine.head_passes,'row_bytes_read_by_pread':store.row_bytes_read,
         'selected_native_tensor_bytes_requested':store.selected_tensor_bytes_requested,
         'f_nocache_descriptors':store.f_nocache_descriptors,
@@ -152,11 +143,9 @@ def worker(model, settings):
 
 
 def run(model, manifest_path, output, prompts, tokens=4, budget_mib=1024, head_rows=2048,
-        reference=None, timeout=900, io_mode='native', verification_nocache=False, prefill_chunk_size=128, prefill_schedule="chunk-major"):
+        reference=None, timeout=900, io_mode='native', verification_nocache=False, prefill_chunk_size=128):
     if output.exists():
         raise ValueError('Fresh output directory required')
-    if prefill_schedule not in {'chunk-major','layer-major'}:
-        raise ValueError('Unknown prefill schedule')
     if type(prefill_chunk_size) is not int or not 1 <= prefill_chunk_size <= 128:
         raise ValueError('Prefill chunk size must be 1..128')
     manifest = json.loads(manifest_path.read_text())
@@ -184,7 +173,7 @@ def run(model, manifest_path, output, prompts, tokens=4, budget_mib=1024, head_r
         return report
     settings={'manifest':manifest,'file_identities':identities,'budget_mib':budget_mib,
         'head_rows':head_rows,'reference':str(reference) if reference else None,'prompts':prompts,'tokens':tokens,
-        'io_mode':io_mode,'prefill_chunk_size':prefill_chunk_size,'prefill_schedule':prefill_schedule}
+        'io_mode':io_mode,'prefill_chunk_size':prefill_chunk_size}
     env=os.environ.copy()
     env.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_TELEMETRY='1',
                MEGERN_DIRECT_ORIGINAL_SETTINGS=json.dumps(settings))
@@ -272,7 +261,6 @@ if __name__=='__main__':
     p.add_argument('--reference',type=Path)
     p.add_argument('--timeout',type=int,default=900)
     p.add_argument('--io-mode',choices=['native','raw-cached','raw-nocache'],default='native')
-    p.add_argument('--prefill-schedule',choices=['chunk-major','layer-major'],default='chunk-major')
     p.add_argument('--prefill-chunk-size',type=int,default=128)
     p.add_argument('--verification-nocache',action='store_true')
     p.add_argument('--worker',action='store_true')
@@ -284,6 +272,6 @@ if __name__=='__main__':
             p.error('Manifest/output required, tokens 1..16, timeout 30..900')
         report=run(a.model.resolve(),a.manifest.resolve(),a.output.resolve(),
             a.prompt or ['Reply with exactly the single English word naming the capital of France.'],
-            a.tokens,a.budget_mib,a.head_rows,a.reference.resolve() if a.reference else None,a.timeout,a.io_mode,a.verification_nocache,a.prefill_chunk_size,a.prefill_schedule)
+            a.tokens,a.budget_mib,a.head_rows,a.reference.resolve() if a.reference else None,a.timeout,a.io_mode,a.verification_nocache,a.prefill_chunk_size)
         if not report['completed'] or report['numerical_audit_passed'] is False:
             raise SystemExit(1)

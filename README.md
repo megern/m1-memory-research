@@ -6,6 +6,29 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## Original BF16 prompt scheduling: numerical drift and layer reuse
+
+The [2026-10-08 working study](papers/original-prefill-study.txt) adds explicit prompt chunking and a `layer-major` schedule to the original-file engine. `chunk-major` reloads every layer for each prompt chunk; `layer-major` loads a layer once, processes all prompt chunks in causal order, and then discards its weights. It retains the complete hidden sequence and original KV caches. No quantization, layer skipping, vocabulary pruning or cloud compute is introduced. The default remains whole-prompt processing (`--prefill-chunk-size 128`). Input and total-context limits remain 128 and 256 tokens.
+
+**Preserving original BF16 weights does not guarantee identical outputs when computation shapes change.** Chunk8 failed all 48 fixed-tolerance score comparisons with the unchunked resident reference, and changed one greedy token. Upstream MLX resident chunk8 showed the same 47/48 greedy matches and maximum absolute difference 0.4375. Upstream chunk32 likewise changed one greedy token, with 40/48 score comparisons passing. The tolerances remained `atol=0.01, rtol=0.01`. Both layer-major chunk8 and chunk32 passed all 48 comparisons against their respective upstream **chunked** references, with zero score difference: 96 matching-schedule comparisons, not proof of unchunked equivalence. [The audit manifest](results/prefill-numerical-audit.json) retains the failed control and correction of a reference-argmax/teacher-forced-token comparison error.
+
+The [first frozen four-job study](results/original-prefill-trials-v1/analysis.json) used one 111-token security-evidence prompt with original Qwen3-14B. All four completed `NO` and EOS. Median forward time was 25.10 s unchunked versus 63.12 s chunk-major32. Peak MLX allocations did not consistently fall with chunking. The [second frozen six-job protocol](models/original-prefill-schedule-protocol.json) compares unchunked, chunk-major32 and layer-major32. It is an engineering follow-up designed after seeing the first result, using the same prompt. Sources, raw reports and every planned outcome are retained.
+
+
+All six follow-up attempts completed `NO` and EOS with identical token IDs. Descriptive medians over two completed jobs per setting:
+
+| Schedule | Completed | Forward seconds | Layer weight loads | Peak MLX MiB |
+| --- | --- | ---: | ---: | ---: |
+| unchunked | 2/2 | 21.68 | 80 | 688.56 |
+| chunk-major32 | 2/2 | 52.13 | 200 | 686.34 |
+| layer-major32 | 2/2 | 25.02 | 80 | 687.75 |
+
+Layer-major32 reduced measured forward time by **52.0% relative to the slow chunk-major32 control**, and reduced logical layer loads from 200 to 80. It remained **15.4% slower than unchunked**, with only about 0.81 MiB lower peak MLX allocation. This is not a substantial RAM improvement or evidence of outperforming whole-prompt inference. The default therefore stays unchunked; layer-major is an experimental option for further bounded activation studies. All six attempts recorded no positive whole-system swap growth relative to their pre-verification baselines, which does not establish a hard memory cap or stability across workloads. The randomized rounds happened to repeat the same ordering, and OS caches and other apps remained uncontrolled.
+
+[Full follow-up analysis](results/original-prefill-schedule-trials-v1/analysis.json) and [the figure](figures/original-prefill-schedules.png) retain actual measurements. Matching short output does not establish matching 14B logits or general security quality. A final-source [default regression](results/prefill-default-regression-v1/report.json) passed all 48 original resident-reference checks (42 exactly equal; maximum difference 0.0625). The complete local suite has 41 passing tests.
+
+[Arabic operation and exact snapshot reproduction](OPERATING_GUIDE.md) explain the experimental options and guards. Chunked prefill and tensor reuse are established ideas; algorithmic novelty and general model quality are not established. These inference results do not report new training or original-weight 70B operation.
+
 ## Original BF16 14B: I/O controls and setup protection
 
 A [subsequent frozen I/O protocol](models/original-io-protocol.json) ran three methods in two randomized rounds on three new short cases: arithmetic, an authentication-evidence question and Arabic geography. [All six attempted jobs](results/original-io-trials-v1/summary.json) are retained. Five completed, generating `378`, `NO` and `باريس.` through EOS. The failed first direct-nocache job stopped on global swap growth before any token completed. [The descriptive analysis](results/original-io-trials-v1/descriptive-analysis.json) verifies snapshot hashes and compares completed jobs with the same-round native control.
@@ -24,7 +47,7 @@ The failed job's preceding checksum pass recorded **1034.75 MiB net whole-system
 
 A separate [first coding control](results/original-14b-code-v1/summary.json) used the new setup guard and produced the raw answer `` `items[::-1]` `` through EOS in 83.43 worker seconds plus 25.42 seconds verification. The raw text fails strict Python-expression parsing because of the Markdown code span. Removing only that complete outer span in an explicitly post-hoc display normalization yields the expected reverse-slice AST. Generated code was **inspected, never executed**. Observed peak MLX was 0.669 GiB and maximum whole-system swap growth over setup and worker samples was 22.94 MiB. This different one-question control is not a paired memory comparison with the I/O study or a general coding benchmark.
 
-Read the [working research manuscript](papers/original-io-study.txt), retained protocols, source snapshots and [Arabic operating guide](OPERATING_GUIDE.md). The local suite now has 30 passing tests. Exact reproduction of the historical six-job study uses its frozen source snapshot; the current runner has stricter setup guards. Original-weight 70B and large-model training remain outside these results.
+Read the [working research manuscript](papers/original-io-study.txt), retained protocols, source snapshots and [Arabic operating guide](OPERATING_GUIDE.md). The I/O release recorded 30 passing tests; the current suite has 41. Exact reproduction of the historical six-job study uses its frozen source snapshot; the current runner has stricter setup guards. Original-weight 70B and large-model training remain outside these results.
 
 ## Direct original-file engine: original BF16 14B beyond physical RAM
 

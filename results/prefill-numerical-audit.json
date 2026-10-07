@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-08",
+  "controls": [
+    {
+      "directory": "chunk8-small-numerical-v1",
+      "completed": true,
+      "reference_kind": "original unchunked resident",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 47,
+      "allclose_count": 0,
+      "maximum_absolute_logit_difference": 0.4375,
+      "source_sha256": {
+        "direct_original_engine.py": "e063c5b141f971099646b1674fdd583cc5c789668c4e4d0f68ad4269a62c12d7",
+        "run_direct_original.py": "291b42e36d4e2cd4a131da1bf571a3d05dd6e60a41fbf1bee05d30676530f90b",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "chunk8-upstream-numerical-v1",
+      "completed": true,
+      "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 47,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0,
+      "source_sha256": {
+        "direct_original_engine.py": "e063c5b141f971099646b1674fdd583cc5c789668c4e4d0f68ad4269a62c12d7",
+        "run_direct_original.py": "17512ed56d9f682154013c9d865f68f012a03e3e1f9b73f6713aa156560dbbeb",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "chunk8-upstream-numerical-v2",
+      "completed": true,
+      "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 48,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0,
+      "source_sha256": {
+        "direct_original_engine.py": "e063c5b141f971099646b1674fdd583cc5c789668c4e4d0f68ad4269a62c12d7",
+        "run_direct_original.py": "fbdda6e78a4edd14d05be652cac99eb6ddd9bb4e40fa904d379fb58a2c1d3e8d",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "chunk32-upstream-numerical-v1",
+      "completed": true,
+      "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 48,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0,
+      "source_sha256": {
+        "direct_original_engine.py": "e063c5b141f971099646b1674fdd583cc5c789668c4e4d0f68ad4269a62c12d7",
+        "run_direct_original.py": "fbdda6e78a4edd14d05be652cac99eb6ddd9bb4e40fa904d379fb58a2c1d3e8d",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "layer-major32-upstream-numerical-v1",
+      "completed": true,
+      "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 48,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0,
+      "layer_calls": 1372,
+      "layer_weight_loads": 1344,
+      "source_sha256": {
+        "direct_original_engine.py": "532d420b97bd68d102689fdc31b6faaa86e5205773b4deafaac70744120e03c1",
+        "run_direct_original.py": "07bc1bbbba9a16ba17a7e95f5e584144196993e6e32cb9647c365fd89f2bd6be",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "layer-major8-upstream-numerical-v1",
+      "completed": true,
+      "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 48,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0,
+      "layer_calls": 1792,
+      "layer_weight_loads": 1344,
+      "source_sha256": {
+        "direct_original_engine.py": "532d420b97bd68d102689fdc31b6faaa86e5205773b4deafaac70744120e03c1",
+        "run_direct_original.py": "07bc1bbbba9a16ba17a7e95f5e584144196993e6e32cb9647c365fd89f2bd6be",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    },
+    {
+      "directory": "prefill-default-regression-v1",
+      "completed": true,
+      "reference_kind": "original unchunked resident",
+      "comparisons": 48,
+      "recorded_greedy_equal_count": 48,
+      "allclose_count": 48,
+      "maximum_absolute_logit_difference": 0.0625,
+      "source_sha256": {
+        "direct_original_engine.py": "532d420b97bd68d102689fdc31b6faaa86e5205773b4deafaac70744120e03c1",
+        "run_direct_original.py": "07bc1bbbba9a16ba17a7e95f5e584144196993e6e32cb9647c365fd89f2bd6be",
+        "original_tensor_store.py": "e25d7eff051fa0af0afad278caee6b255078e207ce11d4c8a248c70347742092"
+      }
+    }
+  ],
+  "interpretation": [
+    "Chunk size 8 versus original unchunked resident: 47/48 greedy matches, 0/48 allclose; not equivalent under fixed tolerance.",
+    "Upstream resident chunk size 8 versus original: same 47/48, 0/48 and max 0.4375.",
+    "Upstream resident chunk size 32 versus original: 47/48 greedy, 40/48 allclose and max 0.453125.",
+    "Direct engine versus upstream with identical chunking: v2 chunk8 and chunk32 controls both pass all 48 score and greedy comparisons.",
+    "Chunk8 upstream v1 retained: scores all exactly equal but greedy check wrongly compared against teacher-forced original token. v2 separates reference argmax from teacher-forced input; v1 failure not removed.",
+    "All upstream chunked references use original teacher-forced token sequences, not free decoding.",
+    "Small-model agreement with the same upstream chunking is not evidence of 14B logits equivalence or general quality.",
+    "Layer-major chunk8 and chunk32 each pass all 48 comparisons against matching upstream chunking, with zero maximum score difference; 96 new controls, not unchunked equivalence.",
+    "Final-source whole-prompt regression: all 48 greedy and fixed-tolerance checks pass against the original unchunked resident reference."
+  ],
+  "reference_npz_policy": "NPZ scores retained locally outside Git; hashes and reference metadata included."
+}

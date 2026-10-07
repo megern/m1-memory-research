@@ -1,0 +1,353 @@
+{
+  "reference_kind": "upstream resident BF16 chunked prefill, final-position projection",
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "prefill_chunk_size": 32,
+  "comparison_count": 48,
+  "greedy_equal_count": 47,
+  "allclose_count": 40,
+  "maximum_absolute_logit_difference": 0.453125,
+  "comparisons": [
+    {
+      "case": 0,
+      "step": 0,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.03125,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 0,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 0,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.03125,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 1,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 0,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.015625,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 2,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 0,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0625,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 3,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 0,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.03125,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 4,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "allclose_atol_0p01_rtol_0p01": true
+    },
+    {
+      "case": 5,
+      "step": 0,
+      "greedy_token_equal": false,
+      "maximum_absolute_logit_difference": 0.453125,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 1,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.359375,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 2,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.25,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 3,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.265625,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 4,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.3125,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 5,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.296875,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 6,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.25,
+      "allclose_atol_0p01_rtol_0p01": false
+    },
+    {
+      "case": 5,
+      "step": 7,
+      "greedy_token_equal": true,
+      "maximum_absolute_logit_difference": 0.4140625,
+      "allclose_atol_0p01_rtol_0p01": false
+    }
+  ],
+  "seconds": 1.829000708879903,
+  "source_sha256": "b468d61f885496fb874e0dcadac1a550a4da7ef9d5897c022565e6add889864a",
+  "original_reference_npz_sha256": "d5363c9afc674b4a144003e917e0bac9ce1d656b8d635b3cfdbe28b212541652",
+  "derived_reference_npz_sha256": "0707ff9600fa30221b8e038fbe7689aa19228986e643e44cd766c0547045037f",
+  "scope": "Characterization of known BF16 chunk shape differences; not performance measurement or acceptance of changed tolerance."
+}
