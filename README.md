@@ -1,7 +1,6 @@
 # M1 Memory Research
 
 Author: **Megern Qaisse** ([GitHub](https://github.com/megern), [LinkedIn](https://www.linkedin.com/in/megernqaisse/)).
-By **Megern Qaisse** ([GitHub](https://github.com/megern), [LinkedIn](https://www.linkedin.com/in/megernqaisse/)).
 
 Two local studies on an Apple M1 with 16 GiB unified memory: a real 70B-checkpoint inference feasibility test, and small bilingual LoRA specialists with a retained pilot and a separate balanced confirmatory protocol.
 
