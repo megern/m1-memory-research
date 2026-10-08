@@ -1,0 +1,56 @@
+{
+  "completed": [
+    "lexical",
+    "seed-17",
+    "seed-23",
+    "seed-41"
+  ],
+  "metrics": {
+    "lexical": {
+      "macro_f1": 0.8914208598419124,
+      "spam_precision": 0.7419354838709677,
+      "spam_recall": 0.8846153846153846,
+      "false_positive_rate": 0.034782608695652174,
+      "accuracy": 0.95703125,
+      "tp": 23,
+      "tn": 222,
+      "fp": 8,
+      "fn": 3
+    },
+    "seed-17": {
+      "macro_f1": 0.8678466076696165,
+      "spam_precision": 0.6764705882352942,
+      "spam_recall": 0.8846153846153846,
+      "false_positive_rate": 0.04782608695652174,
+      "accuracy": 0.9453125,
+      "tp": 23,
+      "tn": 219,
+      "fp": 11,
+      "fn": 3
+    },
+    "seed-23": {
+      "macro_f1": 0.5467337619979499,
+      "spam_precision": 0.21487603305785125,
+      "spam_recall": 1.0,
+      "false_positive_rate": 0.41304347826086957,
+      "accuracy": 0.62890625,
+      "tp": 26,
+      "tn": 135,
+      "fp": 95,
+      "fn": 0
+    },
+    "seed-41": {
+      "macro_f1": 0.7433473690240898,
+      "spam_precision": 0.41818181818181815,
+      "spam_recall": 0.8846153846153846,
+      "false_positive_rate": 0.1391304347826087,
+      "accuracy": 0.86328125,
+      "tp": 23,
+      "tn": 198,
+      "fp": 32,
+      "fn": 3
+    }
+  },
+  "intervals": {},
+  "bootstrap": "2000 label-stratified paired case resamples; percentile 95%; conditional on this fixed split; no multiple-comparison significance claim."
+}

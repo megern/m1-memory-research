@@ -1,0 +1,82 @@
+{
+  "base": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1533739008,
+    "elapsed_seconds": 29.545277666999027,
+    "system_swap_growth_bytes": -17956864,
+    "log": "base.log"
+  },
+  "seed-17-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1595293696,
+    "elapsed_seconds": 132.76604358386248,
+    "system_swap_growth_bytes": -243335168,
+    "log": "seed-17-train.log"
+  },
+  "seed-17-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1302462464,
+    "elapsed_seconds": 18.132168625015765,
+    "system_swap_growth_bytes": 362610688,
+    "log": "seed-17-valid.log"
+  },
+  "seed-17-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1538244608,
+    "elapsed_seconds": 37.839154792018235,
+    "system_swap_growth_bytes": -50331648,
+    "log": "seed-17-evaluate.log"
+  },
+  "seed-23-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1590755328,
+    "elapsed_seconds": 178.76512916595675,
+    "system_swap_growth_bytes": -620888064,
+    "log": "seed-23-train.log"
+  },
+  "seed-23-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 906772480,
+    "elapsed_seconds": 18.58910929202102,
+    "system_swap_growth_bytes": 595460096,
+    "log": "seed-23-valid.log"
+  },
+  "seed-23-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1537277952,
+    "elapsed_seconds": 33.62553295795806,
+    "system_swap_growth_bytes": 87949312,
+    "log": "seed-23-evaluate.log"
+  },
+  "seed-41-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1598406656,
+    "elapsed_seconds": 137.20097679109313,
+    "system_swap_growth_bytes": -134217728,
+    "log": "seed-41-train.log"
+  },
+  "seed-41-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 702480384,
+    "elapsed_seconds": 17.050943249836564,
+    "system_swap_growth_bytes": 0,
+    "log": "seed-41-valid.log"
+  },
+  "seed-41-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1534541824,
+    "elapsed_seconds": 30.039016584167257,
+    "system_swap_growth_bytes": -33554432,
+    "log": "seed-41-evaluate.log"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "analysis.json": "fc62b3922988662d4c12aecf486b80f9f831da3453558d22324d2eb4ff95d910",
+  "base.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "journal.json": "b996c42fdf0ca2cc1153077878e8ad2a43260f8e55c96cf3cc63e46550302a17",
+  "lexical.json": "16259da7f11bb1b43f5f43fba9482c583e5e67b32a49f38717217fd02cf82656",
+  "local-adapter-inventory.json": "0a693bc6f6cd132baf92d2289f864444820beff73f39298b54fd3001b99e65be",
+  "protocol.json": "75cd099afc6789d30cc882b663161efb8413b84e72a78e23e6067fb891e7500d",
+  "seed-17-train.log": "01e1c4e9959ee48c61c77ccd8b5749f031f8a8e7c68a3362f72d14c959d1cf38",
+  "source/models/qwen3-0.6b-original.json": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "source/tools/prepare_public_sms.py": "754b9cd6551593358996fa0e5b814d95b65bf2027beaf440ca1cf5894c05fd5c",
+  "source/tools/provenance.py": "48e28b3d0647311d836cc364906749fb63f411df3258bc2b1d7487d5ea3481ae",
+  "source/tools/public_sms_study.py": "e5679e9bcc52b742b6098068317171fd94c3385515f2f2f89ab1a5bae2fa1dd9",
+  "source/tools/train_specialist.py": "697530cf74c052cdcd2f169e85ea01268a7dd8291dc1f66f35586fb8d638dadb"
+}

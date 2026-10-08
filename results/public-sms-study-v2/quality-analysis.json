@@ -1,0 +1,301 @@
+{
+  "reports": {
+    "lexical": "lexical.json",
+    "base": "base-retry.json",
+    "seed-17": "seed-17.json",
+    "seed-23": "seed-23.json",
+    "seed-41": "seed-41.json"
+  },
+  "test_cases": 256,
+  "spam_test_cases": 26,
+  "metrics": {
+    "lexical": {
+      "macro_f1": 0.8914208598419124,
+      "spam_recall": 0.8846153846153846,
+      "spam_precision": 0.7419354838709677,
+      "false_positive_rate": 0.034782608695652174,
+      "accuracy": 0.95703125
+    },
+    "base": {
+      "macro_f1": 0.5112638411607484,
+      "spam_recall": 0.038461538461538464,
+      "spam_precision": 1.0,
+      "false_positive_rate": 0.0,
+      "accuracy": 0.90234375
+    },
+    "seed-17": {
+      "macro_f1": 0.8678466076696165,
+      "spam_recall": 0.8846153846153846,
+      "spam_precision": 0.6764705882352942,
+      "false_positive_rate": 0.04782608695652174,
+      "accuracy": 0.9453125
+    },
+    "seed-23": {
+      "macro_f1": 0.5467337619979499,
+      "spam_recall": 1.0,
+      "spam_precision": 0.21487603305785125,
+      "false_positive_rate": 0.41304347826086957,
+      "accuracy": 0.62890625
+    },
+    "seed-41": {
+      "macro_f1": 0.7433473690240898,
+      "spam_recall": 0.8846153846153846,
+      "spam_precision": 0.41818181818181815,
+      "false_positive_rate": 0.1391304347826087,
+      "accuracy": 0.86328125
+    }
+  },
+  "intervals": {
+    "lexical": {
+      "macro_f1": [
+        0.8307237820107496,
+        0.9416679325535471
+      ],
+      "spam_recall": [
+        0.7307692307692307,
+        1.0
+      ],
+      "spam_precision": [
+        0.6176470588235294,
+        0.8846153846153846
+      ],
+      "false_positive_rate": [
+        0.013043478260869565,
+        0.06086956521739131
+      ],
+      "accuracy": [
+        0.9296875,
+        0.9765625
+      ]
+    },
+    "base": {
+      "macro_f1": [
+        0.4732510288065844,
+        0.5796387520525451
+      ],
+      "spam_recall": [
+        0.0,
+        0.11538461538461539
+      ],
+      "spam_precision": [
+        0.0,
+        1.0
+      ],
+      "false_positive_rate": [
+        0.0,
+        0.0
+      ],
+      "accuracy": [
+        0.8984375,
+        0.91015625
+      ]
+    },
+    "seed-17": {
+      "macro_f1": [
+        0.8073360375710295,
+        0.9287599728000508
+      ],
+      "spam_recall": [
+        0.7692307692307693,
+        1.0
+      ],
+      "spam_precision": [
+        0.5526315789473685,
+        0.8148148148148148
+      ],
+      "false_positive_rate": [
+        0.021739130434782608,
+        0.0782608695652174
+      ],
+      "accuracy": [
+        0.9140625,
+        0.97265625
+      ]
+    },
+    "seed-23": {
+      "macro_f1": [
+        0.5033509700176366,
+        0.5886285634931656
+      ],
+      "spam_recall": [
+        1.0,
+        1.0
+      ],
+      "spam_precision": [
+        0.19117647058823528,
+        0.24299065420560748
+      ],
+      "false_positive_rate": [
+        0.3521739130434783,
+        0.4782608695652174
+      ],
+      "accuracy": [
+        0.5703125,
+        0.68359375
+      ]
+    },
+    "seed-41": {
+      "macro_f1": [
+        0.6866933689363596,
+        0.8033794162826421
+      ],
+      "spam_recall": [
+        0.7692307692307693,
+        1.0
+      ],
+      "spam_precision": [
+        0.3437383395522388,
+        0.5111111111111111
+      ],
+      "false_positive_rate": [
+        0.09565217391304348,
+        0.1826086956521739
+      ],
+      "accuracy": [
+        0.8203125,
+        0.90234375
+      ]
+    }
+  },
+  "paired_macro_f1_delta_vs_base": {
+    "lexical": {
+      "point": 0.380157018681164,
+      "ci95": [
+        0.28340230568778135,
+        0.45765315472917817
+      ]
+    },
+    "seed-17": {
+      "point": 0.3565827665088681,
+      "ci95": [
+        0.25995241336098873,
+        0.4405440099183006
+      ]
+    },
+    "seed-23": {
+      "point": 0.03546992083720146,
+      "ci95": [
+        -0.04747500936248661,
+        0.10319665975789255
+      ]
+    },
+    "seed-41": {
+      "point": 0.2320835278633414,
+      "ci95": [
+        0.13699312528192564,
+        0.3166479610924055
+      ]
+    }
+  },
+  "method": "2000 paired label-stratified case resamples, percentile 95%, seed 8062; fixed split; no multiplicity-corrected significance claim.",
+  "analysis_source_sha256": "ad27275e949c42dc8ac7408bb4db6d45b09437e33508337f0e3ff2065fc80def",
+  "proportion_wilson_ci95": {
+    "lexical": {
+      "spam_recall": [
+        0.7102409678828635,
+        0.9599675537638938
+      ],
+      "spam_precision": [
+        0.5675386419056621,
+        0.8629829409360625
+      ],
+      "false_positive_rate": [
+        0.017728315594474735,
+        0.06712173161596557
+      ],
+      "accuracy": [
+        0.9247089445363343,
+        0.9758401866993924
+      ]
+    },
+    "base": {
+      "spam_recall": [
+        0.006821984993543487,
+        0.18892778903034757
+      ],
+      "spam_precision": [
+        0.20654931437723745,
+        1.0
+      ],
+      "false_positive_rate": [
+        0.0,
+        0.016427620833650777
+      ],
+      "accuracy": [
+        0.8598151377544601,
+        0.9329759777778466
+      ]
+    },
+    "seed-17": {
+      "spam_recall": [
+        0.7102409678828635,
+        0.9599675537638938
+      ],
+      "spam_precision": [
+        0.508428945939082,
+        0.808683564359745
+      ],
+      "false_positive_rate": [
+        0.026912198902275555,
+        0.08359625819946082
+      ],
+      "accuracy": [
+        0.9103104192747177,
+        0.9671477085959906
+      ]
+    },
+    "seed-23": {
+      "spam_recall": [
+        0.8712710781407846,
+        1.0
+      ],
+      "spam_precision": [
+        0.15106765691168475,
+        0.296231336132745
+      ],
+      "false_positive_rate": [
+        0.3513472541666783,
+        0.4775966798913481
+      ],
+      "accuracy": [
+        0.5682303286253407,
+        0.6857707083898643
+      ]
+    },
+    "seed-41": {
+      "spam_recall": [
+        0.7102409678828635,
+        0.9599675537638938
+      ],
+      "spam_precision": [
+        0.2973776575351035,
+        0.5496689626476924
+      ],
+      "false_positive_rate": [
+        0.10030677047951007,
+        0.1898105558612988
+      ],
+      "accuracy": [
+        0.8157948225987579,
+        0.9000262817168199
+      ]
+    }
+  },
+  "boundary_note": "Empirical bootstrap can collapse at all successes or zero errors. Wilson intervals retain finite-sample uncertainty for these proportions; neither method captures distribution shift.",
+  "all_seed_summary": {
+    "completed_seeds": 3,
+    "macro_f1_mean": 0.719309246230552,
+    "macro_f1_seed_sd": 0.16190039661599598,
+    "mean_delta_vs_base": 0.20804540506980362,
+    "mean_delta_case_bootstrap_ci95": [
+      0.122293790619488,
+      0.27731721681789645
+    ],
+    "scope": "Same resampled cases across seeds; interval conditional on these trained seeds. Does not estimate population training-seed uncertainty.",
+    "mean_delta_vs_lexical": -0.1721116136113604,
+    "mean_delta_vs_lexical_case_bootstrap_ci95": [
+      -0.23813338901186434,
+      -0.09896311500430345
+    ]
+  }
+}

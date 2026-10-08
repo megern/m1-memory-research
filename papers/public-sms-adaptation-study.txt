@@ -1,0 +1,75 @@
+Original-BF16 local SMS adaptation on a 16 GiB M1
+Author: Megern Qaisse
+Working engineering study, 2026-10-08; not peer reviewed.
+
+Question and contribution
+Does a bounded local LoRA run improve a fixed original-weight 0.6B foundation model's constrained English SMS classification on a grouped, independently held-out split? How does it compare with a cheap lexical classifier? This extends the earlier synthetic specialist study with attributed real public data, three seeds, fixed test conditions and retained pressure failures. LoRA, label scoring, deduplication and bootstrap are established methods. This experiment does not claim a new learning algorithm, a state-of-the-art classifier, training a 70B model or a market-ready security product.
+
+Source and scope
+Almeida, T. & Hidalgo, J. (2011). SMS Spam Collection [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CC84.
+Official source: https://archive.ics.uci.edu/dataset/228/sms+spam+collection
+UCI lists CC BY 4.0. The downloaded archive and text member are SHA-256 pinned. There are 5,574 source rows. This historical English SMS dataset is not a test of modern phishing, malicious attachments, Arabic competence or incident response. Public benchmark pretraining contamination is unknown.
+
+Leakage controls and sampling
+Normalize NFKC/case, whitespace, digit strings and URLs for grouping only. Combine exact duplicates and token-set Jaccard >= 0.85 pairs with at least five unique tokens into connected groups. Select one representative per group; exclude conflicting-label groups. Model inputs retain the original SMS. This is a lexical control, not proof against all semantic overlap.
+No source row exceeded 384 training tokens and no conflicting-label group was found. The audit found 1,284 qualifying near pairs; this is a pair count, not a count of unique removed messages. A deterministic split seed 20261008 selects 896 group representatives: training 512 (256 spam/256 ham), validation 128 (13 spam/115 ham), test 256 (26 spam/230 ham). Test/validation proportions approximate the deduplicated pool prevalence, not necessarily a deployment population. The implementation field 'clusters_retained' denotes selected representatives, not all available clusters. Group member IDs are checked disjoint across all three splits.
+Raw messages remain local. Public artifacts expose source IDs, split hashes, labels and scores, allowing reproduction without republishing phone numbers or contact content.
+
+Prospective model protocol
+Qwen/Qwen3-0.6B original BF16, pinned revision c1899de289a04d12100db370d81485cdf75e47ca; no weight quantization. LoRA adapters on q_proj/v_proj in 16 layers, rank 8, scale 20, dropout 0, learning rate 0.0002, batch size 1, 120 iterations, prompt-masked loss, maximum sequence length 384, gradient checkpointing. Seeds 17,23,41 and final checkpoint were chosen before evaluation. A run sees 120 training batches, not a complete epoch of the 512-row split. Validation is used for diagnostic loss, not test-driven checkpoint selection. Three adapters share one foundation model; they are not independently pretrained models.
+
+Evaluation
+The same system/user input and non-thinking assistant JSON-label prefix are used for base and adapters. Compare the next-token logits of ham (5604) and spam (75545); positive spam-minus-ham predicts spam, otherwise ham. Token IDs and concatenation boundaries are checked. This measures a constrained classifier, not free-response JSON reliability or general chatbot quality. No threshold tuning or best-seed selection uses the test labels.
+The lexical reference is word multinomial Naive Bayes, Laplace alpha 1, fitted only to the training vocabulary and class priors; unseen words are ignored. Primary metric macro-F1; secondary spam precision/recall, false-positive rate and accuracy. Confidence estimates use 2,000 shared label-stratified paired test-case bootstrap resamples, seed 8062. Percentile 95% intervals describe uncertainty conditional on this one split. Twenty-six spam test cases limit precision. Adapter seed variation and dataset sampling uncertainty are different quantities; 3 x 256 predictions are not 768 independent test cases.
+
+Resource protocol and failures
+All compute uses the local M1 Mac, 16 GiB. No cloud compute or model-weight uploads. Original source/model/data hashes are frozen before work. Each job has a 6 GiB process-tree RSS stop, a 512 MiB available-memory stop sustained for 5 seconds, 900 second timeout, and separate MLX 4 GiB allocation guard. Process RSS and MLX allocations are distinct scopes and must not be summed as disjoint memory.
+Initial v1 used a whole-system swap-growth stop of 512 MiB; base evaluation and the first training attempt stopped and remain retained. A separately frozen v2 permits 1,536 MiB whole-system swap growth per child with identical learning/evaluation settings. Its initial base evaluation also stopped. Swap is shared system state and changes cannot be attributed solely to the model. This is a revised workload guard, not evidence of improved memory efficiency; no v1/v2 speed comparison is claimed. Checkpoints from stopped runs do not count as completed final adapters.
+
+Results
+The completed experiments and tables follow below. Incomplete evaluations are excluded from aggregate quality comparisons and retained separately. The disclosed memory-only retry retains its initial report and uses the identical frozen evaluator and test configuration. quality-analysis.json and paired-training-control-analysis.json provide the final estimates; initial analysis.json files are retained as originally produced.
+
+Completed first experiment (v2 with identical base-only retry)
+The base retry used the frozen evaluator after the three adapter jobs, retained the partial initial report, and completed without a guard stop. A repeat of the same measurement is disclosed; it was triggered by memory pressure, not by choosing a favorable score. Final 256-case results:
+
+Method      Macro-F1   Case-bootstrap 95% interval   Spam recall   False-positive rate
+Base        0.5113     [0.4733, 0.5796]               0.0385        0.0000
+Naive Bayes 0.8914     [0.8307, 0.9417]               0.8846        0.0348
+Seed 17     0.8678     [0.8073, 0.9288]               0.8846        0.0478
+Seed 23     0.5467     [0.5034, 0.5886]               1.0000        0.4130
+Seed 41     0.7433     [0.6867, 0.8034]               0.8846        0.1391
+
+Mean adapter Macro-F1 0.7193, sample SD across these three seeds 0.1619. Mean paired delta versus base 0.2080, conditional-case bootstrap interval [0.1223, 0.2773]. The individual seed-23 delta interval crosses zero. All three adapters underperform the lexical baseline in this first test. Reporting only seed 17 would conceal a large stability problem. The base's 90.2% accuracy conceals missing 25 of 26 spam messages. The constrained zero-shot baseline is weak under this specific label-scoring template; it is not a broad statement that the foundation model lacks SMS understanding.
+Each completed adapter has 655,360 trainable parameters, 2,628,325 weight bytes, and original base weights unchanged. Training took about 33-35 seconds per completed run. Device load and shared swap are uncontrolled; these are workload observations, not a comparative hardware benchmark.
+
+Exploratory improvement and fresh test
+After seeing first-test seed instability, a separate follow-up was frozen with 480 microbatches, 4-microbatch gradient accumulation, 120 optimizer updates and learning rate 0.0001. Layer count, rank, final-only checkpoint and all seeds remain fixed. This is approximately 480/512 of one training-data pass; it is not four epochs. Hyperparameters are fixed before the new test, and all final seeds are evaluated. The same validation split provides diagnostic loss and full constrained classification metrics without checkpoint, threshold or seed selection.
+A new fixed test selects 26 spam/230 ham representatives with seed 20261009, excluding every source group used anywhere in the first study. Training and validation remain unchanged. This matched composition is not an estimate of real deployment prevalence. The first study is exposed exploratory evidence; the follow-up is not a preregistered replication or an untouched evaluation across all research decisions.
+Before any new adapter test results, a supplemental paired-control plan froze evaluation of all three old final adapters on this same fresh test. Old/new paired deltas can then compare the training regimes without comparing scores from different test messages. Longer exposure, learning rate and accumulation change together, so even a successful delta cannot isolate accumulation as its cause. Bootstrap intervals are conditional on these fixed trained seeds, not a population seed-variance estimate.
+Wilson binomial intervals supplement empirical bootstrap for proportions. Zero observed false positives or 26/26 observed recall do not establish population error-free performance; an empirical bootstrap can degenerate at such boundaries. Neither interval type covers distribution shift or unknown pretraining contamination.
+
+Completed fresh-test follow-up
+All three 480-microbatch final adapters, validation runs, test runs, base reference, and old-adapter matched controls completed without a guard stop. The first-study failures remain separate. No seed or checkpoint was dropped.
+
+Method              Macro-F1   Spam recall   False-positive rate   Correct / 256
+Original base       0.5113     0.0385        0.0000                231
+Naive Bayes         0.8976     0.9615        0.0435                245
+New seed 17         0.9673     0.9231        0.0043                253
+New seed 23         0.9786     0.9615        0.0043                254
+New seed 41         0.9586     0.9615        0.0130                252
+
+Mean new adapter Macro-F1 0.9682, sample SD 0.0100. Mean delta versus lexical reference 0.0705, paired case-bootstrap 95% interval [0.0172, 0.1219]. These are descriptive paired estimates, not multiplicity-corrected significance claims.
+
+Matched training-regime comparison on exactly this same test:
+Seed    Old 120-microbatch F1   New 480-microbatch F1   Paired delta   Case-bootstrap 95%
+17      0.8976                 0.9673                 0.0697         [0.0179, 0.1177]
+23      0.5825                 0.9786                 0.3961         [0.3431, 0.4431]
+41      0.7979                 0.9586                 0.1607         [0.1030, 0.2127]
+Mean    0.7594                 0.9682                 0.2088         [0.1688, 0.2488]
+
+Descriptive seed SD fell from 0.1611 to 0.0100 on this fixed new test. Three seeds are insufficient to establish a population stability guarantee. The old 0.7193 score on the first test and old 0.7594 on the second test differ because the messages differ; only the matched 0.7594-to-0.9682 comparison supports the training-regime delta. Exposure, accumulation and learning rate changed jointly, so attribution to one component requires a further factorial ablation on another untouched holdout.
+The three new training summaries record about 130.21, 176.06 and 134.35 seconds (model run scope, excluding initial checksum/setup), each with the same 655,360 trainable parameters and 2,628,325 adapter bytes. Shared system load and thermal state are not controlled; no speedup or cold-cache inference benchmark is inferred. Peak MLX, parent-sampled process RSS, resource high-water RSS, and whole-system swap counters are recorded separately.
+
+Conclusions and next falsifiable work
+On this historical grouped English SMS test, bounded original-BF16 local LoRA adaptation improved a weak constrained base classifier and the fixed lexical reference; the revised training regime outperformed all three matched old adapters with lower observed seed spread. This establishes a reproducible local specialization result, not a new training algorithm, modern phishing competence, general LLM quality improvement, market readiness or original-70B training feasibility. Unknown pretraining contamination remains. Useful next work is a fresh independently sourced corpus, source/time-domain-held-out evaluation, and a predeclared accumulation/exposure/learning-rate ablation; none is claimed complete here.
+Public artifacts retain source/group hashes, all score vectors by ID, failed attempts, final training summaries and source snapshots. Raw SMS and trained weights stay local. The post-run tokenizer audit matches every pinned tokenizer/chat-template file; the initial frozen evaluators verified model/config but did not hash tokenizer files at each evaluation. The updated reusable runner enforces original-BF16 and pinned-tokenizer identities, and rejects changed evaluation splits. This tightened runner is distinct from the retained historical frozen sources.

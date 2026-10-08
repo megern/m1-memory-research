@@ -1,0 +1,43 @@
+{
+  "analysis_source_sha256": "c569903dabb95b27d259ffe4dfc4737def3ae6e3204d2eb22e97b339fdf34cac",
+  "test_sha256": "4fd39ebeea85af1825d2ccd191f1407e44a3d43cd2ca3fddf704d0b80bc3ee82",
+  "same_test_cases": 256,
+  "per_seed": {
+    "17": {
+      "old_macro_f1": 0.897640943622551,
+      "new_macro_f1": 0.9673344391986729,
+      "paired_delta": 0.06969349557612192,
+      "paired_case_bootstrap_ci95": [
+        0.017918725059531893,
+        0.11774465866881534
+      ]
+    },
+    "23": {
+      "old_macro_f1": 0.5825130169957756,
+      "new_macro_f1": 0.9785953177257525,
+      "paired_delta": 0.39608230072997686,
+      "paired_case_bootstrap_ci95": [
+        0.3430882036868099,
+        0.4431009244869575
+      ]
+    },
+    "41": {
+      "old_macro_f1": 0.7979360949513257,
+      "new_macro_f1": 0.9585961507358887,
+      "paired_delta": 0.160660055784563,
+      "paired_case_bootstrap_ci95": [
+        0.10299273645422365,
+        0.21269079484181053
+      ]
+    }
+  },
+  "old_seed_mean_macro_f1": 0.7593633518565509,
+  "new_seed_mean_macro_f1": 0.968175302553438,
+  "mean_paired_delta_case_ci95": [
+    0.16877247111337615,
+    0.24880189556436666
+  ],
+  "old_seed_sd": 0.16106611970682788,
+  "new_seed_sd": 0.010026063956416533,
+  "scope": "Exploratory two-regime comparison with three fixed seeds on one fresh held-out corpus split. Longer exposure, learning rate and accumulation changed together; cannot isolate the effect of accumulation or establish algorithmic novelty. Bootstrap conditional on trained seeds, not a population seed-variance interval."
+}

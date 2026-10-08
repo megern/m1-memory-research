@@ -1,0 +1,13 @@
+{
+  "planned_at_unix": 1791453478.148824,
+  "purpose": "Paired training-regime quality comparison on the same fresh test. Original three 120-step adapters versus three 480-microbatch/4-accumulation adapters. No old test group in this fresh test. No best-seed selection.",
+  "test_sha256": "4fd39ebeea85af1825d2ccd191f1407e44a3d43cd2ca3fddf704d0b80bc3ee82",
+  "frozen_evaluator_sha256": "64a10ef28e1ff1eab13279deb46af1db65585482ab441eedeac8734b5b71752d",
+  "control_adapter_sha256": {
+    "17": "162d9f137cfa5dbfe5087acb422bd6dd8b9563f970e588855678865b9272780b",
+    "23": "0b50eee2f06d6b2f79670d77f164b6a8692c50e2176cfd6dd8709cc2eb273266",
+    "41": "84b3af4af73dc3e4afb4f003302931561a1c2f110fc705095d85cde5b8d0e371"
+  },
+  "primary": "Paired macro-F1 delta, per seed and mean across these fixed seeds, 2000 stratified case bootstrap resamples seed 8062.",
+  "guard_swap_mib": 1536
+}

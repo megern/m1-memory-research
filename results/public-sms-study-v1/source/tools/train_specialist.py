@@ -18,8 +18,6 @@ def main():
     p.add_argument('--iters', type=int, default=160)
     p.add_argument('--seed', type=int, default=17)
     p.add_argument('--layers', type=int, default=8)
-    p.add_argument('--learning-rate', type=float, default=2e-4)
-    p.add_argument('--gradient-accumulation', type=int, default=1)
     a = p.parse_args()
     model, data, output = a.model.resolve(), a.data.resolve(), a.output.resolve()
     if not model.is_dir() or not (model / 'config.json').is_file():
@@ -28,8 +26,6 @@ def main():
         p.error('Iterations must be 1..500')
     if not 1 <= a.layers <= 28:
         p.error('Adapted layers must be 1..28')
-    if not 0 < a.learning_rate <= .001 or not 1 <= a.gradient_accumulation <= 16:
-        p.error('Invalid learning rate or gradient accumulation')
     if output.exists():
         p.error('Choose a fresh adapter output directory')
     for split in ['train', 'valid', 'test']:
@@ -47,8 +43,7 @@ def main():
     config = dict(CONFIG_DEFAULTS)
     config.update(model=str(model), data=str(data), adapter_path=str(output),
                   train=True, seed=a.seed, num_layers=a.layers, batch_size=1,
-                  iters=a.iters, val_batches=12, learning_rate=a.learning_rate,
-                  grad_accumulation_steps=a.gradient_accumulation,
+                  iters=a.iters, val_batches=12, learning_rate=2e-4,
                   steps_per_report=40, steps_per_eval=80, save_every=80,
                   max_seq_length=384, mask_prompt=True, grad_checkpoint=True,
                   report_to=None, trust_remote_code=False,
@@ -66,8 +61,7 @@ def main():
                'base':base_manifest['repository'],'base_revision':base_manifest['revision'],
                'verified_base_hashes':base_hashes,
                'seed': a.seed, 'iterations': a.iters, 'batch_size': 1,
-               'adapted_layers': a.layers, 'rank': 8, 'learning_rate': a.learning_rate,
-               'gradient_accumulation_steps': a.gradient_accumulation,
+               'adapted_layers': a.layers, 'rank': 8, 'learning_rate': 2e-4,
                'prompt_masked': True, 'gradient_checkpointing': True,
                'mlx_allocation_guard_bytes': 4 * 1024**3,
                'mlx_peak_bytes': mx.get_peak_memory(),

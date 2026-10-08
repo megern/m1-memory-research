@@ -1,0 +1,20 @@
+{
+  "completed": [
+    "lexical"
+  ],
+  "metrics": {
+    "lexical": {
+      "macro_f1": 0.8914208598419124,
+      "spam_precision": 0.7419354838709677,
+      "spam_recall": 0.8846153846153846,
+      "false_positive_rate": 0.034782608695652174,
+      "accuracy": 0.95703125,
+      "tp": 23,
+      "tn": 222,
+      "fp": 8,
+      "fn": 3
+    }
+  },
+  "intervals": {},
+  "bootstrap": "2000 label-stratified paired case resamples; percentile 95%; conditional on this fixed split; no multiple-comparison significance claim."
+}

@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "guard_stop": null,
+  "peak_process_tree_rss_bytes": 1523826688,
+  "elapsed_seconds": 30.103006459074095,
+  "system_swap_growth_bytes": -589824,
+  "log": "base-retry.log"
+}

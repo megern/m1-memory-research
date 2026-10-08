@@ -6,6 +6,25 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## v0.9.0: real public data and a paired local training improvement
+
+Six completed LoRA adapters (three seeds in each of two training regimes) use **original BF16 Qwen3-0.6B**, with all training and evaluation on the M1 Mac. The [UCI SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) is attributed to Almeida and Hidalgo (2011), CC BY 4.0 according to UCI. Exact/near lexical duplicate groups are formed before splitting. Raw SMS and trained weights stay local; source IDs, hashes, scores and frozen code are public.
+
+The initial 120-microbatch study exposed large seed sensitivity and underperformed Naive Bayes. Its [failures and complete results](results/public-sms-study-v2/quality-analysis.json), including memory-pressure stops and the identical base-only retry, remain retained. A separately frozen exploratory follow-up uses 480 microbatches, accumulation of four microbatches per update, and learning rate 0.0001. The 512-row training and 128-row validation splits stay fixed. Its new 256-row test (26 spam/230 ham) excludes **every source group used anywhere in the first study**. No best seed, checkpoint or threshold is selected on test.
+
+| Method on the same fresh test | Macro-F1 |
+| --- | ---: |
+| Original base, fixed constrained label scoring | 51.13% |
+| Train-only word Naive Bayes | 89.76% |
+| Mean of three old adapters, matched controls | 75.94% |
+| Mean of three revised adapters | **96.82%** |
+
+[The matched training-regime comparison](results/public-sms-followup-v1/paired-training-control-analysis.json) estimates **+20.88 percentage points**, with paired case-bootstrap 95% interval **[+16.88, +24.88]** conditional on these fixed seeds and this split. All three old/new seed pairs improved. Descriptive seed SD fell from 16.11 to 1.00 percentage points; three seeds do not establish a population stability guarantee. The [revised regime versus the lexical reference](results/public-sms-followup-v1/quality-analysis.json) has a mean paired delta of +7.05 points, interval [+1.72, +12.19]. These are exploratory estimates, without a multiplicity-corrected significance claim.
+
+Each adapter has **655,360 trainable parameters** and **2,628,325 weight bytes**. All three follow-up training, validation and test jobs and the matched controls completed without a guard stop. Whole-system swap and MLX allocations are separate measures; their retained guards do not prove a total-RAM cap. Changes to exposure, learning rate and accumulation are joint, so this experiment cannot identify which caused the gain. Public historical English SMS, unknown pretraining contamination, and constrained token scoring limit the claim to this classification test. It is not a new algorithm, modern phishing benchmark, general chatbot improvement or original-70B training result.
+
+Read the [working study](papers/public-sms-adaptation-study.txt), [Arabic reproduction guide](PUBLIC_SMS_GUIDE.md), [all follow-up reports and source hashes](results/public-sms-followup-v1/protocol.json), and [paired figure](figures/public-sms-adaptation.png). The updated runner checks original-weight/tokenizer identities and evaluation split hashes; historical frozen evaluators are retained separately. The local suite passed **65 tests**, including fresh-test group exclusion, exact frozen-source hashes, paired-case ordering and proportion-boundary uncertainty. LinkedIn posts and replies remain withheld pending author review.
+
 ## v0.8.0: bounded prefixes and consecutive 70B launches
 
 The [new original-BF16 working study](papers/original-prefix-read-ahead-study.txt) limits the unread next-layer prefix to **64 MiB** and materializes current weights one tensor at a time. That bound excludes current tensors, reconstruction buffers, KV and the rest of the process. Six prospective Qwen3-14B attempts completed the same 471-token systems-control question, retaining all source/protocol hashes and unchanged pressure guards. This reused question does not measure unseen security quality.

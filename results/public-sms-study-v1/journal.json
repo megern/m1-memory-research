@@ -1,0 +1,18 @@
+{
+  "base": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 512 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 768720896,
+    "elapsed_seconds": 3.1463666250929236,
+    "system_swap_growth_bytes": 1112604672,
+    "log": "base.log"
+  },
+  "seed-17-train": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 512 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 663797760,
+    "elapsed_seconds": 32.68882820894942,
+    "system_swap_growth_bytes": 556728320,
+    "log": "seed-17-train.log"
+  }
+}

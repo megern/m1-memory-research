@@ -1,0 +1,12 @@
+{
+  "weights_uploaded": false,
+  "scope": "Post-run inventory; earlier evaluator hashes where present provide the evaluation-time identity. A stopped run final-weight filename does not imply completed final training.",
+  "adapters": {
+    "adapter-17": {
+      "sha256": "0c4222071e8763f6f57a3e2717794c020c767da4abeef8cf4df74337da7fbb6f",
+      "bytes": 2628325,
+      "completed_final_training": false,
+      "hash_recorded_at_export": true
+    }
+  }
+}

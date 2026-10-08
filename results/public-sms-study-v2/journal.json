@@ -1,0 +1,58 @@
+{
+  "base": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 1536 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 1055162368,
+    "elapsed_seconds": 9.041192749980837,
+    "system_swap_growth_bytes": 1780678656,
+    "log": "base.log"
+  },
+  "seed-17-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1559134208,
+    "elapsed_seconds": 35.23841970786452,
+    "system_swap_growth_bytes": -83886080,
+    "log": "seed-17-train.log"
+  },
+  "seed-17-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1563361280,
+    "elapsed_seconds": 30.13141095917672,
+    "system_swap_growth_bytes": 446562304,
+    "log": "seed-17-evaluate.log"
+  },
+  "seed-23-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1559494656,
+    "elapsed_seconds": 37.40603125002235,
+    "system_swap_growth_bytes": -92274688,
+    "log": "seed-23-train.log"
+  },
+  "seed-23-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1498857472,
+    "elapsed_seconds": 30.713061165995896,
+    "system_swap_growth_bytes": 49348608,
+    "log": "seed-23-evaluate.log"
+  },
+  "seed-41-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1559232512,
+    "elapsed_seconds": 37.454961666837335,
+    "system_swap_growth_bytes": -67108864,
+    "log": "seed-41-train.log"
+  },
+  "seed-41-evaluate": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1533820928,
+    "elapsed_seconds": 30.674981707939878,
+    "system_swap_growth_bytes": 37027840,
+    "log": "seed-41-evaluate.log"
+  }
+}

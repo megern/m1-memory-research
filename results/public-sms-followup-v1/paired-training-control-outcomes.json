@@ -1,0 +1,26 @@
+{
+  "17": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1536868352,
+    "elapsed_seconds": 30.52452633390203,
+    "system_swap_growth_bytes": 36175872,
+    "log": "control-seed-17.log"
+  },
+  "23": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1537146880,
+    "elapsed_seconds": 30.47841825010255,
+    "system_swap_growth_bytes": 395116544,
+    "log": "control-seed-23.log"
+  },
+  "41": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1537589248,
+    "elapsed_seconds": 30.511970000108704,
+    "system_swap_growth_bytes": -33554432,
+    "log": "control-seed-41.log"
+  }
+}

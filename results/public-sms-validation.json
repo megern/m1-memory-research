@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-08",
+  "local_compute_only": true,
+  "completed_final_adapters": 6,
+  "unit_tests_passed": 65,
+  "study_sources_frozen": true,
+  "fresh_test_source_groups_disjoint_from_entire_first_study": true,
+  "published_raw_sms": false,
+  "published_adapter_weights": false,
+  "linkedin_post_or_reply_sent": false,
+  "quality_scope": "Fixed constrained English SMS classification, one historical public corpus, three seeds per training regime; unknown pretraining contamination.",
+  "comparative_result": "Same fresh 256-case test: old mean macro-F1 .7593633518565509, new .968175302553438; paired case CI conditional on these trained seeds.",
+  "failed_attempts_retained": [
+    "public-sms-study-v1/base",
+    "public-sms-study-v1/seed-17-train",
+    "public-sms-study-v2/base"
+  ],
+  "original_bf16_70b_training_claimed": false
+}

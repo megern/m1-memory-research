@@ -1,0 +1,18 @@
+Loading pretrained model
+Loading datasets
+Training
+╭─ [1mmlx_lm.lora[0m ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│    model           [1m/Users/a2/Documents/Codex/2026-10-07/new-chat/work/models/qwen3-0.6b-original[0m                     │
+│    type            [1mlora · 16 layers · rank 8[0m                                                                         │
+│    dataset         [1m/Users/a2/Documents/Codex/2026-10-07/new-chat/work/data/sms-group-study-v1[0m                        │
+│    optimizer       [1madam · lr 2.0e-04[0m                                                                                 │
+│    batch · iters   [1m1 · 120[0m                                                                                           │
+│    max seq         [1m384[0m                                                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Trainable parameters: 0.110% (0.655M/596.050M)
+  [1miter   train_loss     tok/s     tokens[0m
+     1    [1mval[0m [1m6.054[0m    1.36s
+    40    [1m0.426 ▼[0m    [1m   49[0m      0.5k
+    80    [1mval[0m [1m0.121[0m    1.37s
+    80    [1m0.109 ▼[0m    [1m   53[0m      1.0k
+  [1msave[0m  0000080_adapters.safetensors

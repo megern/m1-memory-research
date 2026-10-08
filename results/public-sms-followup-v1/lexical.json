@@ -1,0 +1,1553 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "id": "uci-01057",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.0143213351627764
+    },
+    {
+      "id": "uci-03682",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.9538659543627332
+    },
+    {
+      "id": "uci-00109",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -18.03759038841686
+    },
+    {
+      "id": "uci-01014",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 1.0399471369105626
+    },
+    {
+      "id": "uci-02945",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 8.939204937714123
+    },
+    {
+      "id": "uci-05211",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -22.184553854531032
+    },
+    {
+      "id": "uci-05294",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 31.612575798417623
+    },
+    {
+      "id": "uci-00454",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.808586466474708
+    },
+    {
+      "id": "uci-01925",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.1468125251432166
+    },
+    {
+      "id": "uci-04155",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.2335893345485545
+    },
+    {
+      "id": "uci-02144",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.655637965186486
+    },
+    {
+      "id": "uci-01801",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -15.410983245619377
+    },
+    {
+      "id": "uci-04820",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.434684430033787
+    },
+    {
+      "id": "uci-00065",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 9.267457770292594
+    },
+    {
+      "id": "uci-05406",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.980577526715578
+    },
+    {
+      "id": "uci-03232",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.73792173788646
+    },
+    {
+      "id": "uci-03885",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 8.222880310927636
+    },
+    {
+      "id": "uci-01592",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.6918088978590085
+    },
+    {
+      "id": "uci-04980",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.143934590063793
+    },
+    {
+      "id": "uci-00408",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.7469352700028793
+    },
+    {
+      "id": "uci-00660",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 4.1180415681264435
+    },
+    {
+      "id": "uci-00200",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.530173881392813
+    },
+    {
+      "id": "uci-01080",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.530208892342671
+    },
+    {
+      "id": "uci-02523",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -24.29435437078979
+    },
+    {
+      "id": "uci-00751",
+      "label": "spam",
+      "prediction": "ham",
+      "margin": -8.461777138015776
+    },
+    {
+      "id": "uci-01546",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -17.101706825676843
+    },
+    {
+      "id": "uci-00063",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.43265285233172
+    },
+    {
+      "id": "uci-00828",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.73395175592097
+    },
+    {
+      "id": "uci-01468",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.67387420896673
+    },
+    {
+      "id": "uci-01129",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 20.519955825426436
+    },
+    {
+      "id": "uci-03622",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -12.580632197568406
+    },
+    {
+      "id": "uci-02696",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.299334665783611
+    },
+    {
+      "id": "uci-00756",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.393118941834221
+    },
+    {
+      "id": "uci-03270",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": 0.0
+    },
+    {
+      "id": "uci-02397",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.811364937349623
+    },
+    {
+      "id": "uci-03144",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.975292688077488
+    },
+    {
+      "id": "uci-02777",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.7297424037414793
+    },
+    {
+      "id": "uci-01110",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.6106327605665243
+    },
+    {
+      "id": "uci-00940",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.629814102929629
+    },
+    {
+      "id": "uci-05466",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.973280122939414
+    },
+    {
+      "id": "uci-02057",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 0.16414415376804925
+    },
+    {
+      "id": "uci-04693",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -15.294560074063298
+    },
+    {
+      "id": "uci-04542",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -12.188853996258274
+    },
+    {
+      "id": "uci-01340",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 2.030720419430235
+    },
+    {
+      "id": "uci-01118",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 10.072259512464989
+    },
+    {
+      "id": "uci-00321",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.793026036872284
+    },
+    {
+      "id": "uci-04704",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.249166285373917
+    },
+    {
+      "id": "uci-00841",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.76377088642569
+    },
+    {
+      "id": "uci-03075",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.654241298043104
+    },
+    {
+      "id": "uci-01493",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.352780969710025
+    },
+    {
+      "id": "uci-03862",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 11.307237255496105
+    },
+    {
+      "id": "uci-01036",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.565322498418965
+    },
+    {
+      "id": "uci-01453",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.1832739934918095
+    },
+    {
+      "id": "uci-04115",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -16.20743010388307
+    },
+    {
+      "id": "uci-00415",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 4.167368247976086
+    },
+    {
+      "id": "uci-03309",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.56564253082096
+    },
+    {
+      "id": "uci-01434",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.850641838152953
+    },
+    {
+      "id": "uci-02966",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.9695867845140285
+    },
+    {
+      "id": "uci-05551",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.653264620726134
+    },
+    {
+      "id": "uci-03959",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.095679262314157
+    },
+    {
+      "id": "uci-02129",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.127742701786886
+    },
+    {
+      "id": "uci-03819",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 26.480775302768365
+    },
+    {
+      "id": "uci-03654",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.5087650547033036
+    },
+    {
+      "id": "uci-00774",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.687239409055067
+    },
+    {
+      "id": "uci-01883",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.3032342760530184
+    },
+    {
+      "id": "uci-05484",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 23.04363396218193
+    },
+    {
+      "id": "uci-02637",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.736211922262555
+    },
+    {
+      "id": "uci-02463",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.5170070394602178
+    },
+    {
+      "id": "uci-02045",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.0151773310084025
+    },
+    {
+      "id": "uci-01357",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.96446245560098
+    },
+    {
+      "id": "uci-05080",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.579407121932746
+    },
+    {
+      "id": "uci-01108",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.781369801394106
+    },
+    {
+      "id": "uci-00788",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 3.129353059141323
+    },
+    {
+      "id": "uci-01412",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.196244602169571
+    },
+    {
+      "id": "uci-00066",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.173451960007796
+    },
+    {
+      "id": "uci-00090",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.943026508491684
+    },
+    {
+      "id": "uci-04305",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.5879735460545135
+    },
+    {
+      "id": "uci-01743",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.744780191338265
+    },
+    {
+      "id": "uci-01062",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.274932780871467
+    },
+    {
+      "id": "uci-03268",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.019079190763016
+    },
+    {
+      "id": "uci-03062",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.9259854167723915
+    },
+    {
+      "id": "uci-03342",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.242711595545984
+    },
+    {
+      "id": "uci-00693",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.09015120558854
+    },
+    {
+      "id": "uci-02179",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -21.915222302241887
+    },
+    {
+      "id": "uci-05431",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -15.649655739755403
+    },
+    {
+      "id": "uci-00874",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.028386618982111
+    },
+    {
+      "id": "uci-01337",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.183837418240287
+    },
+    {
+      "id": "uci-03821",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -16.89413948391261
+    },
+    {
+      "id": "uci-04043",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.540467730096772
+    },
+    {
+      "id": "uci-01564",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 2.598123536806497
+    },
+    {
+      "id": "uci-03917",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.9162164396045185
+    },
+    {
+      "id": "uci-03814",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.235500091195675
+    },
+    {
+      "id": "uci-05548",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.4753565930523962
+    },
+    {
+      "id": "uci-03341",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.504633665336343
+    },
+    {
+      "id": "uci-01332",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.860776895207408
+    },
+    {
+      "id": "uci-03100",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.0053928400169418
+    },
+    {
+      "id": "uci-01487",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -19.47511839798932
+    },
+    {
+      "id": "uci-04900",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.611608474979413
+    },
+    {
+      "id": "uci-00952",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.291583586393109
+    },
+    {
+      "id": "uci-02893",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.6435248333374375
+    },
+    {
+      "id": "uci-01935",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.71649298839521
+    },
+    {
+      "id": "uci-01748",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.6893807572396895
+    },
+    {
+      "id": "uci-01264",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.696902857822884
+    },
+    {
+      "id": "uci-01679",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -19.208306095147663
+    },
+    {
+      "id": "uci-01822",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -27.787885847097954
+    },
+    {
+      "id": "uci-03285",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.293371475266142
+    },
+    {
+      "id": "uci-03911",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -22.72717561558548
+    },
+    {
+      "id": "uci-00563",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.972741300706737
+    },
+    {
+      "id": "uci-00439",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 0.5629578330468519
+    },
+    {
+      "id": "uci-00538",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.5449204805691323
+    },
+    {
+      "id": "uci-02378",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 12.939119300773669
+    },
+    {
+      "id": "uci-03562",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 12.850629823914375
+    },
+    {
+      "id": "uci-02631",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.737286732780817
+    },
+    {
+      "id": "uci-02955",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.197610718317094
+    },
+    {
+      "id": "uci-01658",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.3547899921287865
+    },
+    {
+      "id": "uci-03177",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.547990747768026
+    },
+    {
+      "id": "uci-00114",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 19.72661991972666
+    },
+    {
+      "id": "uci-01322",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.759410835386184
+    },
+    {
+      "id": "uci-04630",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.980103587154737
+    },
+    {
+      "id": "uci-00009",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 28.536221191980985
+    },
+    {
+      "id": "uci-01717",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.198051320533182
+    },
+    {
+      "id": "uci-03303",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.413395230776928
+    },
+    {
+      "id": "uci-03362",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.3057326017919024
+    },
+    {
+      "id": "uci-05488",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.4341310836806613
+    },
+    {
+      "id": "uci-04761",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.780474108346922
+    },
+    {
+      "id": "uci-03180",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.517245099982873
+    },
+    {
+      "id": "uci-02666",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -12.221421139627239
+    },
+    {
+      "id": "uci-03846",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.973539508461968
+    },
+    {
+      "id": "uci-02540",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.9317981269455338
+    },
+    {
+      "id": "uci-00232",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.3342985486104553
+    },
+    {
+      "id": "uci-00455",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 9.557486954977875
+    },
+    {
+      "id": "uci-01603",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.8103485308368406
+    },
+    {
+      "id": "uci-02741",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.20824877308678325
+    },
+    {
+      "id": "uci-02987",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 17.101399336655973
+    },
+    {
+      "id": "uci-01265",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.2770871816107388
+    },
+    {
+      "id": "uci-04942",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.386956047602425
+    },
+    {
+      "id": "uci-01016",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.19492076605924
+    },
+    {
+      "id": "uci-01900",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.168730273725998
+    },
+    {
+      "id": "uci-05082",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.873758892735509
+    },
+    {
+      "id": "uci-04623",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.8449959262411113
+    },
+    {
+      "id": "uci-05240",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.637563943442359
+    },
+    {
+      "id": "uci-00294",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.5076976890979168
+    },
+    {
+      "id": "uci-00673",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 43.00494869676618
+    },
+    {
+      "id": "uci-00627",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.466214374990585
+    },
+    {
+      "id": "uci-00046",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.648433975868187
+    },
+    {
+      "id": "uci-02930",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -16.346387128523347
+    },
+    {
+      "id": "uci-02754",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.513933538819643
+    },
+    {
+      "id": "uci-01089",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 17.87556437341189
+    },
+    {
+      "id": "uci-01081",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.221666449571629
+    },
+    {
+      "id": "uci-00877",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.4062210443681806
+    },
+    {
+      "id": "uci-03947",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.218888104608794
+    },
+    {
+      "id": "uci-02884",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.302444397388037
+    },
+    {
+      "id": "uci-01195",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 0.15363504440257003
+    },
+    {
+      "id": "uci-01800",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.266737263926487
+    },
+    {
+      "id": "uci-02310",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.5647674783692906
+    },
+    {
+      "id": "uci-02807",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.3567989181285398
+    },
+    {
+      "id": "uci-04997",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.615249308139454
+    },
+    {
+      "id": "uci-02770",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 4.225469187839167
+    },
+    {
+      "id": "uci-05418",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 0.653388868054833
+    },
+    {
+      "id": "uci-00256",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.00577543441058
+    },
+    {
+      "id": "uci-01937",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.074757082772763
+    },
+    {
+      "id": "uci-01249",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.447240047180799
+    },
+    {
+      "id": "uci-00466",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -22.581004727430184
+    },
+    {
+      "id": "uci-00656",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.395347648180156
+    },
+    {
+      "id": "uci-01037",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.457351000689485
+    },
+    {
+      "id": "uci-00686",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.623538719904598
+    },
+    {
+      "id": "uci-01654",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -34.262851922206266
+    },
+    {
+      "id": "uci-00476",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.484766823321522
+    },
+    {
+      "id": "uci-04469",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.9959771996219757
+    },
+    {
+      "id": "uci-05558",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.942597842626455
+    },
+    {
+      "id": "uci-01299",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 4.330217857184756
+    },
+    {
+      "id": "uci-03907",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.240890485032537
+    },
+    {
+      "id": "uci-00894",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -26.20007879385983
+    },
+    {
+      "id": "uci-01965",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -17.88512306128564
+    },
+    {
+      "id": "uci-02050",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.511876021848003
+    },
+    {
+      "id": "uci-05476",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.062087791512567
+    },
+    {
+      "id": "uci-03772",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.186705930693947
+    },
+    {
+      "id": "uci-00389",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 24.27315700758946
+    },
+    {
+      "id": "uci-02056",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.3633836990838617
+    },
+    {
+      "id": "uci-04825",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -18.04695674760265
+    },
+    {
+      "id": "uci-00560",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -18.036094943147873
+    },
+    {
+      "id": "uci-02459",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.149194888093483
+    },
+    {
+      "id": "uci-02335",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.2521473793269706
+    },
+    {
+      "id": "uci-04565",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.668419633855066
+    },
+    {
+      "id": "uci-04441",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.423838823127255
+    },
+    {
+      "id": "uci-05475",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.497795929365992
+    },
+    {
+      "id": "uci-01200",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -30.711598852802183
+    },
+    {
+      "id": "uci-05206",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.03065043947241
+    },
+    {
+      "id": "uci-02036",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.5841109486434632
+    },
+    {
+      "id": "uci-00327",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.137666665779356
+    },
+    {
+      "id": "uci-01458",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 5.215830464167567
+    },
+    {
+      "id": "uci-03705",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.046731366482774
+    },
+    {
+      "id": "uci-01106",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.689957813498463
+    },
+    {
+      "id": "uci-01088",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.7745871265378454
+    },
+    {
+      "id": "uci-01351",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.3863026034347268
+    },
+    {
+      "id": "uci-02082",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.852265310886622
+    },
+    {
+      "id": "uci-03350",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.151399685945208
+    },
+    {
+      "id": "uci-01674",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 5.321321695491008
+    },
+    {
+      "id": "uci-02682",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.679578547855336
+    },
+    {
+      "id": "uci-02867",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.439464653206777
+    },
+    {
+      "id": "uci-04336",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.218486282773938
+    },
+    {
+      "id": "uci-02690",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.3808499690240694
+    },
+    {
+      "id": "uci-00003",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -10.832466537948264
+    },
+    {
+      "id": "uci-04008",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.769142415745648
+    },
+    {
+      "id": "uci-01445",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.0667698174696802
+    },
+    {
+      "id": "uci-04346",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.10169716374093
+    },
+    {
+      "id": "uci-05123",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.094998821494002
+    },
+    {
+      "id": "uci-02377",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -15.094957960901809
+    },
+    {
+      "id": "uci-04148",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -16.2483810134743
+    },
+    {
+      "id": "uci-01497",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -12.049899646027939
+    },
+    {
+      "id": "uci-02625",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -12.80220128910365
+    },
+    {
+      "id": "uci-04484",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.89786288526301
+    },
+    {
+      "id": "uci-05022",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": 0.0
+    },
+    {
+      "id": "uci-01083",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 1.9537404546178685
+    },
+    {
+      "id": "uci-04813",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.5806457677042545
+    },
+    {
+      "id": "uci-03714",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -33.6134456892685
+    },
+    {
+      "id": "uci-00727",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -35.239097808052435
+    },
+    {
+      "id": "uci-00771",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.01812262360622441
+    },
+    {
+      "id": "uci-05547",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.834348280418709
+    },
+    {
+      "id": "uci-05235",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.811079639136338
+    },
+    {
+      "id": "uci-04875",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.558762394003793
+    },
+    {
+      "id": "uci-00282",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.111693531387118
+    },
+    {
+      "id": "uci-00461",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.630775853551341
+    },
+    {
+      "id": "uci-05511",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.553311888624535
+    },
+    {
+      "id": "uci-02639",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.721704027524268
+    },
+    {
+      "id": "uci-03536",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.527431148779641
+    },
+    {
+      "id": "uci-00903",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.539402006279872
+    },
+    {
+      "id": "uci-05351",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.487624802411066
+    },
+    {
+      "id": "uci-00780",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.7907101107776278
+    },
+    {
+      "id": "uci-04447",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.0675751902970205
+    },
+    {
+      "id": "uci-04074",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.8228017861876538
+    },
+    {
+      "id": "uci-01828",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.145761232956261
+    },
+    {
+      "id": "uci-01280",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.985938005008592
+    },
+    {
+      "id": "uci-01165",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.423213140127082
+    },
+    {
+      "id": "uci-03203",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -16.57212466542296
+    },
+    {
+      "id": "uci-02258",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.168105738157507
+    },
+    {
+      "id": "uci-02301",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.906740712735058
+    },
+    {
+      "id": "uci-04555",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.0022026111317075
+    },
+    {
+      "id": "uci-05360",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.480132731922382
+    },
+    {
+      "id": "uci-03638",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.0965871369523477
+    },
+    {
+      "id": "uci-00049",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -17.375004110582154
+    },
+    {
+      "id": "uci-00644",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.4531769203918685
+    },
+    {
+      "id": "uci-00304",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.439720991053562
+    },
+    {
+      "id": "uci-02113",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 29.07594201731945
+    },
+    {
+      "id": "uci-04462",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -33.0657586001538
+    },
+    {
+      "id": "uci-03328",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.9543761793471504
+    },
+    {
+      "id": "uci-05520",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -11.251856817155982
+    },
+    {
+      "id": "uci-00851",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.416366135743829
+    },
+    {
+      "id": "uci-04664",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 2.9410247719859264
+    },
+    {
+      "id": "uci-00861",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.877779854259721
+    },
+    {
+      "id": "uci-01812",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -14.23291609778714
+    },
+    {
+      "id": "uci-02263",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.496667569557232
+    },
+    {
+      "id": "uci-04398",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.354468374551139
+    },
+    {
+      "id": "uci-03884",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -13.737830398758888
+    },
+    {
+      "id": "uci-00586",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.1275604312377823
+    },
+    {
+      "id": "uci-04554",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.470253150395777
+    }
+  ],
+  "metrics": {
+    "macro_f1": 0.897640943622551,
+    "spam_precision": 0.7142857142857143,
+    "spam_recall": 0.9615384615384616,
+    "false_positive_rate": 0.043478260869565216,
+    "accuracy": 0.95703125,
+    "tp": 25,
+    "tn": 220,
+    "fp": 10,
+    "fn": 1
+  },
+  "method": "Word multinomial NB, Laplace alpha 1, train-only vocabulary and priors, ignore unseen words; no tuning."
+}

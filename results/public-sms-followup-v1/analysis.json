@@ -1,0 +1,116 @@
+{
+  "completed": [
+    "lexical",
+    "base",
+    "seed-17",
+    "seed-23",
+    "seed-41"
+  ],
+  "metrics": {
+    "lexical": {
+      "macro_f1": 0.897640943622551,
+      "spam_precision": 0.7142857142857143,
+      "spam_recall": 0.9615384615384616,
+      "false_positive_rate": 0.043478260869565216,
+      "accuracy": 0.95703125,
+      "tp": 25,
+      "tn": 220,
+      "fp": 10,
+      "fn": 1
+    },
+    "base": {
+      "macro_f1": 0.5112638411607484,
+      "spam_precision": 1.0,
+      "spam_recall": 0.038461538461538464,
+      "false_positive_rate": 0.0,
+      "accuracy": 0.90234375,
+      "tp": 1,
+      "tn": 230,
+      "fp": 0,
+      "fn": 25
+    },
+    "seed-17": {
+      "macro_f1": 0.9673344391986729,
+      "spam_precision": 0.96,
+      "spam_recall": 0.9230769230769231,
+      "false_positive_rate": 0.004347826086956522,
+      "accuracy": 0.98828125,
+      "tp": 24,
+      "tn": 229,
+      "fp": 1,
+      "fn": 2
+    },
+    "seed-23": {
+      "macro_f1": 0.9785953177257525,
+      "spam_precision": 0.9615384615384616,
+      "spam_recall": 0.9615384615384616,
+      "false_positive_rate": 0.004347826086956522,
+      "accuracy": 0.9921875,
+      "tp": 25,
+      "tn": 229,
+      "fp": 1,
+      "fn": 1
+    },
+    "seed-41": {
+      "macro_f1": 0.9585961507358887,
+      "spam_precision": 0.8928571428571429,
+      "spam_recall": 0.9615384615384616,
+      "false_positive_rate": 0.013043478260869565,
+      "accuracy": 0.984375,
+      "tp": 25,
+      "tn": 227,
+      "fp": 3,
+      "fn": 1
+    }
+  },
+  "intervals": {
+    "lexical": {
+      "macro_f1_95": [
+        0.8461484073956234,
+        0.9506458453826875
+      ],
+      "paired_delta_vs_base_95": [
+        0.29859093650637775,
+        0.46469208224615627
+      ]
+    },
+    "base": {
+      "macro_f1_95": [
+        0.4732510288065844,
+        0.5796387520525451
+      ]
+    },
+    "seed-17": {
+      "macro_f1_95": [
+        0.9210120333230485,
+        1.0
+      ],
+      "paired_delta_vs_base_95": [
+        0.36809217175779674,
+        0.5158604509263067
+      ]
+    },
+    "seed-23": {
+      "macro_f1_95": [
+        0.945557398664455,
+        1.0
+      ],
+      "paired_delta_vs_base_95": [
+        0.38716342819681077,
+        0.5267489711934157
+      ]
+    },
+    "seed-41": {
+      "macro_f1_95": [
+        0.91438127090301,
+        0.9894767131171127
+      ],
+      "paired_delta_vs_base_95": [
+        0.36157603261459736,
+        0.5158604509263067
+      ]
+    }
+  },
+  "base_reference_report": "base.json",
+  "bootstrap": "2000 label-stratified paired case resamples; percentile 95%; conditional on this fixed split; no multiple-comparison significance claim."
+}
