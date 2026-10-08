@@ -1,0 +1,370 @@
+{
+  "repository": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "manifest_sha256": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6",
+  "weight_file_bytes": 1503300328,
+  "logical_cpu_count": 8,
+  "resource_measurement_scope": "CPU percent is process-tree CPU time / elapsed time; 100% equals one logical CPU. GPU device recorded, GPU utilization not measured.",
+  "physical_memory_bytes": 17179869184,
+  "weights_exceed_physical_ram": false,
+  "verification_seconds": 1.303264708025381,
+  "worker_elapsed_seconds": 6.1724941248539835,
+  "io_mode": "raw-cached",
+  "verification_system_swap_delta_bytes": -8388608,
+  "verification_io_policy": "per-descriptor F_NOCACHE",
+  "verification_workers": 1,
+  "verification_measurements": [
+    {
+      "seconds": 3.9833132177591324e-05,
+      "rss_bytes": 28901376,
+      "system_available_bytes": 4458446848,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.08536646,
+      "process_threads": 1
+    },
+    {
+      "seconds": 0.5039832501206547,
+      "rss_bytes": 57589760,
+      "system_available_bytes": 4592156672,
+      "system_swap_growth_bytes": 0,
+      "process_cpu_seconds": 0.462624368,
+      "process_threads": 1
+    },
+    {
+      "seconds": 1.0095547081436962,
+      "rss_bytes": 57589760,
+      "system_available_bytes": 4462804992,
+      "system_swap_growth_bytes": -8388608,
+      "process_cpu_seconds": 0.820143392,
+      "process_threads": 1
+    },
+    {
+      "seconds": 1.3029791249427944,
+      "rss_bytes": 57655296,
+      "system_available_bytes": 4462804992,
+      "system_swap_growth_bytes": -8388608,
+      "process_cpu_seconds": 1.026230496,
+      "process_threads": 1
+    }
+  ],
+  "swap_baseline_scope": "before verification, retained during inference",
+  "model_started": true,
+  "exit_code": 0,
+  "stopped_by_guard": null,
+  "completed": true,
+  "numerical_audit_passed": true,
+  "sampled_process_tree_rss_peak_bytes": 311918592,
+  "stderr_raw_sha256_before_path_redaction": "88f42bb579c3a9c6d82a03825953a7256cc748bbe7a902f241aacd55eff35988",
+  "events": [
+    {
+      "event": "step",
+      "case": 0,
+      "step": 0,
+      "token_id": 8996,
+      "elapsed_seconds": 1.1179137080907822,
+      "mlx_active_bytes": 59035492,
+      "mlx_peak_bytes_so_far": 109519216
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 1,
+      "token_id": 13,
+      "elapsed_seconds": 0.4126021668780595,
+      "mlx_active_bytes": 59033612,
+      "mlx_peak_bytes_so_far": 109519216
+    },
+    {
+      "event": "step",
+      "case": 0,
+      "step": 2,
+      "token_id": 151645,
+      "elapsed_seconds": 0.3257011251989752,
+      "mlx_active_bytes": 59033612,
+      "mlx_peak_bytes_so_far": 109519216
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 0,
+      "token_id": 8996,
+      "elapsed_seconds": 0.9840994169935584,
+      "mlx_active_bytes": 117757428,
+      "mlx_peak_bytes_so_far": 185526272
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 1,
+      "token_id": 13,
+      "elapsed_seconds": 0.3159359998535365,
+      "mlx_active_bytes": 117753868,
+      "mlx_peak_bytes_so_far": 185526272
+    },
+    {
+      "event": "step",
+      "case": 1,
+      "step": 2,
+      "token_id": 151645,
+      "elapsed_seconds": 0.3150224999990314,
+      "mlx_active_bytes": 117753868,
+      "mlx_peak_bytes_so_far": 185526272
+    },
+    {
+      "event": "direct_original_result",
+      "reference_kind": "upstream resident BF16 bounded longer prompt, final-position projection",
+      "model_repository": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "compute_device": "Device(gpu, 0)",
+      "stored_tensor_elements": 751632384,
+      "tensor_count": 311,
+      "all_tensor_file_dtypes": [
+        "BF16"
+      ],
+      "engine_plan": {
+        "budget_bytes": 2147483648,
+        "largest_layer_bytes": 31461888,
+        "io_mode": "raw-cached",
+        "prefill_chunk_size": 1024,
+        "prefill_schedule": "chunk-major",
+        "head_tile_bytes": 4194304,
+        "head_rows": 2048,
+        "max_input_tokens": 1024,
+        "max_context_tokens": 2048,
+        "kv_cache_kind": "Original BF16 KVCache, no quantization",
+        "prefetch_layers": 0,
+        "prefetch_prefix_mib": 64,
+        "prefetch_host_payload_limit_bytes": 0,
+        "prefetch_policy": "One raw-byte reader; all MLX operations on main thread; prefix mode materializes one tensor at a time",
+        "cached_layers": 0,
+        "duplicate_weight_storage_bytes": 0,
+        "embedding_mode": "Exact requested rows from original BF16 payload",
+        "head_mode": "All vocabulary rows in tiles, original BF16; no top-k pruning",
+        "scope": "Measured active MLX limit, not total RAM; transient peaks reported separately"
+      },
+      "layer_calls": 168,
+      "layer_weight_loads": 168,
+      "prefill_chunks": 2,
+      "head_passes": 6,
+      "row_bytes_read_by_pread": 1869787136,
+      "selected_native_tensor_bytes_requested": 5285599232,
+      "f_nocache_descriptors": 0,
+      "mlx_peak_allocated_bytes": 185526272,
+      "cases": [
+        {
+          "case": 0,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 471,
+          "token_ids": [
+            8996,
+            13,
+            151645
+          ],
+          "text": "NO.",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            1.1179137080907822,
+            0.4126021668780595,
+            0.3257011251989752
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 8996,
+              "reference_greedy_token_id": 8996,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 13,
+              "reference_greedy_token_id": 13,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 151645,
+              "reference_greedy_token_id": 151645,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        },
+        {
+          "case": 1,
+          "prompt": "Review only these synthetic access records. Failed login attempts indicate attempts, not proven access. No successful unauthorized session, data transfer, malware finding or account change is recorded.\nRecord 0: user=alice, action=login, result=failure, device=usual.\nRecord 1: user=alice, action=login, result=failure, device=usual.\nRecord 2: user=alice, action=login, result=failure, device=usual.\nRecord 3: user=alice, action=login, result=failure, device=usual.\nRecord 4: user=alice, action=login, result=failure, device=usual.\nRecord 5: user=alice, action=login, result=failure, device=usual.\nRecord 6: user=alice, action=login, result=failure, device=usual.\nRecord 7: user=alice, action=login, result=failure, device=usual.\nRecord 8: user=alice, action=login, result=failure, device=usual.\nRecord 9: user=alice, action=login, result=failure, device=usual.\nRecord 10: user=alice, action=login, result=failure, device=usual.\nRecord 11: user=alice, action=login, result=failure, device=usual.\nRecord 12: user=alice, action=login, result=failure, device=usual.\nRecord 13: user=alice, action=login, result=failure, device=usual.\nRecord 14: user=alice, action=login, result=failure, device=usual.\nRecord 15: user=alice, action=login, result=failure, device=usual.\nRecord 16: user=alice, action=login, result=failure, device=usual.\nRecord 17: user=alice, action=login, result=failure, device=usual.\nRecord 18: user=alice, action=login, result=failure, device=usual.\nRecord 19: user=alice, action=login, result=failure, device=usual.\nRecord 20: user=alice, action=login, result=failure, device=usual.\nRecord 21: user=alice, action=login, result=failure, device=usual.\nRecord 22: user=alice, action=login, result=failure, device=usual.\nRecord 23: user=alice, action=login, result=failure, device=usual.\nRecord 24: user=alice, action=login, result=failure, device=usual.\nRecord 25: user=alice, action=login, result=failure, device=usual.\nRecord 26: user=alice, action=login, result=failure, device=usual.\nRecord 27: user=alice, action=login, result=failure, device=usual.\nRecord 28: user=alice, action=login, result=failure, device=usual.\nRecord 29: user=alice, action=login, result=failure, device=usual.\nRecord 30: user=alice, action=login, result=failure, device=usual.\nRecord 31: user=alice, action=login, result=failure, device=usual.\nRecord 32: user=alice, action=login, result=failure, device=usual.\nRecord 33: user=alice, action=login, result=failure, device=usual.\nRecord 34: user=alice, action=login, result=failure, device=usual.\nRecord 35: user=alice, action=login, result=failure, device=usual.\nRecord 36: user=alice, action=login, result=failure, device=usual.\nRecord 37: user=alice, action=login, result=failure, device=usual.\nRecord 38: user=alice, action=login, result=failure, device=usual.\nRecord 39: user=alice, action=login, result=failure, device=usual.\nDo these records alone prove a successful breach? Reply with exactly YES or NO.",
+          "prompt_tokens": 891,
+          "token_ids": [
+            8996,
+            13,
+            151645
+          ],
+          "text": "NO.",
+          "stopped_at_eos": false,
+          "reached_token_limit": false,
+          "step_seconds": [
+            0.9840994169935584,
+            0.3159359998535365,
+            0.3150224999990314
+          ],
+          "comparisons": [
+            {
+              "step": 0,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 8996,
+              "reference_greedy_token_id": 8996,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 1,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 13,
+              "reference_greedy_token_id": 13,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            },
+            {
+              "step": 2,
+              "greedy_token_equal": true,
+              "teacher_forced_token_id": 151645,
+              "reference_greedy_token_id": 151645,
+              "maximum_absolute_logit_difference": 0.0,
+              "allclose_atol_0p01_rtol_0p01": true
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Row-byte counters are logical process reads, not physical SSD traffic.",
+        "Native selected tensor bytes are requested payload sizes, not SSD-byte telemetry.",
+        "All vocabulary rows computed; head tiling may introduce numerical differences tested separately.",
+        "Active MLX checks are not total-RAM caps; transient MLX peaks separately reported.",
+        "OS caches uncontrolled; no cold-cache claim.",
+        "Short numerical/functional controls do not establish general model quality or novelty."
+      ]
+    }
+  ],
+  "invalid_stdout_lines": [],
+  "measurements": [
+    {
+      "seconds": 0.002483458025380969,
+      "rss_bytes": 4276224,
+      "system_available_bytes": 4462804992,
+      "system_swap_growth_bytes": -8388608,
+      "process_tree_cpu_seconds": 0.004860873999999999,
+      "process_tree_cpu_percent": null,
+      "process_tree_threads": 1
+    },
+    {
+      "seconds": 0.5080819160211831,
+      "rss_bytes": 67485696,
+      "system_available_bytes": 4462804992,
+      "system_swap_growth_bytes": -8388608,
+      "process_tree_cpu_seconds": 0.314348584,
+      "process_tree_cpu_percent": 61.21215464675518,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.017493624938652,
+      "rss_bytes": 91045888,
+      "system_available_bytes": 4439146496,
+      "system_swap_growth_bytes": -8388608,
+      "process_tree_cpu_seconds": 0.620103152,
+      "process_tree_cpu_percent": 60.021111145981955,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 1.5244553750380874,
+      "rss_bytes": 93126656,
+      "system_available_bytes": 4389289984,
+      "system_swap_growth_bytes": -75497472,
+      "process_tree_cpu_seconds": 0.92306192,
+      "process_tree_cpu_percent": 59.759689550656965,
+      "process_tree_threads": 3
+    },
+    {
+      "seconds": 2.031299915863201,
+      "rss_bytes": 138149888,
+      "system_available_bytes": 4172021760,
+      "system_swap_growth_bytes": -117440512,
+      "process_tree_cpu_seconds": 1.176335552,
+      "process_tree_cpu_percent": 49.970673766690915,
+      "process_tree_threads": 4
+    },
+    {
+      "seconds": 2.5746980828698725,
+      "rss_bytes": 256212992,
+      "system_available_bytes": 4085350400,
+      "system_swap_growth_bytes": -142606336,
+      "process_tree_cpu_seconds": 1.5222904959999999,
+      "process_tree_cpu_percent": 63.66509219302398,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 3.0824546250514686,
+      "rss_bytes": 311918592,
+      "system_available_bytes": 3961487360,
+      "system_swap_growth_bytes": -176160768,
+      "process_tree_cpu_seconds": 1.704347264,
+      "process_tree_cpu_percent": 35.85512994432054,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 3.5939029578585178,
+      "rss_bytes": 299679744,
+      "system_available_bytes": 4009279488,
+      "system_swap_growth_bytes": -176160768,
+      "process_tree_cpu_seconds": 1.933351616,
+      "process_tree_cpu_percent": 44.77565715057185,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 4.108188207959756,
+      "rss_bytes": 305676288,
+      "system_available_bytes": 3951460352,
+      "system_swap_growth_bytes": -176160768,
+      "process_tree_cpu_seconds": 2.3528668159999997,
+      "process_tree_cpu_percent": 81.57247362575866,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 4.626656875014305,
+      "rss_bytes": 297664512,
+      "system_available_bytes": 3926851584,
+      "system_swap_growth_bytes": -176160768,
+      "process_tree_cpu_seconds": 2.7146424319999998,
+      "process_tree_cpu_percent": 69.77772023433329,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 5.134955457877368,
+      "rss_bytes": 293994496,
+      "system_available_bytes": 3872030720,
+      "system_swap_growth_bytes": -184549376,
+      "process_tree_cpu_seconds": 2.8725150719999997,
+      "process_tree_cpu_percent": 31.059036031688354,
+      "process_tree_threads": 12
+    },
+    {
+      "seconds": 5.6564573750365525,
+      "rss_bytes": 296042496,
+      "system_available_bytes": 3920592896,
+      "system_swap_growth_bytes": -184549376,
+      "process_tree_cpu_seconds": 3.276730368,
+      "process_tree_cpu_percent": 77.5098389286681,
+      "process_tree_threads": 12
+    }
+  ],
+  "limitations": [
+    "All original files hashed before worker timing; verification policy recorded, OS caches uncontrolled.",
+    "Baseline system swap may already exist; observed deltas include other apps.",
+    "RSS and MLX allocations overlap and use different accounting; never sum them.",
+    "No copied layer files, quantization, cloud compute or missing weights substituted."
+  ]
+}

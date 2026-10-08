@@ -1,0 +1,27 @@
+Consecutive 70B process launches on a 16 GiB Apple M1
+Author: Megern Qaisse
+Date: 2026-10-08; engineering working note, not peer reviewed.
+
+Question
+Does the same prompt start emitting output sooner on a second adjacent local process launch? This is a small follow-up to the recorded original smoke run. It tests the existing quantized 70B checkpoint, not original BF16 70B.
+
+Protocol
+Pinned Llama-3.3-70B-Instruct-IQ2_XXS.gguf: 19,097,390,048 bytes, SHA256 b9625ef8daa030849fc3a5c81fb1660c2a9c2aa677011577478d0e93045723ca. Official llama.cpp b11457 llama-completion, recorded executable SHA256 e3d5205729cb4c1e176d5c8e39796aefbe361a2300d0593586db9503dd0d63d1. CPU-only mmap, four threads, original 23-token prompt asking for the capital of France, seed 17, temperature zero, output cap eight, same flags as the previous corrected smoke protocol.
+
+One full-file SHA256 check precedes the first process. It checks original identity before and after reading, observes pressure and keeps a shared swap baseline for both processes. Two fresh processes launch consecutively; no full-file hash, deliberate sleep, model computation or cache purge intervenes. File size/mtime/inode checks do not read all weights. Fresh process launches exclude application KV/session cache reuse. Original runtime flags and memory guards are unchanged. All calculation and checks are local. The file checksum already warms OS caches, so this is not a cold-versus-warm test.
+
+Observed pair
+Process 1: first nonwhite stdout 144.2574 s; elapsed 181.4075 s; sampled peak RSS 3.7749 GiB.
+Process 2: first nonwhite stdout 122.3795 s; elapsed 152.9018 s; sampled peak RSS 4.4456 GiB.
+Observed first-stdout reduction: 15.1659%. Same output in both: Paris [end of text], with trailing newlines retained. The termination marker is runtime text; the legacy strict whole-output exact_paris_answer remains false. Both processes completed without pressure stops and with unchanged verified model identity.
+
+Prompt evaluation: 129.5628 versus 109.6163 s. Sampled process page-in maxima 5665364 versus 5646187; these are not SSD-byte counts or exact final counters. They remain substantial in both processes.
+
+Interpretation
+The second launch emitted the same answer sooner in this one pair. This is consistent with some launch-state benefit, but does not identify its cause or quantify surviving file-cache pages. Uncontrolled OS caches, thermal state and other applications can affect timing. First nonwhite stdout includes startup and prefill, and is not a precise token callback. Output timestamp sampling was corrected to timestamp after reading, rather than before the selector wait. The historic smoke timestamp is therefore not used as the paired control. No statistically stable speedup, general model quality or memory-fitting claim follows from one pair.
+
+Retained failure
+results/llama70b-cache-pair-v1 used llama-cli, which rejected --no-conversation before model evaluation. It emitted no answer, and its second process was not launched. The corrected v2 explicitly used the previous llama-completion runtime; both series retain exact source copies, protocol/manifest hashes, raw stderr/stdout and reports. This correction was not an automatic retry of a timed completed outcome.
+
+Materials
+results/llama70b-cache-pair-v2/summary.json, analysis.json and source/; results/llama70b-cache-pair-v1; tools/run_large_model_cache_pair.py; OPERATING_GUIDE.md. No model weights are redistributed and no cloud compute is used.

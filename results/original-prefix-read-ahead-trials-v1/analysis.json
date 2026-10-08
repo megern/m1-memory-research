@@ -1,0 +1,122 @@
+{
+  "source_integrity_verified": true,
+  "all_planned_outcomes_retained": true,
+  "variant_statistics": {
+    "unchunked": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 28.658650687895715,
+      "completed_only_median_peak_mlx_bytes": 818889072.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1069064192.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3116482560.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 80.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    },
+    "prefix-serial64": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 35.61105106200557,
+      "completed_only_median_peak_mlx_bytes": 818889072.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1289904128.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3116482560.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 80.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        0,
+        0
+      ]
+    },
+    "prefix-prefetch64": {
+      "planned": 2,
+      "completed": 2,
+      "stopped": 0,
+      "completed_only_median_forward_seconds": 37.37169027107302,
+      "completed_only_median_peak_mlx_bytes": 818889072.0,
+      "completed_only_median_sampled_rss_peak_bytes": 1489166336.0,
+      "completed_only_median_selected_tensor_bytes": 52849920000.0,
+      "completed_only_median_row_bytes_read": 3116482560.0,
+      "completed_only_median_layer_weight_loads": 80.0,
+      "completed_only_median_layer_calls": 80.0,
+      "max_setup_and_worker_swap_bytes_all_attempts": [
+        284426240,
+        0
+      ]
+    }
+  },
+  "same_round_comparisons": [
+    {
+      "round": 0,
+      "variant": "prefix-prefetch64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 8.701327165821567,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": 623378432
+    },
+    {
+      "round": 0,
+      "variant": "prefix-serial64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 7.707451374037191,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": 171950080
+    },
+    {
+      "round": 1,
+      "variant": "prefix-prefetch64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 8.724752000533044,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": 216825856
+    },
+    {
+      "round": 1,
+      "variant": "prefix-serial64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_unchunked": 6.197349374182522,
+      "peak_mlx_bytes_difference_from_unchunked": 0,
+      "sampled_rss_peak_bytes_difference_from_unchunked": 269729792
+    }
+  ],
+  "same_transport_read_ahead_comparisons": [
+    {
+      "round": 0,
+      "control": "prefix-serial64",
+      "candidate": "prefix-prefetch64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_prefix_serial": 0.9938757917843759,
+      "peak_mlx_bytes_difference_from_prefix_serial": 0,
+      "sampled_rss_peak_bytes_difference_from_prefix_serial": 451428352
+    },
+    {
+      "round": 1,
+      "control": "prefix-serial64",
+      "candidate": "prefix-prefetch64",
+      "both_completed": true,
+      "greedy_token_sequences_equal": true,
+      "forward_seconds_difference_from_prefix_serial": 2.527402626350522,
+      "peak_mlx_bytes_difference_from_prefix_serial": 0,
+      "sampled_rss_peak_bytes_difference_from_prefix_serial": -52903936
+    }
+  ],
+  "limitations": [
+    "Conditional medians exclude stopped attempts; completion counts retained.",
+    "Small exploratory workloads, uncontrolled OS caches and other apps; no causal or broad quality claims.",
+    "Known chunked prefill changes BF16 kernel shapes; identical short output is not logits equivalence.",
+    "Tensor byte counters are logical requested payloads, not physical SSD reads.",
+    "No training, quantization, novel algorithm or original 70B claim.",
+    "Prefetched host byte buffers are additional RAM outside MLX allocation counters; RSS includes conversion temporaries. This is known read-ahead, not algorithmic novelty."
+  ]
+}

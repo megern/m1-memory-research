@@ -1,0 +1,31 @@
+{
+  "source_and_protocol_integrity_verified": true,
+  "both_processes_completed": false,
+  "planned": 2,
+  "recorded": 1,
+  "trials": [
+    {
+      "index": 0,
+      "seconds_since_previous_return": null,
+      "smoke_runtime_completed": false,
+      "stopped_by_guard": null,
+      "elapsed_seconds": 0.8948386248666793,
+      "time_to_first_nonwhitespace_stdout_seconds": null,
+      "observed_process_tree_rss_peak_bytes": 85409792,
+      "output": "",
+      "parsed_timing_lines": [],
+      "model_identity_unchanged_after_run": true,
+      "root_process_pageins_sampled_max": 3740,
+      "root_process_faults_sampled_max": 7286
+    }
+  ],
+  "limitations": [
+    "One sequential pair, not a cold/warm randomized comparison.",
+    "A full-file checksum precedes the first process; no checksum between them.",
+    "Fresh processes exclude application KV and session caches; OS caches and other apps remain uncontrolled.",
+    "First nonwhite stdout includes loading and prefill; not an exact token callback.",
+    "A time difference alone cannot measure page-cache residency or establish why it changed.",
+    "Page-in/fault maxima are sampled before exit, not physical SSD byte totals.",
+    "This IQ2_XXS 70B model is quantized; original BF16 studies are separate."
+  ]
+}

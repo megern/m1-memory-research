@@ -1,0 +1,79 @@
+{
+  "source_and_protocol_integrity_verified": true,
+  "both_processes_completed": true,
+  "planned": 2,
+  "recorded": 2,
+  "trials": [
+    {
+      "index": 0,
+      "seconds_since_previous_return": null,
+      "smoke_runtime_completed": true,
+      "stopped_by_guard": null,
+      "elapsed_seconds": 181.40748624992557,
+      "time_to_first_nonwhitespace_stdout_seconds": 144.25739666703157,
+      "observed_process_tree_rss_peak_bytes": 4053237760,
+      "output": "Paris [end of text]\n\n\n",
+      "parsed_timing_lines": [
+        {
+          "kind": "prompt eval time",
+          "milliseconds": 129562.76,
+          "count": 23,
+          "count_unit": "tokens",
+          "reported_tokens_per_second": 0.18
+        },
+        {
+          "kind": "eval time",
+          "milliseconds": 37081.93,
+          "count": 1,
+          "count_unit": "runs",
+          "reported_tokens_per_second": 0.03
+        }
+      ],
+      "model_identity_unchanged_after_run": true,
+      "root_process_pageins_sampled_max": 5665364,
+      "root_process_faults_sampled_max": 5988577
+    },
+    {
+      "index": 1,
+      "seconds_since_previous_return": 0.00041399989277124405,
+      "smoke_runtime_completed": true,
+      "stopped_by_guard": null,
+      "elapsed_seconds": 152.90175175014883,
+      "time_to_first_nonwhitespace_stdout_seconds": 122.37952516716905,
+      "observed_process_tree_rss_peak_bytes": 4773380096,
+      "output": "Paris [end of text]\n\n\n",
+      "parsed_timing_lines": [
+        {
+          "kind": "prompt eval time",
+          "milliseconds": 109616.26,
+          "count": 23,
+          "count_unit": "tokens",
+          "reported_tokens_per_second": 0.21
+        },
+        {
+          "kind": "eval time",
+          "milliseconds": 30464.55,
+          "count": 1,
+          "count_unit": "runs",
+          "reported_tokens_per_second": 0.03
+        }
+      ],
+      "model_identity_unchanged_after_run": true,
+      "root_process_pageins_sampled_max": 5646187,
+      "root_process_faults_sampled_max": 6052520
+    }
+  ],
+  "limitations": [
+    "One sequential pair, not a cold/warm randomized comparison.",
+    "A full-file checksum precedes the first process; no checksum between them.",
+    "Fresh processes exclude application KV and session caches; OS caches and other apps remain uncontrolled.",
+    "First nonwhite stdout includes loading and prefill; not an exact token callback.",
+    "A time difference alone cannot measure page-cache residency or establish why it changed.",
+    "Page-in/fault maxima are sampled before exit, not physical SSD byte totals.",
+    "This IQ2_XXS 70B model is quantized; original BF16 studies are separate."
+  ],
+  "first_stdout_seconds_difference": -21.877871499862522,
+  "observed_first_stdout_reduction_percent": 15.165857699733786,
+  "output_sequences_equal": true,
+  "no_rehash_between_processes": true
+}

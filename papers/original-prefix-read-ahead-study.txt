@@ -1,0 +1,77 @@
+Budgeted prefix read-ahead of original BF16 weights on Apple M1
+
+Author: Megern Qaisse
+
+Date: 2026-10-08; v0.8 working engineering note, not peer reviewed.
+
+
+
+Implementation and question
+
+The previous v0.7 full-layer byte reader retained up to 660,623,872 bytes for the next Qwen3-14B layer. This follow-up caps the unread next-layer prefix at 64 MiB and materializes the current layer one tensor at a time. Original BF16 bits, architecture, attention, KV and all vocabulary scores are retained. No additional checkpoint is stored. There is one I/O thread; all MLX work remains on the main thread. Consumed prefix entries are removed. Current-tensor reconstruction, selected MLX weights and KV are additional allocations; the prefix limit is not a process-RSS or total-RAM cap.
+
+The same prefix implementation can run serially (prefetch_layers=0) or with one next-layer reader (prefetch_layers=1). A zero prefix setting preserves v0.7 full-layer behavior. Native remains the default. This compares a known transport technique, not a novel algorithm.
+
+
+
+Frozen study
+
+Qwen/Qwen3-14B revision 40c069824f4251a91eefaf281ebe4c544efd3e18, original BF16 files SHA256 verified before each worker. File size 29,536,665,640 bytes exceeds 17,179,869,184 physical RAM. Same 471-token synthetic access-log question reused from v0.6/v0.7, max four outputs, expected NO. This is a systems-control workload, not held-out security quality.
+
+Native whole-prompt, prefix-serial64 and prefix-prefetch64, two prospective randomized rounds seed 8060, frozen protocol/manifest/four source files; each fresh process uses 2048 MiB active MLX check, head tiles 2048 rows, eight checksum workers and unchanged memory/timeout guards. No other model jobs or plotting ran during timed comparisons. No retries or discarded outcomes.
+
+
+
+All six attempts
+
+Round | Method | Forward seconds | Peak MLX MiB | Sampled RSS MiB | Positive setup/worker swap MiB
+
+1 | prefix-prefetch64 | 37.7644 | 780.95 | 1631.22 | 271.25
+
+1 | prefix-serial64 | 36.7705 | 780.95 | 1200.70 | 0.00
+
+1 | unchunked | 29.0630 | 780.95 | 1036.72 | 0.00
+
+2 | prefix-prefetch64 | 36.9790 | 780.95 | 1209.14 | 0.00
+
+2 | unchunked | 28.2543 | 780.95 | 1002.36 | 0.00
+
+2 | prefix-serial64 | 34.4516 | 780.95 | 1259.59 | 0.00
+
+
+
+Interpretation
+
+All six attempts completed NO/EOS and retained unchanged layer-load counts (80), selected-layer logical bytes (52,849,920,000) and head/embedding row bytes (3,116,482,560). These are logical requests, not measured physical SSD reads. Peak MLX is identical in all trials (780.95 MiB), while sampled RSS differs.
+
+unchunked: median forward 28.6587 s; median sampled peak RSS 1019.54 MiB; completed 2/2.
+
+prefix-serial64: median forward 35.6111 s; median sampled peak RSS 1230.15 MiB; completed 2/2.
+
+prefix-prefetch64: median forward 37.3717 s; median sampled peak RSS 1420.18 MiB; completed 2/2.
+
+Round 1: prefix read-ahead is 29.94% slower than native, and 2.70% slower than matched prefix serial. RSS difference versus native 594.50 MiB.
+
+Round 2: prefix read-ahead is 30.88% slower than native, and 7.34% slower than matched prefix serial. RSS difference versus native 206.78 MiB.
+
+The prefix limit functions as designed and all planned short workloads completed, but this implementation fails the performance hypothesis against both contemporaneous controls. It is retained as an experimental option, not selected as the default or promoted as a speedup. Its lower descriptive median RSS than the previous full-layer experiment is a cross-study observation; cache state, order and other applications differ, so it is not a paired causal memory-saving estimate. No stress stability or general model-quality claim follows from two rounds.
+
+
+
+Numerical and software controls
+
+The 8 MiB partial-prefix original 0.6B audit exercises an actually split tensor and passed all 48 fixed-tolerance and greedy checks against the same resident reference. Both serial and prefetched 64 MiB modes passed six extended 471/891-token checks each with exactly equal scores. The short 8 MiB audit passed 48 checks (42 exact, maximum difference .0625). Final receipts retain all 60 comparisons and hashes. Small-model scores do not verify all 14B logits. File-boundary checks, prefix budgets, reader routing and pressure/file mutation rejection are tested.
+
+
+
+Limits and next work
+
+OS caches, thermal state and other apps remain uncontrolled. Global swap includes other applications. Prefix/materialization temporaries are outside MLX allocation totals; inactive-buffer and conversion overhead must be profiled separately before claiming a cause. No new training, original BF16 70B execution, algorithmic novelty or stable speedup is claimed. Next work should measure per-tensor conversion/copy and waiting costs, using the native baseline and genuinely new workloads; it is proposed, not already measured.
+
+
+
+Materials
+
+models/original-prefix-read-ahead-protocol.json; results/original-prefix-read-ahead-trials-v1/{summary,analysis}.json and source/; results/prefix-numerical-summary.json; figures/original-prefix-read-ahead.{png,svg}; OPERATING_GUIDE.md.
+
+All model computation ran locally on the Mac; no LinkedIn writing or publishing.

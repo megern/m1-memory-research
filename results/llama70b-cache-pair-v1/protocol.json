@@ -1,0 +1,16 @@
+{
+  "rounds": 1,
+  "fresh_processes": 2,
+  "prompt": "Reply with exactly the single English word naming the capital of France.",
+  "tokens": 8,
+  "timeout_per_process": 900,
+  "threads": 4,
+  "sequence": "One full-file checksum, process 1 exits, immediately start process 2 without rehash or sleep. No prompt/KV/session cache persists between processes.",
+  "limits": [
+    "Not cold versus warm: initial checksum already warms OS caches.",
+    "A latency change alone cannot quantify cache survival or prove paging caused it.",
+    "Same previous IQ2_XXS checkpoint, not original BF16 70B.",
+    "One pair, uncontrolled other apps and thermal state; all stops retained.",
+    "No LinkedIn replies or publication."
+  ]
+}

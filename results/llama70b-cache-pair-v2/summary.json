@@ -1,0 +1,217 @@
+{
+  "source_sha256": {
+    "run_large_model.py": "a3e47d3c16e895030ab6fcb5eb5445a5b9fe0fb1b5dddb7acc689bfedc2d03ca",
+    "run_large_model_cache_pair.py": "80c9760fe08a6453ef53aa95c46e5dfcc397b36dd7fe45cd44f7acc2ad84ed92"
+  },
+  "protocol_sha256": "d0a62f8af8fa721590ec168ded7edaafe074c25cfe4d453f89d24b1c529a63c4",
+  "manifest_sha256": "dcef0ee23b4057e633e3bc11fafceb373013732e6d5abae9ebd1b7f42862057e",
+  "runtime_binary_sha256": "e3d5205729cb4c1e176d5c8e39796aefbe361a2300d0593586db9503dd0d63d1",
+  "trials": [
+    {
+      "index": 0,
+      "seconds_since_previous_return": null,
+      "smoke_runtime_completed": true,
+      "stopped_by_guard": null,
+      "elapsed_seconds": 181.40748624992557,
+      "time_to_first_nonwhitespace_stdout_seconds": 144.25739666703157,
+      "observed_process_tree_rss_peak_bytes": 4053237760,
+      "output": "Paris [end of text]\n\n\n",
+      "parsed_timing_lines": [
+        {
+          "kind": "prompt eval time",
+          "milliseconds": 129562.76,
+          "count": 23,
+          "count_unit": "tokens",
+          "reported_tokens_per_second": 0.18
+        },
+        {
+          "kind": "eval time",
+          "milliseconds": 37081.93,
+          "count": 1,
+          "count_unit": "runs",
+          "reported_tokens_per_second": 0.03
+        }
+      ],
+      "model_identity_unchanged_after_run": true,
+      "root_process_pageins_sampled_max": 5665364,
+      "root_process_faults_sampled_max": 5988577
+    },
+    {
+      "index": 1,
+      "seconds_since_previous_return": 0.00041399989277124405,
+      "smoke_runtime_completed": true,
+      "stopped_by_guard": null,
+      "elapsed_seconds": 152.90175175014883,
+      "time_to_first_nonwhitespace_stdout_seconds": 122.37952516716905,
+      "observed_process_tree_rss_peak_bytes": 4773380096,
+      "output": "Paris [end of text]\n\n\n",
+      "parsed_timing_lines": [
+        {
+          "kind": "prompt eval time",
+          "milliseconds": 109616.26,
+          "count": 23,
+          "count_unit": "tokens",
+          "reported_tokens_per_second": 0.21
+        },
+        {
+          "kind": "eval time",
+          "milliseconds": 30464.55,
+          "count": 1,
+          "count_unit": "runs",
+          "reported_tokens_per_second": 0.03
+        }
+      ],
+      "model_identity_unchanged_after_run": true,
+      "root_process_pageins_sampled_max": 5646187,
+      "root_process_faults_sampled_max": 6052520
+    }
+  ],
+  "completed_series": true,
+  "verification": {
+    "sha256": "b9625ef8daa030849fc3a5c81fb1660c2a9c2aa677011577478d0e93045723ca",
+    "identity": [
+      19097390048,
+      1791331187745098167,
+      53161849
+    ],
+    "seconds": 13.157404666999355
+  },
+  "verification_samples": [
+    {
+      "seconds": 0.006655166856944561,
+      "available_bytes": 4300455936,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 0.5097354168538004,
+      "available_bytes": 4328030208,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.01184624992311,
+      "available_bytes": 4189552640,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 1.5160936668980867,
+      "available_bytes": 4201889792,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.0184405418112874,
+      "available_bytes": 3972595712,
+      "system_swap_growth_bytes": 0
+    },
+    {
+      "seconds": 2.519557708874345,
+      "available_bytes": 3972595712,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 3.020766499917954,
+      "available_bytes": 3785621504,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 3.5224469169043005,
+      "available_bytes": 3785621504,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 4.022712624864653,
+      "available_bytes": 3757883392,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 4.524731749901548,
+      "available_bytes": 3757883392,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 5.025913749821484,
+      "available_bytes": 3761356800,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 5.5307432499248534,
+      "available_bytes": 3761356800,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 6.0343672088347375,
+      "available_bytes": 3732733952,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 6.539913499960676,
+      "available_bytes": 3732733952,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 7.0402502089273185,
+      "available_bytes": 3719675904,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 7.545720166992396,
+      "available_bytes": 3719675904,
+      "system_swap_growth_bytes": -8388608
+    },
+    {
+      "seconds": 8.04978962498717,
+      "available_bytes": 3707273216,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 8.5556500419043,
+      "available_bytes": 3707273216,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 9.05988141684793,
+      "available_bytes": 3735781376,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 9.561637833947316,
+      "available_bytes": 3735781376,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 10.06489024986513,
+      "available_bytes": 3709861888,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 10.566838291939348,
+      "available_bytes": 3709861888,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 11.06838299985975,
+      "available_bytes": 3701882880,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 11.572983749909326,
+      "available_bytes": 3701882880,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 12.075390833895653,
+      "available_bytes": 3685302272,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 12.576099374797195,
+      "available_bytes": 3685302272,
+      "system_swap_growth_bytes": -16777216
+    },
+    {
+      "seconds": 13.0770192919299,
+      "available_bytes": 3687825408,
+      "system_swap_growth_bytes": -16777216
+    }
+  ],
+  "stage": "all_planned_processes_ended"
+}

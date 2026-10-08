@@ -6,6 +6,22 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## v0.8.0: bounded prefixes and consecutive 70B launches
+
+The [new original-BF16 working study](papers/original-prefix-read-ahead-study.txt) limits the unread next-layer prefix to **64 MiB** and materializes current weights one tensor at a time. That bound excludes current tensors, reconstruction buffers, KV and the rest of the process. Six prospective Qwen3-14B attempts completed the same 471-token systems-control question, retaining all source/protocol hashes and unchanged pressure guards. This reused question does not measure unseen security quality.
+
+| Method | Completed | Median forward seconds | Median sampled peak RSS MiB |
+| --- | --- | ---: | ---: |
+| native | 2/2 | 28.66 | 1019.54 |
+| prefix serial | 2/2 | 35.61 | 1230.15 |
+| prefix read-ahead | 2/2 | 37.37 | 1420.18 |
+
+[Both paired rounds](results/original-prefix-read-ahead-trials-v1/analysis.json) show prefix read-ahead slower than native and matched prefix serial. Peak MLX is unchanged at 780.95 MiB. Prefix memory is bounded, but this version fails the speed hypothesis and uses more RSS than native; it remains an opt-in research control. Its lower descriptive RSS than the v0.7 full-layer series is a cross-study observation, not a paired causal estimate. The [partial-prefix and extended numerical controls](results/prefix-numerical-summary.json) passed all **60 checks** on original 0.6B; these do not validate all 14B scores. The local suite has **54 passing tests**.
+
+Separately, [two consecutive fresh CPU-mmap launches](papers/consecutive-70b-study.txt) of the existing **quantized 70B IQ2_XXS** checkpoint emitted identical `Paris [end of text]` outputs. First nonwhite stdout took **144.26 s then 122.38 s**, a **15.17% observed reduction in one pair**; total time was 181.41 s then 152.90 s. There was one full-file checksum before the first process and none between them; no application KV/session cache persisted. Initial checksum warming, OS caches, other apps and thermal state are uncontrolled, so this does not quantify surviving cache pages or establish a stable/cold-versus-warm speedup. [Exact sources, raw reports and analysis](results/llama70b-cache-pair-v2/analysis.json) are retained. The initial `llama-cli` flag rejection before model evaluation remains in [v1](results/llama70b-cache-pair-v1/analysis.json); corrected v2 uses the original `llama-completion` runtime.
+
+See [the prefix figure](figures/original-prefix-read-ahead.png), [the consecutive-launch figure](figures/consecutive-70b.png), and [Arabic reproduction instructions](OPERATING_GUIDE.md). These are engineering studies using established methods, with no new training or original BF16 70B execution. LinkedIn publication remains withheld pending review.
+
 ## v0.7.0: original-weight byte read-ahead and host-memory cost
 
 [The new working study](papers/original-read-ahead-study.txt) implements one-layer raw-byte read-ahead while keeping all MLX computation on the caller thread. Original BF16 files remain unchanged. A matched raw-serial control and the native unchunked baseline use the same 471-token question in two prospectively frozen rounds. This workload was previously examined in v0.6; it is not a held-out quality test. All [six outcomes and frozen sources](results/original-read-ahead-trials-v1/summary.json) are retained.

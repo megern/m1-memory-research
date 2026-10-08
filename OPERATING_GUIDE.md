@@ -248,3 +248,48 @@ python results/original-read-ahead-trials-v1/source/run_prefill_trials.py \
 
 يعرض التقرير كل المحاولات، حتى المتوقفة. وقت المحاولة المتوقفة لا يمثل
 وقت إنجاز السؤال، وذاكرة swap على مستوى الجهاز تشمل التطبيقات الأخرى.
+
+
+## القراءة الجزئية المحدودة وتجربة التشغيل المتتالي
+
+الاختيار الجديد `--prefetch-prefix-mib 64` يحتفظ بمقدمة لا تتجاوز
+64 ميبيبايت من الطبقة التالية عند استعمال `--prefetch-layers 1`. تُقرأ
+بقية الأوزان وتُحوّل إلى مصفوفات BF16 في المسار الرئيسي، موترًا واحدًا
+في كل مرة. استعمل `--io-mode raw-cached`. الجمع مع
+`--prefetch-layers 0` يعطي المقارنة المتسلسلة المطابقة دون قارئ خلفي.
+القيمة صفر لمقدمة القراءة تبقي طريقة الطبقة الكاملة السابقة.
+
+هذا حد لمقدمة القراءة فقط؛ ذاكرة الأوزان الحالية ونسخ البناء وKV
+والبرنامج لا تدخل في هذا الحد. لا تفترض أن استهلاك البرنامج 64 ميبيبايت
+أو أن القراءة الجزئية أسرع. الافتراضي لا يزال التحميل الأصلي `native`.
+
+لإعادة تجربة 14B المثبتة، اختر مجلد نتائج جديدًا:
+
+```sh
+python results/original-prefix-read-ahead-trials-v1/source/run_prefill_trials.py \
+  --model /absolute/local/qwen3-14b-original \
+  --manifest results/original-prefix-read-ahead-trials-v1/manifest.json \
+  --protocol results/original-prefix-read-ahead-trials-v1/protocol.json \
+  --output /absolute/local/new-prefix-study
+```
+
+ولإعادة السؤال نفسه مرتين على نسخة 70B المضغوطة الموجودة محليًا:
+
+```sh
+python tools/run_large_model_cache_pair.py \
+  --runtime /absolute/local/llama-completion \
+  --model /absolute/local/Llama-3.3-70B-Instruct-IQ2_XXS.gguf \
+  --manifest models/llama70b.json \
+  --output /absolute/local/new-consecutive-pair
+```
+
+استعمل `llama-completion` من الإصدار المثبت، لأن `llama-cli` رفض أحد
+خيارات هذا البروتوكول قبل حساب النموذج. تتحقق الأداة من البصمة مرة
+واحدة قبل التشغيل الأول، ثم تبدأ عملية مستقلة ثانية دون إعادة قراءة
+الملف كاملًا أو مسح ذاكرة النظام. فحص هوية الملف بين العمليتين يقرأ
+البيانات الوصفية فقط. لا تستعمل العملية الثانية KV من الأولى.
+
+الأداة تقيس أول نص خرج على الشاشة، بما فيه وقت بدء البرنامج والحساب،
+ولا تقيس لحظة أول token بدقة مكتبة داخلية. القراءة للتحقق قبل العملية
+الأولى قد تدفئ ذاكرة الملفات، لذلك ليست هذه مقارنة قرص بارد وساخن.
+تبقى حواجز الضغط والإيقاف فعالة، وتبقى الملفات والنتائج المتوقفة محفوظة.

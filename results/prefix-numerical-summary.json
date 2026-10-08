@@ -1,0 +1,45 @@
+{
+  "source_sha256": {
+    "run_direct_original.py": "1c9c47dd8a872b112b86742bc10d5eaae295c4322f07274c5ec429c5cefa51fc",
+    "direct_original_engine.py": "02baaf0bcd265c5f4a5c28343cb007879d579d787def15e67df0c08143599e53",
+    "original_tensor_store.py": "1df2db6290fdf5fd4d74f66ed8b67d09499bd9713e0b1488aa7ef3d12c7ec9cc",
+    "run_prefill_trials.py": "62ee74a7c44e83c4f7aeb933f1da480bbf6d28b81332a4250ffb064bd85b07fe"
+  },
+  "sources_match_frozen_14b_trials": true,
+  "checkout_layout": "Source copies restored byte-for-byte in tools/, with pinned models/budgeted-engine-protocol.json for original short reference.",
+  "audits": [
+    {
+      "report": "prefix8-numerical-v1/report.json",
+      "prefetch_layers": 1,
+      "prefix_mib": 8,
+      "comparisons": 48,
+      "all_greedy_and_fixed_tolerance_passed": true,
+      "exact_score_comparisons": 42,
+      "maximum_absolute_score_difference": 0.0625
+    },
+    {
+      "report": "prefix64-long-numerical-mode0-v1/report.json",
+      "prefetch_layers": 0,
+      "prefix_mib": 64,
+      "comparisons": 6,
+      "all_greedy_and_fixed_tolerance_passed": true,
+      "exact_score_comparisons": 6,
+      "maximum_absolute_score_difference": 0.0
+    },
+    {
+      "report": "prefix64-long-numerical-mode1-v1/report.json",
+      "prefetch_layers": 1,
+      "prefix_mib": 64,
+      "comparisons": 6,
+      "all_greedy_and_fixed_tolerance_passed": true,
+      "exact_score_comparisons": 6,
+      "maximum_absolute_score_difference": 0.0
+    }
+  ],
+  "comparison_count": 60,
+  "limitations": [
+    "0.6B score checks do not validate all 14B logits.",
+    "8 MiB prefix actually splits a 0.6B layer; 64 MiB fits its entire layer.",
+    "Fixed tolerance not relaxed."
+  ]
+}
