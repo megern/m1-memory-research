@@ -1,0 +1,206 @@
+{
+  "completed_cells": 16,
+  "seeds": [
+    23,
+    41
+  ],
+  "case_count": 128,
+  "spam_case_count": 13,
+  "report_identities": {
+    "seed41-n480-lr0.0002-a4": {
+      "path": "seed41-n480-lr0.0002-a4-valid-retry.json",
+      "sha256": "e3f98cbf3ba251a5d54810632878e1790267ce749c723daa97be0eebe421a3fe"
+    },
+    "seed23-n480-lr0.0002-a4": {
+      "path": "seed23-n480-lr0.0002-a4-valid.json",
+      "sha256": "3ee045a1ce3a2eda9d6f9ec84600948c5cf8147aea75387c39ef55067b2662b5"
+    },
+    "seed41-n480-lr0.0002-a1": {
+      "path": "seed41-n480-lr0.0002-a1-valid.json",
+      "sha256": "bf6aa5faee70e8e55c3260121c998e2a142b4a54a360d77299dd33585e88ac3e"
+    },
+    "seed41-n480-lr0.0001-a4": {
+      "path": "seed41-n480-lr0.0001-a4-valid.json",
+      "sha256": "1d45d6c8e64bcedbd3cda554dd14bb195f46c22ff353f8e4865c8c63c602ee51"
+    },
+    "seed23-n120-lr0.0001-a4": {
+      "path": "seed23-n120-lr0.0001-a4-valid.json",
+      "sha256": "fa5250abbf577adfd5e2f61907e82cf1bb9c227e32386bc1617d3bf92ac3a84c"
+    },
+    "seed41-n120-lr0.0001-a1": {
+      "path": "seed41-n120-lr0.0001-a1-valid.json",
+      "sha256": "49754f630218768a7dd6883f830aabb29e4ea9ac6b042f2f6962ecdb1b918687"
+    },
+    "seed23-n120-lr0.0002-a1": {
+      "path": "seed23-n120-lr0.0002-a1-valid.json",
+      "sha256": "09f035fc8db5bb9318a3e6b220626a393730669a8ede68ee53c548009b46f1b4"
+    },
+    "seed41-n120-lr0.0001-a4": {
+      "path": "seed41-n120-lr0.0001-a4-valid.json",
+      "sha256": "a9025f95eda6d33686dba378bf75fa9cda7b020ee16911da2e578dd913c82487"
+    },
+    "seed23-n480-lr0.0002-a1": {
+      "path": "seed23-n480-lr0.0002-a1-valid.json",
+      "sha256": "6ddf7dbfe2641549ed1eba540ab6792f1b1e3abad1768af731fb38ec64c56796"
+    },
+    "seed23-n480-lr0.0001-a4": {
+      "path": "seed23-n480-lr0.0001-a4-valid.json",
+      "sha256": "4d1e0d079e1414284896db1a7fe187d1b8f07085eecfb8d6d13f8f336bf183f7"
+    },
+    "seed23-n480-lr0.0001-a1": {
+      "path": "seed23-n480-lr0.0001-a1-valid.json",
+      "sha256": "a648c5accc867f7faebbf20951285bd4a4d12b4d95db04880be4135ca45e8b5f"
+    },
+    "seed23-n120-lr0.0001-a1": {
+      "path": "seed23-n120-lr0.0001-a1-valid.json",
+      "sha256": "899f821f9030f262bf354e7b3ae65adec4eca15ed96ece6aa8c2b53b304d3a24"
+    },
+    "seed41-n480-lr0.0001-a1": {
+      "path": "seed41-n480-lr0.0001-a1-valid.json",
+      "sha256": "b7c2b17155507b0edaa6926a806295f9e6ccba2b0496b2e6cd89267bda559dc9"
+    },
+    "seed41-n120-lr0.0002-a1": {
+      "path": "seed41-n120-lr0.0002-a1-valid.json",
+      "sha256": "f88a7e71eb3295215b35337a5d25adc9faa0ca1b7eb0329f165e46f34b0ab98b"
+    },
+    "seed23-n120-lr0.0002-a4": {
+      "path": "seed23-n120-lr0.0002-a4-valid.json",
+      "sha256": "80d248e02c9b58a9a30002cfee6e8401294b1efd7c9aec22f889e5457d5ff44a"
+    },
+    "seed41-n120-lr0.0002-a4": {
+      "path": "seed41-n120-lr0.0002-a4-valid.json",
+      "sha256": "4ee6c09e83ec9ff08e268d389d9c29fed0b76c910fb62405cad9f353633ecf76"
+    }
+  },
+  "analysis_source_sha256": "a33e0c0445ef31dedd5af8405117f66756db653296f28aa6b72b971ac364f26e",
+  "protocol_sha256": "c0160ac9f7e3331621dd45062e1fc020fc959b2dedcb20c9d939e1f92efcbc4b",
+  "contrasts": {
+    "seed23:iterations": {
+      "point": 0.27047564181360007,
+      "conditional_paired_case_ci95": [
+        0.22678628328051254,
+        0.3201306489770984
+      ]
+    },
+    "seed23:learning_rate": {
+      "point": -0.2762182541455185,
+      "conditional_paired_case_ci95": [
+        -0.3220395723800147,
+        -0.22476415389152057
+      ]
+    },
+    "seed23:gradient_accumulation_steps": {
+      "point": -0.0440088135288034,
+      "conditional_paired_case_ci95": [
+        -0.09003477038571177,
+        0.000878764904602034
+      ]
+    },
+    "seed23:iterations x learning_rate": {
+      "point": 0.4047348008266262,
+      "conditional_paired_case_ci95": [
+        0.3108026581120769,
+        0.49969091560820267
+      ]
+    },
+    "seed23:iterations x gradient_accumulation_steps": {
+      "point": 0.21875666043802905,
+      "conditional_paired_case_ci95": [
+        0.135896898177717,
+        0.30015554549455964
+      ]
+    },
+    "seed23:learning_rate x gradient_accumulation_steps": {
+      "point": -0.24376353610399587,
+      "conditional_paired_case_ci95": [
+        -0.32276864370491526,
+        -0.1627158769695538
+      ]
+    },
+    "seed41:iterations": {
+      "point": 0.13484947904543731,
+      "conditional_paired_case_ci95": [
+        0.07906709964748149,
+        0.19345063124029638
+      ]
+    },
+    "seed41:learning_rate": {
+      "point": 0.06520010709369907,
+      "conditional_paired_case_ci95": [
+        0.023248264253814373,
+        0.10881286945080913
+      ]
+    },
+    "seed41:gradient_accumulation_steps": {
+      "point": -0.09122581567095074,
+      "conditional_paired_case_ci95": [
+        -0.14542127244899627,
+        -0.04368574310008557
+      ]
+    },
+    "seed41:iterations x learning_rate": {
+      "point": -0.25851883024296185,
+      "conditional_paired_case_ci95": [
+        -0.3367473080961063,
+        -0.17211868231252306
+      ]
+    },
+    "seed41:iterations x gradient_accumulation_steps": {
+      "point": 0.22997445655920437,
+      "conditional_paired_case_ci95": [
+        0.15331490491284075,
+        0.319640397407044
+      ]
+    },
+    "seed41:learning_rate x gradient_accumulation_steps": {
+      "point": 0.39238440080622583,
+      "conditional_paired_case_ci95": [
+        0.27630316553663964,
+        0.49717899752822176
+      ]
+    },
+    "two_seed_mean:iterations": {
+      "point": 0.2026625604295187,
+      "conditional_paired_case_ci95": [
+        0.16338475163942312,
+        0.2466902894959786
+      ]
+    },
+    "two_seed_mean:learning_rate": {
+      "point": -0.10550907352590971,
+      "conditional_paired_case_ci95": [
+        -0.1355423827794909,
+        -0.07530842115894709
+      ]
+    },
+    "two_seed_mean:gradient_accumulation_steps": {
+      "point": -0.06761731459987708,
+      "conditional_paired_case_ci95": [
+        -0.10726868040762721,
+        -0.031729841711565454
+      ]
+    },
+    "two_seed_mean:iterations x learning_rate": {
+      "point": 0.07310798529183217,
+      "conditional_paired_case_ci95": [
+        0.02496625079475434,
+        0.12367433649629644
+      ]
+    },
+    "two_seed_mean:iterations x gradient_accumulation_steps": {
+      "point": 0.22436555849861672,
+      "conditional_paired_case_ci95": [
+        0.15939644810847808,
+        0.2882266887453077
+      ]
+    },
+    "two_seed_mean:learning_rate x gradient_accumulation_steps": {
+      "point": 0.074310432351115,
+      "conditional_paired_case_ci95": [
+        0.016896771586300773,
+        0.13042081626237897
+      ]
+    }
+  },
+  "scope": "Confirmation on two additional fixed seeds of the same reused validation corpus. Post-run descriptive shared stratified case bootstrap, 2000 resamples seed 8062. Conditional on fixed models; intervals exclude population seed uncertainty. No multiplicity correction, significance claim, unseen test scoring or best-model selection. Two-seed mean is not a guarantee for another seed/domain. Historical models are quality controls, not controlled timing comparisons."
+}

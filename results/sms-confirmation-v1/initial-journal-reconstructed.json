@@ -1,0 +1,20 @@
+{
+  "seed41-n480-lr0.0002-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 563511296,
+    "elapsed_seconds": 130.32856720802374,
+    "system_swap_growth_bytes": -184549376,
+    "log": "seed41-n480-lr0.0002-a4-train.log",
+    "adapter_sha256": "a359d05f86bc70bda7c5b87193f1c843e4107d7945716c12ba846114da6b3a77",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n480-lr0.0002-a4-adapter"
+  },
+  "seed41-n480-lr0.0002-a4-valid": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 1536 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 1208205312,
+    "elapsed_seconds": 11.937577875098214,
+    "system_swap_growth_bytes": 1687552000,
+    "log": "seed41-n480-lr0.0002-a4-valid.log"
+  }
+}

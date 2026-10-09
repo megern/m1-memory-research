@@ -1,0 +1,146 @@
+{
+  "status": "planned_not_executed",
+  "cells": [
+    {
+      "id": "seed23-n120-lr0.0001-a1",
+      "seed": 23,
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed23-n120-lr0.0001-a4",
+      "seed": 23,
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 30
+    },
+    {
+      "id": "seed23-n120-lr0.0002-a1",
+      "seed": 23,
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed23-n120-lr0.0002-a4",
+      "seed": 23,
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 30
+    },
+    {
+      "id": "seed23-n480-lr0.0001-a1",
+      "seed": 23,
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 480
+    },
+    {
+      "id": "seed23-n480-lr0.0001-a4",
+      "seed": 23,
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed23-n480-lr0.0002-a1",
+      "seed": 23,
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 480
+    },
+    {
+      "id": "seed23-n480-lr0.0002-a4",
+      "seed": 23,
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed41-n120-lr0.0001-a1",
+      "seed": 41,
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed41-n120-lr0.0001-a4",
+      "seed": 41,
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 30
+    },
+    {
+      "id": "seed41-n120-lr0.0002-a1",
+      "seed": 41,
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed41-n120-lr0.0002-a4",
+      "seed": 41,
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 30
+    },
+    {
+      "id": "seed41-n480-lr0.0001-a1",
+      "seed": 41,
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 480
+    },
+    {
+      "id": "seed41-n480-lr0.0001-a4",
+      "seed": 41,
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 120
+    },
+    {
+      "id": "seed41-n480-lr0.0002-a1",
+      "seed": 41,
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "optimizer_updates": 480
+    },
+    {
+      "id": "seed41-n480-lr0.0002-a4",
+      "seed": 41,
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "optimizer_updates": 120
+    }
+  ],
+  "split": "valid",
+  "test_evaluation": false,
+  "primary": "Macro-F1; average factorial contrasts separately per seed, then report both seed contrasts and their mean",
+  "selection": "All 16 cells retained; no best model selection; no replacing failures with more favorable runs",
+  "limitations": "Validation has been reused. This confirms seed sensitivity on this corpus, not unseen-domain generalization. Two additional seeds are not adequate for broad seed-population inference. Accumulation changes optimizer-update count at fixed exposure.",
+  "guards": {
+    "process_rss_bytes": 6442450944,
+    "mlx_allocation_bytes": 4294967296,
+    "system_swap_growth_bytes": 1610612736,
+    "minimum_available_bytes": 536870912,
+    "timeout_seconds": 900
+  },
+  "source_sha256": "caffb406e8e77bec9927b6924e55924be2ad16443097052b1342a07106b5e08b"
+}

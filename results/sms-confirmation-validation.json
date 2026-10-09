@@ -1,0 +1,17 @@
+{
+  "planned_cells": 16,
+  "completed_validation_cells": 16,
+  "new_final_lora_adapters": 12,
+  "historical_controls": 4,
+  "base": "Qwen/Qwen3-0.6B original BF16",
+  "local_compute_only": true,
+  "test_evaluated": false,
+  "best_model_selected": false,
+  "unit_tests_passed": 78,
+  "partial_initial_validation_cases": 75,
+  "one_unchanged_continuation": true,
+  "weights_uploaded": false,
+  "raw_sms_uploaded": false,
+  "linkedin_posts_or_replies": false,
+  "scope": "Same reused validation corpus, two additional fixed seeds. No seed-population, unseen-domain or novel-algorithm claim."
+}

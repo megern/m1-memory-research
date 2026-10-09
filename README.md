@@ -6,6 +6,20 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## v0.11.0: completed multi-seed confirmation
+
+The prospectively saved 16-cell validation-only design now completed for seeds **23 and 41**, adding **12 locally trained LoRA adapters** and reusing four hash-verified historical controls. With the earlier seed-17 pilot, there are 24 completed policy evaluations across three fixed seeds, all on the **same 128 validation messages, including 13 spam**. This is not 3,072 independent messages. The original base is BF16 Qwen3-0.6B; no quantization, cloud compute, exposed-test scoring, best-model selection or reversing-specialist transfer was used.
+
+| Policy contrast | Seed 23, pp | Seed 41, pp | Two-seed mean, pp [conditional case 95% interval] |
+| --- | ---: | ---: | ---: |
+| 120 → 480 microbatches | +27.05 | +13.48 | +20.27 [+16.34, +24.67] |
+| Learning rate 0.0001 → 0.0002 | -27.62 | +6.52 | -10.55 [-13.55, -7.53] |
+| Accumulation 1 → 4 | -4.40 | -9.12 | -6.76 [-10.73, -3.17] |
+
+**The learning-rate direction reverses between seeds.** The earlier single-seed result cannot justify a universally preferred learning rate. More exposure had a positive contrast in each of these three fixed seeds (+10.25, +27.05, +13.48 pp), but this remains corpus- and policy-specific. Accumulation has interactions and changes the optimizer-update count; it is not a universal quality improvement. The two-seed average hides substantial individual-seed differences, so both are reported.
+
+The [complete reports and descriptive paired analysis](results/sms-confirmation-v1/confirmation-analysis.json), [working study](papers/sms-multiseed-confirmation-study.txt), [figure](figures/sms-multiseed-confirmation.png) and [Arabic reproduction guide](PUBLIC_SMS_GUIDE.md) preserve all cells. One initial validation job stopped at the unchanged system-swap guard; one disclosed continuation retained that partial report and reused the completed checkpoint. No completed result was retried for a better score. Weights and raw SMS remain local. Confidence intervals are post-run descriptive, conditional on the fixed models and reused cases; they exclude population seed uncertainty and use no multiplicity correction. No unseen-domain improvement or novel algorithm is established. Earlier independent-test results are unchanged. The local suite passed **78 tests**, including paired-vector contrast cancellation, incomplete design rejection and public artifact/source audits. LinkedIn publication and replies remain withheld.
+
 ## v0.10.0: validation-only factorial pilot
 
 The earlier matched gain changed training exposure, learning rate and accumulation together. A [complete 2×2×2 pilot](papers/sms-factorial-pilot-study.txt) now varies 120/480 microbatches, 0.0001/0.0002 learning rate, and accumulation 1/4, holding seed 17 and all other training settings fixed. Six new final adapters were trained locally; two verified historical adapters were reused as quality controls. All eight 128-case validation evaluations completed after one disclosed pressure-stop continuation. **No new test scores or best-model selection** were used.

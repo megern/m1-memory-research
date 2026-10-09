@@ -1,0 +1,274 @@
+{
+  "seed41-n480-lr0.0002-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 563511296,
+    "elapsed_seconds": 130.32856720802374,
+    "system_swap_growth_bytes": -184549376,
+    "log": "seed41-n480-lr0.0002-a4-train.log",
+    "adapter_sha256": "a359d05f86bc70bda7c5b87193f1c843e4107d7945716c12ba846114da6b3a77",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n480-lr0.0002-a4-adapter"
+  },
+  "seed41-n480-lr0.0002-a4-valid": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 1536 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 1208205312,
+    "elapsed_seconds": 11.937577875098214,
+    "system_swap_growth_bytes": 1687552000,
+    "log": "seed41-n480-lr0.0002-a4-valid.log"
+  },
+  "seed41-n480-lr0.0002-a4-valid-retry": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 813514752,
+    "elapsed_seconds": 16.937398666050285,
+    "system_swap_growth_bytes": 259981312,
+    "log": "seed41-n480-lr0.0002-a4-valid-retry.log"
+  },
+  "seed23-n480-lr0.0002-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1592623104,
+    "elapsed_seconds": 129.0221499169711,
+    "system_swap_growth_bytes": -75497472,
+    "log": "seed23-n480-lr0.0002-a4-train.log",
+    "adapter_sha256": "79f399cf50f3c89789e2cd2a080c88b4d13c082e13035ec1d752d86e3610daff",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n480-lr0.0002-a4-adapter"
+  },
+  "seed23-n480-lr0.0002-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 742047744,
+    "elapsed_seconds": 17.03240962512791,
+    "system_swap_growth_bytes": 175439872,
+    "log": "seed23-n480-lr0.0002-a4-valid.log"
+  },
+  "seed41-n480-lr0.0002-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1566736384,
+    "elapsed_seconds": 128.9420919159893,
+    "system_swap_growth_bytes": -67108864,
+    "log": "seed41-n480-lr0.0002-a1-train.log",
+    "adapter_sha256": "63193a749fd21942b69e7d2521bf5b2e2b9da89b8f969aa373d0dfe009df0533",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n480-lr0.0002-a1-adapter"
+  },
+  "seed41-n480-lr0.0002-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1465892864,
+    "elapsed_seconds": 17.011813041986898,
+    "system_swap_growth_bytes": -16777216,
+    "log": "seed41-n480-lr0.0002-a1-valid.log"
+  },
+  "seed41-n480-lr0.0001-a4-train": {
+    "reused_historical_control": true,
+    "adapter_sha256": "401b9784c2bbff47e9342b295f25a937fb10ee83f95c5d81f905306381270c8e"
+  },
+  "seed41-n480-lr0.0001-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1563344896,
+    "elapsed_seconds": 16.6436452078633,
+    "system_swap_growth_bytes": 219152384,
+    "log": "seed41-n480-lr0.0001-a4-valid.log"
+  },
+  "seed23-n120-lr0.0001-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1588232192,
+    "elapsed_seconds": 36.25420862482861,
+    "system_swap_growth_bytes": -16777216,
+    "log": "seed23-n120-lr0.0001-a4-train.log",
+    "adapter_sha256": "1ddc38747f0aca668051bcb8b739b1af60c6116cc86f84fb6e047ac852092c8e",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n120-lr0.0001-a4-adapter"
+  },
+  "seed23-n120-lr0.0001-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1566113792,
+    "elapsed_seconds": 16.621974124806002,
+    "system_swap_growth_bytes": -8388608,
+    "log": "seed23-n120-lr0.0001-a4-valid.log"
+  },
+  "seed41-n120-lr0.0001-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1558560768,
+    "elapsed_seconds": 36.81345145800151,
+    "system_swap_growth_bytes": -8388608,
+    "log": "seed41-n120-lr0.0001-a1-train.log",
+    "adapter_sha256": "f0f05cd5ea4fc0d331351d6b6261286d3c563d672ed25fcbf39af0d228280c26",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n120-lr0.0001-a1-adapter"
+  },
+  "seed41-n120-lr0.0001-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1559035904,
+    "elapsed_seconds": 16.56241345894523,
+    "system_swap_growth_bytes": 260177920,
+    "log": "seed41-n120-lr0.0001-a1-valid.log"
+  },
+  "seed23-n120-lr0.0002-a1-train": {
+    "reused_historical_control": true,
+    "adapter_sha256": "0b50eee2f06d6b2f79670d77f164b6a8692c50e2176cfd6dd8709cc2eb273266"
+  },
+  "seed23-n120-lr0.0002-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1546076160,
+    "elapsed_seconds": 16.560671541839838,
+    "system_swap_growth_bytes": 63176704,
+    "log": "seed23-n120-lr0.0002-a1-valid.log"
+  },
+  "seed41-n120-lr0.0001-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1591902208,
+    "elapsed_seconds": 38.448821750003844,
+    "system_swap_growth_bytes": -58720256,
+    "log": "seed41-n120-lr0.0001-a4-train.log",
+    "adapter_sha256": "0131a96988ba254b6e262bd7911cf019deab5c399d14071659b4cf9df3470e17",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n120-lr0.0001-a4-adapter"
+  },
+  "seed41-n120-lr0.0001-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1490599936,
+    "elapsed_seconds": 17.55531791690737,
+    "system_swap_growth_bytes": -76742656,
+    "log": "seed41-n120-lr0.0001-a4-valid.log"
+  },
+  "seed23-n480-lr0.0002-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1565868032,
+    "elapsed_seconds": 135.95322641707025,
+    "system_swap_growth_bytes": -209715200,
+    "log": "seed23-n480-lr0.0002-a1-train.log",
+    "adapter_sha256": "5fc69e88b93650fc877432484281ab1048304970300a2c9a74efd782af577cf4",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n480-lr0.0002-a1-adapter"
+  },
+  "seed23-n480-lr0.0002-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1318027264,
+    "elapsed_seconds": 18.090212624985725,
+    "system_swap_growth_bytes": 147914752,
+    "log": "seed23-n480-lr0.0002-a1-valid.log"
+  },
+  "seed23-n480-lr0.0001-a4-train": {
+    "reused_historical_control": true,
+    "adapter_sha256": "1c2549417544e3801834682d97aa8b3ee2fd810cfc5c3776a8f24697404f7987"
+  },
+  "seed23-n480-lr0.0001-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1536442368,
+    "elapsed_seconds": 17.057666749926284,
+    "system_swap_growth_bytes": -70189056,
+    "log": "seed23-n480-lr0.0001-a4-valid.log"
+  },
+  "seed23-n480-lr0.0001-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1562132480,
+    "elapsed_seconds": 135.03435737499967,
+    "system_swap_growth_bytes": -260046848,
+    "log": "seed23-n480-lr0.0001-a1-train.log",
+    "adapter_sha256": "e770298dce999abc636b0f78cf5bcadf371e3741bbce0dfeab0a79d44a4b0de3",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n480-lr0.0001-a1-adapter"
+  },
+  "seed23-n480-lr0.0001-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1314734080,
+    "elapsed_seconds": 17.52361883292906,
+    "system_swap_growth_bytes": 372310016,
+    "log": "seed23-n480-lr0.0001-a1-valid.log"
+  },
+  "seed23-n120-lr0.0001-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1559609344,
+    "elapsed_seconds": 37.86195245780982,
+    "system_swap_growth_bytes": -16777216,
+    "log": "seed23-n120-lr0.0001-a1-train.log",
+    "adapter_sha256": "5b1727e02e8acdc48d54ddb165eb9699dea4684fed8868d8eed3d56935632a94",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n120-lr0.0001-a1-adapter"
+  },
+  "seed23-n120-lr0.0001-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1563000832,
+    "elapsed_seconds": 17.559377250028774,
+    "system_swap_growth_bytes": 155975680,
+    "log": "seed23-n120-lr0.0001-a1-valid.log"
+  },
+  "seed41-n480-lr0.0001-a1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1566818304,
+    "elapsed_seconds": 136.14032049989328,
+    "system_swap_growth_bytes": -176160768,
+    "log": "seed41-n480-lr0.0001-a1-train.log",
+    "adapter_sha256": "dc671a848e3446142aa87d81207f0eb58245431cdbfec57135e26517d246a545",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n480-lr0.0001-a1-adapter"
+  },
+  "seed41-n480-lr0.0001-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1383366656,
+    "elapsed_seconds": 18.091988875065,
+    "system_swap_growth_bytes": 102563840,
+    "log": "seed41-n480-lr0.0001-a1-valid.log"
+  },
+  "seed41-n120-lr0.0002-a1-train": {
+    "reused_historical_control": true,
+    "adapter_sha256": "84b3af4af73dc3e4afb4f003302931561a1c2f110fc705095d85cde5b8d0e371"
+  },
+  "seed41-n120-lr0.0002-a1-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1536311296,
+    "elapsed_seconds": 17.06804275000468,
+    "system_swap_growth_bytes": 0,
+    "log": "seed41-n120-lr0.0002-a1-valid.log"
+  },
+  "seed23-n120-lr0.0002-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1588576256,
+    "elapsed_seconds": 38.33233629190363,
+    "system_swap_growth_bytes": -41943040,
+    "log": "seed23-n120-lr0.0002-a4-train.log",
+    "adapter_sha256": "1e77678e8c8e8c2b7ddb9d27be9f84c7400af006bf32617f33b6024c60e3b3fa",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed23-n120-lr0.0002-a4-adapter"
+  },
+  "seed23-n120-lr0.0002-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1535508480,
+    "elapsed_seconds": 17.00751466699876,
+    "system_swap_growth_bytes": 0,
+    "log": "seed23-n120-lr0.0002-a4-valid.log"
+  },
+  "seed41-n120-lr0.0002-a4-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1591803904,
+    "elapsed_seconds": 38.81590299983509,
+    "system_swap_growth_bytes": -16777216,
+    "log": "seed41-n120-lr0.0002-a4-train.log",
+    "adapter_sha256": "7f39534fe517c09beab83aa40e308c4bfd18104a144cca2719afdf413481bade",
+    "adapter_path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/sms-confirmation-v1/seed41-n120-lr0.0002-a4-adapter"
+  },
+  "seed41-n120-lr0.0002-a4-valid": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 1502347264,
+    "elapsed_seconds": 17.538745832862332,
+    "system_swap_growth_bytes": -1507328,
+    "log": "seed41-n120-lr0.0002-a4-valid.log"
+  }
+}

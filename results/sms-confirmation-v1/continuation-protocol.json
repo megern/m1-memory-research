@@ -1,0 +1,5 @@
+{
+  "created_at_unix": 1791550575.192621,
+  "rule": "One unchanged continuation after guard stop; preserve partial reports, no favorable replacement of completed outcomes",
+  "initial_journal_sha256": "180901a248cfcfa6f99f08b5a3a30e64c9eba908fa08ee62404e281a17826d7c"
+}

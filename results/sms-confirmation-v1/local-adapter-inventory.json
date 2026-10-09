@@ -1,0 +1,78 @@
+{
+  "weights_uploaded": false,
+  "scope": "Post-run inventory; earlier evaluator hashes where present provide the evaluation-time identity. A stopped run final-weight filename does not imply completed final training.",
+  "adapters": {
+    "seed23-n120-lr0.0001-a1-adapter": {
+      "sha256": "5b1727e02e8acdc48d54ddb165eb9699dea4684fed8868d8eed3d56935632a94",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed23-n120-lr0.0001-a4-adapter": {
+      "sha256": "1ddc38747f0aca668051bcb8b739b1af60c6116cc86f84fb6e047ac852092c8e",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed23-n120-lr0.0002-a4-adapter": {
+      "sha256": "1e77678e8c8e8c2b7ddb9d27be9f84c7400af006bf32617f33b6024c60e3b3fa",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed23-n480-lr0.0001-a1-adapter": {
+      "sha256": "e770298dce999abc636b0f78cf5bcadf371e3741bbce0dfeab0a79d44a4b0de3",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed23-n480-lr0.0002-a1-adapter": {
+      "sha256": "5fc69e88b93650fc877432484281ab1048304970300a2c9a74efd782af577cf4",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed23-n480-lr0.0002-a4-adapter": {
+      "sha256": "79f399cf50f3c89789e2cd2a080c88b4d13c082e13035ec1d752d86e3610daff",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n120-lr0.0001-a1-adapter": {
+      "sha256": "f0f05cd5ea4fc0d331351d6b6261286d3c563d672ed25fcbf39af0d228280c26",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n120-lr0.0001-a4-adapter": {
+      "sha256": "0131a96988ba254b6e262bd7911cf019deab5c399d14071659b4cf9df3470e17",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n120-lr0.0002-a4-adapter": {
+      "sha256": "7f39534fe517c09beab83aa40e308c4bfd18104a144cca2719afdf413481bade",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n480-lr0.0001-a1-adapter": {
+      "sha256": "dc671a848e3446142aa87d81207f0eb58245431cdbfec57135e26517d246a545",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n480-lr0.0002-a1-adapter": {
+      "sha256": "63193a749fd21942b69e7d2521bf5b2e2b9da89b8f969aa373d0dfe009df0533",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "seed41-n480-lr0.0002-a4-adapter": {
+      "sha256": "a359d05f86bc70bda7c5b87193f1c843e4107d7945716c12ba846114da6b3a77",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    }
+  }
+}

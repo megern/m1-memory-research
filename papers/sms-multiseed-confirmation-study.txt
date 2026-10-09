@@ -1,0 +1,30 @@
+Local BF16 SMS adaptation: fixed-design confirmation across two additional seeds
+Author: Megern Qaisse
+Client date: 2026-10-09
+Status: working development study, not peer reviewed
+
+Question
+Does the single-seed factorial behavior persist for seeds 23 and 41 under the same policies and reused validation data?
+
+Protocol
+The saved plan predates all new jobs. It fixes 16 cells: 120/480 microbatches, learning rates 0.0001/0.0002, accumulation 1/4, seeds 23/41. Job order is shuffled with frozen seed 20261010. Model and tokenizer hashes, dataset splits, training/evaluation sources, historical configuration identities and control weight hashes are recorded before execution. Four historical adapters are reused as quality controls; 12 additional final adapters train locally using original BF16 Qwen3-0.6B, 16 q/v LoRA layers, rank 8, 655,360 trainable parameters, prompt masking and fixed final-checkpoint selection. Each adapter is 2,628,325 bytes. No quantization or cloud compute is used.
+
+Cases and scope
+Train remains 512 representatives and validation 128 representatives, including 13 spam. All reports use the same ordered validation identities. Sixteen evaluations are not 2,048 independent observations. Including the pilot yields 24 policy evaluations on these same cases, not 3,072 independent messages. There is no test scoring or best-policy selection in this confirmation. Earlier exposed and fresh-test findings remain unchanged. Historical English UCI SMS, unknown pretraining contamination and restricted next-token classification limit transfer claims.
+
+Pressure and retention
+The first training completed. Its validation stopped at the unchanged whole-system swap-growth guard after 75 cases. One disclosed unchanged continuation preserved the incomplete report and evaluated the completed checkpoint in a separate retry file. All remaining jobs completed. The guard is 6 GiB sampled process-tree RSS, 4 GiB MLX allocation, 1536 MiB whole-system swap growth, 512 MiB available-memory floor with five-second grace and 900-second per-child timeout. Swap is a shared-system metric, not causal attribution; accelerator allocations and RSS are separate measures. Historical and new-job timings are not a controlled timing experiment.
+
+Outcomes: Macro-F1 policy contrasts in percentage points
+| 120 → 480 microbatches | +27.05 | +13.48 | +20.27 [+16.34, +24.67] |
+| Learning rate 0.0001 → 0.0002 | -27.62 | +6.52 | -10.55 [-13.55, -7.53] |
+| Accumulation 1 → 4 | -4.40 | -9.12 | -6.76 [-10.73, -3.17] |
+
+Interpretation
+Exposure increased Macro-F1 in all three observed fixed seeds: pilot 17 +10.25, confirmation 23 +27.05 and 41 +13.48 percentage points. This observation does not guarantee improvement on other training lengths, seeds or domains. Learning-rate direction reverses between the two confirmation seeds; the two-seed mean must not hide that change. Accumulation has policy interactions and changes update count at fixed exposure. No universal accumulation benefit or pure gradient-noise mechanism is established.
+
+Uncertainty analysis
+A post-run descriptive analysis recomputes Macro-F1 from complete paired prediction vectors, checks matching labels/identities and split hashes, and records report/source digests. It uses 2,000 shared label-stratified case resamples with seed 8062. Contrasts are reported separately for each fixed seed and for the equally weighted two-seed mean. Intervals are conditional on these fixed models and cases; they exclude population seed uncertainty and have no multiplicity correction or significance claim. Two additional seeds and 13 spam validation cases provide limited evidence. The validation set has been repeatedly reused and cannot be relabeled as an independent holdout.
+
+Next requirement
+Independent-source/domain data and a prospectively frozen protocol are needed before any generalization claim. This phase establishes a completed local training/evaluation matrix and documents seed-dependent policy behavior, not a new algorithm, state-of-the-art claim, general chatbot improvement, reversing-specialist capability or original-70B training.
