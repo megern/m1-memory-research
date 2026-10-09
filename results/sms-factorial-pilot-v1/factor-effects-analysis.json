@@ -1,0 +1,123 @@
+{
+  "analysis_source_sha256": "927928ee4deadac4c3ebbcaed28b1ae2b156df97051363da9a817af4f862052c",
+  "validation_reports": {
+    "steps480-lr0.0001-acc1": "steps480-lr0.0001-acc1-valid-retry.json",
+    "steps480-lr0.0001-acc4": "steps480-lr0.0001-acc4-valid.json",
+    "steps120-lr0.0001-acc1": "steps120-lr0.0001-acc1-valid.json",
+    "steps120-lr0.0002-acc1": "steps120-lr0.0002-acc1-valid.json",
+    "steps120-lr0.0001-acc4": "steps120-lr0.0001-acc4-valid.json",
+    "steps480-lr0.0002-acc4": "steps480-lr0.0002-acc4-valid.json",
+    "steps480-lr0.0002-acc1": "steps480-lr0.0002-acc1-valid.json",
+    "steps120-lr0.0002-acc4": "steps120-lr0.0002-acc4-valid.json"
+  },
+  "cases": 128,
+  "spam_cases": 13,
+  "completed_cells": 8,
+  "seed": 17,
+  "contrasts": {
+    "iterations": {
+      "point": 0.10248706252220735,
+      "paired_case_ci95": [
+        0.057043378653584186,
+        0.1536835067437623
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": 0.25,
+        "steps480-lr0.0001-acc4": 0.25,
+        "steps120-lr0.0001-acc1": -0.25,
+        "steps120-lr0.0002-acc1": -0.25,
+        "steps120-lr0.0001-acc4": -0.25,
+        "steps480-lr0.0002-acc4": 0.25,
+        "steps480-lr0.0002-acc1": 0.25,
+        "steps120-lr0.0002-acc4": -0.25
+      }
+    },
+    "learning_rate": {
+      "point": -0.07295615528345756,
+      "paired_case_ci95": [
+        -0.13705364986914753,
+        -0.01952073489479836
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": -0.25,
+        "steps480-lr0.0001-acc4": -0.25,
+        "steps120-lr0.0001-acc1": -0.25,
+        "steps120-lr0.0002-acc1": 0.25,
+        "steps120-lr0.0001-acc4": -0.25,
+        "steps480-lr0.0002-acc4": 0.25,
+        "steps480-lr0.0002-acc1": 0.25,
+        "steps120-lr0.0002-acc4": 0.25
+      }
+    },
+    "gradient_accumulation_steps": {
+      "point": 0.004727025198413337,
+      "paired_case_ci95": [
+        -0.0554712699960389,
+        0.05896928408622001
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": -0.25,
+        "steps480-lr0.0001-acc4": 0.25,
+        "steps120-lr0.0001-acc1": -0.25,
+        "steps120-lr0.0002-acc1": -0.25,
+        "steps120-lr0.0001-acc4": 0.25,
+        "steps480-lr0.0002-acc4": 0.25,
+        "steps480-lr0.0002-acc1": -0.25,
+        "steps120-lr0.0002-acc4": 0.25
+      }
+    },
+    "iterations x learning_rate": {
+      "point": 0.09550982885242965,
+      "paired_case_ci95": [
+        0.0027129871214301676,
+        0.19536609929757445
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": -0.5,
+        "steps480-lr0.0001-acc4": -0.5,
+        "steps120-lr0.0001-acc1": 0.5,
+        "steps120-lr0.0002-acc1": -0.5,
+        "steps120-lr0.0001-acc4": 0.5,
+        "steps480-lr0.0002-acc4": 0.5,
+        "steps480-lr0.0002-acc1": 0.5,
+        "steps120-lr0.0002-acc4": -0.5
+      }
+    },
+    "iterations x gradient_accumulation_steps": {
+      "point": 0.11389657263161712,
+      "paired_case_ci95": [
+        0.0158603751192005,
+        0.22895979381638812
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": -0.5,
+        "steps480-lr0.0001-acc4": 0.5,
+        "steps120-lr0.0001-acc1": 0.5,
+        "steps120-lr0.0002-acc1": 0.5,
+        "steps120-lr0.0001-acc4": -0.5,
+        "steps480-lr0.0002-acc4": 0.5,
+        "steps480-lr0.0002-acc1": -0.5,
+        "steps120-lr0.0002-acc4": -0.5
+      }
+    },
+    "learning_rate x gradient_accumulation_steps": {
+      "point": -0.11626492932672972,
+      "paired_case_ci95": [
+        -0.21764410042261037,
+        -0.025602570219576695
+      ],
+      "weights": {
+        "steps480-lr0.0001-acc1": 0.5,
+        "steps480-lr0.0001-acc4": -0.5,
+        "steps120-lr0.0001-acc1": 0.5,
+        "steps120-lr0.0002-acc1": -0.5,
+        "steps120-lr0.0001-acc4": -0.5,
+        "steps480-lr0.0002-acc4": 0.5,
+        "steps480-lr0.0002-acc1": -0.5,
+        "steps120-lr0.0002-acc4": 0.5
+      }
+    }
+  },
+  "definitions": "Main: second level minus first averaged over other policies. Pair interaction: difference of one factor effect between levels of the other, averaged over the third. Units are Macro-F1, multiply by 100 for percentage points.",
+  "scope": "Descriptive post-run uncertainty analysis (source hash recorded), not preregistered significance testing; 2000 shared stratified case resamples seed 8062, percentile 95%, no multiplicity correction. Conditional on these policies and this one seed; no population seed uncertainty or unseen-test claim. Eight score vectors share 128 cases and are not independent samples. No best-model/checkpoint selection."
+}

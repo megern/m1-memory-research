@@ -1,0 +1,124 @@
+{
+  "planned_at_unix": 1791533017.4849448,
+  "client_date": "2026-10-09",
+  "question": "Which exposure, learning-rate and accumulation factors explain validation behavior? Pilot feasibility before multi-seed confirmation and independent held-out corpus.",
+  "design": "Balanced complete 2x2x2 factorial, one fixed seed (smallest prior seed), randomized job order; validation only.",
+  "cells": [
+    {
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "seed": 17,
+      "id": "steps480-lr0.0001-acc1",
+      "optimizer_updates": 480
+    },
+    {
+      "iterations": 480,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "seed": 17,
+      "id": "steps480-lr0.0001-acc4",
+      "optimizer_updates": 120
+    },
+    {
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 1,
+      "seed": 17,
+      "id": "steps120-lr0.0001-acc1",
+      "optimizer_updates": 120
+    },
+    {
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "seed": 17,
+      "id": "steps120-lr0.0002-acc1",
+      "optimizer_updates": 120
+    },
+    {
+      "iterations": 120,
+      "learning_rate": 0.0001,
+      "gradient_accumulation_steps": 4,
+      "seed": 17,
+      "id": "steps120-lr0.0001-acc4",
+      "optimizer_updates": 30
+    },
+    {
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "seed": 17,
+      "id": "steps480-lr0.0002-acc4",
+      "optimizer_updates": 120
+    },
+    {
+      "iterations": 480,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 1,
+      "seed": 17,
+      "id": "steps480-lr0.0002-acc1",
+      "optimizer_updates": 480
+    },
+    {
+      "iterations": 120,
+      "learning_rate": 0.0002,
+      "gradient_accumulation_steps": 4,
+      "seed": 17,
+      "id": "steps120-lr0.0002-acc4",
+      "optimizer_updates": 30
+    }
+  ],
+  "historical_controls": {
+    "old": {
+      "configuration": [
+        120,
+        0.0002,
+        1
+      ],
+      "path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/public-sms-study-v2/adapter-17",
+      "weight_sha256": "162d9f137cfa5dbfe5087acb422bd6dd8b9563f970e588855678865b9272780b"
+    },
+    "new": {
+      "configuration": [
+        480,
+        0.0001,
+        4
+      ],
+      "path": "/Users/a2/Documents/Codex/2026-10-07/new-chat/work/runs/public-sms-followup-v1/adapter-17",
+      "weight_sha256": "237b6e46f08fce7f360735f539ca83928731df36faa290fd0d321d6cbf50d0be"
+    }
+  },
+  "data_protocol_sha256": "c078f5e37cd6b4029dc35229eabcf0a540524f7cfbbe97aa1282da80a419e68e",
+  "splits_sha256": {
+    "test": "4fd39ebeea85af1825d2ccd191f1407e44a3d43cd2ca3fddf704d0b80bc3ee82",
+    "valid": "c05263caddf61e0b63d9943f6fd51df273cdbf7d6b459f71c61bb58614f4c2bc",
+    "train": "e6a17ad782da55157a3444227b29e02ac5aa14686b2c9168299c3cf51e687a92"
+  },
+  "verified_base_and_tokenizer": {
+    "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+    "model.safetensors": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+  },
+  "frozen_sources": {
+    "tools/run_sms_factorial_pilot.py": "e417d8a47a39eb67379c32c8a50b2b93d922c373eb968a178b09a18b3ef802f2",
+    "tools/train_specialist.py": "8daa2e9d340fdcce9a31e146f1036cffa2198316faf89156e75720e837a30178",
+    "tools/provenance.py": "48e28b3d0647311d836cc364906749fb63f411df3258bc2b1d7487d5ea3481ae",
+    "tools/public_sms_study.py": "fdde809470b884e5ee2dbf7a65e5ea4c242b568c79eb877e6e54387c680a09c0",
+    "models/qwen3-0.6b-original.json": "645e84f0e5d276998d58471b6fbb2a58d0832463f6d7efca6671bdcbe480dee6"
+  },
+  "guards": {
+    "process_tree_rss_gib": 6,
+    "whole_system_swap_growth_mib": 1536,
+    "available_memory_mib": 512,
+    "low_available_grace_seconds": 5,
+    "child_timeout_seconds": 900,
+    "mlx_allocation_gib": 4
+  },
+  "local_compute_only": true,
+  "test_evaluated": false,
+  "decision_rule": "No checkpoint/threshold/seed selection or scoring the exposed test. All complete and stopped cells retained. Validation conclusions are exploratory; future confirmation needs multiple seeds and a separate source/domain holdout."
+}

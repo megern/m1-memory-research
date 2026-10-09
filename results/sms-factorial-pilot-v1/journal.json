@@ -1,0 +1,18 @@
+{
+  "steps480-lr0.0001-acc1-train": {
+    "exit_code": 0,
+    "guard_stop": null,
+    "peak_process_tree_rss_bytes": 926154752,
+    "elapsed_seconds": 127.45045912498608,
+    "system_swap_growth_bytes": 418447360,
+    "log": "steps480-lr0.0001-acc1-train.log"
+  },
+  "steps480-lr0.0001-acc1-valid": {
+    "exit_code": -15,
+    "guard_stop": "whole-system swap growth above 1536 MiB (not causal attribution)",
+    "peak_process_tree_rss_bytes": 517881856,
+    "elapsed_seconds": 11.553010832984,
+    "system_swap_growth_bytes": 1646329856,
+    "log": "steps480-lr0.0001-acc1-valid.log"
+  }
+}

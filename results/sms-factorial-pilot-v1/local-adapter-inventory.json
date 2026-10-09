@@ -1,0 +1,42 @@
+{
+  "weights_uploaded": false,
+  "scope": "Post-run inventory; earlier evaluator hashes where present provide the evaluation-time identity. A stopped run final-weight filename does not imply completed final training.",
+  "adapters": {
+    "steps120-lr0.0001-acc1-adapter": {
+      "sha256": "e655c9f4fb0f6413a7b5194a0dfdd331f2b09d114ffd9ecd438b99f31707e5fd",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "steps120-lr0.0001-acc4-adapter": {
+      "sha256": "2d2ff1d5f9ffa45952aa548f4e5830fc3db86595acce1a010c168c3f445bf84c",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "steps120-lr0.0002-acc4-adapter": {
+      "sha256": "9b735b6da603576696b471b1c1933a40da9f5a4e446bc1eb5c1f55e5de4e208c",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "steps480-lr0.0001-acc1-adapter": {
+      "sha256": "88f1a507dfcc2ab819849d45b2de84b1c2180778623f8fb1b880e5023cd03ad8",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "steps480-lr0.0002-acc1-adapter": {
+      "sha256": "1ac2f7d8275083771aa2afedb300d328d23116d4cfdf05b4a423470efe0c8666",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    },
+    "steps480-lr0.0002-acc4-adapter": {
+      "sha256": "976b899d351f9f5311fbb6e9df84b8e8fb5bf2bc5c3e35b5176ba34a837dcb04",
+      "bytes": 2628325,
+      "completed_final_training": true,
+      "hash_recorded_at_export": true
+    }
+  }
+}

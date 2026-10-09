@@ -1,0 +1,797 @@
+{
+  "complete": true,
+  "split": "valid",
+  "verified_base": {
+    "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+    "model.safetensors": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+  },
+  "data_sha256": "c05263caddf61e0b63d9943f6fd51df273cdbf7d6b459f71c61bb58614f4c2bc",
+  "adapter_sha256": "237b6e46f08fce7f360735f539ca83928731df36faa290fd0d321d6cbf50d0be",
+  "rows": [
+    {
+      "id": "uci-04915",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-04282",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.0
+    },
+    {
+      "id": "uci-02029",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.375
+    },
+    {
+      "id": "uci-01495",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.25
+    },
+    {
+      "id": "uci-04904",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-00754",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-02142",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.25
+    },
+    {
+      "id": "uci-03254",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.5
+    },
+    {
+      "id": "uci-00728",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.625
+    },
+    {
+      "id": "uci-01612",
+      "label": "ham",
+      "prediction": "spam",
+      "margin": 1.625
+    },
+    {
+      "id": "uci-04944",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.125
+    },
+    {
+      "id": "uci-01398",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.75
+    },
+    {
+      "id": "uci-01821",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.5
+    },
+    {
+      "id": "uci-01470",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.0
+    },
+    {
+      "id": "uci-03007",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.75
+    },
+    {
+      "id": "uci-01927",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.25
+    },
+    {
+      "id": "uci-03744",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.25
+    },
+    {
+      "id": "uci-02868",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.625
+    },
+    {
+      "id": "uci-04217",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.5625
+    },
+    {
+      "id": "uci-01576",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-01958",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.875
+    },
+    {
+      "id": "uci-04931",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 0.375
+    },
+    {
+      "id": "uci-01443",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.5
+    },
+    {
+      "id": "uci-05175",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.75
+    },
+    {
+      "id": "uci-00495",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-00429",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.375
+    },
+    {
+      "id": "uci-02410",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.875
+    },
+    {
+      "id": "uci-02120",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-01154",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 2.375
+    },
+    {
+      "id": "uci-01408",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.875
+    },
+    {
+      "id": "uci-00420",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 5.625
+    },
+    {
+      "id": "uci-00376",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.25
+    },
+    {
+      "id": "uci-00281",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.5
+    },
+    {
+      "id": "uci-01792",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.625
+    },
+    {
+      "id": "uci-02847",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-05417",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.875
+    },
+    {
+      "id": "uci-00798",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.375
+    },
+    {
+      "id": "uci-02788",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.625
+    },
+    {
+      "id": "uci-05084",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.0
+    },
+    {
+      "id": "uci-01884",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.625
+    },
+    {
+      "id": "uci-00124",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.125
+    },
+    {
+      "id": "uci-02114",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.125
+    },
+    {
+      "id": "uci-02455",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.125
+    },
+    {
+      "id": "uci-02318",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.75
+    },
+    {
+      "id": "uci-01649",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.25
+    },
+    {
+      "id": "uci-03716",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.25
+    },
+    {
+      "id": "uci-02786",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-03669",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.5
+    },
+    {
+      "id": "uci-01273",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.25
+    },
+    {
+      "id": "uci-01941",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.5
+    },
+    {
+      "id": "uci-03919",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.25
+    },
+    {
+      "id": "uci-05066",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.5
+    },
+    {
+      "id": "uci-04031",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.375
+    },
+    {
+      "id": "uci-01916",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.875
+    },
+    {
+      "id": "uci-03561",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.625
+    },
+    {
+      "id": "uci-03173",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.875
+    },
+    {
+      "id": "uci-00107",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.5
+    },
+    {
+      "id": "uci-00296",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 6.625
+    },
+    {
+      "id": "uci-02557",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.875
+    },
+    {
+      "id": "uci-00609",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.875
+    },
+    {
+      "id": "uci-04473",
+      "label": "spam",
+      "prediction": "ham",
+      "margin": -1.25
+    },
+    {
+      "id": "uci-01145",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.375
+    },
+    {
+      "id": "uci-02035",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.0
+    },
+    {
+      "id": "uci-00015",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 3.625
+    },
+    {
+      "id": "uci-01158",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.75
+    },
+    {
+      "id": "uci-03371",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-00576",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 4.875
+    },
+    {
+      "id": "uci-05381",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.875
+    },
+    {
+      "id": "uci-02475",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.875
+    },
+    {
+      "id": "uci-02545",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.5
+    },
+    {
+      "id": "uci-03554",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.25
+    },
+    {
+      "id": "uci-01716",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.875
+    },
+    {
+      "id": "uci-02734",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-00565",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.0
+    },
+    {
+      "id": "uci-04602",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 6.0
+    },
+    {
+      "id": "uci-05329",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-02307",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.5
+    },
+    {
+      "id": "uci-00999",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.75
+    },
+    {
+      "id": "uci-04684",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-04487",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.375
+    },
+    {
+      "id": "uci-04828",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-04950",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    },
+    {
+      "id": "uci-00329",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.625
+    },
+    {
+      "id": "uci-01178",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.25
+    },
+    {
+      "id": "uci-04454",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.25
+    },
+    {
+      "id": "uci-00001",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.375
+    },
+    {
+      "id": "uci-01584",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.625
+    },
+    {
+      "id": "uci-04543",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 5.25
+    },
+    {
+      "id": "uci-03131",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.875
+    },
+    {
+      "id": "uci-03845",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.0
+    },
+    {
+      "id": "uci-02500",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.875
+    },
+    {
+      "id": "uci-00096",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.625
+    },
+    {
+      "id": "uci-03057",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.5
+    },
+    {
+      "id": "uci-04119",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.375
+    },
+    {
+      "id": "uci-00969",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.0
+    },
+    {
+      "id": "uci-05532",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.375
+    },
+    {
+      "id": "uci-04727",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-00421",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.5
+    },
+    {
+      "id": "uci-04228",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.75
+    },
+    {
+      "id": "uci-02995",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.125
+    },
+    {
+      "id": "uci-04580",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.75
+    },
+    {
+      "id": "uci-05467",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.875
+    },
+    {
+      "id": "uci-05142",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -9.0
+    },
+    {
+      "id": "uci-00472",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.5
+    },
+    {
+      "id": "uci-03617",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -3.875
+    },
+    {
+      "id": "uci-00347",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.5
+    },
+    {
+      "id": "uci-01910",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.875
+    },
+    {
+      "id": "uci-02462",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -4.875
+    },
+    {
+      "id": "uci-00322",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.75
+    },
+    {
+      "id": "uci-00650",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 5.0
+    },
+    {
+      "id": "uci-05239",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 4.0
+    },
+    {
+      "id": "uci-00718",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.125
+    },
+    {
+      "id": "uci-05419",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.125
+    },
+    {
+      "id": "uci-03171",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.625
+    },
+    {
+      "id": "uci-02934",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -2.75
+    },
+    {
+      "id": "uci-02929",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -5.0
+    },
+    {
+      "id": "uci-05170",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-03539",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -0.125
+    },
+    {
+      "id": "uci-01960",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.625
+    },
+    {
+      "id": "uci-05518",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.625
+    },
+    {
+      "id": "uci-04647",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 6.25
+    },
+    {
+      "id": "uci-03273",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -1.375
+    },
+    {
+      "id": "uci-04390",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -7.875
+    },
+    {
+      "id": "uci-00520",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.125
+    },
+    {
+      "id": "uci-00752",
+      "label": "spam",
+      "prediction": "spam",
+      "margin": 1.125
+    },
+    {
+      "id": "uci-04335",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -6.375
+    },
+    {
+      "id": "uci-01257",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.375
+    },
+    {
+      "id": "uci-01820",
+      "label": "ham",
+      "prediction": "ham",
+      "margin": -8.0
+    }
+  ],
+  "metrics": {
+    "macro_f1": 0.9571906354515051,
+    "spam_precision": 0.9230769230769231,
+    "spam_recall": 0.9230769230769231,
+    "false_positive_rate": 0.008695652173913044,
+    "accuracy": 0.984375,
+    "tp": 12,
+    "tn": 114,
+    "fp": 1,
+    "fn": 1
+  },
+  "elapsed_seconds": 13.30375074991025,
+  "mlx_peak_bytes": 1436222160
+}

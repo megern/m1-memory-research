@@ -6,6 +6,20 @@ Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoin
 
 The checksum-verified 70B checkpoint completed two local smoke executions. [The corrected report](results/llama70b-smoke-v2/report.json) records 164.71 seconds elapsed, first output at 131.33 seconds and 2.95 GiB sampled peak process RSS. Raw output is `Paris [end of text]`; the runtime adds its termination marker, so the original exact-whole-stdout check remains false. The first run and its duplicate-BOS warning are retained separately. A completed short smoke prompt is narrower than useful conversational speed or strong model quality. The manuscripts are editable drafts, not peer-reviewed publications.
 
+## v0.10.0: validation-only factorial pilot
+
+The earlier matched gain changed training exposure, learning rate and accumulation together. A [complete 2×2×2 pilot](papers/sms-factorial-pilot-study.txt) now varies 120/480 microbatches, 0.0001/0.0002 learning rate, and accumulation 1/4, holding seed 17 and all other training settings fixed. Six new final adapters were trained locally; two verified historical adapters were reused as quality controls. All eight 128-case validation evaluations completed after one disclosed pressure-stop continuation. **No new test scores or best-model selection** were used.
+
+| Average policy contrast on validation | Macro-F1 change, percentage points | Paired case-bootstrap 95% interval |
+| --- | ---: | ---: |
+| 120 → 480 microbatches | +10.25 | [+5.70, +15.37] |
+| Learning rate 0.0001 → 0.0002 | −7.30 | [−13.71, −1.95] |
+| Accumulation 1 → 4 | +0.47 | [−5.55, +5.90] |
+
+Accumulation's effect depends on other settings; this pilot does **not** establish a universal benefit. At 120 microbatches and rate 0.0002, accumulation 4 performed worse than 1. Changing accumulation also changes optimizer-update count. The [complete matrix, interactions and all reports](results/sms-factorial-pilot-v1/factor-effects-analysis.json) are conditional on one fixed seed and a repeatedly observed validation set with only 13 spam cases. The uncertainty analysis is post-run and descriptive, without multiplicity correction; it cannot establish population seed stability or unseen-domain improvement. The earlier v0.9 independent-test results remain unchanged.
+
+The initial partial validation, one identical continuation, hashes, raw logs and six local adapter inventories are retained. Sources stay frozen, guards stay unchanged, and raw messages/weights stay local. The local suite passed **71 tests**, including incomplete-matrix rejection and covariance-preserving shared-case contrasts. Read the [Arabic reproduction instructions](PUBLIC_SMS_GUIDE.md). LinkedIn publication and replies remain withheld.
+
 ## v0.9.0: real public data and a paired local training improvement
 
 Six completed LoRA adapters (three seeds in each of two training regimes) use **original BF16 Qwen3-0.6B**, with all training and evaluation on the M1 Mac. The [UCI SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) is attributed to Almeida and Hidalgo (2011), CC BY 4.0 according to UCI. Exact/near lexical duplicate groups are formed before splitting. Raw SMS and trained weights stay local; source IDs, hashes, scores and frozen code are public.

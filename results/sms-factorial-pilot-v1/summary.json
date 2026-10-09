@@ -1,0 +1,204 @@
+{
+  "analysis_source_sha256": "e15991a39e1f3fd20658de2f5a9b2fbbf8ebf3845653c5b20c5a931071938010",
+  "completed_validation_cells": 8,
+  "planned_cells": 8,
+  "seed": 17,
+  "validation_cases": 128,
+  "validation_spam_cases": 13,
+  "cells": {
+    "steps480-lr0.0001-acc1": {
+      "configuration": {
+        "iterations": 480,
+        "learning_rate": 0.0001,
+        "gradient_accumulation_steps": 1,
+        "seed": 17,
+        "id": "steps480-lr0.0001-acc1",
+        "optimizer_updates": 480
+      },
+      "metrics": {
+        "macro_f1": 0.8715719063545151,
+        "spam_precision": 0.7692307692307693,
+        "spam_recall": 0.7692307692307693,
+        "false_positive_rate": 0.02608695652173913,
+        "accuracy": 0.953125,
+        "tp": 10,
+        "tn": 112,
+        "fp": 3,
+        "fn": 3
+      }
+    },
+    "steps480-lr0.0001-acc4": {
+      "configuration": {
+        "iterations": 480,
+        "learning_rate": 0.0001,
+        "gradient_accumulation_steps": 4,
+        "seed": 17,
+        "id": "steps480-lr0.0001-acc4",
+        "optimizer_updates": 120
+      },
+      "metrics": {
+        "macro_f1": 0.9571906354515051,
+        "spam_precision": 0.9230769230769231,
+        "spam_recall": 0.9230769230769231,
+        "false_positive_rate": 0.008695652173913044,
+        "accuracy": 0.984375,
+        "tp": 12,
+        "tn": 114,
+        "fp": 1,
+        "fn": 1
+      }
+    },
+    "steps120-lr0.0001-acc1": {
+      "configuration": {
+        "iterations": 120,
+        "learning_rate": 0.0001,
+        "gradient_accumulation_steps": 1,
+        "seed": 17,
+        "id": "steps120-lr0.0001-acc1",
+        "optimizer_updates": 120
+      },
+      "metrics": {
+        "macro_f1": 0.8395989974937343,
+        "spam_precision": 0.6666666666666666,
+        "spam_recall": 0.7692307692307693,
+        "false_positive_rate": 0.043478260869565216,
+        "accuracy": 0.9375,
+        "tp": 10,
+        "tn": 110,
+        "fp": 5,
+        "fn": 3
+      }
+    },
+    "steps120-lr0.0002-acc1": {
+      "configuration": {
+        "iterations": 120,
+        "learning_rate": 0.0002,
+        "gradient_accumulation_steps": 1,
+        "seed": 17,
+        "id": "steps120-lr0.0002-acc1",
+        "optimizer_updates": 120
+      },
+      "metrics": {
+        "macro_f1": 0.8112094395280236,
+        "spam_precision": 0.5882352941176471,
+        "spam_recall": 0.7692307692307693,
+        "false_positive_rate": 0.06086956521739131,
+        "accuracy": 0.921875,
+        "tp": 10,
+        "tn": 108,
+        "fp": 7,
+        "fn": 3
+      }
+    },
+    "steps120-lr0.0001-acc4": {
+      "configuration": {
+        "iterations": 120,
+        "learning_rate": 0.0001,
+        "gradient_accumulation_steps": 4,
+        "seed": 17,
+        "id": "steps120-lr0.0001-acc4",
+        "optimizer_updates": 30
+      },
+      "metrics": {
+        "macro_f1": 0.8796992481203008,
+        "spam_precision": 0.7333333333333333,
+        "spam_recall": 0.8461538461538461,
+        "false_positive_rate": 0.034782608695652174,
+        "accuracy": 0.953125,
+        "tp": 11,
+        "tn": 111,
+        "fp": 4,
+        "fn": 2
+      }
+    },
+    "steps480-lr0.0002-acc4": {
+      "configuration": {
+        "iterations": 480,
+        "learning_rate": 0.0002,
+        "gradient_accumulation_steps": 4,
+        "seed": 17,
+        "id": "steps480-lr0.0002-acc4",
+        "optimizer_updates": 120
+      },
+      "metrics": {
+        "macro_f1": 0.9080459770114943,
+        "spam_precision": 0.9090909090909091,
+        "spam_recall": 0.7692307692307693,
+        "false_positive_rate": 0.008695652173913044,
+        "accuracy": 0.96875,
+        "tp": 10,
+        "tn": 114,
+        "fp": 1,
+        "fn": 3
+      }
+    },
+    "steps480-lr0.0002-acc1": {
+      "configuration": {
+        "iterations": 480,
+        "learning_rate": 0.0002,
+        "gradient_accumulation_steps": 1,
+        "seed": 17,
+        "id": "steps480-lr0.0002-acc1",
+        "optimizer_updates": 480
+      },
+      "metrics": {
+        "macro_f1": 0.8703140830800404,
+        "spam_precision": 1.0,
+        "spam_recall": 0.6153846153846154,
+        "false_positive_rate": 0.0,
+        "accuracy": 0.9609375,
+        "tp": 8,
+        "tn": 115,
+        "fp": 0,
+        "fn": 5
+      }
+    },
+    "steps120-lr0.0002-acc4": {
+      "configuration": {
+        "iterations": 120,
+        "learning_rate": 0.0002,
+        "gradient_accumulation_steps": 4,
+        "seed": 17,
+        "id": "steps120-lr0.0002-acc4",
+        "optimizer_updates": 30
+      },
+      "metrics": {
+        "macro_f1": 0.6666666666666667,
+        "spam_precision": 1.0,
+        "spam_recall": 0.23076923076923078,
+        "false_positive_rate": 0.0,
+        "accuracy": 0.921875,
+        "tp": 3,
+        "tn": 115,
+        "fp": 0,
+        "fn": 10
+      }
+    }
+  },
+  "descriptive_factor_effects": {
+    "iterations": {
+      "level_means_macro_f1": {
+        "120": 0.7992935879521814,
+        "480": 0.9017806504743887
+      },
+      "second_minus_first": 0.1024870625222073
+    },
+    "learning_rate": {
+      "level_means_macro_f1": {
+        "0.0001": 0.8870151968550138,
+        "0.0002": 0.8140590415715563
+      },
+      "second_minus_first": -0.07295615528345756
+    },
+    "gradient_accumulation_steps": {
+      "level_means_macro_f1": {
+        "1": 0.8481736066140784,
+        "4": 0.8529006318124916
+      },
+      "second_minus_first": 0.004727025198413282
+    }
+  },
+  "test_evaluated": false,
+  "best_model_selected": false,
+  "scope": "Exploratory single-seed validation pilot, correlated cases. No population seed inference, no novel algorithm, no unseen test/generalization improvement claim. Changing accumulation changes optimizer-update count at fixed microbatches. Two prior adapters are reused as historical quality controls; no timing/resource comparison across cells."
+}

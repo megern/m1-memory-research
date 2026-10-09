@@ -1,0 +1,40 @@
+Validation-only local SMS training factorial pilot
+Author: Megern Qaisse
+Working exploratory engineering study, 2026-10-09 (Asia/Riyadh).
+
+Motivation
+The v0.9.0 fresh-test study changed exposure, learning rate and gradient accumulation together. Its matched improvement cannot identify a single cause. This follow-up fills a balanced 2x2x2 matrix: 120/480 microbatches, learning rate 0.0001/0.0002, accumulation 1/4. All cells use the same original BF16 Qwen3-0.6B, 512-row training data, 128-row validation data, 16 adapted q/v layers, rank 8, final checkpoint, prompt masking and maximum sequence length 384. No new test scoring or best-model selection occurs.
+
+Design and scope
+Seed 17 is the smallest seed in the earlier protocol and is fixed for all eight cells; it is not selected as the best follow-up seed. Cell launch order is randomized with seed 20261009. Two previously completed seed-17 adapters provide historical quality controls after validating the training/validation identities and their exact configurations and weight hashes; six cells require new training. Historical controls are not concurrent resource or timing baselines. All sources and data/model/tokenizer hashes are frozen before execution.
+Optimizer-update counts are microbatches divided by accumulation: 120/1=120, 120/4=30, 480/1=480, 480/4=120. Accumulation at fixed exposure changes update count. This factorial compares training policies and does not isolate pure gradient-noise reduction while holding optimizer updates fixed.
+Primary outcome is fixed constrained ham/spam label Macro-F1 on validation. All secondary counts and margins are retained per source ID, with no message text export. Factor effects are equally weighted means over the four cells at each level, and are produced only if all eight cells complete. The paired cases are not eight independent validation datasets. This is a single-seed exploratory pilot on a repeatedly observed validation set, containing only 13 spam cases. No generalization, population seed-stability or state-of-the-art claim follows. A future multiple-seed confirmation and independent source/domain holdout remain necessary.
+
+Memory guards and continuation
+Local M1 / 16 GiB compute only, unchanged 6 GiB sampled process-tree RSS guard, 4 GiB MLX allocation guard, 1536 MiB whole-system swap-growth guard per child, below-512-MiB available memory sustained 5 seconds, and 900 second timeout. These counters have different scopes and are not summed as disjoint memory. Shared swap growth is not attributed solely to the child.
+The first cell (480 microbatches, learning rate 0.0001, accumulation 1) completed training. Its first validation stopped on shared swap growth. A single continuation was disclosed and frozen before retry. It reused the completed checkpoint, retained the partial initial validation report, and used identical frozen evaluation/training sources, cells, data, seed and guards. Additional completed cells are never re-evaluated to choose a favorable result; continuation refuses overwrites and additional silent continuations. The repeated partial cases belong to a memory-stop retry, not selection of a model.
+
+Artifacts and next step
+protocol.json freezes the matrix and source/model/data identities. journal.json retains the first attempt; continuation-protocol.json and continuation-journal.json retain the one continuation. summary.json is the complete-cell descriptive analysis, with its own source identity. Neither test scores nor raw SMS nor weights are published. Earlier v0.9 test results are unchanged. This pilot helps choose a future confirmation question; it does not authorize retuning on or repeatedly reusing the exposed test set.
+
+Completed result
+All eight validation cells completed after the one disclosed continuation; six new final adapters were trained and two historical adapters reused. The initial partial validation remains retained and does not count as another set of independent cases. No test evaluation, threshold tuning, best-cell export or best-seed selection occurred.
+
+Microbatches  Learning rate  Accumulation  Updates  Validation Macro-F1
+120           0.0001         1             120      0.8396
+120           0.0001         4              30      0.8797
+120           0.0002         1             120      0.8112
+120           0.0002         4              30      0.6667
+480           0.0001         1             480      0.8716
+480           0.0001         4             120      0.9572
+480           0.0002         1             480      0.8703
+480           0.0002         4             120      0.9080
+
+Average marginal policy effects on this validation set:
+120 -> 480 microbatches: +0.1025 Macro-F1, paired case-bootstrap 95% [0.0570, 0.1537].
+0.0001 -> 0.0002 learning rate: -0.0730, [-0.1371, -0.0195].
+Accumulation 1 -> 4: +0.0047, [-0.0555, 0.0590].
+Thus this pilot does not support a universal positive main effect of accumulation. At 120 microbatches and learning rate 0.0002, accumulation 4 performs worse than accumulation 1. Policy interactions, different optimizer-update counts and limited validation data matter. Longer exposure and lower rate are useful directions for a future confirmation, not a conclusion that these settings are optimal across datasets or seeds.
+
+Pair interactions (difference of factor effects between levels of another, averaged over the third) are retained in factor-effects-analysis.json. Exposure x rate: +0.0955 [0.0027, 0.1954]; exposure x accumulation: +0.1139 [0.0159, 0.2290]; rate x accumulation: -0.1163 [-0.2176, -0.0256]. These are conditional descriptive contrasts, not mechanism identification or multiplicity-corrected significance claims.
+The uncertainty analysis was added after the first complete descriptive matrix, retains its own source hash, and uses 2000 shared label-stratified case bootstrap resamples (seed 8062). Shared indices preserve covariance among all eight policies; the same 128 cases are never treated as 1024 independent examples. Intervals exclude training-seed and corpus-shift uncertainty. Initial summary, partial validation, source snapshots, one continuation plan and complete per-ID score vectors remain public. Raw messages and weights remain local.

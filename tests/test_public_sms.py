@@ -62,12 +62,12 @@ class PublicSMS(unittest.TestCase):
         self.assertFalse(used&fresh)
         for split in ('train','valid'):self.assertEqual(old['splits'][split]['sha256'],new['splits'][split]['sha256'])
     def test_all_frozen_source_identities_match_exports(self):
-        for name in ('public-sms-study-v1','public-sms-study-v2','public-sms-followup-v1'):
+        for name in ('public-sms-study-v1','public-sms-study-v2','public-sms-followup-v1','sms-factorial-pilot-v1'):
             root=ROOT/'results'/name;protocol=json.loads((root/'protocol.json').read_text())
-            for file,digest in protocol['frozen_source_sha256'].items():
+            for file,digest in protocol.get('frozen_source_sha256',protocol.get('frozen_sources',{})).items():
                 with self.subTest(study=name,file=file):self.assertEqual(hashlib.sha256((root/'source'/file).read_bytes()).hexdigest(),digest)
     def test_export_contains_no_raw_messages_or_weight_files(self):
-        for root in (ROOT/'results').glob('public-sms-*'):
+        for root in list((ROOT/'results').glob('public-sms-*'))+list((ROOT/'results').glob('sms-factorial-pilot-*')):
             self.assertFalse(list(root.rglob('*.safetensors')))
             self.assertFalse(list(root.rglob('*.jsonl')))
             def check(value):

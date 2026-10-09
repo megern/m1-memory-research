@@ -1,0 +1,14 @@
+{
+  "client_date": "2026-10-09",
+  "new_final_adapters": 6,
+  "historical_adapters_reused": 2,
+  "completed_validation_cells": 8,
+  "planned_cells": 8,
+  "local_compute_only": true,
+  "test_evaluated": false,
+  "best_model_selected": false,
+  "one_seed_only": 17,
+  "unit_tests_passed": 71,
+  "linkedin_posts_or_replies": false,
+  "scope": "Exploratory validation-only factorial, with one recorded pressure stop and one unchanged continuation. No novel algorithm or new unseen-test improvement claim."
+}

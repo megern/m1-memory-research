@@ -1,0 +1,15 @@
+{
+  "planned_at_unix": 1791533360.8271842,
+  "reason": "One identical continuation after the initial validation pressure stop. No source, hyperparameter, seed, split, threshold or guard changes; preserve partial report.",
+  "prior_protocol_sha256": "9383ac1913c96d7ab6f9aa3664f3b62cc700327a0380adf132c2e3310546c928",
+  "prior_journal_sha256": "a8d00706f4005073815a31628c8529e5350636dad69ba1e8c2339f21de18632e",
+  "completed_local_training_identities": {
+    "steps480-lr0.0001-acc1-adapter": {
+      "summary_sha256": "c301c847ee749f4b2dc045ccefec08beaa681553dc4676488bf8e61a89ea39db",
+      "weights_sha256": "88f1a507dfcc2ab819849d45b2de84b1c2180778623f8fb1b880e5023cd03ad8"
+    }
+  },
+  "continuation_source_sha256": "71791263e9ef078fd6bf9cb1b1d21f1968185a1035e92dbda46760b31ea640a6",
+  "test_evaluated": false,
+  "maximum_continuations": 1
+}

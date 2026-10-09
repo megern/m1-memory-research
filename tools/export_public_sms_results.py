@@ -10,7 +10,7 @@ def export(source,target):
     if (source/'source').is_dir():
         shutil.copytree(source/'source',target/'source',ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     adapters={}
-    for directory in sorted(source.glob('adapter-*')):
+    for directory in sorted(set(source.glob('adapter-*')) | set(source.glob('*-adapter'))):
         if not directory.is_dir():continue
         summary=directory/'training-summary.json'
         if summary.is_file():
