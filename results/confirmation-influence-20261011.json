@@ -1,0 +1,1264 @@
+{
+  "audit_status": "passed",
+  "protocol_sha256": "c0160ac9f7e3331621dd45062e1fc020fc959b2dedcb20c9d939e1f92efcbc4b",
+  "analysis_source_sha256": "8ed58ddd0b48a99cf1c0940ad87071398067124a561fc05e9a83ab42b80c1e0d",
+  "input_reports": [
+    {
+      "cell": "seed41-n480-lr0.0002-a4",
+      "report": "seed41-n480-lr0.0002-a4-valid-retry.json",
+      "sha256": "e3f98cbf3ba251a5d54810632878e1790267ce749c723daa97be0eebe421a3fe"
+    },
+    {
+      "cell": "seed23-n480-lr0.0002-a4",
+      "report": "seed23-n480-lr0.0002-a4-valid.json",
+      "sha256": "3ee045a1ce3a2eda9d6f9ec84600948c5cf8147aea75387c39ef55067b2662b5"
+    },
+    {
+      "cell": "seed41-n480-lr0.0002-a1",
+      "report": "seed41-n480-lr0.0002-a1-valid.json",
+      "sha256": "bf6aa5faee70e8e55c3260121c998e2a142b4a54a360d77299dd33585e88ac3e"
+    },
+    {
+      "cell": "seed41-n480-lr0.0001-a4",
+      "report": "seed41-n480-lr0.0001-a4-valid.json",
+      "sha256": "1d45d6c8e64bcedbd3cda554dd14bb195f46c22ff353f8e4865c8c63c602ee51"
+    },
+    {
+      "cell": "seed23-n120-lr0.0001-a4",
+      "report": "seed23-n120-lr0.0001-a4-valid.json",
+      "sha256": "fa5250abbf577adfd5e2f61907e82cf1bb9c227e32386bc1617d3bf92ac3a84c"
+    },
+    {
+      "cell": "seed41-n120-lr0.0001-a1",
+      "report": "seed41-n120-lr0.0001-a1-valid.json",
+      "sha256": "49754f630218768a7dd6883f830aabb29e4ea9ac6b042f2f6962ecdb1b918687"
+    },
+    {
+      "cell": "seed23-n120-lr0.0002-a1",
+      "report": "seed23-n120-lr0.0002-a1-valid.json",
+      "sha256": "09f035fc8db5bb9318a3e6b220626a393730669a8ede68ee53c548009b46f1b4"
+    },
+    {
+      "cell": "seed41-n120-lr0.0001-a4",
+      "report": "seed41-n120-lr0.0001-a4-valid.json",
+      "sha256": "a9025f95eda6d33686dba378bf75fa9cda7b020ee16911da2e578dd913c82487"
+    },
+    {
+      "cell": "seed23-n480-lr0.0002-a1",
+      "report": "seed23-n480-lr0.0002-a1-valid.json",
+      "sha256": "6ddf7dbfe2641549ed1eba540ab6792f1b1e3abad1768af731fb38ec64c56796"
+    },
+    {
+      "cell": "seed23-n480-lr0.0001-a4",
+      "report": "seed23-n480-lr0.0001-a4-valid.json",
+      "sha256": "4d1e0d079e1414284896db1a7fe187d1b8f07085eecfb8d6d13f8f336bf183f7"
+    },
+    {
+      "cell": "seed23-n480-lr0.0001-a1",
+      "report": "seed23-n480-lr0.0001-a1-valid.json",
+      "sha256": "a648c5accc867f7faebbf20951285bd4a4d12b4d95db04880be4135ca45e8b5f"
+    },
+    {
+      "cell": "seed23-n120-lr0.0001-a1",
+      "report": "seed23-n120-lr0.0001-a1-valid.json",
+      "sha256": "899f821f9030f262bf354e7b3ae65adec4eca15ed96ece6aa8c2b53b304d3a24"
+    },
+    {
+      "cell": "seed41-n480-lr0.0001-a1",
+      "report": "seed41-n480-lr0.0001-a1-valid.json",
+      "sha256": "b7c2b17155507b0edaa6926a806295f9e6ccba2b0496b2e6cd89267bda559dc9"
+    },
+    {
+      "cell": "seed41-n120-lr0.0002-a1",
+      "report": "seed41-n120-lr0.0002-a1-valid.json",
+      "sha256": "f88a7e71eb3295215b35337a5d25adc9faa0ca1b7eb0329f165e46f34b0ab98b"
+    },
+    {
+      "cell": "seed23-n120-lr0.0002-a4",
+      "report": "seed23-n120-lr0.0002-a4-valid.json",
+      "sha256": "80d248e02c9b58a9a30002cfee6e8401294b1efd7c9aec22f889e5457d5ff44a"
+    },
+    {
+      "cell": "seed41-n120-lr0.0002-a4",
+      "report": "seed41-n120-lr0.0002-a4-valid.json",
+      "sha256": "4ee6c09e83ec9ff08e268d389d9c29fed0b76c910fb62405cad9f353633ecf76"
+    }
+  ],
+  "baseline_two_seed_mean_effects": {
+    "iterations": 0.2026625604295187,
+    "learning_rate": -0.10550907352590971,
+    "gradient_accumulation_steps": -0.06761731459987708
+  },
+  "leave_one_out": {
+    "iterations": {
+      "minimum": 0.19421089904396233,
+      "maximum": 0.21128050691375394,
+      "direction_changes": 0
+    },
+    "learning_rate": {
+      "minimum": -0.11135298400180281,
+      "maximum": -0.09912302516223225,
+      "direction_changes": 0
+    },
+    "gradient_accumulation_steps": {
+      "minimum": -0.07407022072764505,
+      "maximum": -0.060584292844681684,
+      "direction_changes": 0
+    }
+  },
+  "removed_cases": [
+    {
+      "removed_case_id": "uci-04915",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-04282",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-02029",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01495",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-04904",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00754",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-02142",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-03254",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00728",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01612",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.21128050691375394,
+        "learning_rate": -0.11065486721178379,
+        "gradient_accumulation_steps": -0.06752139817648768
+      }
+    },
+    {
+      "removed_case_id": "uci-04944",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01398",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-01821",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-01470",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20920938478859286,
+        "learning_rate": -0.10755996502187437,
+        "gradient_accumulation_steps": -0.07407022072764505
+      }
+    },
+    {
+      "removed_case_id": "uci-03007",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-01927",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-03744",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02868",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-04217",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-01576",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01958",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.2020985440322423,
+        "learning_rate": -0.10243807661659647,
+        "gradient_accumulation_steps": -0.06711304822098522
+      }
+    },
+    {
+      "removed_case_id": "uci-04931",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.20636502777960533,
+        "learning_rate": -0.11131872636326792,
+        "gradient_accumulation_steps": -0.07359577991056607
+      }
+    },
+    {
+      "removed_case_id": "uci-01443",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-05175",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20472420264662414,
+        "learning_rate": -0.10342881667349912,
+        "gradient_accumulation_steps": -0.06931756365713218
+      }
+    },
+    {
+      "removed_case_id": "uci-00495",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00429",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20406913698788454,
+        "learning_rate": -0.10448619603095971,
+        "gradient_accumulation_steps": -0.07227889666967705
+      }
+    },
+    {
+      "removed_case_id": "uci-02410",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02120",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-01154",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.19945289278562206,
+        "learning_rate": -0.10385349158493397,
+        "gradient_accumulation_steps": -0.06164780505803376
+      }
+    },
+    {
+      "removed_case_id": "uci-01408",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-00420",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-00376",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00281",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01792",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-02847",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-05417",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00798",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02788",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-05084",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.203759722946219,
+        "learning_rate": -0.1007768977026198,
+        "gradient_accumulation_steps": -0.06856959834133713
+      }
+    },
+    {
+      "removed_case_id": "uci-01884",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-00124",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20285275928113844,
+        "learning_rate": -0.10319229186549257,
+        "gradient_accumulation_steps": -0.06955408846513873
+      }
+    },
+    {
+      "removed_case_id": "uci-02114",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-02455",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20365740854940662,
+        "learning_rate": -0.10087921209943218,
+        "gradient_accumulation_steps": -0.06867191273814952
+      }
+    },
+    {
+      "removed_case_id": "uci-02318",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01649",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-03716",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02786",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-03669",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01273",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-01941",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.203759722946219,
+        "learning_rate": -0.1007768977026198,
+        "gradient_accumulation_steps": -0.06856959834133713
+      }
+    },
+    {
+      "removed_case_id": "uci-03919",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-05066",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04031",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01916",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-03561",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-03173",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-00107",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00296",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-02557",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00609",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-04473",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.19421089904396233,
+        "learning_rate": -0.11135298400180281,
+        "gradient_accumulation_steps": -0.060584292844681684
+      }
+    },
+    {
+      "removed_case_id": "uci-01145",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02035",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00015",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-01158",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-03371",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00576",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-05381",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02475",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02545",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.1965351058920954,
+        "learning_rate": -0.10800151475674338,
+        "gradient_accumulation_steps": -0.06819878593513587
+      }
+    },
+    {
+      "removed_case_id": "uci-03554",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20285275928113844,
+        "learning_rate": -0.10319229186549257,
+        "gradient_accumulation_steps": -0.06955408846513873
+      }
+    },
+    {
+      "removed_case_id": "uci-01716",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-02734",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00565",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-04602",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-05329",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-02307",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00999",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-04684",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04487",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04828",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04950",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-00329",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01178",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-04454",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-00001",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.2033388391665637,
+        "learning_rate": -0.10687362724396744,
+        "gradient_accumulation_steps": -0.06793220017707173
+      }
+    },
+    {
+      "removed_case_id": "uci-01584",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04543",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-03131",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20285275928113844,
+        "learning_rate": -0.10319229186549257,
+        "gradient_accumulation_steps": -0.06955408846513873
+      }
+    },
+    {
+      "removed_case_id": "uci-03845",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-02500",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-00096",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-03057",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04119",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20552556673221997,
+        "learning_rate": -0.10274737028224554,
+        "gradient_accumulation_steps": -0.07373532641401248
+      }
+    },
+    {
+      "removed_case_id": "uci-00969",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-05532",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04727",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-00421",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-04228",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-02995",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-04580",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-05467",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-05142",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00472",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-03617",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-00347",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20155490037246365,
+        "learning_rate": -0.10508968844986741,
+        "gradient_accumulation_steps": -0.0676566918807639
+      }
+    },
+    {
+      "removed_case_id": "uci-01910",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-02462",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00322",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00650",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-05239",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-00718",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.210288849147306,
+        "learning_rate": -0.10411076841065721,
+        "gradient_accumulation_steps": -0.07299075636893189
+      }
+    },
+    {
+      "removed_case_id": "uci-05419",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-03171",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20419506167466378,
+        "learning_rate": -0.10601740473586735,
+        "gradient_accumulation_steps": -0.06878842268517182
+      }
+    },
+    {
+      "removed_case_id": "uci-02934",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20000089182143357,
+        "learning_rate": -0.10827204519303193,
+        "gradient_accumulation_steps": -0.07166457186447403
+      }
+    },
+    {
+      "removed_case_id": "uci-02929",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    },
+    {
+      "removed_case_id": "uci-05170",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-03539",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20920938478859286,
+        "learning_rate": -0.10755996502187437,
+        "gradient_accumulation_steps": -0.07407022072764505
+      }
+    },
+    {
+      "removed_case_id": "uci-01960",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-05518",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20050091628571753,
+        "learning_rate": -0.10403570436312128,
+        "gradient_accumulation_steps": -0.06871067596751003
+      }
+    },
+    {
+      "removed_case_id": "uci-04647",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.2029302531314232,
+        "learning_rate": -0.10733085193073509,
+        "gradient_accumulation_steps": -0.06512516540383488
+      }
+    },
+    {
+      "removed_case_id": "uci-03273",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20244204173275082,
+        "learning_rate": -0.09912302516223225,
+        "gradient_accumulation_steps": -0.061690028593128735
+      }
+    },
+    {
+      "removed_case_id": "uci-04390",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00520",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-00752",
+      "label": "spam",
+      "effects": {
+        "iterations": 0.20825705738723282,
+        "learning_rate": -0.1082467725048401,
+        "gradient_accumulation_steps": -0.06966018215663555
+      }
+    },
+    {
+      "removed_case_id": "uci-04335",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01257",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20230911562135975,
+        "learning_rate": -0.10584390369876351,
+        "gradient_accumulation_steps": -0.0669024766318678
+      }
+    },
+    {
+      "removed_case_id": "uci-01820",
+      "label": "ham",
+      "effects": {
+        "iterations": 0.20316533812945986,
+        "learning_rate": -0.10498768119066341,
+        "gradient_accumulation_steps": -0.06775869913996789
+      }
+    }
+  ],
+  "scope": "Post-run diagnostic on the same reused 128-case validation set and two fixed seeds. Leave-one-out ranges are not confidence intervals. No new data, training, population-seed inference, best-model selection or significance claim."
+}

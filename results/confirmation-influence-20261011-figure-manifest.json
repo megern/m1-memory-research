@@ -1,0 +1,8 @@
+{
+  "scope": "Post-run visualization of existing diagnostic measurements, not a pre-run protocol.",
+  "sha256": {
+    "tools/plot_confirmation_influence.py": "3f4adcf3a6ad098e1debac4999cb442a468c34f31a7a8e2d1720f0d37e99a67c",
+    "results/confirmation-influence-20261011.json": "188d9b1514b95b737b91fe4b2c81af2b11d0cf48e2bf1d35aef93a4a941a8369",
+    "results/confirmation-influence-20261011.png": "fd58fd0b4812cd95b48a277b385ba632c75f17a3e5548feaf0d58554c357d878"
+  }
+}

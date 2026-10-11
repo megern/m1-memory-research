@@ -1,5 +1,20 @@
 # M1 Memory Research
 
+## Public preview v0.12.0
+
+Python 3.11+; commands below use a local Mac/Linux shell. Source and reports are public; this is a research/development preview, not a production-security certification.
+
+```sh
+git clone --branch v0.12.0 https://github.com/megern/m1-memory-research.git
+cd m1-memory-research
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install .
+m1-research-audit --help
+```
+
+The installed entry point was exercised outside the checkout in a separate local environment. This revision has 84 passing local tests. No hosted CI or cloud compute is used. Report an issue with the command, Python/OS versions, sanitized input and expected/actual behavior; remove credentials and private records first. Benchmarks describe the supplied fixtures and hardware.
+
 Author: **Megern Qaisse** ([GitHub](https://github.com/megern), [LinkedIn](https://www.linkedin.com/in/megernqaisse/)).
 
 Local studies on an Apple M1 with 16 GiB unified memory: quantized 70B-checkpoint inference feasibility, small bilingual LoRA specialists, and a subsequent original-BF16 scheduling prototype.
@@ -295,3 +310,16 @@ python3 -m unittest discover -s tests
 The audit checks every exported manifest entry, sixteen distinct planned cells, successful completed evaluation records, original base and adapter identity, the validation split digest, 128 unique paired case IDs/labels, and recomputed metrics. A retry can replace an incomplete evaluation only; completed evaluations cannot be replaced. `results/sms-confirmation-audit.json` records the audit of the existing frozen export. Historical results, the stopped 75-case attempt and the unchanged continuation are preserved.
 
 Unkeyed hashes establish internal consistency, not independent authenticity. The reused validation set does not become a new held-out benchmark because an audit passes. This change does not add training runs or establish a novel algorithm.
+
+
+### Case-influence diagnostic
+
+```sh
+python3 tools/analyze_confirmation_influence.py results/sms-confirmation-v1 > /tmp/confirmation-influence.json
+```
+
+`results/confirmation-influence-20261011.json` removes each of the 128 paired validation cases in turn and recomputes the average factorial effects over the two fixed seeds. No factor changes direction in these leave-one-out diagnostics. Exposure effects range from +19.42 to +21.13 percentage points, learning-rate effects from -11.14 to -9.91, and accumulation effects from -7.41 to -6.06. These are post-run sensitivity ranges, not confidence intervals or fresh test performance. Existing reused validation data remain reused; no best model is selected.
+
+The new pip package exposes only the read-only audit command. The complete experimental engines, local data acquisition and plotting remain repository workflows. Offloading has prior art including [FlexGen](https://arxiv.org/abs/2303.06865) and [PowerInfer](https://arxiv.org/abs/2312.12456); this repository's measurements do not establish algorithmic novelty or an original 70B model running fully resident in 16 GiB.
+
+Recreate the diagnostic figure with `python3 -m pip install '.[plots]'` and `python3 tools/plot_confirmation_influence.py`. Plotting reads the published JSON and performs no training.

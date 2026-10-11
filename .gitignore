@@ -9,3 +9,9 @@ models/*.gguf
 *.part
 *.resume.json
 runs/
+
+*.egg-info/
+
+dist/
+
+build/
