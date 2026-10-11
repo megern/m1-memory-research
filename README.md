@@ -1,5 +1,27 @@
 # M1 Memory Research
 
+## Audit recorded training-resource comparisons (local development)
+
+```sh
+python3 tools/audit_training_resources.py /absolute/all/report.json /absolute/candidate/report.json --output /absolute/resource-comparison.json
+```
+
+This standard-library tool compares the companion local-training engine's
+reports. After installing this checkout, the same command is available as
+`m1-training-resource-audit /absolute/all/report.json /absolute/candidate/report.json`.
+The audit
+checks matching model/data/runtime identities and optimization
+settings, then keeps resident optimizer bytes, peak MLX allocation, process
+RSS and segment elapsed time separate. It flags unequal example exposure,
+supervised targets and per-layer update coverage rather than hiding those
+differences. Initial validation NLL must agree within a small numeric tolerance.
+
+A 75% reduction in optimizer state is not a 75% reduction in system RAM.
+MLX allocation is not system-wide physical memory, RSS is a process high-water
+mark, and segment elapsed time starts after loading. Inputs are hash recorded;
+their identities are compared rather than independently authenticated. The
+audit establishes neither model-fit guarantees nor scientific novelty.
+
 ## Public preview v0.12.0
 
 Python 3.11+; commands below use a local Mac/Linux shell. Source and reports are public; this is a research/development preview, not a production-security certification.

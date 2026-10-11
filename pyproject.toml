@@ -19,8 +19,9 @@ plots = ["matplotlib>=3.10,<4"]
 
 [project.scripts]
 m1-research-audit = "audit_sms_confirmation:main"
+m1-training-resource-audit = "audit_training_resources:main"
 
 [tool.setuptools]
-py-modules = ["audit_sms_confirmation", "public_sms_study"]
+py-modules = ["audit_sms_confirmation", "public_sms_study", "audit_training_resources"]
 
 package-dir = {"" = "tools"}
