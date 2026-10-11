@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "manifest_entries_verified": 73,
+  "cells_verified": 16,
+  "paired_validation_cases": 128,
+  "reports": [
+    {
+      "cell": "seed41-n480-lr0.0002-a4",
+      "report": "seed41-n480-lr0.0002-a4-valid-retry.json",
+      "sha256": "e3f98cbf3ba251a5d54810632878e1790267ce749c723daa97be0eebe421a3fe"
+    },
+    {
+      "cell": "seed23-n480-lr0.0002-a4",
+      "report": "seed23-n480-lr0.0002-a4-valid.json",
+      "sha256": "3ee045a1ce3a2eda9d6f9ec84600948c5cf8147aea75387c39ef55067b2662b5"
+    },
+    {
+      "cell": "seed41-n480-lr0.0002-a1",
+      "report": "seed41-n480-lr0.0002-a1-valid.json",
+      "sha256": "bf6aa5faee70e8e55c3260121c998e2a142b4a54a360d77299dd33585e88ac3e"
+    },
+    {
+      "cell": "seed41-n480-lr0.0001-a4",
+      "report": "seed41-n480-lr0.0001-a4-valid.json",
+      "sha256": "1d45d6c8e64bcedbd3cda554dd14bb195f46c22ff353f8e4865c8c63c602ee51"
+    },
+    {
+      "cell": "seed23-n120-lr0.0001-a4",
+      "report": "seed23-n120-lr0.0001-a4-valid.json",
+      "sha256": "fa5250abbf577adfd5e2f61907e82cf1bb9c227e32386bc1617d3bf92ac3a84c"
+    },
+    {
+      "cell": "seed41-n120-lr0.0001-a1",
+      "report": "seed41-n120-lr0.0001-a1-valid.json",
+      "sha256": "49754f630218768a7dd6883f830aabb29e4ea9ac6b042f2f6962ecdb1b918687"
+    },
+    {
+      "cell": "seed23-n120-lr0.0002-a1",
+      "report": "seed23-n120-lr0.0002-a1-valid.json",
+      "sha256": "09f035fc8db5bb9318a3e6b220626a393730669a8ede68ee53c548009b46f1b4"
+    },
+    {
+      "cell": "seed41-n120-lr0.0001-a4",
+      "report": "seed41-n120-lr0.0001-a4-valid.json",
+      "sha256": "a9025f95eda6d33686dba378bf75fa9cda7b020ee16911da2e578dd913c82487"
+    },
+    {
+      "cell": "seed23-n480-lr0.0002-a1",
+      "report": "seed23-n480-lr0.0002-a1-valid.json",
+      "sha256": "6ddf7dbfe2641549ed1eba540ab6792f1b1e3abad1768af731fb38ec64c56796"
+    },
+    {
+      "cell": "seed23-n480-lr0.0001-a4",
+      "report": "seed23-n480-lr0.0001-a4-valid.json",
+      "sha256": "4d1e0d079e1414284896db1a7fe187d1b8f07085eecfb8d6d13f8f336bf183f7"
+    },
+    {
+      "cell": "seed23-n480-lr0.0001-a1",
+      "report": "seed23-n480-lr0.0001-a1-valid.json",
+      "sha256": "a648c5accc867f7faebbf20951285bd4a4d12b4d95db04880be4135ca45e8b5f"
+    },
+    {
+      "cell": "seed23-n120-lr0.0001-a1",
+      "report": "seed23-n120-lr0.0001-a1-valid.json",
+      "sha256": "899f821f9030f262bf354e7b3ae65adec4eca15ed96ece6aa8c2b53b304d3a24"
+    },
+    {
+      "cell": "seed41-n480-lr0.0001-a1",
+      "report": "seed41-n480-lr0.0001-a1-valid.json",
+      "sha256": "b7c2b17155507b0edaa6926a806295f9e6ccba2b0496b2e6cd89267bda559dc9"
+    },
+    {
+      "cell": "seed41-n120-lr0.0002-a1",
+      "report": "seed41-n120-lr0.0002-a1-valid.json",
+      "sha256": "f88a7e71eb3295215b35337a5d25adc9faa0ca1b7eb0329f165e46f34b0ab98b"
+    },
+    {
+      "cell": "seed23-n120-lr0.0002-a4",
+      "report": "seed23-n120-lr0.0002-a4-valid.json",
+      "sha256": "80d248e02c9b58a9a30002cfee6e8401294b1efd7c9aec22f889e5457d5ff44a"
+    },
+    {
+      "cell": "seed41-n120-lr0.0002-a4",
+      "report": "seed41-n120-lr0.0002-a4-valid.json",
+      "sha256": "4ee6c09e83ec9ff08e268d389d9c29fed0b76c910fb62405cad9f353633ecf76"
+    }
+  ],
+  "scope": "Internal consistency of supplied unkeyed hashes and prediction vectors, not independent authenticity, fresh held-out performance, or a novelty claim."
+}

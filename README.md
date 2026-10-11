@@ -284,3 +284,14 @@ Seed 17 was specified as the reference, without best-test-score selection. Each 
 - [Workflow policy](https://huggingface.co/megern/m1-workflow-rule-adapter)
 - [Authentication: exploratory 1.7B](https://huggingface.co/megern/m1-auth-1p7-adapter)
 - [Authentication: Python feature projection](https://huggingface.co/megern/m1-auth-normalized-adapter)
+
+## Read-only confirmation export audit
+
+```sh
+python3 tools/audit_sms_confirmation.py results/sms-confirmation-v1
+python3 -m unittest discover -s tests
+```
+
+The audit checks every exported manifest entry, sixteen distinct planned cells, successful completed evaluation records, original base and adapter identity, the validation split digest, 128 unique paired case IDs/labels, and recomputed metrics. A retry can replace an incomplete evaluation only; completed evaluations cannot be replaced. `results/sms-confirmation-audit.json` records the audit of the existing frozen export. Historical results, the stopped 75-case attempt and the unchanged continuation are preserved.
+
+Unkeyed hashes establish internal consistency, not independent authenticity. The reused validation set does not become a new held-out benchmark because an audit passes. This change does not add training runs or establish a novel algorithm.
