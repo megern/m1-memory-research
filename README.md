@@ -1,5 +1,11 @@
 # M1 Memory Research
 
+## Version 1.0.0
+
+Verified research evidence catalog. Audits completed optimizer-study exports: receipt hashes, run coverage, protocol identity, finite measurements and boolean acceptance decisions. Retains negative gates and rejected artifacts. It checks shared file consistency, not original checkpoint arrays, measurement authenticity, novel algorithms or practical 70B fit.
+
+See the [complete local workflow](docs/v1-workflow.md) for installation, commands, review artifacts and limits. Earlier preview notes below describe their historical tagged revisions.
+
 ## Audit recorded training-resource comparisons (local development)
 
 ```sh
@@ -345,3 +351,10 @@ python3 tools/analyze_confirmation_influence.py results/sms-confirmation-v1 > /t
 The new pip package exposes only the read-only audit command. The complete experimental engines, local data acquisition and plotting remain repository workflows. Offloading has prior art including [FlexGen](https://arxiv.org/abs/2303.06865) and [PowerInfer](https://arxiv.org/abs/2312.12456); this repository's measurements do not establish algorithmic novelty or an original 70B model running fully resident in 16 GiB.
 
 Recreate the diagnostic figure with `python3 -m pip install '.[plots]'` and `python3 tools/plot_confirmation_influence.py`. Plotting reads the published JSON and performs no training.
+
+
+The v1.0 evidence catalog can audit the companion
+[mac-local-training](https://github.com/megern/mac-local-training) exports,
+including its retained failures and new independent tile-16 confirmation.
+This catalog validates file/run/ratio consistency; it does not repeat private
+checkpoint-array audits or establish independent scientific authenticity.

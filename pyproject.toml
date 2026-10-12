@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "m1-research-audit"
-version = "0.2.0"
+version = "1.0.0"
 description = "Read-only frozen local research audit"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,10 +18,11 @@ Issues = "https://github.com/megern/m1-memory-research/issues"
 plots = ["matplotlib>=3.10,<4"]
 
 [project.scripts]
+m1-study-catalog = "study_catalog:main"
 m1-research-audit = "audit_sms_confirmation:main"
 m1-training-resource-audit = "audit_training_resources:main"
 
 [tool.setuptools]
-py-modules = ["audit_sms_confirmation", "public_sms_study", "audit_training_resources"]
+py-modules = ["study_catalog", "study_evidence", "research_report_bundle", "audit_sms_confirmation", "public_sms_study", "audit_training_resources"]
 
 package-dir = {"" = "tools"}
